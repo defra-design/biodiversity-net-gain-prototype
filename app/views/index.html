@@ -1,0 +1,86 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Prototypes</span>
+        {{ serviceName }}
+      </h1>
+
+      <h2 class="govuk-heading-l">Alpha</h2>
+      
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Prototypes in the Alpha phase</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col"> Sprint </th>
+            <th class="govuk-table__header" scope="col"> Date </th>
+            <th class="govuk-table__header" scope="col"> Status </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/sprint-1">Sprint 1</a>
+            </td>
+            <td class="govuk-table__cell">
+              TBD
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Not Started",
+                classes: "govuk-tag--grey"
+              })}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Related content
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <h3 class="govuk-heading-s">Resources</h3>
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Prototype GitHub repository
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Project Confluence
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Team Google Drive
+              </a>
+            </li>
+          </ul>
+          <h3 class="govuk-heading-s">Design assets</h3>
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a href="#">
+                Team wall
+              </a>
+            </li>
+            <li>
+              <a href="#">Miro board</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+  </div>
+
+{% endblock %}
