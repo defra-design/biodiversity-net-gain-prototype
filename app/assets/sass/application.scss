@@ -18,12 +18,13 @@ $govuk-assets-path: '/govuk/assets/';
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 .app-search-results {
   list-style: none;
+  margin-bottom: 40px;
   padding: 0;
 }
 
 .app-search-results__item {
   @include govuk-font(19);
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   padding-top: 10px;
 }
 
