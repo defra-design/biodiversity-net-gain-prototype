@@ -1,0 +1,60 @@
+
+{% extends "layout.html" %}
+
+{% set pageHeading = "Search results for" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">    
+
+      <div class="moj-search">
+    
+        <form action="/sprint-1/register/search-results" method="post">
+          <div class="govuk-form-group">
+            <label class="govuk-label moj-search__label govuk-label--l" for="search">
+              Search results for
+            </label>
+            <input class="govuk-input moj-search__input " id="search" name="search" value="LS29 6JE" type="search">
+          </div>
+          <button class="govuk-button moj-search__button " data-module="govuk-button">
+            Search
+          </button>
+        </form>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-8">4 results</h2>
+      
+      <ul class="app-search-results govuk-!-margin-bottom-8">
+        <li class="app-search-results__item">
+          <a href="/sprint-1/register/site-record-public">BNG 15384</a>
+          <p class="app-search-results__item-description">24 Cleasby Road, Menston, LS29 6JE</p>
+          <p class="app-search-results__item-description app-search-results__item-description--meta">Date added: 14 March 2022</p>
+        </li>
+        <li class="app-search-results__item">
+          <a href="/sprint-1/register/site-record-public">BNG 14903</a>
+          <p class="app-search-results__item-description">88 Cleasby Road, Menston, LS29 6JE</p>
+          <p class="app-search-results__item-description app-search-results__item-description--meta">Date added: 14 March 2021</p>
+        </li>
+        <li class="app-search-results__item">
+          <a href="/sprint-1/register/site-record-public">BNG 94847</a>
+          <p class="app-search-results__item-description">92 Cleasby Road, Menston, LS29 6JE</p>
+          <p class="app-search-results__item-description app-search-results__item-description--meta">Date added: 14 March 2021</p>
+        </li>
+        <li class="app-search-results__item">
+          <a href="/sprint-1/register/site-record-public">BNG 38576</a>
+          <p class="app-search-results__item-description">104 Cleasby Road, Menston, LS29 6JE</p>
+          <p class="app-search-results__item-description app-search-results__item-description--meta">Date added: 14 March 2021</p>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <p><a href="/sprint-1/register/search-number">Search by BNG reference number</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

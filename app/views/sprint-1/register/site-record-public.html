@@ -1,0 +1,45 @@
+
+{% extends "layout.html" %}
+
+{% set pageHeading = "BNG 15384" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/sprint-1/register/search-postcode"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Biodiversity Net Gain Site</span>
+         {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "24 Cleasby Road<br>Menston<br>LS29 6JE"
+            }
+          },
+          {
+            key: {
+              text: "Summary"
+            },
+            value: {
+              text: "Some text that summarises the site record."
+            }
+          }
+        ]
+      }) }}
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% set pageHeading = "Applications" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col"> BNG Number </th>
+            <th class="govuk-table__header" scope="col"> Name of applicant </th>
+            <th class="govuk-table__header" scope="col"> Location </th>
+            <th class="govuk-table__header" scope="col"> Status </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/sprint-1/review-application/site-record">BNG 15384</a>
+            </td>
+            <td class="govuk-table__cell">
+              Adam Buxton
+            </td>
+            <td class="govuk-table__cell">
+              24 Cleasby Road, Menston LS29 6JE 
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Approved",
+                classes: "govuk-tag--green"
+              })}}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/sprint-1/review-application/site-record">BNG 89765</a>
+            </td>
+            <td class="govuk-table__cell">
+              Jeremy Clarkson
+            </td>
+            <td class="govuk-table__cell">
+              Clarkson's Farm, Chipping Norton, Cotswolds
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "New",
+                classes: "govuk-tag--blue"
+              })}}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/sprint-1/review-application/site-record">BNG 26567</a>
+            </td>
+            <td class="govuk-table__cell">
+              Kevin Francis
+            </td>
+            <td class="govuk-table__cell">
+              None Go Bye Farm, Horsforth, Leeds LS18 5HZ
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Rejected",
+                classes: "govuk-tag--red"
+              })}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+{% endblock %}

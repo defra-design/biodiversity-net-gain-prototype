@@ -16,3 +16,23 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/related-items";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+.app-search-results {
+  list-style: none;
+  padding: 0;
+}
+
+.app-search-results__item {
+  @include govuk-font(19);
+  margin-bottom: 25px;
+  padding-top: 10px;
+}
+
+.app-search-results__item-description {
+  margin: 10px 0;
+}
+
+.app-search-results__item-description--meta {
+  @include govuk-font(16);
+
+  color: govuk-colour("dark-grey");
+}
