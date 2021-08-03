@@ -5,7 +5,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Back to applications",
+    text: "My applications",
     href: "/sprint-1/review-application/application-list"
   }) }}
 {% endblock %}
@@ -13,32 +13,68 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">Biodiversity Net Gain Site</span>
+        <span class="govuk-caption-xl">Application number</span>
          {{ pageHeading }}
       </h1>
+    </div>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Location"
-            },
-            value: {
-              html: "24 Cleasby Road<br>Menston<br>LS29 6JE"
-            }
-          },
-          {
-            key: {
-              text: "Summary"
-            },
-            value: {
-              text: "Some text that summarises the site record."
-            }
-          }
+    {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+    <div class="govuk-grid-column-one-third">
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+        {
+          text: 'Summary',
+          href: '#1',
+          active: true
+        }, 
+        {
+          text: 'BNG details',
+          href: '#2'
+        }, 
+        {
+          text: 'Documents',
+          href: '#3'
+        }, 
+        {
+          text: 'Security checks',
+          href: '#4'
+        }
         ]
       }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">Summary</h2>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Location"
+              },
+              value: {
+                html: "24 Cleasby Road<br>Menston<br>LS29 6JE"
+              }
+            },
+            {
+              key: {
+                text: "Summary"
+              },
+              value: {
+                text: "Some text that summarises the site record."
+              }
+            }
+          ]
+        }) }}
+    
+    </div>
 
   </div>
 

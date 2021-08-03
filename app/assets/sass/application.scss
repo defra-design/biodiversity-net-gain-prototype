@@ -37,3 +37,13 @@ $govuk-assets-path: '/govuk/assets/';
 
   color: govuk-colour("dark-grey");
 }
+
+// moj side nav
+
+.moj-side-navigation {
+  padding-top: 0;
+
+  @media (max-width: 40.0525em) {
+    margin-bottom: 40px;
+  }
+}
