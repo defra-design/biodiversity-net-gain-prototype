@@ -9,7 +9,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
-      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
       <table class="govuk-table">
         <thead class="govuk-table__head">
@@ -22,7 +22,7 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/site-record">BNG 15384</a>
+              <a href="/sprint-1/register/application">BNG 15384</a>
             </td>
             <td class="govuk-table__cell">
               24 Cleasby Road, Menston LS29 6JE 
@@ -36,34 +36,38 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/site-record">BNG 89765</a>
+              <a href="/sprint-1/register/application">BNG 89765</a>
             </td>
             <td class="govuk-table__cell">
               Clarkson's Farm, Chipping Norton, Cotswolds
             </td>
             <td class="govuk-table__cell">
               {{govukTag({
-                text: "New",
+                text: "In review",
                 classes: "govuk-tag--blue"
               })}}
             </td>
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/site-record">BNG 26567</a>
+              <a href="/sprint-1/register/application">BNG 26567</a>
             </td>
             <td class="govuk-table__cell">
               None Go Bye Farm, Horsforth, Leeds LS18 5HZ
             </td>
             <td class="govuk-table__cell">
               {{govukTag({
-                text: "Rejected",
-                classes: "govuk-tag--red"
+                text: "Not submitted",
+                classes: "govuk-tag--yellow"
               })}}
             </td>
           </tr>
         </tbody>
       </table>
+
+      {{ govukButton({
+        text: "Start a new application"
+      }) }}
 
     </div>
   </div>
