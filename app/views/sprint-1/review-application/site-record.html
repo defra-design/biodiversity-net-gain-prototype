@@ -28,12 +28,12 @@
         label: 'Side navigation',
         items: [
         {
-          text: 'Summary',
+          text: 'Site details',
           href: '#1',
           active: true
         }, 
         {
-          text: 'BNG details',
+          text: 'Developer details',
           href: '#2'
         }, 
         {
@@ -51,7 +51,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-l">Summary</h2>
+      <h2 class="govuk-heading-l">Site details</h2>
 
         {{ govukSummaryList({
           rows: [
@@ -73,6 +73,8 @@
             }
           ]
         }) }}
+
+        <p><a href="#">Edit these details</a></p>
     
     </div>
 
