@@ -53,3 +53,9 @@ $govuk-assets-path: '/govuk/assets/';
 .app-tag--heading {
   display: block;
 }
+
+.app-header--login {
+  nav {
+    float: right;
+  }
+}

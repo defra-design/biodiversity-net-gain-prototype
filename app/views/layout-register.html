@@ -3,26 +3,19 @@
 {% block header %}
 
 {% if (data['signin-name']) %}
-  {%- from "moj/components/header/macro.njk" import mojHeader -%}
 
-  {{ mojHeader({
-    organisationLabel: {
-      text: 'Natural England',
-      href: '/'
-    },
-    serviceLabel: {
-      text: 'Biodiversity Net Gain Register',
-      href: '/'
-    },
-    navigation: {
-      label: 'Account navigation',
-      items: [{
-        text: 'Sign out',
-        href: '#'
-      }]
-    }
-
-  }) }}
+    {{ govukHeader({
+      homepageUrl: "/",
+      serviceName: "Biodiversity Net Gain Register",
+      serviceUrl: "/",
+      classes: "app-header--login",
+      navigation: [
+        {
+          href: "#",
+          text: "Sign out"
+        }
+      ]
+    }) }}
 
   <div class="moj-primary-navigation">
 
@@ -67,25 +60,17 @@
 
   {% else %}
 
-  {%- from "moj/components/header/macro.njk" import mojHeader -%}
-
-  {{ mojHeader({
-    organisationLabel: {
-      text: 'Natural England',
-      href: '/'
-    },
-    serviceLabel: {
-      text: 'Biodiversity Net Gain Register',
-      href: '/'
-    },
-    navigation: {
-      label: 'Account navigation',
-      items: [{
-        text: 'Sign in / Register',
-        href: '/sprint-1/register/sign-in'
-      }]
-    }
-
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "Biodiversity Net Gain Register",
+    serviceUrl: "/",
+    classes: "app-header--login",
+    navigation: [
+      {
+        href: "/sprint-1/register/sign-in",
+        text: "Sign in / Register"
+      }
+    ]
   }) }}
 
   {% endif %}
