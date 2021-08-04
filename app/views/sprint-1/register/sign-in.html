@@ -1,0 +1,54 @@
+
+{% extends "layout-register.html" %}
+
+{% set pageHeading = "Sign in" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form action="/sprint-1/register/search" method="post" class="form">
+      
+        {% call govukFieldset({
+          legend: {
+            text: "Sign in",
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+        
+          {{ govukInput({
+            label: {
+              text: 'Username or email'
+            },
+            id: "signin-name",
+            name: "signin-name"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: 'Password'
+            },
+            id: "signin-password",
+            name: "signin-password"
+          }) }}
+
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+        
+        {% endcall %}
+
+      </form>
+
+      <p><a href="#">Forgot password?</a></p>
+      <p><a href="#">Create an account</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

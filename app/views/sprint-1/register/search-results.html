@@ -1,6 +1,7 @@
 
 {% extends "layout-register.html" %}
 
+{% set navType = "Search" %}
 {% set pageHeading = "Search results for" %}
 
 {% block beforeContent %}
@@ -16,7 +17,7 @@
         <form action="/sprint-1/register/search-results" method="post">
           <div class="govuk-form-group">
             <label class="govuk-label moj-search__label govuk-label--l" for="search">
-              Search results for
+              {{ pageHeading }}
             </label>
             <input class="govuk-input moj-search__input " id="search" name="search" value="LS29 6JE" type="search">
           </div>
@@ -50,9 +51,6 @@
           <p class="app-search-results__item-description app-search-results__item-description--meta">Date added: 14 March 2021</p>
         </li>
       </ul>
-
-      <h2 class="govuk-heading-m">Other ways to search</h2>
-      <p><a href="/sprint-1/register/search-number">Search by BNG reference number</a></p>
 
     </div>
   </div>

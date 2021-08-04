@@ -1,6 +1,72 @@
 {% extends "layout.html" %}
 
 {% block header %}
+
+{% if (data['signin-name']) %}
+  {%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+  {{ mojHeader({
+    organisationLabel: {
+      text: 'Natural England',
+      href: '/'
+    },
+    serviceLabel: {
+      text: 'Biodiversity Net Gain Register',
+      href: '/'
+    },
+    navigation: {
+      label: 'Account navigation',
+      items: [{
+        text: 'Sign out',
+        href: '#'
+      }]
+    }
+
+  }) }}
+
+  <div class="moj-primary-navigation">
+
+    <div class="moj-primary-navigation__container">
+  
+      <div class="moj-primary-navigation__nav">
+  
+        <nav class="moj-primary-navigation" aria-label="Primary navigation">
+  
+          <ul class="moj-primary-navigation__list">
+            <li class="moj-primary-navigation__item">
+              {% if navType === "Search" %}
+              <a class="moj-primary-navigation__link" aria-current="page" href="/sprint-1/register/search">Search</a>
+              {% else %}
+              <a class="moj-primary-navigation__link" href="/sprint-1/register/search">Search</a>
+              {% endif %}
+            </li>
+  
+            <li class="moj-primary-navigation__item">
+              {% if navType === "Details" %}
+              <a class="moj-primary-navigation__link" aria-current="page" href="/sprint-1/register/details">Your details</a>
+              {% else %}
+              <a class="moj-primary-navigation__link" href="/sprint-1/register/details">Your details</a>
+              {% endif %}
+            </li>
+  
+            <li class="moj-primary-navigation__item">
+              {% if navType === "Applications" %}
+              <a class="moj-primary-navigation__link" aria-current="page" href="/sprint-1/register/applictions">Your applications</a>
+              {% else %}
+              <a class="moj-primary-navigation__link" href="/sprint-1/register/applications">Your applications</a>
+              {% endif %}
+            </li>
+          </ul>
+  
+        </nav>
+  
+      </div>
+    </div>
+  
+  </div>  
+
+  {% else %}
+
   {%- from "moj/components/header/macro.njk" import mojHeader -%}
 
   {{ mojHeader({
@@ -16,30 +82,13 @@
       label: 'Account navigation',
       items: [{
         text: 'Sign in / Register',
-        href: '#'
+        href: '/sprint-1/register/sign-in'
       }]
     }
 
   }) }}
 
-  {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+  {% endif %}
 
-{{ mojPrimaryNavigation({
-  label: 'Primary navigation',
-  items: [
-    {
-      text: 'Search',
-      href: '/sprint-1/register/search',
-      active: true
-    },
-    {
-      text: 'Your details',
-      href: '#2'
-    },
-    {
-      text: 'Your applications',
-      href: '#3'
-    }
-  ]
-}) }}
 {% endblock %}
+
