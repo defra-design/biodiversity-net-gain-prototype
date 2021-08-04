@@ -1,9 +1,45 @@
 {% extends "layout.html" %}
 
 {% block header %}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: "Biodiversity Net Gain Register",
-    serviceUrl: "/"
+  {%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+  {{ mojHeader({
+    organisationLabel: {
+      text: 'Natural England',
+      href: '/'
+    },
+    serviceLabel: {
+      text: 'Biodiversity Net Gain Register',
+      href: '/'
+    },
+    navigation: {
+      label: 'Account navigation',
+      items: [{
+        text: 'Sign in / Register',
+        href: '#'
+      }]
+    }
+
   }) }}
+
+  {%- from "moj/components/primary-navigation/macro.njk" import mojPrimaryNavigation -%}
+
+{{ mojPrimaryNavigation({
+  label: 'Primary navigation',
+  items: [
+    {
+      text: 'Search',
+      href: '/sprint-1/register/search',
+      active: true
+    },
+    {
+      text: 'Your details',
+      href: '#2'
+    },
+    {
+      text: 'Your applications',
+      href: '#3'
+    }
+  ]
+}) }}
 {% endblock %}
