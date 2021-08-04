@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block header %}
+  {%- from "moj/components/header/macro.njk" import mojHeader -%}
+
+  {{ mojHeader({
+    organisationLabel: {
+      text: 'Natural England',
+      href: '/'
+    },
+    serviceLabel: {
+      text: 'BNG Register',
+      href: '/'
+    },
+    navigation: {
+      label: 'Account navigation',
+      items: [{
+        text: 'Account name',
+        href: '#',
+        active: true
+      }, {
+        text: 'Sign out',
+        href: '#'
+      }]
+    }
+
+  }) }}
+{% endblock %}
