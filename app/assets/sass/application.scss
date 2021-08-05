@@ -55,6 +55,8 @@ $govuk-assets-path: '/govuk/assets/';
 }
 
 .app-header--login {
+  border-bottom: 10px solid #1d70b8;
+  
   nav {
     float: right;
   }
