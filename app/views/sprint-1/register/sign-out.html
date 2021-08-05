@@ -2,20 +2,7 @@
 {% extends "layout-register.html" %}
 
 {% block header %}
-
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: "Biodiversity Net Gain Register",
-    serviceUrl: "/",
-    classes: "app-header--login",
-    navigation: [
-      {
-        href: "/sprint-1/register/sign-in",
-        text: "Sign in"
-      }
-    ]
-  }) }}
-
+  {% include "includes/header-sign-in.html" %}
 {% endblock %}
 
 {% set pageHeading = "You have signed out" %}
@@ -33,7 +20,7 @@
         </h1>
   
         {{ govukButton({
-          text: "Search the register"
+          text: "Search register"
         }) }}
       </div>
     </div>

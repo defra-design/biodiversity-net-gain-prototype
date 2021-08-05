@@ -5,20 +5,7 @@
 {% set pageHeading = "Search the register" %}
 
 {% block header %}
-
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: "Biodiversity Net Gain Register",
-    serviceUrl: "/",
-    classes: "app-header--login",
-    navigation: [
-      {
-        href: "/sprint-1/register/sign-in",
-        text: "Sign in"
-      }
-    ]
-  }) }}
-
+  {% include "includes/header-sign-in.html" %}  
 {% endblock %}
 
 {% block beforeContent %}

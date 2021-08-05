@@ -4,76 +4,16 @@
 
 {% if (data['signin-name']) %}
 
-    {{ govukHeader({
-      homepageUrl: "/",
-      serviceName: "Biodiversity Net Gain Register",
-      serviceUrl: "/",
-      classes: "app-header--login",
-      navigation: [
-        {
-          href: "/sprint-1/register/sign-out",
-          text: "Sign out"
-        }
-      ]
-    }) }}
-
-  <div class="moj-primary-navigation">
-
-    <div class="moj-primary-navigation__container">
-  
-      <div class="moj-primary-navigation__nav">
-  
-        <nav class="moj-primary-navigation" aria-label="Primary navigation">
-  
-          <ul class="moj-primary-navigation__list">
-            <li class="moj-primary-navigation__item">
-              {% if navType === "Search" %}
-              <a class="moj-primary-navigation__link" aria-current="page" href="/sprint-1/register/search">Search</a>
-              {% else %}
-              <a class="moj-primary-navigation__link" href="/sprint-1/register/search">Search</a>
-              {% endif %}
-            </li>
-  
-            <li class="moj-primary-navigation__item">
-              {% if navType === "Details" %}
-              <a class="moj-primary-navigation__link" aria-current="page" href="/sprint-1/register/details">Your details</a>
-              {% else %}
-              <a class="moj-primary-navigation__link" href="/sprint-1/register/details">Your details</a>
-              {% endif %}
-            </li>
-  
-            <li class="moj-primary-navigation__item">
-              {% if navType === "Applications" %}
-              <a class="moj-primary-navigation__link" aria-current="page" href="/sprint-1/register/applications">Your applications</a>
-              {% else %}
-              <a class="moj-primary-navigation__link" href="/sprint-1/register/applications">Your applications</a>
-              {% endif %}
-            </li>
-          </ul>
-  
-        </nav>
-  
-      </div>
-    </div>
-  
-  </div>
+  {% include "includes/header-sign-out.html" %}
 
   {% else %}
 
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: "Biodiversity Net Gain Register",
-    serviceUrl: "/",
-    classes: "app-header--login",
-    navigation: [
-      {
-        href: "/sprint-1/register/sign-in",
-        text: "Sign in"
-      }
-    ]
-  }) }}
+  {% include "includes/header-sign-in.html" %}
 
   {% endif %}
 
 {% endblock %}
 
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}
