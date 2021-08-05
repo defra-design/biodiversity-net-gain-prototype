@@ -207,7 +207,7 @@ app.post('/prototype-admin/clear-data', function (req, res) {
 // Clear all data in session if you open /prototype-admin/clear-data
 app.post('/sprint-1/register/sign-out', function (req, res) {
   req.session.data = {}
-  res.render('/sprint-1/register/search')
+  res.render('sprint-1/register/search-signout')
 })
 
 // Redirect root to /docs when in promo mode.
