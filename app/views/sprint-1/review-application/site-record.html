@@ -1,12 +1,13 @@
 
 {% extends "layout-admin.html" %}
 
+{% set pageURL = "sprint-1" %}
 {% set pageHeading = "BNG 15384" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
     text: "My applications",
-    href: "/sprint-1/review-application/application-list"
+    href: "javascript: window.history.go(-1)"
   }) }}
 {% endblock %}
 

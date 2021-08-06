@@ -1,6 +1,7 @@
 
 {% extends "layout.html" %}
 
+{% set pageURL = "sprint-1" %}
 {% set pageHeading = "Sprint 1" %}
 
 {% block beforeContent %}
@@ -39,7 +40,7 @@
               Register application
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-1/register-application/start">Register application user journey</a>
+              <a href="/{{ pageURL }}/register-application/start">Register application user journey</a>
             </td>
             <td class="govuk-table__cell">
               <ol class="govuk-list govuk-list--number">
@@ -52,7 +53,7 @@
               Operator system
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/application-list">List of applications</a>
+              <a href="/{{ pageURL }}/review-application/application-list">List of applications</a>
             </td>
             <td class="govuk-table__cell">
               <ol class="govuk-list govuk-list--number">
@@ -65,7 +66,7 @@
               Public register
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-1/register/search">Search site records</a>
+              <a href="/{{ pageURL }}/register/search">Search site records</a>
             </td>
             <td class="govuk-table__cell">
               <ol class="govuk-list govuk-list--number">

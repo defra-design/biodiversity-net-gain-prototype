@@ -2,12 +2,13 @@
 {% extends "layout-register.html" %}
 
 {% set navType = "Applications" %}
+{% set pageURL = "sprint-1" %}
 {% set pageHeading = "BNG 15384" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
     text: "Your applications",
-    href: "/sprint-1/register/applications"
+    href: "javascript: window.history.go(-1)"
   }) }}
 {% endblock %}
 

@@ -1,6 +1,7 @@
 
 {% extends "layout-register.html" %}
 
+{% set pageURL = "sprint-1" %}
 {% set pageHeading = "Sign in" %}
 
 {% block beforeContent %}
@@ -11,7 +12,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form action="/sprint-1/register/search" method="post" class="form">
+      <form action="/{{ pageURL }}/register/search" method="post" class="form">
       
         {% call govukFieldset({
           legend: {

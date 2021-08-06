@@ -2,6 +2,7 @@
 {% extends "layout-register.html" %}
 
 {% set navType = "Search" %}
+{% set pageURL = "sprint-1" %}
 {% set pageHeading = "Search results for" %}
 
 {% block beforeContent %}
@@ -14,7 +15,7 @@
 
       <div class="moj-search">
     
-        <form action="/sprint-1/register/search-results" method="post">
+        <form action="/{{ pageURL }}/register/search-results" method="post">
           <div class="govuk-form-group">
             <label class="govuk-label moj-search__label govuk-label--xl" for="search">
               {{ pageHeading }}
@@ -31,15 +32,15 @@
       
       <ul class="app-search-results govuk-!-margin-bottom-8">
         <li class="app-search-results__item">
-          <a href="/sprint-1/register/site-record-public">BNG 15384</a>
+          <a href="/{{ pageURL }}/register/site-record-public">BNG 15384</a>
           <p class="app-search-results__item-description">Medowcroft Farm, Goose Ln, Leeds, LS20 8PJ</p>
         </li>
         <li class="app-search-results__item">
-          <a href="/sprint-1/register/site-record-public">BNG 14903</a>
+          <a href="/{{ pageURL }}/register/site-record-public">BNG 14903</a>
           <p class="app-search-results__item-description">Clifton View, Hillings Ln, Ilkley LS20 6AX</p>
         </li>
         <li class="app-search-results__item">
-          <a href="/sprint-1/register/site-record-public">BNG 94847</a>
+          <a href="/{{ pageURL }}/register/site-record-public">BNG 94847</a>
           <p class="app-search-results__item-description">G Pickersgill & Sons, Intake Side Farm LS20 8PF</p>
         </li>
       </ul>

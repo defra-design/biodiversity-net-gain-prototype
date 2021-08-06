@@ -1,5 +1,6 @@
 {% extends "layout-admin.html" %}
 
+{% set pageURL = "sprint-1" %}
 {% set pageHeading = "Applications" %}
 
 {% block beforeContent %}
@@ -22,7 +23,7 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/site-record">BNG 15384</a>
+              <a href="/{{ pageURL }}/review-application/site-record">BNG 15384</a>
             </td>
             <td class="govuk-table__cell">
               Adam Buxton
@@ -39,7 +40,7 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/site-record">BNG 89765</a>
+              <a href="/{{ pageURL }}/review-application/site-record">BNG 89765</a>
             </td>
             <td class="govuk-table__cell">
               Jeremy Clarkson
@@ -56,7 +57,7 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
-              <a href="/sprint-1/review-application/site-record">BNG 26567</a>
+              <a href="/{{ pageURL }}/review-application/site-record">BNG 26567</a>
             </td>
             <td class="govuk-table__cell">
               Kevin Francis
