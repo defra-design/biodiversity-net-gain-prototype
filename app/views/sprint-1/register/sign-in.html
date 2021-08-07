@@ -21,13 +21,19 @@
             isPageHeading: true
           }
         }) %}
+
+        <p class="govuk-body">
+          If you do not have an account, you can
+          <a class="govuk-link govuk-link--no-visited-state" href="#">create one now</a>.
+        </p>
         
           {{ govukInput({
             label: {
               text: 'Username or email'
             },
             id: "signin-name",
-            name: "signin-name"
+            name: "signin-name",
+            classes: "govuk-!-width-two-thirds"
           }) }}
 
           {{ govukInput({
@@ -36,7 +42,8 @@
             },
             id: "signin-password",
             name: "signin-password",
-            type: "password"
+            type: "password",
+            classes: "govuk-!-width-two-thirds"
           }) }}
 
           {{ govukButton({
@@ -47,8 +54,7 @@
 
       </form>
 
-      <p><a href="#">Forgot password?</a></p>
-      <p><a href="#">Register</a></p>
+      <p><a href="#">Forgotten your password?</a></p>
 
     </div>
   </div>
