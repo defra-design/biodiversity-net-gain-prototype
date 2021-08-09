@@ -21,24 +21,46 @@
          {{ pageHeading }}
       </h1>
 
+      <p>Medowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>
+      <p><a href='#/'>See on a map</a></p>
+
+      <h2 class="govuk-heading-l">Biodiversity Metric Calculations</h2>
+      <p>Including all on-site and off-site habitat retention, creation and enhancement.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Summary figures</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Type</th>
+            <th scope="col" class="govuk-table__header">Net project biodiversity units</th>
+            <th scope="col" class="govuk-table__header">Total project biodiversity % change</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Habitat units</td>
+            <td class="govuk-table__cell">0.00</td>
+            <td class="govuk-table__cell">0.00%</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Hedgerow units</td>
+            <td class="govuk-table__cell">0.00</td>
+            <td class="govuk-table__cell">0.00%</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">River units</td>
+            <td class="govuk-table__cell">0.00</td>
+            <td class="govuk-table__cell">0.00%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><a href="#">See detailed calculations</a></p>
+
+      <h2 class="govuk-heading-l">Planning details</h2>
+
       {{ govukSummaryList({
         rows: [
-          {
-            key: {
-              text: "Location"
-            },
-            value: {
-              html: "Medowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ<br><br><a href='#/'>See on a map</a>"
-            }
-          },
-          {
-            key: {
-              text: "Area"
-            },
-            value: {
-              text: "1.25 hectares"
-            }
-          },
           {
             key: {
               text: "Local authority"
@@ -57,40 +79,6 @@
           }
         ]
       }) }}
-
-      <h2 class="govuk-heading-l">Biodiversity Metric Calculations</h2>
-
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">On-site</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Type</th>
-            <th scope="col" class="govuk-table__header">Baseline</th>
-            <th scope="col" class="govuk-table__header">Post intervention</th>
-            <th scope="col" class="govuk-table__header">Net % change</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Habitat units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Hedgerow units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">River units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-        </tbody>
-      </table>
 
   </div>
 
