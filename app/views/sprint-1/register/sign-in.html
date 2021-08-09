@@ -2,61 +2,74 @@
 {% extends "layout-register.html" %}
 
 {% set pageURL = "sprint-1" %}
-{% set pageHeading = "Sign in" %}
+{% set pageHeading = "Government Gateway" %}
+{% set hideLogin = "true" %}
 
-{% block beforeContent %}
-{% endblock %}
+{% extends "layout.html" %}
 
 {% block content %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-      <form action="/{{ pageURL }}/register/search" method="post" class="form">
-      
-        {% call govukFieldset({
-          legend: {
-            text: "Sign in",
-            classes: "govuk-fieldset__legend--xl",
-            isPageHeading: true
-          }
-        }) %}
+    {% set html %}
+        <p>Do not share your Government Gateway user ID and password with anyone else.</p>
+    {% endset %}
 
-        <p class="govuk-body">
-          If you do not have an account, you can
-          <a class="govuk-link govuk-link--no-visited-state" href="#">create one now</a>.
-        </p>
-        
-          {{ govukInput({
+    {{ govukNotificationBanner({
+        titleText: 'Keep your information secure',
+        html: html
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      Sign in using Government Gateway
+    </h1>
+
+    <form method="post" action="/{{ pageURL }}/register/search">
+
+        {{ govukInput({
             label: {
-              text: 'Username or email'
+                text: "Government Gateway user ID"
             },
-            id: "signin-name",
-            name: "signin-name",
-            classes: "govuk-!-width-two-thirds"
-          }) }}
+            hint: {
+                text: "This could be up to 12 characters."
+            },
+            classes: "govuk-!-width-one-half",
+            id: "userId",
+            name: "userId",
+            value: userId
+        })  }}
 
-          {{ govukInput({
+        {{ govukInput({
             label: {
-              text: 'Password'
+                text: "Password"
             },
-            id: "signin-password",
-            name: "signin-password",
-            type: "password",
-            classes: "govuk-!-width-two-thirds"
-          }) }}
+            classes: "govuk-!-width-three-quarters",
+            id: "password",
+            name: "password",
+            value: password
+        }) }}
 
-          {{ govukButton({
-            text: "Continue"
-          }) }}
-        
-        {% endcall %}
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
 
-      </form>
+    </form>
 
-      <p><a href="#">Forgotten your password?</a></p>
+    <p><a href="#">Create sign in details</a></p>
 
-    </div>
-  </div>
+    <h2 class="govuk-heading-m">Problems signing in</h2>
+
+    <ul class="govuk-list">
+        <li><a href="#">I have forgotten my password</a></li>
+        <li><a href="#">I have forgotten my Government Gateway user ID</a></li>
+        <li><a href="#">I have forgotten my Government Gateway user ID and password</a></li>
+        <br>
+    </ul>
+
+    {% include "includes/get-help.html" %}
+
+</div>
+</div>
 
 {% endblock %}

@@ -2,15 +2,18 @@
 
 {% block header %}
 
-{% if (data['signin-name']) %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "Biodiversity Net Gain Register",
+    serviceUrl: "/"
+  }) }}
 
-  {% include "includes/header-sign-out.html" %}
+   <div class="govuk-width-container">
 
-  {% else %}
-
-  {% include "includes/header-sign-in.html" %}
-
-  {% endif %}
+    {% include "includes/phase-banner.html" %}
+    <!--{% include "includes/login-nav.html" %}-->
+    
+  </div>
 
 {% endblock %}
 
