@@ -7,7 +7,7 @@
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "BNG 15384",
+    text: "Biodiversity Gain Site BNG 15384",
     href: "javascript: window.history.go(-1)"
   }) }}
 {% endblock %}
@@ -21,7 +21,28 @@
          {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-l">Summary figures</h2>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Metric version"
+            },
+            value: {
+              text: "3.0"
+            }
+          },
+          {
+            key: {
+              text: "Assessment date"
+            },
+            value: {
+              text: "15 August 2021"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Summary figures</h2>
 
       <table class="govuk-table">
         <caption class="govuk-visually-hidden">Summary figures</caption>
