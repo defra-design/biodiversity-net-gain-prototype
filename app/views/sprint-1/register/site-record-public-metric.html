@@ -1,0 +1,54 @@
+
+{% extends "layout-register.html" %}
+
+{% set navType = "Search" %}
+{% set pageURL = "sprint-1" %}
+{% set pageHeading = "Biodiversity Metric calculations" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "BNG 15384",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">BNG 15384</span>
+         {{ pageHeading }}
+      </h1>
+
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Summary figures</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Type</th>
+            <th scope="col" class="govuk-table__header">Net project biodiversity units</th>
+            <th scope="col" class="govuk-table__header">Total project biodiversity % change</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Habitat units</td>
+            <td class="govuk-table__cell">0.00</td>
+            <td class="govuk-table__cell">0.00%</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">Hedgerow units</td>
+            <td class="govuk-table__cell">0.00</td>
+            <td class="govuk-table__cell">0.00%</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">River units</td>
+            <td class="govuk-table__cell">0.00</td>
+            <td class="govuk-table__cell">0.00%</td>
+          </tr>
+        </tbody>
+      </table>
+
+  </div>
+
+{% endblock %}

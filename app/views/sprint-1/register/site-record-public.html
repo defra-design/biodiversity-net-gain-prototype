@@ -22,42 +22,33 @@
       </h1>
 
       <p>Medowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>
-      <p><a href='#/'>See on a map</a></p>
+      <p><a href='#' class="app-map-link">View location on a map</a></p>
 
-      <h2 class="govuk-heading-l">Biodiversity Metric Calculations</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity Metric calculation</h2>
       <p>Including all on-site and off-site habitat retention, creation and enhancement.</p>
 
-      <table class="govuk-table">
-        <caption class="govuk-visually-hidden">Summary figures</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Type</th>
-            <th scope="col" class="govuk-table__header">Net project biodiversity units</th>
-            <th scope="col" class="govuk-table__header">Total project biodiversity % change</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Habitat units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00%</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">Hedgerow units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00%</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__cell">River units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00%</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
 
-      <p><a href="#">See detailed calculations</a></p>
+          <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold">
+            8.25
+            <span class="govuk-!-font-size-19 govuk-!-display-block govuk-!-font-weight-regular">Net project biodiversity units</span>
+          </p>
 
-      <h2 class="govuk-heading-l">Planning details</h2>
+        </div>
+        <div class="govuk-grid-column-one-half">
+
+          <p class="govuk-body govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-margin-bottom-5">
+            11.4%
+            <span class="govuk-!-font-size-19 govuk-!-display-block govuk-!-font-weight-regular">Total project biodiversity % change</span>
+          </p>
+
+        </div>
+      </div>
+
+      <p><a href="/{{ pageURL }}/register/site-record-public-metric">See detailed calculations</a></p>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Planning details</h2>
 
       {{ govukSummaryList({
         rows: [
@@ -75,6 +66,29 @@
             },
             value: {
               text: "21/02367/FUL"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Land management</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be managed and monitored"
+            }
+          },
+          {
+            key: {
+              text: "Land manager"
+            },
+            value: {
+              text: "Tim Burgess"
             }
           }
         ]
