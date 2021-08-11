@@ -16,8 +16,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">Application number</span>
+        {{govukTag({
+          text: "New",
+          classes: "govuk-tag--blue govuk-!-margin-bottom-1"
+        })}}
+        <span class="govuk-caption-xl">Application</span>
          {{ pageHeading }}
+         <span class="app-tag--heading">
+        </span>
       </h1>
     </div>
 
