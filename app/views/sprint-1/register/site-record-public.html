@@ -58,30 +58,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Land management</h2>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Summary"
-            },
-            value: {
-              text: "A summary of how the habitat enhancements will be managed and monitored"
-            }
-          },
-          {
-            key: {
-              text: "Managed by"
-            },
-            value: {
-              text: "Tim Burgess"
-            }
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity Metric</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">BNG Metric</h2>
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">Summary figures</caption>
@@ -114,6 +91,29 @@
       </table>
 
       <p><a href="/{{ pageURL }}/register/site-record-public-metric">View detailed calculations</a></p>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Management and monitoring</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Management plan summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be managed and monitored"
+            }
+          },
+          {
+            key: {
+              text: "Managed by"
+            },
+            value: {
+              text: "Robinson Developments Limited"
+            }
+          }
+        ]
+      }) }}
 
   </div>
 
