@@ -1,0 +1,50 @@
+
+{% extends "layout-register.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "sprint-1" %}
+{% set pageHeading = "Register a biodiversity gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post" action="/{{ pageURL }}/register-application/task-list-1">
+
+        {{ govukInput({
+          label: {
+              text: "Username"
+          },
+            classes: "govuk-!-width-three-quarters",
+            id: "userId",
+            name: "userId",
+            value: userId
+          })  
+        }}
+
+        {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            classes: "govuk-!-width-three-quarters",
+            id: "password",
+            name: "password",
+            value: password,
+            type: "password"
+        }) }}
+
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
