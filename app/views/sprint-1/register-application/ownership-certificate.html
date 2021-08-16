@@ -3,7 +3,7 @@
 
 {% set serviceName = "Register a biodiversity gain site" %}
 {% set pageURL = "sprint-1" %}
-{% set pageHeading = "Are you the landowner?" %}
+{% set pageHeading = "Do you have a copy of the land ownership certificate?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -17,11 +17,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/{{ pageURL }}/register-application/ownership-certificate">
+      <form method="post" action="/{{ pageURL }}/register-application/ownership-certificate-upload">
 
         {{ govukRadios({
-          idPrefix: "landowner",
-          name: "landowner",
+          idPrefix: "ownership-certificate",
+          name: "ownership-certificate",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -31,11 +31,11 @@
           },
           items: [
             {
-              value: "landowner-yes",
+              value: "ownership-certificate-yes",
               text: "Yes"
             },
             {
-              value: "landowner-no",
+              value: "ownership-certificate-no",
               text: "No"
             }
           ]

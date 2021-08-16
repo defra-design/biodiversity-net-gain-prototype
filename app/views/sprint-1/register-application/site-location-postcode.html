@@ -3,7 +3,7 @@
 
 {% set serviceName = "Register a biodiversity gain site" %}
 {% set pageURL = "sprint-1" %}
-{% set pageHeading = "Sign in" %}
+{% set pageHeading = "What is the location of the gain site?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -21,35 +21,27 @@
         {{ pageHeading }}
       </h1>
 
-      <form method="post" action="/{{ pageURL }}/register-application/task-list-1">
+      <form method="post" action="/{{ pageURL }}/register-application/site-location-address-lookup">
 
         {{ govukInput({
           label: {
-              text: "Username"
+            text: "Postcode",
+            classes: "govuk-label--m"
           },
             classes: "govuk-!-width-three-quarters",
-            id: "userId",
-            name: "userId",
-            value: userId
+            id: "site-postcode",
+            name: "site-postcode",
+            classes: "govuk-input--width-10"
           })  
         }}
 
-        {{ govukInput({
-            label: {
-                text: "Password"
-            },
-            classes: "govuk-!-width-three-quarters",
-            id: "password",
-            name: "password",
-            value: password,
-            type: "password"
-        }) }}
-
         {{ govukButton({
-            text: "Sign in"
+            text: "Find address"
         }) }}
 
       </form>
+
+      <p><a href="/{{ pageURL }}/register-application/site-location-address-manual">There is no postcode for the gain site</a></p>
 
     </div>
   </div>

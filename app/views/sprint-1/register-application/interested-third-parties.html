@@ -3,7 +3,7 @@
 
 {% set serviceName = "Register a biodiversity gain site" %}
 {% set pageURL = "sprint-1" %}
-{% set pageHeading = "Are you the landowner?" %}
+{% set pageHeading = "Are there any third parties interested?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -17,11 +17,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/{{ pageURL }}/register-application/ownership-certificate">
+      <form method="post" action="/{{ pageURL }}/register-application/task-list-2">
 
         {{ govukRadios({
-          idPrefix: "landowner",
-          name: "landowner",
+          idPrefix: "interested-third-parties",
+          name: "interested-third-parties",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -29,13 +29,16 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+            text: "For example, ..."
+          },
           items: [
             {
-              value: "landowner-yes",
+              value: "third-parties-yes",
               text: "Yes"
             },
             {
-              value: "landowner-no",
+              value: "third-parties-no",
               text: "No"
             }
           ]
