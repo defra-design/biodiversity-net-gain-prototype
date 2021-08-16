@@ -24,7 +24,7 @@
       <h2 class="govuk-heading-m">Postcode</h2>
       <p><span class="govuk-!-margin-right-1" style="text-transform: uppercase;">{{ data['site-postcode'] }}</span> <a href="/{{ pageURL }}/register-application/site-location-postcode">Change <span class="govuk-visually-hidden">Postcode</span></a></p>
 
-      <form method="post" action="/{{ pageURL }}/register-application/site-location-address-lookup">
+      <form method="post" action="/{{ pageURL }}/register-application/interested-third-parties">
 
         {{ govukRadios({
           idPrefix: "site-address",
