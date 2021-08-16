@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@ministryofjustice/frontend": "^0.2.5",
+    "accessible-autocomplete": "^2.0.3",
     "acorn": "^7.1.1",
     "ansi-colors": "^4.1.1",
     "basic-auth": "^2.0.0",
