@@ -1,0 +1,52 @@
+
+{% extends "layout-register.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "sprint-1" %}
+{% set pageHeading = "Declaration" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post" action="/{{ pageURL }}/register-application/task-list-6">
+
+        <div class="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" name="declaration" type="checkbox" value="accepted">
+            <label class="govuk-label govuk-checkboxes__label">
+                I confirm that I, <strong>Jo Smith</strong> am authorised to act on behalf of Acme Org Ltd.
+            </label>
+          </div>
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You could be prosecuted or have to pay a financial penalty if you are not authorised to act on behalf of Acme Org Ltd.
+          </strong>
+        </div>
+
+        {{ govukButton({
+            text: "Confirm and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

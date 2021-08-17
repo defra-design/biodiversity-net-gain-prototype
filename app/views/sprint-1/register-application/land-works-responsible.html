@@ -3,7 +3,7 @@
 
 {% set serviceName = "Register a biodiversity gain site" %}
 {% set pageURL = "sprint-1" %}
-{% set pageHeading = "Are there any third parties interested?" %}
+{% set pageHeading = "Are you responsible for carrying out the work?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -17,11 +17,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/{{ pageURL }}/register-application/task-list-2">
+      <form method="post" action="/{{ pageURL }}/register-application/land-works-declaration">
 
         {{ govukRadios({
-          idPrefix: "interested-third-parties",
-          name: "interested-third-parties",
+          idPrefix: "land-works-responsible",
+          name: "land-works-responsible",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -29,16 +29,13 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
-          hint: {
-            text: "For example, ..."
-          },
           items: [
             {
-              value: "third-parties-yes",
+              value: "land-works-responsible-yes",
               text: "Yes"
             },
             {
-              value: "third-parties-no",
+              value: "land-works-responsible-no",
               text: "No"
             }
           ]
@@ -49,8 +46,6 @@
         }) }}
         
       </form>
-
-      {% include "includes/save-and-exit.html" %}
 
     </div>
   </div>
