@@ -21,14 +21,16 @@
         {{ pageHeading }}
       </h1>
 
-      <form method="post" action="/{{ pageURL }}/register-application/declaration-landowner">
+      <form method="post" action="/{{ pageURL }}/register-application/task-list-2">
 
-        <div class="govuk-checkboxes">
-          <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" name="declaration" type="checkbox" value="accepted">
-            <label class="govuk-label govuk-checkboxes__label">
-                I confirm that ...
-            </label>
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" name="third-parties-declaration" type="checkbox" value="accepted">
+              <label class="govuk-label govuk-checkboxes__label">
+                  I confirm that ...
+              </label>
+            </div>
           </div>
         </div>
 
@@ -41,7 +43,8 @@
         </div>
 
         {{ govukButton({
-            text: "Confirm and continue"
+            text: "Confirm and continue",
+            href: "/" + pageURL + "/register-application/task-list-2"
         }) }}
 
       </form>

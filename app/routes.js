@@ -57,9 +57,9 @@ router.post('/sprint-1/register-application/task-list-2', function (req, res) {
   var install = req.session.data['interested-third-parties']
 
   if (install == "yes"){
-    res.redirect('/sprint-1/register-application/task-list-2')
-  } else {
     res.redirect('/sprint-1/register-application/interested-third-parties-declaration')
+  } else {
+    res.redirect('/sprint-1/register-application/task-list-2')
   }
 })
 
