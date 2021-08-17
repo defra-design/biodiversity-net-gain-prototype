@@ -8,10 +8,10 @@ router.post('/sprint-1/register-application/ownership-certificate', function (re
 
   var install = req.session.data['landowner']
 
-  if (install == "yes"){
-    res.redirect('/sprint-1/register-application/ownership-certificate')
-  } else {
+  if (install == "no"){
     res.redirect('/sprint-1/register-application/landowner-permission')
+  } else {
+    res.redirect('/sprint-1/register-application/ownership-certificate')
   }
 })
 
@@ -20,10 +20,10 @@ router.post('/sprint-1/register-application/landowner-permission-declaration', f
 
   var install = req.session.data['landowner-permission']
 
-  if (install == "yes"){
-    res.redirect('/sprint-1/register-application/landowner-permission-declaration')
-  } else {
+  if (install == "no"){
     res.redirect('/sprint-1/register-application/landowner-permission-no')
+  } else {
+    res.redirect('/sprint-1/register-application/landowner-permission-declaration')
   }
 })
 
@@ -32,10 +32,10 @@ router.post('/sprint-1/register-application/ownership-certificate-upload', funct
 
   var install = req.session.data['ownership-certificate']
 
-  if (install == "yes"){
-    res.redirect('/sprint-1/register-application/ownership-certificate-upload')
-  } else {
+  if (install == "no"){
     res.redirect('/sprint-1/register-application/ownership-certificate-no')
+  } else {
+    res.redirect('/sprint-1/register-application/ownership-certificate-upload')
   }
 })
 
@@ -44,10 +44,10 @@ router.post('/sprint-1/register-application/site-location-postcode', function (r
 
   var install = req.session.data['ownership-certificate-correct']
 
-  if (install == "yes"){
-    res.redirect('/sprint-1/register-application/site-location-postcode')
-  } else {
+  if (install == "no"){
     res.redirect('/sprint-1/register-application/ownership-certificate-upload')
+  } else {
+    res.redirect('/sprint-1/register-application/site-location-postcode')
   }
 })
 

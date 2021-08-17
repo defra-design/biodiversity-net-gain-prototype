@@ -1,23 +1,13 @@
 {% if hideLogin %}
 {% else %}
-  {% if (data['userId']) %}
 
   <div id="profile" class="login-nav">
     <ul class="login-nav__list">
-      <li class="login-nav__list-item">Ash Smith |</li>
+      <li class="login-nav__list-item">Jo Smith |</li>
       <li class="login-nav__list-item"><a id="link-manage-account" href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Manage account</a> |</li>
-      <li class="login-nav__list-item"><a id="link-manage-account" href="/{{ pageURL }}/register/applications" class="govuk-link login-nav__link govuk-link--no-visited-state">Your applications</a> |</li>
-      <li class="login-nav__list-item"><a id="link-sign-out" href="/{{ pageURL }}/register/sign-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+      <li class="login-nav__list-item"><a id="link-manage-account" href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Your applications</a> |</li>
+      <li class="login-nav__list-item"><a id="link-sign-out" href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
     </ul>
   </div>
 
-  {% else %}
-
-  <div id="profile" class="login-nav">
-    <ul class="login-nav__list">
-      <li class="login-nav__list-item"><a id="link-sign-out" href="/{{ pageURL }}/register/sign-in" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign in</a></li>
-    </ul>
-  </div>
-
-  {% endif %}
 {% endif %}
