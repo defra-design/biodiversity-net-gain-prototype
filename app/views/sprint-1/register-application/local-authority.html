@@ -1,16 +1,40 @@
 
-{% extends "layout.html" %}
+{% extends "layout-register.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "sprint-1" %}
+{% set pageHeading = "What Local Authority... the development?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <label for="autocomplete-local-authorities" class="govuk-label">Local authority</label>
-      <div id="autocomplete-local-authorities" class="autocomplete-wrapper"></div>
+      <form method="post" action="/{{ pageURL }}/register-application/planning-ref">
+
+        <div class="govuk-form-group">
+          <h1 class="govuk-label-wrapper">
+            <label for="autocomplete-local-authorities" class="govuk-label govuk-label--l" for="example">
+              {{ pageHeading }}
+            </label>
+          </h1>
+          <div id="autocomplete-local-authorities" class="autocomplete-wrapper"></div>
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
 
     </div>
-
   </div>
 
 {% endblock %}
