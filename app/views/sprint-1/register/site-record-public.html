@@ -39,13 +39,20 @@
             value: {
               text: "7.59 hectares (ha) / 18.75 acres"
             }
-          },
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Planning details</h2>
+
+      {{ govukSummaryList({
+        rows: [
           {
             key: {
               text: "Local authority"
             },
             value: {
-              text: "Leeds City Council"
+              html: "<a href='https://publicaccess.leeds.gov.uk/online-applications/''>Leeds City Council</a>"
             }
           },
           {
@@ -93,7 +100,30 @@
 
       <p><a href="/{{ pageURL }}/register/site-record-public-metric">View biodiversity metric calculations</a></p>
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Management and monitoring</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Implementation plan</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Implementation plan summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be implemented"
+            }
+          },
+          {
+            key: {
+              text: "Implemented by"
+            },
+            value: {
+              text: "Robinson Developments Limited"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Management and monitoring plan</h2>
 
       {{ govukSummaryList({
         rows: [
