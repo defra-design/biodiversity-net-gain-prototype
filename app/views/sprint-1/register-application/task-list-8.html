@@ -93,18 +93,41 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
+              {% if data['payment-bacs-paid'] == 'yes' and data['payment'] != 'card' %}
+              <span class="app-task-list__task-name">
+                <a href="/{{ pageURL }}/register-application/payment-status" aria-describedby="eligibility-status">
+                  Pay the application fee
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="submit-pay-status">pending review</strong>
+              {% elif data['payment-bacs-paid'] == 'no' and data['payment'] != 'card' %}
               <span class="app-task-list__task-name">
                 <a href="/{{ pageURL }}/register-application/payment" aria-describedby="eligibility-status">
                   Pay the application fee
                 </a>
               </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">not started</strong>
+              <strong class="govuk-tag govuk-tag--yellow app-task-list__tag" id="submit-pay-status">not complete</strong>
+              {% elif data['payment-bacs-paid'] != 'card' %}
+              <span class="app-task-list__task-name">
+                Pay the application fee
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="submit-pay-status">completed</strong>
+              {% endif %}
             </li>
             <li class="app-task-list__item">
+              {% if data['payment'] == 'bacs' %}
               <span class="app-task-list__task-name">
-                Submit the application
+                  Submit the application
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+              {% else %}
+              <span class="app-task-list__task-name">
+                <a href="/{{ pageURL }}/register-application/declaration" aria-describedby="eligibility-status">
+                  Submit the application
+                </a>
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">not started</strong>
+              {% endif %}
             </li>
           </ul>
         </li>

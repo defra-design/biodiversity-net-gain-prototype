@@ -113,4 +113,9 @@ $govuk-assets-path: '/govuk/assets/';
   }
 }
 
+@include govuk-media-query($from: desktop) {
+  .app-float-right-desktop {
+    float: right;
+  }
+}
 

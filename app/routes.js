@@ -123,4 +123,28 @@ router.post('/sprint-1/register-application/land-management-responsible-works-an
   }
 })
 
+// Payment
+router.post('/sprint-1/register-application/payment-answer', function (req, res) {
+
+  var install = req.session.data['payment']
+
+  if (install == "bacs"){
+    res.redirect('/sprint-1/register-application/payment-bacs')
+  } else {
+    res.redirect('/sprint-1/register-application/payment-card')
+  }
+})
+
+// Payment
+router.post('/sprint-1/register-application/payment-bacs-answer', function (req, res) {
+
+  var install = req.session.data['payment-bacs-paid']
+
+  if (install == "no"){
+    res.redirect('/sprint-1/register-application/payment-bacs-no')
+  } else {
+    res.redirect('/sprint-1/register-application/task-list-8')
+  }
+})
+
 module.exports = router
