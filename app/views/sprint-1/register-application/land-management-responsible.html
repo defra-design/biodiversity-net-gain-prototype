@@ -17,7 +17,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/{{ pageURL }}/register-application/land-management-responsible-works">
+      <form method="post" action="/{{ pageURL }}/register-application/land-management-responsible-answer">
 
         {{ govukRadios({
           idPrefix: "land-management-responsible",
@@ -31,11 +31,11 @@
           },
           items: [
             {
-              value: "land-management-responsible-yes",
+              value: "yes",
               text: "Yes"
             },
             {
-              value: "land-management-responsible-no",
+              value: "no",
               text: "No"
             }
           ]

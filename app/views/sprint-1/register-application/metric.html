@@ -17,7 +17,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/{{ pageURL }}/register-application/metric-upload">
+      <form method="post" action="/{{ pageURL }}/register-application/metric-answer">
 
         {{ govukRadios({
           idPrefix: "metric",
@@ -31,11 +31,11 @@
           },
           items: [
             {
-              value: "metric",
+              value: "yes",
               text: "Yes"
             },
             {
-              value: "metric",
+              value: "no",
               text: "No"
             }
           ]
