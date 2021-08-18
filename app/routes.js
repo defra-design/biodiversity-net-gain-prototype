@@ -47,7 +47,7 @@ router.post('/sprint-1/register-application/ownership-certificate-check-answer',
   if (install == "no"){
     res.redirect('/sprint-1/register-application/ownership-certificate-upload')
   } else {
-    res.redirect('/sprint-1/register-application/site-location-postcode')
+    res.redirect('/sprint-1/register-application/interested-third-parties')
   }
 })
 
@@ -83,7 +83,7 @@ router.post('/sprint-1/register-application/metric-correct-answer', function (re
   if (install == "no"){
     res.redirect('/sprint-1/register-application/metric-upload')
   } else {
-    res.redirect('/sprint-1/register-application/task-list-5')
+    res.redirect('/sprint-1/register-application/task-list-4')
   }
 })
 
@@ -95,7 +95,7 @@ router.post('/sprint-1/register-application/land-works-responsible-answer', func
   if (install == "no"){
     res.redirect('/sprint-1/register-application/land-works-responsible-who')
   } else {
-    res.redirect('/sprint-1/register-application/task-list-6')
+    res.redirect('/sprint-1/register-application/task-list-5')
   }
 })
 
@@ -107,7 +107,7 @@ router.post('/sprint-1/register-application/land-management-responsible-answer',
   if (install == "no"){
     res.redirect('/sprint-1/register-application/land-management-responsible-works')
   } else {
-    res.redirect('/sprint-1/register-application/task-list-7')
+    res.redirect('/sprint-1/register-application/task-list-6')
   }
 })
 
@@ -119,7 +119,7 @@ router.post('/sprint-1/register-application/land-management-responsible-works-an
   if (install == "no"){
     res.redirect('/sprint-1/register-application/land-management-responsible-who')
   } else {
-    res.redirect('/sprint-1/register-application/task-list-7')
+    res.redirect('/sprint-1/register-application/task-list-6')
   }
 })
 

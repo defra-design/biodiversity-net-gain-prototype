@@ -14,7 +14,7 @@
       </h1>
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 4 sections.</p>
 
       <ol class="app-task-list">
         <li>
@@ -24,7 +24,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                  Eligibility
+                Check eligibility
               </span>
               <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">completed</strong>
             </li>
@@ -33,34 +33,36 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Site information
+            <span class="app-task-list__section-number">2. </span> Provide information on the biodiversity gain site
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/{{ pageURL }}/register-application/local-authority" aria-describedby="eligibility-status">
-                  Development details
-                </a>
+                
+                  Site location
+                
               </span>
               <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">completed</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/{{ pageURL }}/register-application/metric" aria-describedby="eligibility-status">
-                  BNG Metric calculations
+                
+                  Biodiversity metric calculation tool
+
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="list-convictions-status">completed</strong>
+            </li>
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/{{ pageURL }}/register-application/land-works" aria-describedby="eligibility-status">
+                  Site works
                 </a>
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">not started</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                  Land works
-              </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
-            </li>
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                  Land management
+                Site management 
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
             </li>
@@ -69,18 +71,32 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Pay and apply
+            <span class="app-task-list__section-number">3. </span> Give details of the development the site is linked to
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                Pay the application fee 
+                  Local authority information
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="list-convictions-status">Cannot start yet</strong>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">4. </span> Pay and apply
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                Pay the application fee
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
             </li>
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                Submit application
+                Submit the application
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
             </li>
