@@ -3,7 +3,7 @@
 
 {% set serviceName = "Register a biodiversity gain site" %}
 {% set pageURL = "sprint-1" %}
-{% set pageHeading = "Are there any third parties that have rights over the land?" %}
+{% set pageHeading = "Is the land registered on the HM Land Registry?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -17,20 +17,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/{{ pageURL }}/register-application/interested-third-parties-answer">
+      <form method="post" action="/{{ pageURL }}/register-application/land-registry-answer">
 
         {{ govukRadios({
-          idPrefix: "interested-third-parties",
-          name: "interested-third-parties",
+          idPrefix: "land-registry",
+          name: "land-registry",
           fieldset: {
             legend: {
               text: pageHeading,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: "For example, someone who has shooting rights, public right of way or is the mortage lender."
           },
           items: [
             {
@@ -40,6 +37,10 @@
             {
               value: "no",
               text: "No"
+            },
+            {
+              value: "not-sure",
+              text: "I'm not sure"
             }
           ]
         }) }}
@@ -49,8 +50,6 @@
         }) }}
         
       </form>
-
-      {% include "includes/save-and-exit.html" %}
 
     </div>
   </div>

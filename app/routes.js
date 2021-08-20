@@ -11,7 +11,7 @@ router.post('/sprint-1/register-application/landowner-answer', function (req, re
   if (install == "no"){
     res.redirect('/sprint-1/register-application/landowner-permission')
   } else {
-    res.redirect('/sprint-1/register-application/ownership-certificate')
+    res.redirect('/sprint-1/register-application/land-registry')
   }
 })
 
@@ -24,6 +24,30 @@ router.post('/sprint-1/register-application/landowner-permission-answer', functi
     res.redirect('/sprint-1/register-application/landowner-permission-no')
   } else {
     res.redirect('/sprint-1/register-application/landowner-permission-declaration')
+  }
+})
+
+// Land registry
+router.post('/sprint-1/register-application/land-registry-answer', function (req, res) {
+
+  var install = req.session.data['land-registry']
+
+  if (install == "no"){
+    res.redirect('/sprint-1/register-application/land-registry-no')
+  } else {
+    res.redirect('/sprint-1/register-application/land-registry-search')
+  }
+})
+
+// Land registry check
+router.post('/sprint-1/register-application/land-registry-search-confirm-answer', function (req, res) {
+
+  var install = req.session.data['land-registry-correct']
+
+  if (install == "no"){
+    res.redirect('/sprint-1/register-application/land-registry-search')
+  } else {
+    res.redirect('/sprint-1/register-application/interested-third-parties')
   }
 })
 
@@ -59,7 +83,7 @@ router.post('/sprint-1/register-application/interested-third-parties-answer', fu
   if (install == "yes"){
     res.redirect('/sprint-1/register-application/interested-third-parties-declaration')
   } else {
-    res.redirect('/sprint-1/register-application/task-list-2')
+    res.redirect('/sprint-1/register-application/task-list-3')
   }
 })
 
