@@ -7,10 +7,15 @@
 {% set pageHeading = "Sign in" %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript: window.history.go(-1)"
-  }) }}
+
+  {% if data['payment-bacs-paid'] %}
+  {% else %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript: window.history.go(-1)"
+    }) }}
+  {% endif %}
+
 {% endblock %}
 
 {% block content %}
@@ -22,7 +27,19 @@
         {{ pageHeading }}
       </h1>
 
+      {% if data['payment-bacs-paid'] == 'no' %}
+
+      <form method="post" action="/{{ pageURL }}/register-application/task-list-8">
+
+      {% elif data['payment-bacs-paid'] == 'yes' %}
+
+      <form method="post" action="/{{ pageURL }}/register-application/task-list-9">
+
+      {% else %}
+
       <form method="post" action="/{{ pageURL }}/register-application/task-list-1">
+
+      {% endif %}
 
         {{ govukInput({
           label: {

@@ -6,10 +6,6 @@
 {% set pageHeading = "We’ve saved the details you entered" %}
 
 {% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript: window.history.go(-1)"
-  }) }}
 {% endblock %}
 
 {% block content %}
@@ -24,14 +20,6 @@
       <p>You must return and submit your application once you or someone else from your organisation has paid the registration fee.</p>
       <p>You can save the following link and use it to return to your application: <a href="/{{ pageURL }}/register-application/sign-in">https://bng.defra.gov.uk/signin</a>.</p>
       <p>Natural England will not review your application until it’s been submitted.</p>
-
-      <form method="POST" action="/{{ pageURL }}/register-application/task-list-8">
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-      
-      </form>
 
     </div>
   </div>

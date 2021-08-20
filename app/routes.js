@@ -167,7 +167,7 @@ router.post('/sprint-1/register-application/payment-bacs-answer', function (req,
   if (install == "no"){
     res.redirect('/sprint-1/register-application/payment-bacs-no')
   } else {
-    res.redirect('/sprint-1/register-application/task-list-8')
+    res.redirect('/sprint-1/register-application/payment-status')
   }
 })
 
