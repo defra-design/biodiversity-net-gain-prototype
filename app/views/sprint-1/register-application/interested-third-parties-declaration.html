@@ -17,22 +17,25 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {{ pageHeading }}
-      </h1>
-
       <form method="post" action="/{{ pageURL }}/register-application/task-list-3">
 
-        <div class="govuk-form-group">
-          <div class="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" name="third-parties-declaration" type="checkbox" value="accepted">
-              <label class="govuk-label govuk-checkboxes__label">
-                  I have consulted with the third parties and confirm that this application does not conflict with their interests.
-              </label>
-            </div>
-          </div>
-        </div>
+        {{ govukCheckboxes({
+          idPrefix: "third-parties-declaration",
+          name: "third-parties-declaration",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "accepted",
+              text: "I have consulted with the third parties and confirm that this application does not conflict with their interests."
+            }
+          ]
+        }) }}
 
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
