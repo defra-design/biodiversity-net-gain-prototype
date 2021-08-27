@@ -30,7 +30,7 @@
               text: "Location"
             },
             value: {
-              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ<br><br><a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' class='app-map-link'>View location on a map</a></p>"
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>"
             }
           },
           {
@@ -40,37 +40,22 @@
             value: {
               text: "7.59 hectares (ha) / 18.75 acres"
             }
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Planning details</h2>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Local authority"
-            },
-            value: {
-              html: "<a href='https://publicaccess.leeds.gov.uk/online-applications/''>Leeds City Council</a>"
-            }
           },
           {
             key: {
-              text: "Planning application reference"
+              text: "Map"
             },
             value: {
-              text: "21/02367/FUL"
+              html: "<a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' >View site location and area on a map</a>"
             }
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">BNG Metric</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Metric calculation</h2>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Summary figures</caption>
+        <caption class="govuk-table__caption govuk-table__caption--s">Summary figures</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header"></th>
@@ -84,7 +69,7 @@
               <th scope="row" class="govuk-table__header">Net project biodiversity units
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all on-site and off-site habitat retention and creation)</span>
               </th>
-              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">4.00</td>
               <td class="govuk-table__cell">0.00</td>
               <td class="govuk-table__cell">0.00</td>
             </tr>
@@ -92,14 +77,37 @@
               <td scope="row" class="govuk-table__header">Total project biodiversity % change
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all on-site and off-site habitat retention and creation)</span>
               </td>
-              <td class="govuk-table__cell">0.00%</td>
+              <td class="govuk-table__cell">12.20%</td>
               <td class="govuk-table__cell">0.00%</td>
               <td class="govuk-table__cell">0.00%</td>
             </tr>
         </tbody>
       </table>
 
-      <p><a href="/{{ pageURL }}/register/site-record-public-metric">View biodiversity metric calculations</a></p>
+      <p><a href="/register//{{ pageURL }}/site-record-public-metric">View detailed metric calculations</a></p>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Allocated developments</h2>
+
+      <ul class="govuk-list govuk-list--spaced">
+        <li>
+          <a href="#" class="govuk-!-display-block govuk-!-margin-bottom-1">
+            21/02367/FUL
+          </a>
+            Leeds City Council
+        </li>
+        <li>
+          <a href="#" class="govuk-!-display-block govuk-!-margin-bottom-1">
+            21/01335/HOU
+          </a>
+            Bradford City Council
+        </li>
+        <li>
+          <a href="#" class="govuk-!-display-block govuk-!-margin-bottom-1">
+            20/04182/CLP
+          </a>
+            Leeds City Council
+        </li>
+      </ul>
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Implementation plan</h2>
 
