@@ -1,0 +1,73 @@
+
+{% extends "layout-register.html" %}
+
+{% set hideLogin = "true" %}
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "Sign in" %}
+
+{% block beforeContent %}
+
+  {% if data['payment-bacs-paid'] %}
+  {% else %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript: window.history.go(-1)"
+    }) }}
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {% if data['payment-bacs-paid'] == 'no' %}
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list-8">
+
+      {% elif data['payment-bacs-paid'] == 'yes' %}
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list-9">
+
+      {% else %}
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list-1">
+
+      {% endif %}
+
+        {{ govukInput({
+          label: {
+              text: "Username"
+          },
+            classes: "govuk-!-width-three-quarters",
+            id: "userId",
+            name: "userId"
+          })  
+        }}
+
+        {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            classes: "govuk-!-width-three-quarters",
+            id: "password",
+            name: "password",
+            type: "password"
+        }) }}
+
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

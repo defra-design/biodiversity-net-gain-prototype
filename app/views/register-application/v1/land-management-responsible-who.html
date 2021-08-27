@@ -1,0 +1,53 @@
+
+{% extends "layout-register.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "Who is responsible for managing and monitoring the gain site?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/land-management-responsible-business-where">
+
+        {{ govukRadios({
+          idPrefix: "land-management-responsible-who",
+          name: "land-management-responsible-who",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "land-management-responsible-who-business",
+              text: "A business or organisation"
+            },
+            {
+              value: "land-management-responsible-who-person",
+              text: "An individual"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

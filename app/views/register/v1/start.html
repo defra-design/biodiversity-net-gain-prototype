@@ -1,0 +1,80 @@
+{% extends "layout-govuk.html" %}
+
+{% set serviceName = "Biodiversity Gain Site Register" %}
+{% set pageHeading = "Get information about a biodiversity gain site" %}
+{% set pageURL = "v1" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: pageHeading
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+      <p class="govuk-body">You can get some details about a biodiversity gain site, including the:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>location</li>
+        <li>area and type of habitats created</li>
+        <li>number of biodiversity units resulting from biodiversity net gain</li>
+        <li>planning reference of the development to which the units are allocated, and</li>
+        <li>management plans for sites</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/register" + pageURL + "/search",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: true
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+
+      <aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link" href="#">
+                Biodiversity Net Gain
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">
+                Biodiversity Net Gain Credits
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-link govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+    </div>
+  </div>
+{% endblock %}

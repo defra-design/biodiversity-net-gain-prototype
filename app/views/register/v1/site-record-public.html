@@ -1,0 +1,152 @@
+
+{% extends "layout-register.html" %}
+
+{% set hideLogin = "true" %}
+{% set serviceName = "Biodiversity Gain Site Register" %}
+{% set navType = "Search" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "BNG 15384" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Search results",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Biodiversity Gain Site</span>
+         {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ<br><br><a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' class='app-map-link'>View location on a map</a></p>"
+            }
+          },
+          {
+            key: {
+              text: "Area"
+            },
+            value: {
+              text: "7.59 hectares (ha) / 18.75 acres"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Planning details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Local authority"
+            },
+            value: {
+              html: "<a href='https://publicaccess.leeds.gov.uk/online-applications/''>Leeds City Council</a>"
+            }
+          },
+          {
+            key: {
+              text: "Planning application reference"
+            },
+            value: {
+              text: "21/02367/FUL"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">BNG Metric</h2>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Summary figures</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header">Habitats</th>
+              <th scope="col" class="govuk-table__header">Hedgerows</th>
+              <th scope="col" class="govuk-table__header">Rivers</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Net project biodiversity units
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all on-site and off-site habitat retention and creation)</span>
+              </th>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__header">Total project biodiversity % change
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all on-site and off-site habitat retention and creation)</span>
+              </td>
+              <td class="govuk-table__cell">0.00%</td>
+              <td class="govuk-table__cell">0.00%</td>
+              <td class="govuk-table__cell">0.00%</td>
+            </tr>
+        </tbody>
+      </table>
+
+      <p><a href="/{{ pageURL }}/register/site-record-public-metric">View biodiversity metric calculations</a></p>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Implementation plan</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Implementation plan summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be implemented"
+            }
+          },
+          {
+            key: {
+              text: "Implemented by"
+            },
+            value: {
+              text: "Robinson Developments Limited"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Management and monitoring plan</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Management plan summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be managed and monitored"
+            }
+          },
+          {
+            key: {
+              text: "Managed by"
+            },
+            value: {
+              text: "Robinson Developments Limited"
+            }
+          }
+        ]
+      }) }}
+
+  </div>
+
+{% endblock %}

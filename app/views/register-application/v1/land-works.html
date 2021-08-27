@@ -1,0 +1,53 @@
+
+{% extends "layout-register.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "Have the works on the land already taken place?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible">
+
+        {{ govukRadios({
+          idPrefix: "land-works",
+          name: "land-works",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "land-works-yes",
+              text: "Yes"
+            },
+            {
+              value: "land-works-no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

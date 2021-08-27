@@ -1,0 +1,48 @@
+
+{% extends "layout-register.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "Find the land on HM Land Registry" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post" action="/register-application/{{ pageURL }}/land-registry-search-lookup">
+
+        {{ govukInput({
+          label: {
+            text: "Postcode",
+            classes: "govuk-label--m"
+          },
+            id: "land-postcode",
+            name: "land-postcode",
+            classes: "govuk-input--width-10"
+          })  
+        }}
+
+        <p><a href="/register-application/{{ pageURL }}/land-registry-search-detailed">The land doesn't have a postcode</a></p>
+
+        {{ govukButton({
+            text: "Search"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

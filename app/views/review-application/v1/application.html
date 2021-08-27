@@ -1,0 +1,86 @@
+
+{% extends "layout-admin.html" %}
+
+{% set pageURL = "v1" %}
+{% set pageHeading = "BNG 15384" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "My applications",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl">
+        {{govukTag({
+          text: "New",
+          classes: "govuk-tag--blue govuk-!-margin-bottom-1"
+        })}}
+        <span class="govuk-caption-xl">Application</span>
+         {{ pageHeading }}
+         <span class="app-tag--heading">
+        </span>
+      </h1>
+    </div>
+
+    {%- from "moj/components/side-navigation/macro.njk" import mojSideNavigation -%}
+
+    <div class="govuk-grid-column-one-third">
+
+      {{ mojSideNavigation({
+        label: 'Side navigation',
+        items: [
+        {
+          text: 'Site details',
+          href: '#1',
+          active: true
+        }, 
+        {
+          text: 'Ownership details',
+          href: '#2'
+        }, 
+        {
+          text: 'Documents',
+          href: '#3'
+        }
+        ]
+      }) }}
+
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-l">Site details</h2>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Location"
+              },
+              value: {
+                html: "24 Cleasby Road<br>Menston<br>LS29 6JE"
+              }
+            },
+            {
+              key: {
+                text: "Summary"
+              },
+              value: {
+                text: "Some text that summarises the site record."
+              }
+            }
+          ]
+        }) }}
+
+        <p><a href="#">Edit these details</a></p>
+    
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+
+{% extends "layout-register.html" %}
+
+{% set hideLogin = "true" %}
+{% set serviceName = "Biodiversity Gain Site Register" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "You have signed out" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <form method="post">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">
+          {{ pageHeading }}
+        </h1>
+  
+        {{ govukButton({
+          text: "Back to home"
+        }) }}
+      </div>
+    </div>
+  </form>
+
+{% endblock %}
