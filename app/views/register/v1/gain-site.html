@@ -5,7 +5,7 @@
 {% set serviceName = "Biodiversity Gain Site Register" %}
 {% set navType = "Search" %}
 {% set pageURL = "v1" %}
-{% set pageHeading = "BNG 15384" %}
+{% set pageHeading = "15384" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -46,16 +46,17 @@
               text: "Map"
             },
             value: {
-              html: "<a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' >View site location and area on a map</a>"
+              html: "<a href='https:/www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' >View site location and area on a map</a>"
             }
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Metric calculation</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity units</h2>
+      <p>Including allocated developments (on-site) and gain site (off-site) habitat retention and creation.</p>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--s">Summary figures</caption>
+        <caption class="govuk-visually-hidden">Summary figures</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header"></th>
@@ -66,17 +67,13 @@
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Net project biodiversity units
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all on-site and off-site habitat retention and creation)</span>
-              </th>
+              <th scope="row" class="govuk-table__header">Net project biodiversity units</th>
               <td class="govuk-table__cell">4.00</td>
               <td class="govuk-table__cell">0.00</td>
               <td class="govuk-table__cell">0.00</td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__header">Total project biodiversity % change
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all on-site and off-site habitat retention and creation)</span>
-              </td>
+              <th scope="row" class="govuk-table__header">Total project biodiversity % change</th>
               <td class="govuk-table__cell">12.20%</td>
               <td class="govuk-table__cell">0.00%</td>
               <td class="govuk-table__cell">0.00%</td>
@@ -84,30 +81,35 @@
         </tbody>
       </table>
 
-      <p><a href="/register//{{ pageURL }}/site-record-public-metric">View detailed metric calculations</a></p>
+      <p><a href="/register/{{ pageURL }}/gain-site-metric">View detailed metric calculations</a></p>
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Allocated developments</h2>
 
-      <ul class="govuk-list govuk-list--spaced">
-        <li>
-          <a href="#">
-            21/02367/FUL
-          </a>
-          <span class="govuk-!-display-block govuk-!-margin-top-1">Leeds City Council</span>
-        </li>
-        <li>
-          <a href="#">
-            21/01335/HOU
-          </a>
-          <span class="govuk-!-display-block govuk-!-margin-top-1">Bradford City Council</span>
-        </li>
-        <li>
-          <a href="#">
-            20/04182/CLP
-          </a>
-          <span class="govuk-!-display-block govuk-!-margin-top-1">Leeds City Council</span>
-        </li>
-      </ul>
+      <p>Developments using the gain site to deliver biodiversity net gain.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Summary figures</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Planning reference</th>
+              <th scope="col" class="govuk-table__header">Local planning authority</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/register/{{ pageURL }}/development" class="govuk-!-font-weight-bold">21/02367/FUL</a></td>
+              <td class="govuk-table__cell">Bradford City Council</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/register/{{ pageURL }}/development" class="govuk-!-font-weight-bold">21/01335/HOU</a></td>
+              <td class="govuk-table__cell">Bradford City Council</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/register/{{ pageURL }}/development" class="govuk-!-font-weight-bold">20/04182/CLP</a></td>
+              <td class="govuk-table__cell">Leeds City Council</td>
+            </tr>
+        </tbody>
+      </table>
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Implementation plan</h2>
 
@@ -154,6 +156,8 @@
           }
         ]
       }) }}
+
+      <p class="govuk-!-padding-top-4"><a href="/register/{{ pageURL }}/search">Start new search</a></p>
 
   </div>
 

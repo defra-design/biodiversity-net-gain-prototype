@@ -5,11 +5,11 @@
 {% set serviceName = "Biodiversity Gain Site Register" %}
 {% set navType = "Search" %}
 {% set pageURL = "v1" %}
-{% set pageHeading = "Biodiversity Metric calculations" %}
+{% set pageHeading = "Metric calculations" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Biodiversity Gain Site BNG 15384",
+    text: "Biodiversity gain site 15384",
     href: "javascript: window.history.go(-1)"
   }) }}
 {% endblock %}
@@ -19,7 +19,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">Biodiversity Gain Site BNG 15384</span>
+        <span class="govuk-caption-xl">Biodiversity gain site 15384</span>
          {{ pageHeading }}
       </h1>
 
@@ -176,7 +176,7 @@
         </tbody>
       </table>
 
-
+      <p class="govuk-!-padding-top-4"><a href="/register/{{ pageURL }}/search">Start new search</a></p>
 
   </div>
 
