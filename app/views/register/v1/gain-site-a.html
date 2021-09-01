@@ -1,0 +1,161 @@
+
+{% extends "layout-register.html" %}
+
+{% set hideLogin = "true" %}
+{% set navType = "Search" %}
+{% set pageURL = "v1" %}
+{% set pageHeading = "15384" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Search results",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Biodiversity gain site</span>
+         {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>"
+            }
+          },
+          {
+            key: {
+              text: "Area"
+            },
+            value: {
+              text: "7.59 hectares (ha) / 18.75 acres"
+            }
+          },
+          {
+            key: {
+              text: "Map"
+            },
+            value: {
+              html: "<a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' >View site location and area on a map</a>"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity units</h2>
+      <p>Including allocated developments (on-site) and gain site (off-site) habitat retention and creation.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Summary figures</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header">Habitats</th>
+              <th scope="col" class="govuk-table__header">Hedgerows</th>
+              <th scope="col" class="govuk-table__header">Rivers</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Net project biodiversity units</th>
+              <td class="govuk-table__cell">4.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total project biodiversity % change</th>
+              <td class="govuk-table__cell">12.20%</td>
+              <td class="govuk-table__cell">0.00%</td>
+              <td class="govuk-table__cell">0.00%</td>
+            </tr>
+        </tbody>
+      </table>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Allocated developments</h2>
+
+      <p>Developments using the gain site to deliver biodiversity net gain.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Summary figures</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Planning reference</th>
+              <th scope="col" class="govuk-table__header">Local planning authority</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/register/{{ pageURL }}/development-c">21/02367/FUL</a></td>
+              <td class="govuk-table__cell">Bradford City Council</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/register/{{ pageURL }}/development-c">21/01335/HOU</a></td>
+              <td class="govuk-table__cell">Bradford City Council</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell"><a href="/register/{{ pageURL }}/development-c">20/04182/CLP</a></td>
+              <td class="govuk-table__cell">Leeds City Council</td>
+            </tr>
+        </tbody>
+      </table>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Implementation plan</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Implementation plan summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be implemented"
+            }
+          },
+          {
+            key: {
+              text: "Implemented by"
+            },
+            value: {
+              text: "Robinson Developments Limited"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Management and monitoring plan</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Management plan summary"
+            },
+            value: {
+              text: "A summary of how the habitat enhancements will be managed and monitored"
+            }
+          },
+          {
+            key: {
+              text: "Managed by"
+            },
+            value: {
+              text: "Robinson Developments Limited"
+            }
+          }
+        ]
+      }) }}
+
+      <p class="govuk-!-padding-top-4"><a href="/register/{{ pageURL }}/search">Start a new search</a></p>
+
+  </div>
+
+{% endblock %}
