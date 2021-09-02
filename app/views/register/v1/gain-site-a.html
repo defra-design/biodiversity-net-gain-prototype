@@ -108,53 +108,57 @@
         </tbody>
       </table>
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Implementation plan</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Site works</h2>
+
+      <p>The person/s or body required under a conservation covenant or planning obligation to carry out works for the purpose of habitat enhancement.</p>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Implementation plan summary"
+              text: "Person/s or body"
             },
             value: {
-              text: "A summary of how the habitat enhancements will be implemented"
+              text: "Acme Org Ltd"
             }
           },
           {
             key: {
-              text: "Implemented by"
+              text: "Works to be completed by"
             },
             value: {
-              text: "Robinson Developments Limited"
+              text: "31 March 2023"
             }
           }
         ]
       }) }}
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Management and monitoring plan</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Site management</h2>
+
+      <p>The person/s or body who is required to maintain the enhancement for at least 30 years after completion of those enhancement works.</p>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Management plan summary"
+              text: "Person/s or body"
             },
             value: {
-              text: "A summary of how the habitat enhancements will be managed and monitored"
+              text: "Acme Org Ltd"
             }
           },
           {
             key: {
-              text: "Managed by"
+              text: "Managed until"
             },
             value: {
-              text: "Robinson Developments Limited"
+              text: "31 March 2053"
             }
           }
         ]
       }) }}
 
-      <p class="govuk-!-padding-top-4"><a href="/register/{{ pageURL }}/search">Start a new search</a></p>
+      {% include "register/v1/includes/start-new-search.html" %}
 
   </div>
 
