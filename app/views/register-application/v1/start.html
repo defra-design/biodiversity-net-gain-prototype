@@ -1,7 +1,14 @@
-{% extends "layout-govuk.html" %}
+{% extends "layout.html" %}
 
 {% set pageHeading = "Register a biodiversity gain site" %}
 {% set pageURL = "v1" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %} 
 
 {% block beforeContent %}
   {{ govukBreadcrumbs({
