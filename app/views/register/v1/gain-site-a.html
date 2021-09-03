@@ -1,14 +1,10 @@
+{% extends "register/v1/layout-register.html" %}
 
-{% extends "layout-register.html" %}
-
-{% set hideLogin = "true" %}
-{% set navType = "Search" %}
-{% set pageURL = "v1" %}
 {% set pageHeading = "15384" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
-    text: "Search results",
+    text: "Back",
     href: "javascript: window.history.go(-1)"
   }) }}
 {% endblock %}

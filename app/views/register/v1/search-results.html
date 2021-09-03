@@ -1,10 +1,6 @@
 
-{% extends "layout-register.html" %}
+{% extends "register/v1/layout-register.html" %}
 
-{% set hideLogin = "true" %}
-{% set serviceName = "Biodiversity Gain Site Register" %}
-{% set navType = "Search" %}
-{% set pageURL = "v1" %}
 {% set pageHeading = "Search results for" %}
 
 {% block beforeContent %}
@@ -22,7 +18,7 @@
             <label class="govuk-label moj-search__label govuk-label--xl" for="search">
               {{ pageHeading }}
             </label>
-            <input class="govuk-input moj-search__input " id="search" name="search" value="LS20" type="search">
+            <input class="govuk-input moj-search__input " id="search" name="search" value="{{ data['search-register'] }}" type="search">
           </div>
           <button class="govuk-button moj-search__button " data-module="govuk-button">
             Search
