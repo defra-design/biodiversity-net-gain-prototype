@@ -45,14 +45,13 @@
               text: "Map"
             },
             value: {
-              html: "<a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing' >View site location and area on a map</a>"
+              html: "<a href='https://www.google.com/maps/d/u/0/edit?mid=1AqDs6tB6KzAZjF4OuN_aThLnxH29K6An&usp=sharing'>View the site's location and boundary on a map </a>"
             }
           }
         ]
       }) }}
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity units</h2>
-      <p>Including allocated developments (on-site) and gain site (off-site) habitat retention and creation.</p>
 
       <table class="govuk-table">
         <caption class="govuk-visually-hidden">Summary figures</caption>
@@ -82,13 +81,11 @@
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Allocated developments</h2>
 
-      <p>Developments using the gain site to deliver biodiversity net gain.</p>
-
       <table class="govuk-table">
         <caption class="govuk-visually-hidden">Summary figures</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Planning reference</th>
+              <th scope="col" class="govuk-table__header">Planning reference number</th>
               <th scope="col" class="govuk-table__header">Local planning authority</th>
             </tr>
           </thead>
@@ -110,13 +107,12 @@
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Site works</h2>
 
-      <p>The person/s or body required under a conservation covenant or planning obligation to carry out works for the purpose of habitat enhancement.</p>
-
       {{ govukSummaryList({
+        classes: "app-summary-list-key-long",
         rows: [
           {
             key: {
-              text: "Person/s or body"
+              text: "Person or organisation carrying out the works "
             },
             value: {
               text: "Acme Org Ltd"
@@ -135,13 +131,12 @@
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Site management</h2>
 
-      <p>The person/s or body who is required to maintain the enhancement for at least 30 years after completion of those enhancement works.</p>
-
       {{ govukSummaryList({
+        classes: "app-summary-list-key-long",
         rows: [
           {
             key: {
-              text: "Person/s or body"
+              text: "Person or organisation managing the site "
             },
             value: {
               text: "Acme Org Ltd"
