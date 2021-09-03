@@ -22,128 +22,12 @@
          {{ pageHeading }}
       </h1>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Metric version"
-            },
-            value: {
-              text: "3.0"
-            }
-          },
-          {
-            key: {
-              text: "Assessment date"
-            },
-            value: {
-              text: "15 August 2021"
-            }
-          }
-        ]
-      }) }}
-
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Summary figiures</h2>
-
-      <p>Including on-site and off-site habitat retention and creation.</p>
-
-      <table class="govuk-table">
-        <caption class="govuk-visually-hidden">Summary figures</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header"></th>
-              <th scope="col" class="govuk-table__header">Habitats</th>
-              <th scope="col" class="govuk-table__header">Hedgerows</th>
-              <th scope="col" class="govuk-table__header">Rivers</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Net project biodiversity units</th>
-              <td class="govuk-table__cell">0.00</td>
-              <td class="govuk-table__cell">0.00</td>
-              <td class="govuk-table__cell">0.00</td>
-            </tr>
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Total project biodiversity % change</th>
-              <td class="govuk-table__cell">0.00%</td>
-              <td class="govuk-table__cell">0.00%</td>
-              <td class="govuk-table__cell">0.00%</td>
-            </tr>
-        </tbody>
-      </table>
-
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Habitat retention and enhancement</h2>
-
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Combined (on-site and off-site)</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header"></th>
-            <th scope="col" class="govuk-table__header">Habitats</th>
-            <th scope="col" class="govuk-table__header">Hedgerows</th>
-            <th scope="col" class="govuk-table__header">Rivers</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Total area / length</th>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__header">Total units</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__header">Area / length retained</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Units retained</th>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__header">Area / length proposed for enhancement</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__header">Baseline units proposed for enhancement</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__header">Area / length lost</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td scope="row" class="govuk-table__header">Units lost</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-            <td class="govuk-table__cell">0.00</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">
-        <span class="govuk-caption-l">Area habitats</span>
-        Change by broad habitat type
+      <h2 class="govuk-heading-l">
+        Area habitats
       </h2>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">On-site</caption>
+        <caption class="govuk-table__caption govuk-table__caption--m">On-site change by broad habitat type</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Habitat group</th>
@@ -171,7 +55,7 @@
       </table>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Off-site <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-a">Biodiversity gain site 15384</a></span></caption>
+        <caption class="govuk-table__caption govuk-table__caption--m">Off-site change by broad habitat type<span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-a">Biodiversity gain site 15384</a></span></caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Habitat group</th>
@@ -199,7 +83,7 @@
       </table>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Off-site <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-a">Biodiversity gain site 07786</a></span></caption>
+        <caption class="govuk-table__caption govuk-table__caption--m">Off-site  change by broad habitat type<span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-a">Biodiversity gain site 07786</a></span></caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Habitat group</th>
@@ -227,7 +111,7 @@
       </table>
 
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Combined (on-site and off-site)</caption>
+        <caption class="govuk-table__caption govuk-table__caption--m">Combined change by broad habitat type</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Habitat group</th>
@@ -254,13 +138,8 @@
         </tbody>
       </table>
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">
-        <span class="govuk-caption-l">Area habitats</span>
-        Area lost by distinctiveness band
-      </h2>
-
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Combined (on-site and off-site)</caption>
+        <caption class="govuk-table__caption govuk-table__caption--m">Combined area lost by distinctiveness band</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Category</th>
@@ -270,27 +149,27 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">V.High</th>
+            <td scope="row" class="govuk-table__cell">V.High</td>
             <td class="govuk-table__cell">0.00</td>
             <td class="govuk-table__cell">0.00%</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">High</th>
+            <td scope="row" class="govuk-table__cell">High</td>
             <td class="govuk-table__cell">0.00</td>
             <td class="govuk-table__cell">0.00%</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Medium</th>
+            <td scope="row" class="govuk-table__cell">Medium</td>
             <td class="govuk-table__cell">0.00</td>
             <td class="govuk-table__cell">0.00%</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Low</th>
+            <td scope="row" class="govuk-table__cell">Low</td>
             <td class="govuk-table__cell">0.00</td>
             <td class="govuk-table__cell">0.00%</td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">V.Low</th>
+            <td scope="row" class="govuk-table__cell">V.Low</td>
             <td class="govuk-table__cell">0.00</td>
             <td class="govuk-table__cell">0.00%</td>
           </tr>
