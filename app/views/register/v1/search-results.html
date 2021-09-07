@@ -1,7 +1,7 @@
 
 {% extends "register/v1/layout-register.html" %}
 
-{% set pageHeading = "Search results for" %}
+{% set pageHeading = "Search results" %}
 
 {% block beforeContent %}
 {% endblock %}
@@ -12,13 +12,12 @@
     <div class="govuk-grid-column-two-thirds">    
 
       <div class="moj-search">
-    
         <form action="/register/{{ pageURL }}/search-answer" method="post">
           <div class="govuk-form-group">
             <label class="govuk-label moj-search__label govuk-label--xl" for="search-register">
               {{ pageHeading }}
             </label>
-            <input class="govuk-input moj-search__input " id="search-register" name="search-register" value="{{ data['search-register'] }}" type="search">
+            <input class="govuk-input moj-search__input" id="search-register" name="search-register" value="{{ data['search-register'] }}" type="search">
           </div>
           <button class="govuk-button moj-search__button " data-module="govuk-button">
             Search
