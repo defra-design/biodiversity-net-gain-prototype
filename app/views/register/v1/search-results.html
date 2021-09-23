@@ -17,7 +17,7 @@
             <label class="govuk-label moj-search__label govuk-label--xl" for="search-register">
               {{ pageHeading }}
             </label>
-            <input class="govuk-input moj-search__input" id="search-register" name="search-register" value="{{ data['search-register'] }}" type="search">
+            <input class="govuk-input moj-search__input" id="search-register" name="search-register" value="{{ data['search-register'] or 'LS20' }}" type="search">
           </div>
           <button class="govuk-button moj-search__button " data-module="govuk-button">
             Search
