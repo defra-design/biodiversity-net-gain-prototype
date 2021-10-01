@@ -23,9 +23,11 @@
 
             <li class="app-task-list__item">
               {% if data['landowner'] == 'yes' or data['landowner-permission'] == 'yes' %}
-              <a href="/register-application/{{ pageURL }}/landowner" aria-describedby="eligibility-status">
-                Landowner permission
-              </a>
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/landowner" aria-describedby="eligibility-status">
+                  Landowner permission
+                </a>
+              </span>
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="list-convictions-status">Completed</strong>
               {% else %}
               <span class="app-task-list__task-name">
