@@ -1,6 +1,6 @@
 {% extends "register-application/v2/layout-register-application.html" %}
 
-{% set pageHeading = "Are there any third parties that have rights over the land?" %}
+{% set pageHeading = "Is the site you want to register located in England?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -14,20 +14,17 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/interested-third-parties-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/england-answer">
 
         {{ govukRadios({
-          idPrefix: "interested-third-parties",
-          name: "interested-third-parties",
+          idPrefix: "england",
+          name: "england",
           fieldset: {
             legend: {
               text: pageHeading,
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
-          },
-          hint: {
-            text: "For example, someone who has shooting rights, public right of way or is the mortage lender."
           },
           items: [
             {
