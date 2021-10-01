@@ -4,6 +4,9 @@ const router = express.Router()
 const registerapplicationv1 = require('./views/register-application/v1/_routes');
 router.use('/register-application/v1', registerapplicationv1);
 
+const registerapplicationv2 = require('./views/register-application/v2/_routes');
+router.use('/register-application/v2', registerapplicationv2);
+
 const registerv1 = require('./views/register/v1/_routes');
 router.use('/register/v1', registerv1);
 
