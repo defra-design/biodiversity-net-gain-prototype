@@ -1,0 +1,24 @@
+{% extends "register-application/v2/layout-register-application.html" %}
+
+{% set pageHeading = "We’ve saved the details you entered" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You must return and submit your application once you or someone else from your organisation has paid the registration fee.</p>
+      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ pageURL }}/sign-in">https://bng.defra.gov.uk/signin</a>.</p>
+      <p>Natural England will not review your application until it’s been submitted.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

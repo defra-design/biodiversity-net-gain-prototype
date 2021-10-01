@@ -1,0 +1,57 @@
+{% extends "register-application/v2/layout-register-application.html" %}
+
+{% set pageHeading = "Check the planning reference number is correct" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <hr class="govuk-!-margin-top-3">
+
+      <p class="govuk-!-margin-top-3 govuk-!-margin-bottom-3"><span class="govuk-!-font-weight-bold govuk-!-display-block">Planning reference number:</span> FG/KIJ/099</p>
+
+      <hr>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/metric-correct-answer">
+
+        {{ govukRadios({
+          idPrefix: "planning-ref-correct",
+          name: "planning-ref-correct",
+          fieldset: {
+            legend: {
+              text: "Is this correct?",
+              classes: "govuk-fieldset__legend--m govuk-!-padding-top-4"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this is correct"
+            },
+            {
+              value: "no",
+              text: "No, I want to change it"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends "register-application/v2/layout-register-application.html" %}
+
+{% set pageHeading = "Planning reference number" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list-7">
+
+        {{ govukInput({
+          label: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-label--l"
+          },
+            classes: "govuk-input--width-10",
+            id: "planningref",
+            name: "planningref"
+          })  
+        }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "register-application/v2/layout-register-application.html" %}
+
+{% set pageHeading = "Payment successful" %}
+
+{% block beforeContent %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>The application fee has been paid.</p>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list-9">
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
