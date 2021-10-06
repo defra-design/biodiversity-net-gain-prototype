@@ -11,19 +11,7 @@ var map = new ol.Map({
     }
   }),
   view: new ol.View({
-    center: [0, 0],
-    zoom: 2
+    center: ol.proj.fromLonLat([-1.7373, 53.8897]),
+    zoom: 18
   })
 });
-
-document.getElementById('zoom-out').onclick = function() {
-  var view = map.getView();
-  var zoom = view.getZoom();
-  view.setZoom(zoom - 1);
-};
-
-document.getElementById('zoom-in').onclick = function() {
-  var view = map.getView();
-  var zoom = view.getZoom();
-  view.setZoom(zoom + 1);
-};
