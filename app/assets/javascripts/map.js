@@ -1,17 +1,29 @@
-import OSM from 'ol/source/OSM';
-import TileLayer from 'ol/layer/Tile';
-import {Map, View} from 'ol';
-import {fromLonLat} from 'ol/proj';
-
-new Map({
-  target: 'map-container',
+var map = new ol.Map({
   layers: [
-    new TileLayer({
-      source: new OSM(),
-    }),
+    new ol.layer.Tile({
+      source: new ol.source.OSM()
+    })
   ],
-  view: new View({
-    center: fromLonLat([0, 0]),
-    zoom: 2,
+  target: 'map',
+  controls: ol.control.defaults({
+    attributionOptions: {
+      collapsible: false
+    }
   }),
+  view: new ol.View({
+    center: [0, 0],
+    zoom: 2
+  })
 });
+
+document.getElementById('zoom-out').onclick = function() {
+  var view = map.getView();
+  var zoom = view.getZoom();
+  view.setZoom(zoom - 1);
+};
+
+document.getElementById('zoom-in').onclick = function() {
+  var view = map.getView();
+  var zoom = view.getZoom();
+  view.setZoom(zoom + 1);
+};

@@ -11,7 +11,10 @@
         Map proof of concept
       </h1>
 
-      <div id="map-container" class="map"></div>
+      <a class="skiplink" href="#map">Go to map</a>
+      <div id="map" class="map" tabindex="0"></div>
+      <button id="zoom-out">Zoom out</button>
+      <button id="zoom-in">Zoom in</button>
 
     </div>
 
@@ -20,5 +23,5 @@
 {% endblock %}
 
 {% block pageScripts %}
-  <script src="/public/javascripts/map.js"></script>
+  <script type="module" src="/public/javascripts/map.js"></script>
 {% endblock %}
