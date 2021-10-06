@@ -4,3 +4,7 @@
 {% for stylesheetUrl in extensionConfig.stylesheets %}
   <link href="{{ stylesheetUrl }}" rel="stylesheet" type="text/css" />
 {% endfor %}
+
+{% if map %}
+  <link rel="stylesheet" href="/public/stylesheets/ol.css" type="text/css">
+{% endif %}
