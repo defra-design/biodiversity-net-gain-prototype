@@ -2,24 +2,24 @@ const express = require('express')
 const router = new express.Router()
 
 // England
-router.post('/england-answer', function (req, res) {
+router.post('/eligibility-england-answer', function (req, res) {
 
   var install = req.session.data['england']
 
   if (install == "no"){
-    res.redirect('/register-application/v2/england-no')
+    res.redirect('/register-application/v2/eligibility-england-no')
   } else {
-    res.redirect('/register-application/v2/allocated-developments')
+    res.redirect('/register-application/v2/eligibility-allocated-developments')
   }
 })
 
 // Allocated developments
-router.post('/allocated-developments-answer', function (req, res) {
+router.post('/eligibility-allocated-developments-answer', function (req, res) {
 
   var install = req.session.data['allocated-developments']
 
   if (install == "no"){
-    res.redirect('/register-application/v2/allocated-developments-no')
+    res.redirect('/register-application/v2/eligibility-allocated-developments-no')
   } else {
     res.redirect('/register-application/v2/sign-in-options')
   }

@@ -12,7 +12,7 @@
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       
-      {% if data['landowner'] == 'yes' and data['landowner-permission'] == 'yes' and data['location-grid-ref'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
+      {% if data['landowner'] == 'yes' and data['location-grid-ref'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
@@ -96,20 +96,20 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Allocate developments to the biodiversity gain site
+            <span class="app-task-list__section-number">2. </span> Give details of the development this site is allocated to
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if data['landowner'] == 'yes' and data['location-grid-ref'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/local-authority" aria-describedby="allocated-developments-status">
-                  Add developments
+                <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
+                  Development information
                 </a>
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
               {% else %}
               <span class="app-task-list__task-name">
-                Add developments
+                Development information
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
               {% endif %} 
