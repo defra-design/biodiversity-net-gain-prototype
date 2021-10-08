@@ -12,10 +12,13 @@
     "test": "npm run lint && gulp generate-assets && jest"
   },
   "dependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "@ministryofjustice/frontend": "^0.2.5",
     "accessible-autocomplete": "^2.0.3",
     "acorn": "^7.1.1",
     "ansi-colors": "^4.1.1",
+    "babel-loader": "^8.2.2",
     "basic-auth": "^2.0.0",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
@@ -50,7 +53,8 @@
     "require-dir": "^1.0.0",
     "sync-request": "^6.0.0",
     "universal-analytics": "^0.4.16",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "webpack-stream": "^7.0.0"
   },
   "greenkeeper": {
     "ignore": [
