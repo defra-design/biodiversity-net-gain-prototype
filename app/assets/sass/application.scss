@@ -162,3 +162,14 @@ a.skiplink:focus {
 #map:focus {
   outline: #4A74A8 solid 0.15em;
 }
+
+#tools {
+  right: 1rem;
+}
+
+#tools a {
+  display: inline-block;
+  padding: 0.5rem;
+  background: white;
+  cursor: pointer;
+}

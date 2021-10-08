@@ -1,0 +1,63 @@
+{
+    "type": "FeatureCollection",
+    "name": "testgeo",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:EPSG::27700"
+        }
+    },
+    "features": [
+         {
+            "type": "Feature",
+            "properties": {
+                "POLY_ID": 19786493,
+                "TITLE_NO": "BL11764",
+                "INSERT": "2016-02-05T13:36:16",
+                "UPDATE": "2016-02-05T13:36:16",
+                "REC_STATUS": "A"
+            },
+            "geometry": {
+                "type": "MultiPolygon",
+                "coordinates": [
+                    [
+                        [
+                            [
+                                360222.0,
+                                174954.25
+                            ],
+                            [
+                                360227.05,
+                                174958.4
+                            ],
+                            [
+                                360231.65,
+                                174962.2
+                            ],
+                            [
+                                360236.8,
+                                174955.65
+                            ],
+                            [
+                                360233.1,
+                                174952.5
+                            ],
+                            [
+                                360232.5,
+                                174952.0
+                            ],
+                            [
+                                360227.55,
+                                174947.75
+                            ],
+                            [
+                                360222.0,
+                                174954.25
+                            ]
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
