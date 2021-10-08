@@ -21,7 +21,7 @@ const path = require('path');
 gulp.task('js', ()=>{
   return gulp.src(`./app/assets/javascripts/map.js`)
     .pipe(webpack({
-      mode: 'production',
+      mode: 'development',
       module: {
         rules: [
           {
