@@ -69,14 +69,11 @@ router.post('/location-options-answer', function (req, res) {
 
   if (install == "location-land-registry"){
     res.redirect('/register-application/v2/location-land-registry-search-detailed')
-  } 
-  if (install == "location-rpa"){
+  } else if (install == "location-rpa"){
     res.redirect('/register-application/v2/location-rpa-search')
-  }
-  if (install == "location-import"){
+  } else if (install == "location-import"){
     res.redirect('/register-application/v2/location-import')
-  }
-  else {
+  } else {
     res.redirect('/register-application/v2/location-draw-find')
   }
 })
