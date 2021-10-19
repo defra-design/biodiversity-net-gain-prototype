@@ -12,7 +12,7 @@
 
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       
-      {% if data['landowner'] == 'yes' and data['location-grid-ref'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
+      {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
@@ -41,12 +41,14 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/location-grid-ref" aria-describedby="location-status">
+                <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="location-status">
                   Location and area
                 </a>
               </span>
-              {% if data['location-grid-ref'] %}
+              {% if data['location-confirm'] == 'yes' %}
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="location-status">Completed</strong>
+              {% elif data['location-confirm'] == 'no' %}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="location-status">In progress</strong>
               {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="location-status">Not started</strong>
               {% endif %} 
@@ -100,7 +102,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['landowner'] == 'yes' and data['location-grid-ref'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
+              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
                   Development information

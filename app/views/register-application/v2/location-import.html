@@ -1,6 +1,6 @@
 {% extends "register-application/v2/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the completed biodiversity metric calculation tool" %}
+{% set pageHeading = "Upload your file" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -18,14 +18,17 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/metric-upload-check">
+      <form method="post" action="/register-application/{{ pageURL }}/location-confirm">
 
         {{ govukFileUpload({
-          id: "metric-upload",
-          name: "metric-upload",
+          id: "location-import",
+          name: "location-import",
           label: {
-            text: "Upload a file",
+            text: "Upload your file",
             classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "GeoJSON, KML or Shape files - Max size 50MB"
           }
         }) }}
 

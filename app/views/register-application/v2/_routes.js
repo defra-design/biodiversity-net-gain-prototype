@@ -49,53 +49,6 @@ router.post('/landowner-permission-answer', function (req, res) {
   }
 })
 
-// Land registry
-router.post('/land-registry-answer', function (req, res) {
-
-  var install = req.session.data['land-registry']
-
-  if (install == "no"){
-    res.redirect('/register-application/v2/land-registry-no')
-  } else {
-    res.redirect('/register-application/v2/land-registry-search')
-  }
-})
-
-// Land registry check
-router.post('/land-registry-search-confirm-answer', function (req, res) {
-
-  var install = req.session.data['land-registry-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v2/land-registry-search')
-  } else {
-    res.redirect('/register-application/v2/interested-third-parties')
-  }
-})
-
-// Ownership certificate
-router.post('/ownership-certificate-answer', function (req, res) {
-
-  var install = req.session.data['ownership-certificate']
-
-  if (install == "no"){
-    res.redirect('/register-application/v2/ownership-certificate-no')
-  } else {
-    res.redirect('/register-application/v2/ownership-certificate-upload')
-  }
-})
-
-// Ownership certificate check
-router.post('/ownership-certificate-check-answer', function (req, res) {
-
-  var install = req.session.data['ownership-certificate-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v2/ownership-certificate-upload')
-  } else {
-    res.redirect('/register-application/v2/interested-third-parties')
-  }
-})
 
 // Third parties
 router.post('/interested-third-parties-answer', function (req, res) {
@@ -105,6 +58,51 @@ router.post('/interested-third-parties-answer', function (req, res) {
   if (install == "yes"){
     res.redirect('/register-application/v2/interested-third-parties-declaration')
   } else {
+    res.redirect('/register-application/v2/task-list')
+  }
+})
+
+// Location options
+router.post('/location-options-answer', function (req, res) {
+
+  var install = req.session.data['location-options']
+
+  if (install == "location-land-registry"){
+    res.redirect('/register-application/v2/location-land-registry-search-detailed')
+  } 
+  if (install == "location-rpa"){
+    res.redirect('/register-application/v2/location-rpa-search')
+  }
+  if (install == "location-import"){
+    res.redirect('/register-application/v2/location-import')
+  }
+  else {
+    res.redirect('/register-application/v2/location-draw-find')
+  }
+})
+
+// Location confirm
+router.post('/location-import-confirm-answer', function (req, res) {
+
+  var install = req.session.data['location-import-confirm']
+
+  if (install == "no"){
+    res.redirect('/register-application/v2/location-import')
+  }
+  else {
+    res.redirect('/register-application/v2/task-list')
+  }
+})
+
+// Location confirm
+router.post('/location-confirm-answer', function (req, res) {
+
+  var install = req.session.data['location-confirm']
+
+  if (install == "no"){
+    res.redirect('/register-application/v2/location-options')
+  }
+  else {
     res.redirect('/register-application/v2/task-list')
   }
 })
@@ -121,7 +119,7 @@ router.post('/metric-answer', function (req, res) {
   }
 })
 
-// Metric
+// Metric check
 router.post('/metric-correct-answer', function (req, res) {
 
   var install = req.session.data['metric-correct']

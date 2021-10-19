@@ -1,0 +1,57 @@
+{% extends "register-application/v2/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm the location" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+            <img src="/public/images/location-confirm.png" alt="" width="100%" style="margin-bottom: 20px">
+        </div>
+      </div>
+
+      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm-answer">
+
+        {{ govukRadios({
+          idPrefix: "location-import-confirm",
+          name: "location-import-confirm",
+          fieldset: {
+            legend: {
+              text: "Is the location correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this looks correct"
+            },
+            {
+              value: "no",
+              text: "No, this is not right"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
