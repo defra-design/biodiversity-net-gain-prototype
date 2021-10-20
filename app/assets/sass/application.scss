@@ -175,7 +175,7 @@ $govuk-assets-path: '/govuk/assets/';
 .map-coordinates{
   @include govuk-font($size: 16);
   @include govuk-text-colour;
-  background-color: white !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
   border: 1px solid rgba(98, 106, 110, 0.5);
   bottom: .5em;
   padding: 10px;
@@ -183,10 +183,14 @@ $govuk-assets-path: '/govuk/assets/';
   left: .5em;
   width: 130px;
   z-index: 999;
-  
+
   @include govuk-media-query($until: desktop) {
     display: none;
   }
+}
+
+.ol-zoom .ol-zoom-in {
+  border-radius: 2px 2px 0 0;
 }
 
 a.skiplink {
