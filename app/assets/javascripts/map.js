@@ -1,71 +1,163 @@
-import {Style, Fill, Stroke} from 'ol/style';
+// Map support is based on https://github.com/DEFRA/fmfp-prototype as this service is in a more advanced state.
+// For example, polygon styling considers accessibility.
 
-import GeoJSON from 'ol/format/GeoJSON';
 import Map from 'ol/Map';
-import VectorLayer from 'ol/layer/Vector';
+
+// Projection
+import {fromLonLat} from 'ol/proj';
+
+// Formatting and styling
+import {Style, Fill, Stroke} from 'ol/style';
+import Icon from 'ol/style/Icon';
+
+// Sources
+import OSM from 'ol/source/OSM';
 import VectorSource from 'ol/source/Vector';
+
+// Layers
+import {Tile as TileLayer} from 'ol/layer';
+import VectorLayer from 'ol/layer/Vector';
+
+// Views
 import View from 'ol/View';
 
-// Drag and drop functionality
-import DragAndDrop from 'ol/interaction/DragAndDrop'
-// Drawing new features
+// Controls and coordinates
+import MousePosition from 'ol/control/MousePosition';
+import {FullScreen, defaults as defaultControls} from 'ol/control';
+import {createStringXY} from 'ol/coordinate';
+
+// Interactions
 import Draw from 'ol/interaction/Draw';
+import Modify from 'ol/interaction/Modify';
 import Snap from 'ol/interaction/Snap';
 
+// Define styles
 
-const source = new VectorSource();
+const gainSiteDevelopmentPolygonStyle = new Style({
+  fill: new Fill({
+    color: 'rgba(255, 255, 255, 0.5)'
+  }),
+  stroke: new Stroke({
+    color: '#B10E1E',
+    width: 3
+  }),
+  image: new Icon({
+    opacity: 1,
+    size: [32, 32],
+    scale: 0.5,
+    src: '/public/images/map-draw-cursor-2x.png'
+  })
+});
 
+const gainSiteDevelopmentPolygonVertexStyle = new Style({
+  image: new Icon({
+    opacity: 1,
+    size: [32, 32],
+    scale: 0.5,
+    src: '/public/images/map-draw-cursor-2x.png'
+  })
+});
+
+const drawStyle = new Style({
+  fill: new Fill({
+    color: 'rgba(255, 255, 255, 0.5)'
+  }),
+  stroke: new Stroke({
+    color: '#005EA5',
+    width: 3
+  }),
+  image: new Icon({
+    opacity: 1,
+    size: [32, 32],
+    scale: 0.5,
+    src: '/public/images/map-draw-cursor-2x.png'
+  })
+});
+
+const modifyStyle = new Style({
+  fill: new Fill({
+    color: 'rgba(255, 255, 255, 0.5)'
+  }),
+  stroke: new Stroke({
+    color: '#FFBF47',
+    width: 3
+  }),
+  image: new Icon({
+    opacity: 1,
+    size: [32, 32],
+    scale: 0.5,
+    src: '/public/images/map-draw-cursor-2x.png'
+  })
+});
+
+
+// Define sources and layers
+const osmSource = new OSM();
+const osmLayer = new TileLayer({
+  source: osmSource  
+})
+
+const gainSiteDevelopmentSource = new VectorSource({
+  wrapX: false
+});
+
+const gainSiteDevelopmentLayer = new VectorLayer({
+  source: gainSiteDevelopmentSource,
+  style: [gainSiteDevelopmentPolygonStyle, gainSiteDevelopmentPolygonVertexStyle]
+});
+
+// Controls for full screen display and displaying coordinates on the screen as the mouse moves.
+const fullScreenControl = new FullScreen();
+
+const mousePositionControl = new MousePosition({
+  coordinateFormat: createStringXY(4),
+  projection: 'EPSG:4326',
+  className: 'custom-mouse-position',
+  target: document.getElementById('map-coordinates')
+});
+
+// Create the map
 const map = new Map({
+  controls: defaultControls().extend([fullScreenControl, mousePositionControl]),
   target: 'map',
   layers: [
-    new VectorLayer({
-      source: new VectorSource({
-        format: new GeoJSON(),
-        url: window.jsonurl,
-      }),
-    }),
+    osmLayer,
+    gainSiteDevelopmentLayer
   ],
   view: new View({
-    center: [0, 0],
-    zoom: 2,
+    center: fromLonLat([ -1.4622600, 52.564470]),
+    zoom: 18,
+    minZoom: 14,
+    maxZoom: 20,
   }),
 });
 
-const layer = new VectorLayer({
-  source: source,
-});
-map.addLayer(layer);
-
-map.addInteraction(
-  new DragAndDrop({
-    source: source,
-    formatConstructors: [GeoJSON],
-  })
-);
+// Add interactions
 
 map.addInteraction(
   new Draw({
     type: 'Polygon',
-    source: source,
+    source: gainSiteDevelopmentSource,
+    style: drawStyle
+  })
+);
+
+map.addInteraction(
+  new Modify({
+    source: gainSiteDevelopmentSource,
+    style: modifyStyle
   })
 );
 
 map.addInteraction(
   new Snap({
-    source: source,
+    source: gainSiteDevelopmentSource
   })
 );
 
-const clear = document.getElementById('clear');
-clear.addEventListener('click', function () {
-  source.clear();
+const deleteBoundary = document.getElementById('deleteBoundary');
+deleteBoundary.addEventListener('click', function () {
+  gainSiteDevelopmentSource.clear()
 });
 
-const format = new GeoJSON({featureProjection: 'EPSG:3857'});
-const download = document.getElementById('download');
-source.on('change', function () {
-  const features = source.getFeatures();
-  const json = format.writeFeatures(features);
-  download.href =
-    'data:application/json;charset=utf-8,' + encodeURIComponent(json);
-});
+

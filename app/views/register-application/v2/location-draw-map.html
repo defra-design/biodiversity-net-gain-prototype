@@ -9,6 +9,8 @@
   }) }}
 {% endblock %}
 
+{% set map = true %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -35,23 +37,32 @@
           </ol>
         </div>
       </details>
-
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-            <img src="/public/images/location-draw.png" alt="" width="100%" style="margin-bottom: 20px">
+      <div class="govuk-form-group markerRadiosContainer">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <button class="govuk-button govuk-button--secondary" data-module="govuk-button" name="delete-boundary" value="delete-boundary" id="deleteBoundary">
+              Delete boundary
+            </button>
+          </fieldset>
         </div>
       </div>
-
-      
-      <form method="post" action="/register-application/{{ pageURL }}/location-confirm">
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-        
-      </form>
-
     </div>
   </div>
 
+  <form method="post" action="/register-application/{{ pageURL }}/location-confirm">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div id="map" class="map" tabindex="0"></div>
+        <div id="map-coordinates" class = "mapcoordinates"></div>
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+      </div>
+    </div>
+  </form>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
 {% endblock %}
