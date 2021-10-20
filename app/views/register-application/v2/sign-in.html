@@ -45,6 +45,10 @@
             type: "password"
         }) }}
 
+        {% if data['payment-bacs-paid'] == 'yes' %}
+        <input class="govuk-input" id="payment-success" name="payment-success" type="hidden" value="paid">
+        {% endif %}
+
         {{ govukButton({
             text: "Sign in"
         }) }}

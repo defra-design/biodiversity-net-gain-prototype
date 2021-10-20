@@ -19,6 +19,8 @@
 
       <form method="post" action="/register-application/{{ pageURL }}/task-list">
 
+        <input class="govuk-input" id="payment-success" name="payment-success" type="hidden" value="paid">
+
         {{ govukButton({
             text: "Continue"
         }) }}
