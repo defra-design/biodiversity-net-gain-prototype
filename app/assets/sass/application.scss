@@ -135,15 +135,58 @@ $govuk-assets-path: '/govuk/assets/';
   overflow-x: auto;
 }
 
-//OS Map
+//OL Mapping
 .map {
-  height: 400px;
+  border: 1px solid #b1b4b6;
+  height: 468px;
+  margin-bottom: 20px;
+  position: relative;
   width: 100%;
-  padding-bottom: 20px;
+
+  &:focus {
+    outline: 0 !important;
+  }
+
+  .ol-viewport {
+    height: 400px !important;
+  }
+
+  @include govuk-media-query($from: tablet) {
+    height: 678px;
+
+    .ol-viewport {
+      height: 600px !important;
+    }
+  }
 }
 
-.mapcoordinates {
-  padding-bottom: 20px;
+.ol-control button {
+  color: #626a6e !important;
+  background-color: white !important;
+  font-size: 1.5em !important;
+}
+
+.ol-control {
+  background-color: rgba(98, 106, 110, 0.5) !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.map-coordinates{
+  @include govuk-font($size: 16);
+  @include govuk-text-colour;
+  background-color: white !important;
+  border: 1px solid rgba(98, 106, 110, 0.5);
+  bottom: .5em;
+  padding: 10px;
+  position: absolute;
+  left: .5em;
+  width: 130px;
+  z-index: 999;
+  
+  @include govuk-media-query($until: desktop) {
+    display: none;
+  }
 }
 
 a.skiplink {
@@ -164,10 +207,6 @@ a.skiplink:focus {
   padding: 0.3em;
 }
 
-#map:focus {
-  outline: #4A74A8 solid 0.15em;
-}
-
 #tools {
   right: 1rem;
 }
@@ -177,4 +216,8 @@ a.skiplink:focus {
   padding: 0.5rem;
   background: white;
   cursor: pointer;
+}
+
+.ol-full-screen {
+  display: none;
 }
