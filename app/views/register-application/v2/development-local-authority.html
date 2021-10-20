@@ -14,22 +14,57 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/development-planning-ref">
+            
 
-        <div class="govuk-form-group">
-          <h1 class="govuk-label-wrapper">
-            <label for="autocomplete-local-authorities" class="govuk-label govuk-label--l" for="example">
-              {{ pageHeading }}
-            </label>
-          </h1>
-          <div id="autocomplete-local-authorities" class="autocomplete-wrapper"></div>
-        </div>
+<div data-module="moj-add-another">
 
-        {{ govukButton({
-            text: "Continue"
-        }) }}
+  <h2 class="govuk-heading-l moj-add-another__heading" tabindex="-1">Add developments allocated to the biodiversity gain site</h2>
 
-      </form>
+  <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+    {% call govukFieldset({
+      classes: 'moj-add-another__item',
+      legend: {
+        text: 'Development',
+        classes: 'moj-add-another__title govuk-fieldset__legend--m',
+        isPageHeading: false
+      }
+    }) %}
+
+    <label for="autocomplete-local-authorities" class="govuk-label" for="example">
+      {{ pageHeading }}
+    </label>
+    <div id="autocomplete-local-authorities" class="autocomplete-wrapper govuk-!-margin-bottom-4"></div>
+
+    {{ govukInput({
+      label: {
+          text: "Planning reference number",
+          isPageHeading: true
+      },
+        classes: "govuk-input--width-10",
+        id: "planningref",
+        name: "planningref"
+      })  
+    }}
+
+    {% endcall %}
+
+    <div class="moj-button-action">
+      {{ govukButton({
+        text: 'Add another development',
+        classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+      }) }}
+    </div>
+
+    <div class="moj-button-action">
+      {{ govukButton({
+        text: 'Submit'
+      }) }}
+    </div>
+
+  </form>
+
+</div>
 
     </div>
   </div>
