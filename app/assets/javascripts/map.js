@@ -23,7 +23,7 @@ import View from 'ol/View';
 
 // Controls and coordinates
 import MousePosition from 'ol/control/MousePosition';
-import {FullScreen, defaults as defaultControls} from 'ol/control';
+import {FullScreen, ScaleLine, defaults as defaultControls} from 'ol/control';
 import {createStringXY} from 'ol/coordinate';
 
 // Interactions
@@ -106,8 +106,18 @@ const gainSiteDevelopmentLayer = new VectorLayer({
   style: [gainSiteDevelopmentPolygonStyle, gainSiteDevelopmentPolygonVertexStyle]
 });
 
-// Controls for full screen display and displaying coordinates on the screen as the mouse moves.
+// Controls for:
+// - full screen display
+// - scale bar display
+// - displaying coordinates on the screen as the mouse moves
 const fullScreenControl = new FullScreen();
+
+const scaleBarControl = new ScaleLine({
+  bar: true,
+  steps: 4,
+  text: true,
+  minWidth: 140,
+});
 
 const mousePositionControl = new MousePosition({
   coordinateFormat: createStringXY(4),
@@ -118,7 +128,7 @@ const mousePositionControl = new MousePosition({
 
 // Create the map
 const map = new Map({
-  controls: defaultControls().extend([fullScreenControl, mousePositionControl]),
+  controls: defaultControls().extend([fullScreenControl, scaleBarControl, mousePositionControl]),
   target: 'map',
   layers: [
     osmLayer,
