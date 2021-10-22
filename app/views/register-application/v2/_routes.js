@@ -146,7 +146,7 @@ router.post('/land-management-responsible-answer', function (req, res) {
   var install = req.session.data['land-management-responsible']
 
   if (install == "no"){
-    res.redirect('/register-application/v2/land-management-responsible-works')
+    res.redirect('/register-application/v2/land-management-responsible-who')
   } else {
     res.redirect('/register-application/v2/task-list')
   }
