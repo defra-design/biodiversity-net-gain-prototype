@@ -1,0 +1,25 @@
+{% extends "register-application/v3/layout-register-application.html" %}
+
+{% set pageHeading = "Your payment is being reviewed" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Natural England will check that they have received the payment.</p>
+      <p>They’ll email you once the payment has been recieved with guidance on what to do next to complete the application. </p>
+
+      <p><a href="/register-application/{{ pageURL }}/payment-confirmed-email">Check your email</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

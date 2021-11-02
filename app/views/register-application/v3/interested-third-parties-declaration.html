@@ -1,0 +1,54 @@
+{% extends "register-application/v3/layout-register-application.html" %}
+
+{% set pageHeading = "Third parties declaration" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        {{ govukCheckboxes({
+          idPrefix: "third-parties-declaration",
+          name: "third-parties-declaration",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "accepted",
+              text: "I have consulted with the third parties and confirm that this application does not conflict with their interests."
+            }
+          ]
+        }) }}
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You could be prosecuted or have to pay a financial penalty if you are not authorised to act on behalf of the landowner
+          </strong>
+        </div>
+
+        {{ govukButton({
+            text: "Confirm and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

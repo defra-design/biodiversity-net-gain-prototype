@@ -1,0 +1,112 @@
+{% extends "register-application/v3/layout-register-application.html" %}
+
+{% set pageHeading = "Check the details from the biodiversity metric calculation tool" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Project name"
+            },
+            value: {
+              text: "Meadowcroft Farm"
+            }
+          },
+          {
+            key: {
+              text: "Metric version"
+            },
+            value: {
+              text: "3.1"
+            }
+          },
+          {
+            key: {
+              text: "Assessment date"
+            },
+            value: {
+              text: "15 March 2021"
+            }
+          }
+        ]
+      }) }}
+
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Summary figures</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header">Habitats</th>
+              <th scope="col" class="govuk-table__header">Hedgerows</th>
+              <th scope="col" class="govuk-table__header">Rivers</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Net project biodiversity units
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">Including all habitat retention and creation</span>
+              </th>
+              <td class="govuk-table__cell">2.33</td>
+              <td class="govuk-table__cell">0.98</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__header">Total project biodiversity % change
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">Including all habitat retention and creation</span>
+              </td>
+              <td class="govuk-table__cell">16.60%</td>
+              <td class="govuk-table__cell">53.57%</td>
+              <td class="govuk-table__cell">0.00%</td>
+            </tr>
+        </tbody>
+      </table>
+
+      <form method="post" action="/register-application/{{ pageURL }}/metric-correct-answer">
+
+        {{ govukRadios({
+          idPrefix: "metric-correct",
+          name: "metric-correct",
+          fieldset: {
+            legend: {
+              text: "Is this information correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this looks correct"
+            },
+            {
+              value: "no",
+              text: "No, I want to choose a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

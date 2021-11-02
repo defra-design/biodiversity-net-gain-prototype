@@ -1,0 +1,58 @@
+{% extends "register-application/v3/layout-register-application.html" %}
+
+{% set pageHeading = "How do you want to provide the location of the biodiversity gain site?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+
+        {{ govukRadios({
+          idPrefix: "location-options",
+          name: "location-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "location-land-registry",
+              text: "Select from the HM Land Registry"
+            },
+            {
+              value: "location-rpa",
+              text: "Pick from the Rural Payments Agency"
+            },
+            {
+              value: "location-import",
+              text: "Import from a file"
+            },
+            {
+              value: "location-draw",
+              text: "Draw on a map"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

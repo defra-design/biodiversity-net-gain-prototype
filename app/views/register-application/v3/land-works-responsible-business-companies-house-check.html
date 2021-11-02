@@ -1,0 +1,52 @@
+{% extends "register-application/v3/layout-register-application.html" %}
+
+{% set pageHeading = "Are these the correct registered company details?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
+
+      <h2 class="govuk-heading-m">Acme Org Ltd</h2>
+
+      <p><b>Limited Company</b></p>
+
+      <p>1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
+
+      <p>Company number 01234567.  <a href="/register-application/{{ pageURL }}/land-works-responsible-business-companies-house-number">Enter a different number</a>.</p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            That is not our registered office address
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">We must use the address that is registered with Companies House. If your address has changed then you must <a href="https://www.gov.uk/file-changes-to-a-company-with-companies-house" target="_blank">tell Companies House (opens in a new tab)</a>.</p>
+            <p class="govuk-body">Once your details have been updated by Companies House you can return and continue your service registration providing it is within 3 days of your last login.</p>
+        </div>
+      </details>
+
+      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible-business-contact">
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

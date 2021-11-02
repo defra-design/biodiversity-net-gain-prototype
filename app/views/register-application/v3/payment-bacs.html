@@ -1,0 +1,103 @@
+{% extends "register-application/v3/layout-register-application.html" %}
+
+{% set pageHeading = "Pay the registration fee" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <h2 class="govuk-heading-m">Acme Org Ltd’s registration fee</h2>
+
+      <p class="govuk-body-l">£xxx.xx</p>
+
+      <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
+
+      <p>You should pay the Environment Agency by Bacs. It usually takes 3 working days to process.</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your payment reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PROD123456
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Natural England
+          </dd>          
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sort code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            60 70 80
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10010010
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            International bank account number (IBAN)
+          </dt>
+          <dd class="govuk-summary-list__value">
+            GB12 NWBK 345678 10014411
+          </dd>
+        </div>
+      </dl>
+
+      <p><a href="#">Download invoice</a> (PDF, 124kb)</p>
+
+
+      <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer" class="govuk-!-padding-top-5">
+
+        {{ govukRadios({
+          idPrefix: "payment-bacs-paid",
+          name: "payment-bacs-paid",
+          fieldset: {
+            legend: {
+              text: "Has the registration fee been paid?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, I'll complete my application later"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
