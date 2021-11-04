@@ -97,10 +97,11 @@ router.post('/location-rpa-confirm-answer', function (req, res) {
 
   var install = req.session.data['location-confirm']
 
-  if (install == "no"){
+  if (install == "no-again"){
     res.redirect('/register-application/v3/location-rpa-select')
-  }
-  else {
+  } else if (install == "no"){
+    res.redirect('/register-application/v3/location-options')
+  } else {
     res.redirect('/register-application/v3/task-list')
   }
 })
