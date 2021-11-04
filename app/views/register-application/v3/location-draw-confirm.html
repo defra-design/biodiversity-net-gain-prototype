@@ -50,7 +50,7 @@
       }) }}
 
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/location-draw-confirm-answer">
 
         {{ govukRadios({
           idPrefix: "location-confirm",
@@ -68,7 +68,7 @@
             },
             {
               value: "no-again",
-              text: "No, import a different file"
+              text: "No, draw it again"
             },
             {
               value: "no",

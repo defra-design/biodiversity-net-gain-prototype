@@ -79,27 +79,56 @@ router.post('/location-options-answer', function (req, res) {
 })
 
 // Location confirm
-router.post('/location-import-confirm-answer', function (req, res) {
+router.post('/location-confirm-answer', function (req, res) {
 
-  var install = req.session.data['location-import-confirm']
+  var install = req.session.data['location-confirm']
+
+  if (install == "no-again"){
+    res.redirect('/register-application/v3/location-land-registry-search-detailed')
+  } else if (install == "no"){
+    res.redirect('/register-application/v3/location-options')
+  } else {
+    res.redirect('/register-application/v3/task-list')
+  }
+})
+
+// Location RPA confirm
+router.post('/location-rpa-confirm-answer', function (req, res) {
+
+  var install = req.session.data['location-confirm']
 
   if (install == "no"){
-    res.redirect('/register-application/v3/location-import')
+    res.redirect('/register-application/v3/location-rpa-select')
   }
   else {
     res.redirect('/register-application/v3/task-list')
   }
 })
 
-// Location confirm
-router.post('/location-confirm-answer', function (req, res) {
+// Location import confirm
+router.post('/location-import-confirm-answer', function (req, res) {
 
   var install = req.session.data['location-confirm']
 
-  if (install == "no"){
+  if (install == "no-again"){
+    res.redirect('/register-application/v3/location-import')
+  } else if (install == "no"){
     res.redirect('/register-application/v3/location-options')
+  } else {
+    res.redirect('/register-application/v3/task-list')
   }
-  else {
+})
+
+// Location draw confirm
+router.post('/location-draw-confirm-answer', function (req, res) {
+
+  var install = req.session.data['location-confirm']
+
+  if (install == "no-again"){
+    res.redirect('/register-application/v3/location-draw-map')
+  } else if (install == "no"){
+    res.redirect('/register-application/v3/location-options')
+  } else {
     res.redirect('/register-application/v3/task-list')
   }
 })

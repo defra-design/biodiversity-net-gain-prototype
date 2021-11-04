@@ -51,7 +51,7 @@
               </span>
               {% if data['location-confirm'] == 'yes' %}
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="location-status">Completed</strong>
-              {% elif data['location-confirm'] == 'no' %}
+              {% elif data['location-confirm'] == 'no' or data['location-confirm'] == 'no-again'%}
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="location-status">In progress</strong>
               {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="location-status">Not started</strong>

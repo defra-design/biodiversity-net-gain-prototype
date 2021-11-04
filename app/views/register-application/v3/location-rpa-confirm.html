@@ -24,33 +24,42 @@
         rows: [
           {
             key: {
-              text: "Address"
+              text: "Area"
             },
             value: {
-              html: "Meadow Croft Farm, <br>Goose Lane, <br>Leeds, <br>LS20 8PJ"
+              text: "5.78 ha"
             }
           },
           {
             key: {
-              text: "Grid Reference"
+              text: "Perimeter / Length
+              "
             },
             value: {
-              text: "SP41989814"
+              text: "1311.92 m"
             }
           },
           {
             key: {
-              text: "Latitude, Longitude"
+              text: "Parcel ID"
             },
             value: {
-              text: "52.579466, -1.381870"
+              text: "9859"
+            }
+          },
+          {
+            key: {
+              text: "Field ID"
+            },
+            value: {
+              text: "SP4198 9859"
             }
           }
         ]
       }) }}
 
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-confirm-answer">
 
         {{ govukRadios({
           idPrefix: "location-confirm",
@@ -67,12 +76,8 @@
               text: "Yes, this looks correct"
             },
             {
-              value: "no-again",
-              text: "No, import a different file"
-            },
-            {
               value: "no",
-              text: "No, provide the location a different way"
+              text: "No, this is not right"
             }
           ]
         }) }}
