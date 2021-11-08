@@ -1,6 +1,6 @@
 {% extends "register-application/v3/layout-register-application.html" %}
 
-{% set pageHeading = "Register a biodiversity gain site" %}
+{% set pageHeading = "Register land as a site for habitat enhancement" %}
 
 {% block header %}
   {{ govukHeader({
@@ -32,9 +32,20 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
-      <p class="govuk-body">You can use this service to register a biodiversity gain site. </p>
+      <p class="govuk-body">You can use this service to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          give details about the boundary of the land
+        </li>
+        <li>
+          tell Defra about the landowner and third parties who have an interest in the land
+        </li>
+        <li>
+          link the land to a development site
+        </li>
+      </ul>
       <p class="govuk-body">It costs £? and can be paid by debit or credit card or Bacs.  </p>
-      <p class="govuk-body">You can also use this service to continue an application if you’ve already started registering. </p>
+      <p class="govuk-body">You can also use this service to continue an application if you’ve already started registering.</p>
 
       {{ govukButton({
         text: "Start now",
