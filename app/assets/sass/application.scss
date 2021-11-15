@@ -14,11 +14,13 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/step-by-step-related";
 @import "patterns/task-list";
 @import "patterns/related-items";
-@import "patterns/login-nav";
-
-@import "patterns/accessible-autocomplete";
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+@import "patterns/login-nav";
+@import "patterns/accessible-autocomplete";
+
+
 .app-search-results {
   list-style: none;
   margin-bottom: 40px;
