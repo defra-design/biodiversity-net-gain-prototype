@@ -1,0 +1,26 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "You cannot register the land" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You need to have a legal agreement between the landowner and a developer to enhance the habitat on this land.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Sign in" %}
+
+{% block beforeContent %}
+
+  {% if data['payment-bacs-paid'] %}
+  {% else %}
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript: window.history.go(-1)"
+    }) }}
+  {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        {{ govukInput({
+          label: {
+              text: "Username"
+          },
+            classes: "govuk-!-width-three-quarters",
+            id: "userId",
+            name: "userId"
+          })  
+        }}
+
+        {{ govukInput({
+            label: {
+                text: "Password"
+            },
+            classes: "govuk-!-width-three-quarters",
+            id: "password",
+            name: "password",
+            type: "password"
+        }) }}
+
+        {% if data['payment-bacs-paid'] == 'yes' %}
+        <input class="govuk-input" id="payment-success" name="payment-success" type="hidden" value="paid">
+        {% endif %}
+
+        {{ govukButton({
+            text: "Sign in"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

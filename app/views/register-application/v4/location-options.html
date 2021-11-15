@@ -1,0 +1,61 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "How do you want to provide the land boundary?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+
+        {{ govukRadios({
+          idPrefix: "location-options",
+          name: "location-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "location-land-registry",
+              text: "Search HM Land Registry"
+            },
+            {
+              value: "location-rpa",
+              text: "Select from Rural Payments Agency"
+            },
+            {
+              value: "location-import",
+              text: "Import from a file",
+              hint: {
+                text: "GeoJSON, KML or Shape files"
+              }
+            },
+            {
+              value: "location-draw",
+              text: "Draw on a map"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

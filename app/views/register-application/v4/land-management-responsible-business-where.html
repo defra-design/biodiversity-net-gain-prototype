@@ -1,0 +1,50 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Where is the organisation registered to trade?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/land-management-responsible-business-companies-house">
+
+        {{ govukRadios({
+          idPrefix: "land-management-responsible-business-where",
+          name: "land-management-responsible-business-where",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "land-management-responsible-business-where-uk",
+              text: "UK"
+            },
+            {
+              value: "land-management-responsible-business-where-non-uk",
+              text: "Non-UK (Organisation that is not registered in the UK)"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

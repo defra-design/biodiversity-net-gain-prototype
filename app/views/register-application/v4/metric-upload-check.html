@@ -1,0 +1,66 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Check the biodiversity metric calculation file" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: '<a download href="/public/images/Biodiversity Metric 3.0_meadow-croft.xlsm">Biodiversity Metric 3.0_meadow-croft.xlsm</a>, 4.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post" action="/register-application/{{ pageURL }}/metric-correct-answer">
+
+        {{ govukRadios({
+          idPrefix: "metric-correct",
+          name: "metric-correct",
+          fieldset: {
+            legend: {
+              text: "Is this file correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this looks correct"
+            },
+            {
+              value: "no",
+              text: "No, I want to choose a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

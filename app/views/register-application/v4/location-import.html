@@ -1,0 +1,44 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Upload your file" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
+
+        {{ govukFileUpload({
+          id: "location-import",
+          name: "location-import",
+          label: {
+            text: "Upload your file",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "GeoJSON, KML or Shape files - Max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

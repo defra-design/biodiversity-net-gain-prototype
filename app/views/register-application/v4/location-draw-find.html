@@ -1,0 +1,121 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Find the location" %}
+
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% set placeHtml %}
+{{ govukInput({
+  id: "location-place",
+  name: "location-place",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Email address",
+    classes: "govuk-visually-hidden"
+  },
+  hint: {
+    text: "For example, Bakewell or WA4 1AB"
+  }
+}) }}
+{% endset -%}
+
+{% set ngrHtml %}
+{{ govukInput({
+  id: "location-ngr",
+  name: "location-ngr",
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "National Grid Reference (NGR)",
+    classes: "govuk-visually-hidden"
+  },
+  hint: {
+    text: "For example, NY395557 (6, 8 or 12 digits)"
+  }
+}) }}
+{% endset -%}
+
+{% set eastnorthHtml %}
+<span class="govuk-hint">
+  For example, 123456 123456
+</span>
+{{ govukInput({
+  id: "location-easting",
+  name: "location-easting",
+  classes: "govuk-!-width-one-third",
+  type: "tel",
+  label: {
+    text: "Easting"
+  }
+}) }}
+{{ govukInput({
+  id: "location-northing",
+  name: "location-northing",
+  classes: "govuk-!-width-one-third",
+  type: "tel",
+  label: {
+    text: "Northing"
+  }
+}) }}
+{% endset -%}
+
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-draw-map">
+
+        {{ govukRadios({
+          idPrefix: "location-draw-find",
+          name: "location-draw-find",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "location-place-or-postcode",
+              text: "Place or postcode",
+              conditional: {
+                html: placeHtml
+              }
+            },
+            {
+              value: "location-ngr",
+              text: "National Grid Reference (NGR)",
+              conditional: {
+                html: ngrHtml
+              }
+            },
+            {
+              value: "location-easting-northing",
+              text: "Easting and northing",
+              conditional: {
+                html: eastnorthHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

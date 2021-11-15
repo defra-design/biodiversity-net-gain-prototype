@@ -1,0 +1,88 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Search for a property" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/location-land-registry-search-lookup">
+
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+        {{ govukInput({
+          label: {
+            text: "Title number"
+          },
+            id: "land-title-number",
+            name: "land-title-number",
+            classes: "govuk-input--width-10"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "House number or name"
+          },
+            id: "land-number",
+            name: "land-number",
+            classes: "govuk-!-width-one-half"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "Street name"
+          },
+            id: "land-street-name",
+            name: "land-street-name",
+            classes: "govuk-!-width-one-half"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "Town"
+          },
+            id: "land-town",
+            name: "land-town",
+            classes: "govuk-!-width-one-half"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode"
+          },
+            id: "land-postcode",
+            name: "land-postcode",
+            classes: "govuk-input--width-10"
+          })  
+        }}
+        
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
