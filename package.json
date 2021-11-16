@@ -61,7 +61,6 @@
     "jest": "^27.3.1",
     "standard": "^14.3.3",
     "supertest": "^6.1.6",
-    "node-sass": "^4.14.1",
     "webpack": "^5.57.1",
     "webpack-cli": "^4.9.0"
   },
