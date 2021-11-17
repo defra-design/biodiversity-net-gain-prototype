@@ -1,6 +1,6 @@
 {% extends "register-application/v4/layout-register-application.html" %}
 
-{% set pageHeading = "Check the biodiversity metric calculation file" %}
+{% set pageHeading = "Check your file" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -47,11 +47,11 @@
           items: [
             {
               value: "yes",
-              text: "Yes, this looks correct"
+              text: "Yes"
             },
             {
               value: "no",
-              text: "No, I want to choose a different file"
+              text: "No, choose a different file"
             }
           ]
         }) }}

@@ -1,6 +1,6 @@
 {% extends "register-application/v4/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the completed biodiversity metric calculation tool" %}
+{% set pageHeading = "Upload your biodiversity metric 3.0 calculations" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -26,6 +26,9 @@
           label: {
             text: "Upload a file",
             classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "XLSM or XLSX - Max size 50MB"
           }
         }) }}
 
