@@ -21,6 +21,19 @@
 
 {% endblock %}
 
+{% block beforeContent %}
+  <div class="app-save__wrapper">
+    {% if hideBackLink === true %}
+    {% else %}
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript: window.history.go(-1)"
+      }) }}
+    {% endif %} 
+    {% include "includes/save-and-return.html" %}
+  </div>
+{% endblock %}
+
 {% block footer %}
   {% include "includes/footer.html" %}
 {% endblock %}

@@ -2,6 +2,8 @@
 
 {% set pageHeading = "Register land as a site for habitat enhancement" %}
 
+{% set hideBackLink = true %}
+
 {% block content %}
 
   <div class="govuk-grid-row">
@@ -9,16 +11,18 @@
       <h1 class="govuk-heading-xl">
         {{ pageHeading }}
       </h1>
-
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       
       {% if data['declaration']  %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 3 sections.</p>
       {% elif data['development-confirm']  %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
       {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
       {% endif %} 
 
@@ -178,8 +182,6 @@
         </li>
 
       </ol>
-
-      {% include "includes/save-and-exit.html" %}
 
     </div>
   </div>

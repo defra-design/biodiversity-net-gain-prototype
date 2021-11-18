@@ -4,13 +4,6 @@
 
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript: window.history.go(-1)"
-  }) }}
-{% endblock %}
-
 {% set placeHtml %}
 {{ govukInput({
   id: "location-place",

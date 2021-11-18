@@ -10,11 +10,16 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          {{ pageHeading }}
+        </h1>
+        <div class="govuk-panel__body">
+          We’ve saved the details you entered so far.
+        </div>
+      </div>
 
-      <p>We’ve saved the details you entered so far.</p>
-
-      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ pageURL }}/sign-in">https://bng.defra.gov.uk/signin</a>.</p>
+      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ pageURL }}/sign-in">https://gov.uk/register-habitat-enhancement</a>.</p>
 
       <p class="govuk-!-padding-top-7"><a href="start">Back to GOV.UK</a></p>
         
