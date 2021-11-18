@@ -14,7 +14,7 @@
       
       {% if data['declaration']  %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 3 sections.</p>
-      {% elif data['planningref']  %}
+      {% elif data['development-confirm']  %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
       {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
@@ -112,7 +112,7 @@
                   Planning reference number
                 </a>
               </span>
-              {% if data['planningref'] %}
+              {% if data['development-confirm'] %}
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
               {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
@@ -133,7 +133,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['planningref'] %}
+              {% if data['development-confirm'] %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
