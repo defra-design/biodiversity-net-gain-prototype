@@ -154,6 +154,30 @@ router.post('/metric-correct-answer', function (req, res) {
   }
 })
 
+// Management plan
+router.post('/management-plan-answer', function (req, res) {
+
+  var install = req.session.data['management-plan']
+
+  if (install == "no"){
+    res.redirect('/register-application/v4/management-plan-no')
+  } else {
+    res.redirect('/register-application/v4/management-plan-upload')
+  }
+})
+
+// Management plan check
+router.post('/management-plan-correct-answer', function (req, res) {
+
+  var install = req.session.data['management-plan-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v4/management-plan-upload')
+  } else {
+    res.redirect('/register-application/v4/task-list')
+  }
+})
+
 // Works responsible
 router.post('/land-works-responsible-answer', function (req, res) {
 

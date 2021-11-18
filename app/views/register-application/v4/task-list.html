@@ -18,7 +18,7 @@
       {% elif data['development-confirm']  %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
-      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
+      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
@@ -90,11 +90,11 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/land-management-responsible" aria-describedby="land-management-status">
-                  Management and monitoring
+                <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="land-management-status">
+                  Management and monitoring plan
                 </a>
               </span>
-              {% if data['land-management-responsible'] %}
+              {% if data['management-plan-correct'] %}
               <strong class="govuk-tag govuk-tag app-task-list__tag" id="land-management-status">Completed</strong>
               {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="land-management-status">Not started</strong>
@@ -110,7 +110,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
+              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
                   Planning reference number

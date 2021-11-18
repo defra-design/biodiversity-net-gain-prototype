@@ -15,7 +15,7 @@
             Local planning authority
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['input-autocomplete'] }}
+            {{ data['input-autocomplete'] or 'Leeds City Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/{{ pageURL }}/development-local-authority">
@@ -28,7 +28,7 @@
             Planning reference number
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['planningref'] }}
+            {{ data['planningref'] or 'FG/KIJ/099' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/{{ pageURL }}/development-local-authority">
