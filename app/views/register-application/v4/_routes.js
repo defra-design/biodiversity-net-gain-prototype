@@ -154,6 +154,30 @@ router.post('/metric-correct-answer', function (req, res) {
   }
 })
 
+// Legal agreement
+router.post('/legal-agreement-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement']
+
+  if (install == "no"){
+    res.redirect('/register-application/v4/legal-agreement-no')
+  } else {
+    res.redirect('/register-application/v4/legal-agreement-upload')
+  }
+})
+
+// Legal agreement check
+router.post('/legal-agreement-correct-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v4/legal-agreement-upload')
+  } else {
+    res.redirect('/register-application/v4/task-list')
+  }
+})
+
 // Management plan
 router.post('/management-plan-answer', function (req, res) {
 

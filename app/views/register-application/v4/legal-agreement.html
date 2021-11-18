@@ -1,0 +1,46 @@
+{% extends "register-application/v4/layout-register-application.html" %}
+
+{% set pageHeading = "Have you a legal agreement that links habitat enhancement on the land to a development site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-answer">
+
+        {{ govukRadios({
+          idPrefix: "legal-agreement",
+          name: "legal-agreement",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "The legal agreement can be a conservation covenant or a planning obligation."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
