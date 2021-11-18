@@ -33,7 +33,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/landowner" aria-describedby="landowner-permission-status">
-                  Landowner permission
+                  Landowner consent
                 </a>
               </span>
               {% if data['landowner'] == 'yes' or data['landowner-permission'] == 'yes' %}
@@ -74,7 +74,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/metric" aria-describedby="biodiversity-metric-status">
-                  The biodiversity metric
+                  Biodiversity metric 3.0
                 </a>
               </span>
               {% if data['metric-correct'] %}
@@ -109,7 +109,7 @@
               {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
-                  Development information
+                  Planning reference number
                 </a>
               </span>
               {% if data['planningref'] %}
@@ -119,7 +119,7 @@
               {% endif %} 
               {% else %}
               <span class="app-task-list__task-name">
-                Development information
+                Planning reference number
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
               {% endif %} 
