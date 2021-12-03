@@ -1,0 +1,46 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "How do you want to provide the land boundary?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+
+        {{ govukRadios({
+          idPrefix: "location-options",
+          name: "location-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "location-rpa",
+              text: "Select from Rural Payments Agency"
+            },
+            {
+              value: "location-import",
+              text: "Upload a file",
+              hint: {
+                text: "GeoJSON, KML or Shape files"
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

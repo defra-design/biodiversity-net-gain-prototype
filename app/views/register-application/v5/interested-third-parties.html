@@ -1,0 +1,46 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Are there any third parties that have rights over the land?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/interested-third-parties-answer">
+
+        {{ govukRadios({
+          idPrefix: "interested-third-parties",
+          name: "interested-third-parties",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, someone who has shooting rights, public right of way or is the mortage lender."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Register land as a site for habitat enhancement" %}
+
+{% set hideBackLink = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ pageHeading }}
+      </h1>
+      
+      {% if data['declaration']  %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 3 sections.</p>
+      {% elif data['development-confirm']  %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
+      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['legal-agreement-correct'] and data['management-plan-correct'] %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
+      {% else %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 3 sections.</p>
+      {% endif %} 
+
+      <ol class="app-task-list">
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">1. </span> Give details about the land and habitat enhancement
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/landowner" aria-describedby="landowner-permission-status">
+                  Landowner consent
+                </a>
+              </span>
+              {% if data['landowner'] == 'yes' or data['landowner-permission'] == 'yes' %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="landowner-permission-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="landowner-permission-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="location-status">
+                  Land boundary
+                </a>
+              </span>
+              {% if data['location-confirm'] == 'yes' %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="location-status">Completed</strong>
+              {% elif data['location-confirm'] == 'no' or data['location-confirm'] == 'no-again'%}
+              <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="location-status">In progress</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="location-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/interested-third-parties" aria-describedby="interested-third-parties-status">
+                  Interested third parties
+                </a>
+              </span>
+              {% if data['interested-third-parties'] %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="interested-third-parties-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="interested-third-parties-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/metric" aria-describedby="biodiversity-metric-status">
+                  Biodiversity metric 3.0
+                </a>
+              </span>
+              {% if data['metric-correct'] %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
+                  Legal agreement
+                </a>
+              </span>
+              {% if data['legal-agreement-correct'] %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="legal-agreement-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="legal-agreement-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="land-management-status">
+                  Management and monitoring plan
+                </a>
+              </span>
+              {% if data['management-plan-correct'] %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="land-management-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="land-management-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Give details about the development site
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['legal-agreement-correct'] and data['management-plan-correct'] %}
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
+                  Planning reference number
+                </a>
+              </span>
+              {% if data['development-confirm'] %}
+              <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
+              {% endif %} 
+              {% else %}
+              <span class="app-task-list__task-name">
+                Planning reference number
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Pay and apply
+          </h2>
+          <ul class="app-task-list__items">
+            <li class="app-task-list__item">
+              {% if data['development-confirm'] %}
+                
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
+                  Pay the application fee
+                </a>
+              </span>
+
+
+              {% if data['payment-success'] %}
+              <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
+              {% endif %} 
+
+              {% else %}
+              <span class="app-task-list__task-name">
+                Pay the application fee
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+            <li class="app-task-list__item">
+              {% if data['payment-success'] %}
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/declaration" aria-describedby="submit-application">
+                  Submit the application
+                </a>
+              </span>
+              {% if data['declaration'] %}
+              <strong class="govuk-tag app-task-list__tag" id="submit-application">completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">not started yet</strong>
+              {% endif %} 
+              {% else %}
+              <span class="app-task-list__task-name">
+                Submit the application
+              </span>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+          </ul>
+        </li>
+
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}

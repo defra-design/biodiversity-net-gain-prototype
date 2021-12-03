@@ -1,0 +1,43 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Have the works on the land already taken place?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible">
+
+        {{ govukRadios({
+          idPrefix: "land-works",
+          name: "land-works",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "land-works-yes",
+              text: "Yes"
+            },
+            {
+              value: "land-works-no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
