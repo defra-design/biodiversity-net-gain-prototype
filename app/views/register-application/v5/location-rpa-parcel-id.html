@@ -1,17 +1,17 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Where is the organisation registered to trade?" %}
+{% set pageHeading = "Do you know the parcel ID?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible-business-companies-house">
+      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-parcel-id-answer">
 
         {{ govukRadios({
-          idPrefix: "land-works-responsible-business-where",
-          name: "land-works-responsible-business-where",
+          idPrefix: "location-rpa-parcel-id",
+          name: "location-rpa-parcel-id",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -21,12 +21,12 @@
           },
           items: [
             {
-              value: "land-works-responsible-business-where-uk",
-              text: "UK"
+              value: "location-rpa-parcel-id-yes",
+              text: "Yes"
             },
             {
-              value: "land-works-responsible-business-where-non-uk",
-              text: "Non-UK (Organisation that is not registered in the UK)"
+              value: "location-rpa-parcel-id-no",
+              text: "No"
             }
           ]
         }) }}

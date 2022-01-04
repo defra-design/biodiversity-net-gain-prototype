@@ -1,0 +1,67 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Check the land details from HM Land Registry" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Address"
+            },
+            value: {
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ"
+            }
+          },
+          {
+            key: {
+              text: "Tenure"
+            },
+            value: {
+              text: "Freehold"
+            }
+          }
+        ]
+      }) }}
+
+      
+      
+      <form method="post" action="/register-application/{{ pageURL }}/land-registry-search-confirm-answer">
+
+        {{ govukRadios({
+          idPrefix: "land-registry-correct",
+          name: "land-registry-correct",
+          fieldset: {
+            legend: {
+              text: "Is this information correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, this looks correct"
+            },
+            {
+              value: "no",
+              text: "No, this is not right"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

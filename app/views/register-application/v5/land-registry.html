@@ -1,17 +1,17 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Who is responsible for managing and monitoring the gain site?" %}
+{% set pageHeading = "Is the land registered with HM Land Registry?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-management-responsible-business-where">
+      <form method="post" action="/register-application/{{ pageURL }}/land-registry-answer">
 
         {{ govukRadios({
-          idPrefix: "land-management-responsible-who",
-          name: "land-management-responsible-who",
+          idPrefix: "land-registry",
+          name: "land-registry",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -21,12 +21,16 @@
           },
           items: [
             {
-              value: "land-management-responsible-who-business",
-              text: "A business or organisation"
+              value: "yes",
+              text: "Yes"
             },
             {
-              value: "land-management-responsible-who-person",
-              text: "An individual"
+              value: "no",
+              text: "No"
+            },
+            {
+              value: "not-sure",
+              text: "I'm not sure"
             }
           ]
         }) }}

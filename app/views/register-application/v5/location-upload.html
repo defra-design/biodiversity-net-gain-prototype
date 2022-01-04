@@ -1,6 +1,6 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your legal agreement" %}
+{% set pageHeading = "Upload your file" %}
 
 {% block content %}
 
@@ -11,17 +11,17 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-check">
+      <form method="post" action="/register-application/{{ pageURL }}/location-upload-confirm">
 
         {{ govukFileUpload({
-          id: "legal-agreement-upload",
-          name: "legal-agreement-upload",
+          id: "location-upload",
+          name: "location-upload",
           label: {
-            text: "Upload a file",
+            text: "Upload your file",
             classes:"govuk-visually-hidden"
           },
           hint: {
-            text: "PDF - max size 50MB"
+            text: "PDF, JPEG or PNG files - max size 50MB"
           }
         }) }}
 

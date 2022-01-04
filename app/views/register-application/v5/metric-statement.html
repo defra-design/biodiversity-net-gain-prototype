@@ -1,24 +1,17 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Is the land in England?" %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript: window.history.go(-1)"
-  }) }}
-{% endblock %}
+{% set pageHeading = "Have you checked whether the baseline habitat has deteriorated significantly since 30 January 2020?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/eligibility-england-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/metric-statement-answer">
 
         {{ govukRadios({
-          idPrefix: "england",
-          name: "england",
+          idPrefix: "metric-statement",
+          name: "metric-statement",
           fieldset: {
             legend: {
               text: pageHeading,

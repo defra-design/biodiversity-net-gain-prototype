@@ -18,7 +18,7 @@
       {% elif data['development-confirm']  %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
-      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['legal-agreement-correct'] and data['management-plan-correct'] %}
+      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
@@ -90,19 +90,6 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
-                  Legal agreement
-                </a>
-              </span>
-              {% if data['legal-agreement-correct'] %}
-              <strong class="govuk-tag govuk-tag app-task-list__tag" id="legal-agreement-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="legal-agreement-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="land-management-status">
                   Management and monitoring plan
                 </a>
@@ -123,10 +110,10 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['legal-agreement-correct'] and data['management-plan-correct'] %}
+              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
-                  Planning reference number
+                <a href="/register-application/{{ pageURL }}/development" aria-describedby="allocated-developments-status">
+                  Development information
                 </a>
               </span>
               {% if data['development-confirm'] %}
@@ -136,7 +123,7 @@
               {% endif %} 
               {% else %}
               <span class="app-task-list__task-name">
-                Planning reference number
+                Development information
               </span>
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
               {% endif %} 

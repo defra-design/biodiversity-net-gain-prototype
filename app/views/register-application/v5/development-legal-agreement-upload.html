@@ -1,6 +1,6 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Import your geospatial data file" %}
+{% set pageHeading = "Upload your legal agreement" %}
 
 {% block content %}
 
@@ -11,17 +11,17 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/development-legal-agreement-check">
 
         {{ govukFileUpload({
-          id: "location-import",
-          name: "location-import",
+          id: "legal-agreement-upload",
+          name: "legal-agreement-upload",
           label: {
-            text: "Upload your file",
+            text: "Upload a file",
             classes:"govuk-visually-hidden"
           },
           hint: {
-            text: "GeoJSON, KML or Shape files - max size 50MB"
+            text: "PDF - max size 50MB"
           }
         }) }}
 

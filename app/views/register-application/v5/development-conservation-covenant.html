@@ -1,17 +1,17 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Are you responsible for carrying out the works?" %}
+{% set pageHeading = "Do you have a conservation covenant?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/conservation-covenant-answer">
 
         {{ govukRadios({
-          idPrefix: "land-works-responsible",
-          name: "land-works-responsible",
+          idPrefix: "conservation-covenant",
+          name: "conservation-covenant",
           fieldset: {
             legend: {
               text: pageHeading,

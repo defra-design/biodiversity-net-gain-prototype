@@ -1,30 +1,6 @@
 const express = require('express')
 const router = new express.Router()
 
-// England
-router.post('/eligibility-england-answer', function (req, res) {
-
-  var install = req.session.data['england']
-
-  if (install == "no"){
-    res.redirect('/register-application/v5/eligibility-england-no')
-  } else {
-    res.redirect('/register-application/v5/eligibility-allocated-developments')
-  }
-})
-
-// Allocated developments
-router.post('/eligibility-allocated-developments-answer', function (req, res) {
-
-  var install = req.session.data['allocated-developments']
-
-  if (install == "no"){
-    res.redirect('/register-application/v5/eligibility-allocated-developments-no')
-  } else {
-    res.redirect('/register-application/v5/sign-in-options')
-  }
-})
-
 // Landowner
 router.post('/landowner-answer', function (req, res) {
 
@@ -33,7 +9,7 @@ router.post('/landowner-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v5/landowner-permission')
   } else {
-    res.redirect('/register-application/v5/task-list')
+    res.redirect('/register-application/v5/land-registry')
   }
 })
 
@@ -49,14 +25,25 @@ router.post('/landowner-permission-answer', function (req, res) {
   }
 })
 
+// Land registry
+router.post('/land-registry-answer', function (req, res) {
 
-// Third parties
-router.post('/interested-third-parties-answer', function (req, res) {
+  var install = req.session.data['land-registry']
 
-  var install = req.session.data['interested-third-parties']
+  if (install == "no"){
+    res.redirect('/register-application/v5/task-list')
+  } else {
+    res.redirect('/register-application/v5/land-registry-search')
+  }
+})
 
-  if (install == "yes"){
-    res.redirect('/register-application/v5/interested-third-parties-declaration')
+// Land registry check
+router.post('/land-registry-search-confirm-answer', function (req, res) {
+
+  var install = req.session.data['land-registry-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/land-registry-search')
   } else {
     res.redirect('/register-application/v5/task-list')
   }
@@ -67,10 +54,14 @@ router.post('/location-options-answer', function (req, res) {
 
   var install = req.session.data['location-options']
 
-   if (install == "location-rpa"){
+  if (install == "location-rpa"){
     res.redirect('/register-application/v5/location-rpa-search')
-  } else {
+  } else if (install == "location-import"){
     res.redirect('/register-application/v5/location-import')
+  } else if (install == "location-upload"){
+    res.redirect('/register-application/v5/location-upload')
+  } else {
+    res.redirect('/register-application/v5/location-draw-find')
   }
 })
 
@@ -116,6 +107,20 @@ router.post('/location-import-confirm-answer', function (req, res) {
   }
 })
 
+// Location upload confirm
+router.post('/location-upload-confirm-answer', function (req, res) {
+
+  var install = req.session.data['location-confirm']
+
+  if (install == "no-again"){
+    res.redirect('/register-application/v5/location-upload')
+  } else if (install == "no"){
+    res.redirect('/register-application/v5/location-options')
+  } else {
+    res.redirect('/register-application/v5/task-list')
+  }
+})
+
 // Location draw confirm
 router.post('/location-draw-confirm-answer', function (req, res) {
 
@@ -130,6 +135,18 @@ router.post('/location-draw-confirm-answer', function (req, res) {
   }
 })
 
+// Third parties
+router.post('/interested-third-parties-answer', function (req, res) {
+
+  var install = req.session.data['interested-third-parties']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v5/interested-third-parties-declaration')
+  } else {
+    res.redirect('/register-application/v5/task-list')
+  }
+})
+
 // Metric
 router.post('/metric-answer', function (req, res) {
 
@@ -137,6 +154,30 @@ router.post('/metric-answer', function (req, res) {
 
   if (install == "no"){
     res.redirect('/register-application/v5/metric-no')
+  } else {
+    res.redirect('/register-application/v5/metric-statement')
+  }
+})
+
+// Metric statement
+router.post('/metric-statement-answer', function (req, res) {
+
+  var install = req.session.data['metric-statement']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/metric-statement-no')
+  } else {
+    res.redirect('/register-application/v5/metric-adjusted')
+  }
+})
+
+// Metric adjusted
+router.post('/metric-adjusted-answer', function (req, res) {
+
+  var install = req.session.data['metric-adjusted']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/metric-adjusted-no')
   } else {
     res.redirect('/register-application/v5/metric-upload')
   }
@@ -146,6 +187,18 @@ router.post('/metric-answer', function (req, res) {
 router.post('/metric-correct-answer', function (req, res) {
 
   var install = req.session.data['metric-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/metric-upload')
+  } else {
+    res.redirect('/register-application/v5/metric-data')
+  }
+})
+
+// Metric check
+router.post('/metric-data-answer', function (req, res) {
+
+  var install = req.session.data['metric-data']
 
   if (install == "no"){
     res.redirect('/register-application/v5/metric-upload')
@@ -160,9 +213,45 @@ router.post('/legal-agreement-answer', function (req, res) {
   var install = req.session.data['legal-agreement']
 
   if (install == "no"){
-    res.redirect('/register-application/v5/legal-agreement-no')
+    res.redirect('/register-application/v5/development-conservation-covenant')
   } else {
-    res.redirect('/register-application/v5/legal-agreement-upload')
+    res.redirect('/register-application/v5/development-planning-ref-search')
+  }
+})
+
+// Conservation covenant
+router.post('/conservation-covenant-answer', function (req, res) {
+
+  var install = req.session.data['conservation-covenant']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/development-conservation-covenant-no')
+  } else {
+    res.redirect('/register-application/v5/development-conservation-covenant-upload')
+  }
+})
+
+// Conservation covenant check
+router.post('/conservation-covenant-correct-answer', function (req, res) {
+
+  var install = req.session.data['conservation-covenant-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/development-conservation-covenant-upload')
+  } else {
+    res.redirect('/register-application/v5/task-list')
+  }
+})
+
+// Legal agreement file
+router.post('/legal-agreement-file-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement-file']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/development-legal-agreement-upload')
+  } else {
+    res.redirect('/register-application/v5/development-allocation')
   }
 })
 
@@ -172,9 +261,9 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   var install = req.session.data['legal-agreement-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v5/legal-agreement-upload')
+    res.redirect('/register-application/v5/development-legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v5/task-list')
+    res.redirect('/register-application/v5/development-allocation')
   }
 })
 

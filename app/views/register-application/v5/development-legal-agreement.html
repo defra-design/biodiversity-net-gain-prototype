@@ -1,17 +1,17 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Who is responsible for carrying out the works?" %}
+{% set pageHeading = "Is the legal agreement publicly available in the planning application?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible-business-where">
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-file-answer">
 
         {{ govukRadios({
-          idPrefix: "land-works-responsible-who",
-          name: "land-works-responsible-who",
+          idPrefix: "legal-agreement-file",
+          name: "legal-agreement-file",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -21,12 +21,12 @@
           },
           items: [
             {
-              value: "land-works-responsible-who-business",
-              text: "A business or organisation"
+              value: "yes",
+              text: "Yes"
             },
             {
-              value: "land-works-responsible-who-person",
-              text: "An individual"
+              value: "no",
+              text: "No"
             }
           ]
         }) }}
