@@ -30,55 +30,39 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
-
-      <p class="govuk-body">You need to provide a legal agreement that links habitat enhancement on the land to a development site. </p>
-
-      <p class="govuk-body">The legal agreement can be a conservation covenant or a planning obligation.</p>
-
-      <p class="govuk-body">The legal agreement needs to include the following:</p>
+      
+      <h2 class="govuk-heading-m">Overview</h2>
+      <p class="govuk-body">You only need to register land that developers will use for biodiversity gain if they cannot do it on their development site.</p> 
+      <!--<p class="govuk-body">You do not need to register development sites.</p> 
+      <p class="govuk-body">If a developer cannot create or enhance habitats on a development site, they need separate land to help them do this.</p> 
+      <p class="govuk-body">The separate land needs to be registered with Natural England.</p>-->
+      <p class="govuk-body">The developer must use the registration to get their <a class="govuk-link" href="#">biodiversity gain plan</a> approved before development works begin.</p>  
+      
+      <h2 class="govuk-heading-m">Before you apply</h2>
+      
+      <h3 class="govuk-heading-s">If the land is linked to a development</h3>
+      <p class="govuk-body">You must have:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>
-          the land is in England
-        </li>
-        <li>
-          the landowner or tenant has rights to the land
-        </li>
-        <li>
-          the person or organisation responsible for the enhancement is considered fit and proper
-        </li>
-        <li>
-          the enhancement began 30 January 2020 or later 
-        </li>
-        <li>
-          the enhancement will be maintained for at least 30 years
-        </li>
-        <li>
-          the enhancement is measured using a biodiversity metric against a baseline
-        </li>
-        <li>
-          the enhancement follows rules on additionality and stacking including on protected sites
-        </li>
+        <li>a legal agreement called a <a class="govuk-link" href="#">conservation covenant</a> or a <a class="govuk-link" href="#">planning obligation</a></li>
+        <li>submitted a planning application using the <a class="govuk-link" href="#">planning portal</a> </li>
       </ul>
 
-      <p class="govuk-body">You will also need to:</p>
+      <h3 class="govuk-heading-s">If the land is not yet linked to a development</h3>
+      <p class="govuk-body">You must have a conservation covenant. </p>
+      
+      <h2 class="govuk-heading-m">Check what you need and apply</h2> 
+      <p class="govuk-body">You will need to:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>
-          upload your completed biodiversity metric 3.0 calculations 
-        </li>
-        <li>
-          upload your management and monitoring plan
-        </li>
-        <li>
-          tell Defra about the landowner and third parties who have an interest in the land
-        </li>
-        <li>
-          provide the boundary of the land
-        </li>
-      </ul>
-      <p class="govuk-body">It costs £? and can be paid by debit or credit card or Bacs.  </p>
-      <p class="govuk-body">You can also use this service to continue an application if you’ve already started registering.</p>
-
+        <li>tell Natural England about the landowner or third parties who have an interest in the land </li>
+        <li>upload a copy of the signed conservation covenant or provide a planning application reference number</li>
+        <li>provide the boundary of the land</li>
+        <li>upload your completed <a class="govuk-link" href="#">biodiversity metric 3.0 calculations</a></li>
+        <li>upload your <a class="govuk-link" href="#">habitat management and monitoring plan</a></li>
+      </ul> 
+      <p class="govuk-body">It costs £? to apply. You can pay by debit or credit card or Bacs.</p>
+      
       {{ govukButton({
         text: "Start now",
         href: "https://whoareyou:menotyou@identity-management-app.herokuapp.com/tasked/gov-gateway/login?returnUrl=https://biodiversity:netgain@bng-prototype.herokuapp.com/register-application/v5/task-list",
@@ -86,18 +70,37 @@
         isStartButton: true
       }) }}
 
-      <h2 class="govuk-heading-m">Before you start</h2>
-
-      <p class="govuk-body">You can also <a class="govuk-link" href="#">register by post using form BNG01</a>.</p>
-      <p class="govuk-body">Postal applications take 10 days and cost £?. </p>
+      <h2 class="govuk-heading-m">Other ways to apply</h2>
+      <p class="govuk-body">You can also <a class="govuk-link" href="#">apply by post using form BNG01</a>.</p>
+      <p class="govuk-body">Postal applications take 10 days and cost £? on top of the application fee. </p>
       <p class="govuk-body">Send your application to the address on the form. </p>
-
+      
+      <h2 class="govuk-heading-m">After you apply</h2> 
+      <p>After you submit your application, it can take Natural England up to 28 days to review your application. 
+      <p class="govuk-body">We will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>give you a reference number</li>
+        <li>check the information you've provided </li>
+      </ul>  
+        
+      <h2 class="govuk-heading-m">If your application is approved</h2> 
+      <p class="govuk-body">The land will be listed on the <a class="govuk-link" href="#">Biodiversity gain site register</a>. </p>
+      
+      <h2 class="govuk-heading-m">After you're registered</h2> 
+      <p class="govuk-body"> You must follow your habitat management and monitoring plan.  </p>
+      <p class="govuk-body">You must tell Natural England if:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the landowner changes</li>
+        <li>a developer can no longer operate</li>
+        <li>there are changes to the planning permission </li>
+      </ul> 
+      
+      <h3 class="govuk-heading-s">If the land is not yet linked to a development</h3>
+      <p class="govuk-body">You must <a class="govuk-link" href="#">update your registration </a> once the whole land or a section of it is linked to a development. </p>
+    
     </div>
-
     <div class="govuk-grid-column-one-third">
-
       <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
-
       <!--<aside class="app-related-items" role="complementary">
         <h2 class="govuk-heading-m" id="subsection-title">
           Subsection
@@ -122,7 +125,6 @@
           </ul>
         </nav>
       </aside>-->
-
     </div>
   </div>
 {% endblock %}
