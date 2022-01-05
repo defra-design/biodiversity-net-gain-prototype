@@ -1,1 +1,24 @@
-development-allocation page - in progress
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Allocate units" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/development-confirm">
+        <input class="govuk-input" id="development-confirm" name="development-confirm" type="hidden" value="development-confirm">
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

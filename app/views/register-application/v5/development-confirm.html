@@ -1,0 +1,40 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm the development details" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning application
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['input-autocomplete'] or 'Leeds City Council' }}, {{ data['planningref'] or 'FG/KIJ/099' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/development-planning-ref-search">
+              Change<span class="govuk-visually-hidden"> Local planning authority</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+        <input class="govuk-input" id="development-confirm" name="development-confirm" type="hidden" value="development-confirm">
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
