@@ -155,7 +155,7 @@ router.post('/metric-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v5/metric-no')
   } else {
-    res.redirect('/register-application/v5/metric-statement')
+    res.redirect('/register-application/v5/metric-upload')
   }
 })
 
