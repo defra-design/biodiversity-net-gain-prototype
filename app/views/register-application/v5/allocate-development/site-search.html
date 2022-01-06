@@ -1,6 +1,6 @@
 {% extends "register-application/v5/allocate-development/layout-register-application.html" %}
 
-{% set pageHeading = "Find the biodiversity gain site" %}
+{% set pageHeading = "Find land on the Biodiversity gain site register" %}
 
 {% block content %}
 
@@ -9,11 +9,14 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/gain-site-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/site-confirm">
 
         {{ govukInput({
           label: {
-              text: "Biodiversity gain site number"
+              text: "Site reference number"
+          },
+          hint: {
+            text: "For example, 15031984"
           },
             classes: "govuk-input--width-10",
             id: "planningref",

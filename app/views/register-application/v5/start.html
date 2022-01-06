@@ -65,14 +65,14 @@
       
       {{ govukButton({
         text: "Start now",
-        href: "https://whoareyou:menotyou@identity-management-app.herokuapp.com/tasked/gov-gateway/login?returnUrl=https://biodiversity:netgain@bng-prototype.herokuapp.com/register-application/v5/task-list",
+        href: "/register-application/" + pageURL + "/government-gateway-login",
         classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
         isStartButton: true
       }) }}
 
       <h2 class="govuk-heading-m">If the land has already been registered</h2>
 
-      <p>You can <a href="https://whoareyou:menotyou@identity-management-app.herokuapp.com/tasked/gov-gateway/login?returnUrl=https://biodiversity:netgain@bng-prototype.herokuapp.com/register-application/v5/allocate-development/gain-site-search">link a development to a biodiversity gain site</a>.</p>
+      <p>You can <a href="/register-application/{{ pageURL }}/allocate-development/government-gateway-login">link a development to a biodiversity gain site</a>.</p>
 
       <h2 class="govuk-heading-m">Other ways to apply</h2>
       <p class="govuk-body">You can also <a class="govuk-link" href="#">apply by post using form BNG01</a>.</p>

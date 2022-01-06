@@ -344,10 +344,10 @@ router.post('/legal-agreement-correct-answer-allocate', function (req, res) {
 // Legal agreement check
 router.post('/gain-site-confirm-answer-allocate', function (req, res) {
 
-  var install = req.session.data['gain-site-confirm']
+  var install = req.session.data['site-confirm']
 
   if (install == "no"){
-    res.redirect('/register-application/v5/allocate-development/gain-site-search')
+    res.redirect('/register-application/v5/allocate-development/site-search')
   } else {
     res.redirect('/register-application/v5/allocate-development/development-planning-ref-search')
   }
