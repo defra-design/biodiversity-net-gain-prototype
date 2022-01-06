@@ -110,17 +110,24 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
+              {% if data['development-confirm'] %}
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/development-confirm" aria-describedby="allocated-developments-status">
+                  Development information
+                </a>
+              </span>
+              <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
+              {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development" aria-describedby="allocated-developments-status">
                   Development information
                 </a>
               </span>
-              {% if data['development-confirm'] %}
-              <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
-              {% endif %} 
+                {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['development-confirm'] %}
+                <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
+                {% endif %} 
               {% else %}
               <span class="app-task-list__task-name">
                 Development information
