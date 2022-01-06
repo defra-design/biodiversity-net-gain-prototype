@@ -1,0 +1,33 @@
+{% extends "register-application/v5/allocate-development/layout-register-application.html" %}
+
+{% set pageHeading = "Search for planning application" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-select">
+
+        {{ govukInput({
+          label: {
+              text: "Planning reference number"
+          },
+            classes: "govuk-input--width-10",
+            id: "planningref",
+            name: "planningref"
+          })  
+        }}
+
+        {{ govukButton({
+          text: 'Search'
+        }) }}
+          
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

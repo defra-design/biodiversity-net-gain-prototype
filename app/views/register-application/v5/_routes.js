@@ -291,42 +291,6 @@ router.post('/management-plan-correct-answer', function (req, res) {
   }
 })
 
-// Works responsible
-router.post('/land-works-responsible-answer', function (req, res) {
-
-  var install = req.session.data['land-works-responsible']
-
-  if (install == "no"){
-    res.redirect('/register-application/v5/land-works-responsible-who')
-  } else {
-    res.redirect('/register-application/v5/task-list')
-  }
-})
-
-// Management responsible
-router.post('/land-management-responsible-answer', function (req, res) {
-
-  var install = req.session.data['land-management-responsible']
-
-  if (install == "no"){
-    res.redirect('/register-application/v5/land-management-responsible-who')
-  } else {
-    res.redirect('/register-application/v5/task-list')
-  }
-})
-
-// Management responsible works
-router.post('/land-management-responsible-works-answer', function (req, res) {
-
-  var install = req.session.data['land-management-responsible-works']
-
-  if (install == "no"){
-    res.redirect('/register-application/v5/land-management-responsible-who')
-  } else {
-    res.redirect('/register-application/v5/task-list')
-  }
-})
-
 // Payment
 router.post('/payment-answer', function (req, res) {
 
@@ -348,6 +312,44 @@ router.post('/payment-bacs-answer', function (req, res) {
     res.redirect('/register-application/v5/payment-bacs-no')
   } else {
     res.redirect('/register-application/v5/payment-status')
+  }
+})
+
+// ALLOCATION JOURNEY
+
+// Legal agreement file
+router.post('/legal-agreement-file-answer-allocate', function (req, res) {
+
+  var install = req.session.data['legal-agreement-file']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/allocate-development/development-legal-agreement-upload')
+  } else {
+    res.redirect('/register-application/v5/allocate-development/development-allocation')
+  }
+})
+
+// Legal agreement check
+router.post('/legal-agreement-correct-answer-allocate', function (req, res) {
+
+  var install = req.session.data['legal-agreement-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/allocate-development/development-legal-agreement-upload')
+  } else {
+    res.redirect('/register-application/v5/allocate-development/development-allocation')
+  }
+})
+
+// Legal agreement check
+router.post('/gain-site-confirm-answer-allocate', function (req, res) {
+
+  var install = req.session.data['gain-site-confirm']
+
+  if (install == "no"){
+    res.redirect('/register-application/v5/allocate-development/gain-site-search')
+  } else {
+    res.redirect('/register-application/v5/allocate-development/development-planning-ref-search')
   }
 })
 

@@ -1,0 +1,37 @@
+{% extends "register-application/v5/allocate-development/layout-register-application.html" %}
+
+{% set pageHeading = "Upload your legal agreement" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/development-legal-agreement-check">
+
+        {{ govukFileUpload({
+          id: "legal-agreement-upload",
+          name: "legal-agreement-upload",
+          label: {
+            text: "Upload a file",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "PDF - max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

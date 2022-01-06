@@ -1,0 +1,30 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: "Link a development to a biodiversity gain site",
+    serviceUrl: serviceUrl
+  }) }}
+
+   <div class="govuk-width-container">
+
+    {% include "includes/phase-banner.html" %}
+    <!-- {% include "includes/login-nav.html" %} -->
+    
+  </div>
+
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="app-save__wrapper">
+    {% if hideBackLink === true %}
+    {% else %}
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript: window.history.go(-1)"
+      }) }}
+    {% endif %} 
+  </div>
+{% endblock %}
