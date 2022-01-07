@@ -1,6 +1,6 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Search for planning application" %}
+{% set pageHeading = "Find a planning application" %}
 
 {% block content %}
 
@@ -13,7 +13,10 @@
 
         {{ govukInput({
           label: {
-              text: "Planning reference number"
+              text: "Planning portal reference number"
+          },
+          hint: {
+            text: "For example, 21/02367/FUL"
           },
             classes: "govuk-input--width-10",
             id: "planningref",
