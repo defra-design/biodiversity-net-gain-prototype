@@ -1,6 +1,6 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Check the metric data" %}
+{% set pageHeading = "Check uploaded data" %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <div class="govuk-inset-text">The data has been extracted from the file uploaded.</div>
+      <!--<div class="govuk-inset-text">The data has been extracted from the file uploaded.</div>-->
 
     </div>
     <div class="govuk-grid-column-full">
@@ -27,7 +27,7 @@
               <th scope="col" class="govuk-table__header" colspan="2">Total change</th>
             </tr>
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:20%">Habitat group</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Habitat type</th>
               <th scope="col" class="govuk-table__header">Existing area <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(ha)</span></th>
               <th scope="col" class="govuk-table__header">Existing value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
               <th scope="col" class="govuk-table__header">Proposed area <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(ha)</span></th>
@@ -390,7 +390,7 @@
           name: "metric-data",
           fieldset: {
             legend: {
-              text: "Is the metric data correct?",
+              text: "Is the uploaded data correct?",
               classes: "govuk-fieldset__legend--m"
             }
           },
