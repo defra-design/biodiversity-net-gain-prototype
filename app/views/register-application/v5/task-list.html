@@ -1,6 +1,6 @@
 {% extends "register-application/v5/layout-register-application.html" %}
 
-{% set pageHeading = "Register land as a site for habitat enhancement" %}
+{% set pageHeading = "Register land as a site for biodiversity gain" %}
 
 {% set hideBackLink = true %}
 
@@ -91,7 +91,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="land-management-status">
-                  Management and monitoring plan
+                  Habitat management and monitoring plan
                 </a>
               </span>
               {% if data['management-plan-correct'] %}
@@ -106,21 +106,21 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Give details about the development site
+            <span class="app-task-list__section-number">2. </span> Link habitat enhancements to developments
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               {% if data['development-confirm'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-confirm" aria-describedby="allocated-developments-status">
-                  Development information
+                  Add developments
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
               {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development" aria-describedby="allocated-developments-status">
-                  Development information
+                  Add developments
                 </a>
               </span>
                 {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['development-confirm'] %}
