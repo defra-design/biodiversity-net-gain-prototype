@@ -215,7 +215,7 @@ router.post('/legal-agreement-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v5/development-conservation-covenant')
   } else {
-    res.redirect('/register-application/v5/development-planning-ref-search')
+    res.redirect('/register-application/v5/task-list')
   }
 })
 
