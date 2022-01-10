@@ -18,7 +18,7 @@
       {% elif data['conservation-covenant-correct'] == 'yes' or data['development-confirm']  %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
-      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
+      {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement']%}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
@@ -30,7 +30,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Land and habitat enhancement information
+            <span class="app-task-list__section-number">1. </span> Give details about the land and habitat
           </h2>
           <ul class="app-task-list__items">
 
@@ -101,44 +101,43 @@
               {% endif %} 
             </li>
 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/development" aria-describedby="land-management-status">
+                  Legal agreements
+                </a>
+              </span>
+              {% if data['conservation-covenant-correct'] == 'yes' or data['legal-agreement'] == 'yes' %}
+              <strong class="govuk-tag govuk-tag app-task-list__tag" id="land-management-status">Completed</strong>
+              {% else %}
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="land-management-status">Not started</strong>
+              {% endif %} 
+            </li>
+
           </ul>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Legal agreements and linked developments
+            <span class="app-task-list__section-number">2. </span> Link habitat enhancements to developments
           </h2>
-          <ul class="app-task-list__items">
-            
-            <li class="app-task-list__item">
-              {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] %}
-              <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/development" aria-describedby="allocated-developments-status">
-                  Legal agreements
-                </a>
-              </span>
-                {% if data['conservation-covenant-correct'] == 'yes' or data['legal-agreement'] == 'yes' %}
-                <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
-                {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
-                {% endif %} 
-              {% else %}
-              <span class="app-task-list__task-name">
-                Legal agreements
-              </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
-              {% endif %} 
-            </li>
 
+          {% if data['legal-agreement'] == 'no' %}
+          <div class="govuk-inset-text">
+            You can continue and link developments to habitat enhancements after completing your application.
+          </div>
+          {% endif %} 
+
+          <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] and data['legal-agreement'] == 'yes' %}
+              {% if data['development-confirm'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-confirm" aria-describedby="allocated-developments-status">
                   Add developments
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
-              {% elif data['legal-agreement'] == 'yes' %}
+              {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement']%}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-planning-ref-search" aria-describedby="allocated-developments-status">
                   Add developments
@@ -153,11 +152,7 @@
               <span class="app-task-list__task-name">
                 Add developments
               </span>
-                {% if data['conservation-covenant-correct'] == 'yes' %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Not needed</strong>
-                {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
-                {% endif %} 
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
               {% endif %} 
             </li>
 
@@ -170,7 +165,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] or data['conservation-covenant-correct'] == 'yes' %}
+              {% if data['development-confirm'] or data['conservation-covenant-correct'] == 'yes' and data['legal-agreement'] == 'no' %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
