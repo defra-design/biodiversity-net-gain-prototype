@@ -124,7 +124,7 @@
 
           {% if data['legal-agreement'] == 'no' %}
           <div class="govuk-inset-text">
-            You can continue and link developments to habitat enhancements after completing your application.
+            You can link developments to habitat enhancements after you are registered.
           </div>
           {% endif %} 
 
@@ -146,7 +146,7 @@
                 {% if data['development-confirm'] %}
                 <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
                 {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not needed yet</strong>
                 {% endif %} 
               {% else %}
               <span class="app-task-list__task-name">
@@ -177,7 +177,7 @@
               {% if data['payment-success'] %}
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
               {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started</strong>
               {% endif %} 
 
               {% else %}
@@ -197,7 +197,7 @@
               {% if data['declaration'] %}
               <strong class="govuk-tag app-task-list__tag" id="submit-application">completed</strong>
               {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">not started yet</strong>
+              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">not started</strong>
               {% endif %} 
               {% else %}
               <span class="app-task-list__task-name">
