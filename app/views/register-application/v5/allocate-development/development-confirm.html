@@ -9,125 +9,63 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <div class="app-card">
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Planning reference
-            </dt>
-            <dd class="govuk-summary-list__value">
-              21/02367/FUL
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
-                Change<span class="govuk-visually-hidden"> Planning reference</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Local Planning Authority
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['input-autocomplete'] or 'York City Council' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
-                Change<span class="govuk-visually-hidden"> Local planning authority</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Legal agreement
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Available in the online planning application
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-legal-agreement">
-                Change<span class="govuk-visually-hidden"> Legal agreement</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Allocated units
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Grassland = 1.53 <br>
-              Heathland and scrub = 0.10 <br>
-              Native species rich hedgerow = 0.45
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-allocation">
-                Change<span class="govuk-visually-hidden"> Allocated units</span>
-              </a>
-            </dd>
-          </div>
-          <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">development 21/02367/FUL, York City Council</span></a></p>
-        </dl>
-      </div>
-
-      <div class="app-card">
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Planning reference
-            </dt>
-            <dd class="govuk-summary-list__value">
-              21/08560/TR
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
-                Change<span class="govuk-visually-hidden"> Planning reference</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Local Planning Authority
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['input-autocomplete'] or 'Leeds City Council' }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
-                Change<span class="govuk-visually-hidden"> Local planning authority</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Legal agreement
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-legal-agreement">
-                Change<span class="govuk-visually-hidden"> Legal agreement</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Allocated units
-            </dt>
-            <dd class="govuk-summary-list__value">
-              Woodland and forest = 1.00 <br>
-              Native species rich hedgerow = 2.00 <br>
-              Line of trees = 1.25
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-allocation">
-                Change<span class="govuk-visually-hidden"> Allocated units</span>
-              </a>
-            </dd>
-          </div>
-          <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">development 21/08560/TR, Leeds City Council</span></a></p>
-        </dl>
-      </div>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            21/02367/FUL
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
+              Change<span class="govuk-visually-hidden"> Planning reference</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local Planning Authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['input-autocomplete'] or 'York City Council' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
+              Change<span class="govuk-visually-hidden"> Local planning authority</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-legal-agreement-upload">
+              Change<span class="govuk-visually-hidden"> Legal agreement</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Allocated units
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Grassland = 1.53 <br>
+            Heathland and scrub = 0.10 <br>
+            Native species rich hedgerow = 0.45
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-allocation">
+              Change<span class="govuk-visually-hidden"> Allocated units</span>
+            </a>
+          </dd>
+        </div>
+        <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">development 21/02367/FUL, York City Council</span></a></p>
+      </dl>
 
       <a href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search" class="govuk-button govuk-button--secondary">Add another development</a>
 

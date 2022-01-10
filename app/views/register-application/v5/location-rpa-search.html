@@ -7,15 +7,16 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {{ pageHeading }}
-      </h1>
-
       <form method="post" action="/register-application/{{ pageURL }}/location-rpa-select">
 
         {{ govukInput({
           label: {
-            text: "For example, xxx"
+            text: pageHeading,
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "For example, 200435817"
           },
             id: "location-sbi-number",
             name: "location-sbi-number",
