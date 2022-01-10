@@ -7,22 +7,31 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">{{ pageHeading }} <span class="govuk-visually-hidden">to development</span> <span class="govuk-caption-l govuk-!-padding-top-1">21/02367/FUL, City of York</span></h1>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/development-confirm">
+      <p class="govuk-!-margin-bottom-6"><span class="govuk-!-font-weight-bold">Development: </span>21/02367/FUL, City of York</p>
+
+      <form method="post" action="/register-application/{{ pageURL }}/development-confirm">
         <div class="app-table-responsive">
           <table class="govuk-table">
             <caption class="govuk-table__caption govuk-table__caption--m">Habitat</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
+                <th scope="col" class="govuk-table__header">Total units</th>
                 <th scope="col" class="govuk-table__header">Available units</th>
-                <th scope="col" class="govuk-table__header">Allocated units</th>
+                <th scope="col" class="govuk-table__header">Allocate units</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">Grassland</td>
+                <td scope="row" class="govuk-table__cell">
+                  Grassland
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Cereal crops
+                  </span>
+                </td>
+                <td class="govuk-table__cell">4.75</td>
                 <td class="govuk-table__cell">2.75</td>
                 <td class="govuk-table__cell">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
@@ -32,18 +41,27 @@
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">Heathland and scrub</td>
-                <td class="govuk-table__cell">0.10</td>
+                <td scope="row" class="govuk-table__cell">
+                  Heathland and scrub
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Bramble scrub
+                  </span>
+                </td>
+                <td class="govuk-table__cell">0.50</td>
+                <td class="govuk-table__cell">0.00</td>
                 <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Heathland and scrub units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
+                  No units available
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">Woodland and forest</td>
-                <td class="govuk-table__cell">1.00</td>
+                <td scope="row" class="govuk-table__cell">
+                  Woodland and forest
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Lowland mixed deciduous woodland
+                  </span>
+                </td>
+                <td class="govuk-table__cell">3.24</td>
+                <td class="govuk-table__cell">1.84</td>
                 <td class="govuk-table__cell">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
                     Woodland and forest units allocated
@@ -61,13 +79,17 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th scope="col" class="govuk-table__header" style="width:50%">Hedgerow type</th>
+                <th scope="col" class="govuk-table__header">Total units</th>
                 <th scope="col" class="govuk-table__header">Available units</th>
-                <th scope="col" class="govuk-table__header">Allocated units</th>
+                <th scope="col" class="govuk-table__header">Allocate units</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+                <td scope="row" class="govuk-table__cell">
+                  Native species rich hedgerow
+                </td>
+                <td class="govuk-table__cell">3.26</td>
                 <td class="govuk-table__cell">2.40</td>
                 <td class="govuk-table__cell">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
@@ -77,7 +99,10 @@
                 </td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__cell">Line of trees</td>
+                <td scope="row" class="govuk-table__cell">
+                  Line of trees
+                </td>
+                <td class="govuk-table__cell">1.25</td>
                 <td class="govuk-table__cell">1.25</td>
                 <td class="govuk-table__cell">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
