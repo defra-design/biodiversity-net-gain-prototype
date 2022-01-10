@@ -137,7 +137,7 @@
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
-              {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement']%}
+              {% elif data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] == 'yes' %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-planning-ref-search" aria-describedby="allocated-developments-status">
                   Add developments
@@ -146,13 +146,17 @@
                 {% if data['development-confirm'] %}
                 <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
                 {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not needed yet</strong>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
                 {% endif %} 
               {% else %}
               <span class="app-task-list__task-name">
                 Add developments
               </span>
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
+                {% if data['legal-agreement'] == 'no' %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not needed yet</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
+                {% endif %} 
               {% endif %} 
             </li>
 
@@ -165,7 +169,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] or data['conservation-covenant-correct'] == 'yes' and data['legal-agreement'] == 'no' %}
+              {% if data['development-confirm'] or data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] == 'no' %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
