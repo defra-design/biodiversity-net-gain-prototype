@@ -96,7 +96,7 @@ router.post('/location-rpa-confirm-answer', function (req, res) {
 // Location import confirm
 router.post('/location-import-confirm-answer', function (req, res) {
 
-  var install = req.session.data['location-import-confirm']
+  var install = req.session.data['location-confirm']
 
   if (install == "no-again"){
     res.redirect('/register-application/v5/location-import')
