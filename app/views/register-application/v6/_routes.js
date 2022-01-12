@@ -65,6 +65,18 @@ router.post('/location-options-answer', function (req, res) {
   }
 })
 
+// Location RPA bespoke
+router.post('/location-rpa-bespoke-answer', function (req, res) {
+
+  var install = req.session.data['location-rpa-bespoke']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v6/location-rpa-select')
+  } else {
+    res.redirect('/register-application/v6/location-rpa-draw-boundary')
+  }
+})
+
 // Location confirm
 router.post('/location-confirm-answer', function (req, res) {
 
