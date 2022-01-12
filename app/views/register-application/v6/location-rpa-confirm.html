@@ -1,0 +1,89 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm the land boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <img src="/public/images/location-confirm.png" alt="" width="100%" style="margin-bottom: 20px; border: 1px solid #b1b4b6;">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Area"
+            },
+            value: {
+              text: "5.78 ha"
+            }
+          },
+          {
+            key: {
+              text: "Perimeter / Length
+              "
+            },
+            value: {
+              text: "1311.92 m"
+            }
+          },
+          {
+            key: {
+              text: "Parcel ID"
+            },
+            value: {
+              text: "9859"
+            }
+          },
+          {
+            key: {
+              text: "Field ID"
+            },
+            value: {
+              text: "SP4198 9859"
+            }
+          }
+        ]
+      }) }}
+
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-confirm-answer">
+
+        {{ govukRadios({
+          idPrefix: "location-confirm",
+          name: "location-confirm",
+          fieldset: {
+            legend: {
+              text: "Is the land boundary correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no-again",
+              text: "No, select a different boundary"
+            },
+            {
+              value: "no",
+              text: "No, choose a different way to provide the land boundary"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

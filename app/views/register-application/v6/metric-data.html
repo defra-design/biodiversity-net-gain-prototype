@@ -1,0 +1,416 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Check uploaded data" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <!--<div class="govuk-inset-text">The data has been extracted from the file uploaded.</div>-->
+
+    </div>
+    <div class="govuk-grid-column-full">
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Habitat</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header" colspan="2">Baseline</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Post development</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Total change</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:20%">Habitat type</th>
+              <th scope="col" class="govuk-table__header">Existing area <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(ha)</span></th>
+              <th scope="col" class="govuk-table__header">Existing value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+              <th scope="col" class="govuk-table__header">Proposed area <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(ha)</span></th>
+              <th scope="col" class="govuk-table__header">Proposed value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+              <th scope="col" class="govuk-table__header">Area <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(ha)</span></th>
+              <th scope="col" class="govuk-table__header">Value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <!--<tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Cropland</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Heathland and scrub</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Lakes</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Sparsely vegetated land</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Urban</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Wetland</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Woodland and forest</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Intertidal sediment</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Coastal saltmarsh</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Rocky shore</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Coastal lagoons</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Intertidal Hard Structures</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>-->
+
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland</td>
+              <td class="govuk-table__cell">5.25</td>
+              <td class="govuk-table__cell">11.54</td>
+              <td class="govuk-table__cell">1.00</td>
+              <td class="govuk-table__cell">6.20</td>
+              <td class="govuk-table__cell">-4.25</td>
+              <td class="govuk-table__cell">-5.34</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Heathland and scrub</td>
+              <td class="govuk-table__cell">1.20</td>
+              <td class="govuk-table__cell">3.60</td>
+              <td class="govuk-table__cell">1.80</td>
+              <td class="govuk-table__cell">5.40</td>
+              <td class="govuk-table__cell">0.60</td>
+              <td class="govuk-table__cell">1.80</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Woodland and forest</td>
+              <td class="govuk-table__cell">1.30</td>
+              <td class="govuk-table__cell">5.20</td>
+              <td class="govuk-table__cell">4.95</td>
+              <td class="govuk-table__cell">19.80</td>
+              <td class="govuk-table__cell">3.65</td>
+              <td class="govuk-table__cell">14.60</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Hedgerow</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header" colspan="2">Baseline</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Post development</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Total change</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:20%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header">Existing length <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(km)</span></th>
+              <th scope="col" class="govuk-table__header">Existing value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+              <th scope="col" class="govuk-table__header">Proposed length <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(km)</span></th>
+              <th scope="col" class="govuk-table__header">Proposed value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+              <th scope="col" class="govuk-table__header">Length <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(km)</span></th>
+              <th scope="col" class="govuk-table__header">Value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <!-- <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow with trees <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">- Associated with bank or ditch</span></td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow with trees</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Associated with bank or ditch</span></td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">2.40</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native hedgerow with trees <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">- Associated with bank or ditch</span></td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr> -->
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td class="govuk-table__cell">0.18</td>
+              <td class="govuk-table__cell">1.44</td>
+              <td class="govuk-table__cell">0.10</td>
+              <td class="govuk-table__cell">0.80</td>
+              <td class="govuk-table__cell">-0.08</td>
+              <td class="govuk-table__cell">-0.64</td>
+            </tr>
+            <!-- <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Ecologically valuable</span></td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">1.25</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees (Ecologically valuable) <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">- Associated with bank or ditch</span></td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native hedgerow</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr> -->
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees</td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">8.00</td>
+              <td class="govuk-table__cell">0.58</td>
+              <td class="govuk-table__cell">11.40</td>
+              <td class="govuk-table__cell">0.08</td>
+              <td class="govuk-table__cell">3.40</td>
+            </tr>
+            <!-- <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">- Associated with bank or ditch</span></td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Hedge ornamental non native</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Change by river type</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header" colspan="2">Baseline</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Post development</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Total change</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">River type</th>
+              <th scope="col" class="govuk-table__header">Existing length <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(km)</span></th>
+              <th scope="col" class="govuk-table__header">Existing value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+              <th scope="col" class="govuk-table__header">Proposed length <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(km)</span></th>
+              <th scope="col" class="govuk-table__header">Proposed value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+              <th scope="col" class="govuk-table__header">Length <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(km)</span></th>
+              <th scope="col" class="govuk-table__header">Value <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">(units)</span></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Priority habitat</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Other rivers and streams</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Ditches</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Canals</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Culvert</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+              <td class="govuk-table__cell">0.00</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> -->
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/metric-data-answer">
+
+        {{ govukRadios({
+          idPrefix: "metric-data",
+          name: "metric-data",
+          fieldset: {
+            legend: {
+              text: "Is the uploaded data correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, choose a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

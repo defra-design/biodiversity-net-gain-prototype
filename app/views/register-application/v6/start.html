@@ -1,0 +1,166 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Register land as a site for biodiversity gain" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %} 
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: pageHeading
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+      <div class="responsive-bottom-margin">
+        <nav class="gem-c-contents-list" aria-label="Contents" role="navigation">
+          <h2 class="gem-c-contents-list__title">
+            Contents
+          </h2>
+          <ol class="gem-c-contents-list__list">
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#overview">Overview</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#before-you-apply">Before you apply</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#check-what-you-need">Check what you need and apply</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#other-ways-to-apply">Other ways to apply</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#after-you-apply">After you apply</a>
+              </li>
+              <!--<li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#if-application-approved">If your application is approved</a>
+              </li>-->
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#after-registration">After you're registered</a>
+              </li>
+          </ol>
+        </nav>
+    </div>
+      
+      <h2 id="overview" class="govuk-heading-m">Overview</h2>
+      <p class="govuk-body">You need to register land that developers can use for biodiversity gain if they cannot use their development site.</p> 
+      <!--<p class="govuk-body">You do not need to register development sites.</p> 
+      <p class="govuk-body">If a developer cannot create or enhance habitats on a development site, they need separate land to help them do this.</p> 
+      <p class="govuk-body">The separate land needs to be registered with Natural England.</p>-->
+      <p class="govuk-body">The developer needs this registration to get their <a class="govuk-link" href="#">biodiversity gain plan</a> approved before development works begin.</p>  
+      
+      <h2 id="before-you-apply" class="govuk-heading-m">Before you apply</h2>
+      
+      <h3 class="govuk-heading-s">If the land is linked to a development</h3>
+      
+      <!--<p class="govuk-body">You must have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a legal agreement called a <a class="govuk-link" href="#">conservation covenant</a> or a <a class="govuk-link" href="#">planning obligation</a></li>
+        <li>submitted a planning application using the <a class="govuk-link" href="#">planning portal</a> </li>
+      </ul>-->
+
+      <p class="govuk-body">You must have a legal agreement called a <a class="govuk-link" href="#">conservation covenant</a> or a <a class="govuk-link" href="#">planning obligation</a></p>  
+
+      <p class="govuk-body">The developer must submit a planning application using the <a class="govuk-link" href="#">Planning portal</a></a></p>  
+
+      <h3 class="govuk-heading-s">If the land is not yet linked to a development</h3>
+      <p class="govuk-body">You must have a conservation covenant. </p>
+      
+      <h2 id="check-what-you-need" class="govuk-heading-m">Check what you need and apply</h2> 
+      <p class="govuk-body">You'll need to have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>consent from the landowner or third parties who have an interest in the land </li>
+        <li>a copy of the signed conservation covenant or a planning portal reference number</li>
+        <li>the boundary of the land</li>
+        <li>your completed <a class="govuk-link" href="#">biodiversity metric 3.0 calculations</a></li>
+        <li>your <a class="govuk-link" href="#">habitat management and monitoring plan</a></li>
+      </ul> 
+      <p class="govuk-body">It costs £? to apply. You can pay by debit or credit card or Bacs.</p>
+      
+      {{ govukButton({
+        text: "Start now",
+        href: "/register-application/" + pageURL + "/government-gateway-login",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: true
+      }) }}
+
+      <h2 id="other-ways-to-apply" class="govuk-heading-m">Other ways to apply</h2>
+      <p class="govuk-body">You can also <a class="govuk-link" href="#">apply by post using form BNG01</a>.</p>
+      <p class="govuk-body">Postal applications take 10 days and cost £? on top of the application fee. </p>
+      <p class="govuk-body">Send your application to the address on the form. </p>
+      
+      <h2 id="after-you-apply" class="govuk-heading-m">After you apply</h2> 
+      <p>After you submit your application, it can take Natural England up to 28 days to review your application. 
+      <p class="govuk-body">We will:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>give you a site reference number</li>
+        <li>check the information you've provided </li>
+      </ul>  
+        
+      <h3 id="if-application-approved" class="govuk-heading-s">If your application is approved</h3> 
+      <p class="govuk-body">Only land that is linked to a development will be listed on the <a class="govuk-link" href="#">Biodiversity gain site register</a>. </p>
+      
+      <h2 id="after-registration" class="govuk-heading-m">After you're registered</h2> 
+      <p class="govuk-body"> You must follow the habitat management and monitoring plan.  </p>
+      <p class="govuk-body">You must tell Natural England if:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the landowner changes</li>
+        <li>a developer can no longer operate</li>
+        <li>there are changes to the planning permission </li>
+      </ul> 
+      
+      <h3 class="govuk-heading-s">If the whole land or a part of it becomes linked to a new development</h3>
+      <p class="govuk-body">You must <a class="govuk-link" href="/register-application/{{ pageURL }}/allocate-development/government-gateway-login">add the development to your registration</a>. </p>
+    
+    </div>
+    <div class="govuk-grid-column-one-third">
+      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
+      <!--<aside class="app-related-items" role="complementary">
+        <h2 class="govuk-heading-m" id="subsection-title">
+          Subsection
+        </h2>
+        <nav role="navigation" aria-labelledby="subsection-title">
+          <ul class="govuk-list govuk-!-font-size-16">
+            <li>
+              <a class="govuk-link" href="#">
+                Biodiversity net gain
+              </a>
+            </li>
+            <li>
+              <a class="govuk-link" href="#">
+                Get information about a biodiversity gain site
+              </a>
+            </li>
+            <li>
+              <a href="#" class="govuk-link govuk-!-font-weight-bold">
+                More <span class="govuk-visually-hidden">in Subsection</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>-->
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Has the baseline date been appropriately adjusted to reflect (such as to disregard) any deterioration?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/metric-adjusted-answer">
+
+        {{ govukRadios({
+          idPrefix: "metric-adjusted",
+          name: "metric-adjusted",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

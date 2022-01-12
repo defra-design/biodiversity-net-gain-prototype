@@ -1,0 +1,57 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Select the boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p><strong>SBI number:</strong> 200435817 <a class="govuk-link--no-visited-state govuk-body-s" href="/register-application/{{ pageURL }}/location-rpa-search"><br>Change <span class="govuk-visually-hidden">SBI number</span></a></p>
+
+      <details class="govuk-details govuk-!-margin-top-4" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          How to select a boundary
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <ol class="govuk-list govuk-list--number">
+            <li>Select the area of the boundary.</li>
+            <li>You can select multiple areas to make the boundary.</li>
+          </ol>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <script>
+    var onImg= "/public/images/location-rpa.png";
+    var offImg= "/public/images/location-rpa-selected.png";
+  </script>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+        <img src="/public/images/location-rpa.png" alt="" width="100%" style="margin-bottom: 20px; cursor: pointer; border: 1px solid #b1b4b6;" onclick="this.src = this.src == offImg ? onImg : offImg;">
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-confirm">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% set serviceName = "Register land as a site for biodiversity gain" %}
+{% set serviceUrl = "" %}
+{% set pageURL = "v6" %}
+
+{% extends "../../layout.html" %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: serviceUrl
+  }) }}
+
+   <div class="govuk-width-container">
+
+    {% include "includes/phase-banner.html" %}
+    <!-- {% include "includes/login-nav.html" %} -->
+    
+  </div>
+
+{% endblock %}
+
+{% block beforeContent %}
+  <div class="app-save__wrapper">
+    {% if hideBackLink === true %}
+    {% else %}
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript: window.history.go(-1)"
+      }) }}
+    {% endif %} 
+    {% include "includes/save-and-return.html" %}
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}
