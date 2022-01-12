@@ -18,7 +18,7 @@
       {% elif data['conservation-covenant-correct'] == 'yes' or data['development-confirm']  %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 3 sections.</p>
-      {% elif data['landowner'] and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement']%}
+      {% elif data['landowner'] and data['location-confirm'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement']%}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
       <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 3 sections.</p>
       {% else %}
@@ -59,19 +59,6 @@
               <strong class="govuk-tag govuk-tag--blue app-task-list__tag" id="location-status">In progress</strong>
               {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="location-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/interested-third-parties" aria-describedby="interested-third-parties-status">
-                  Interested third parties
-                </a>
-              </span>
-              {% if data['interested-third-parties'] %}
-              <strong class="govuk-tag govuk-tag app-task-list__tag" id="interested-third-parties-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="interested-third-parties-status">Not started</strong>
               {% endif %} 
             </li>
 
@@ -137,7 +124,7 @@
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
-              {% elif data['landowner'] and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] %}
+              {% elif data['landowner'] and data['location-confirm'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-planning-ref-search" aria-describedby="allocated-developments-status">
                   Add developments
@@ -167,7 +154,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] or data['landowner'] and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] == 'no' %}
+              {% if data['development-confirm'] or data['landowner'] and data['location-confirm'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] == 'no' %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">

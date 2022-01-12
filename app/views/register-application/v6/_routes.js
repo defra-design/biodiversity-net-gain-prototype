@@ -135,18 +135,6 @@ router.post('/location-draw-confirm-answer', function (req, res) {
   }
 })
 
-// Third parties
-router.post('/interested-third-parties-answer', function (req, res) {
-
-  var install = req.session.data['interested-third-parties']
-
-  if (install == "yes"){
-    res.redirect('/register-application/v6/interested-third-parties-declaration')
-  } else {
-    res.redirect('/register-application/v6/task-list')
-  }
-})
-
 // Metric
 router.post('/metric-answer', function (req, res) {
 
