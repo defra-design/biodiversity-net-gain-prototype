@@ -137,7 +137,7 @@
                 </a>
               </span>
               <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
-              {% elif data['landowner'] and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] == 'yes' %}
+              {% elif data['landowner'] and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['management-plan-correct'] and data['legal-agreement'] %}
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development-planning-ref-search" aria-describedby="allocated-developments-status">
                   Add developments
@@ -145,18 +145,16 @@
               </span>
                 {% if data['development-confirm'] %}
                 <strong class="govuk-tag app-task-list__tag" id="allocated-developments-status">completed</strong>
+                {% elif data['legal-agreement'] == 'no' %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not needed yet</strong>
                 {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not started yet</strong>
                 {% endif %} 
               {% else %}
-              <span class="app-task-list__task-name">
-                Add developments
-              </span>
-                {% if data['legal-agreement'] == 'no' %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">not needed yet</strong>
-                {% else %}
+                <span class="app-task-list__task-name">
+                  Add developments
+                </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="allocated-developments-status">Cannot start yet</strong>
-                {% endif %} 
               {% endif %} 
             </li>
 
