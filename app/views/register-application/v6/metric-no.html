@@ -1,0 +1,23 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Come back after you complete the calculations" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Download the <a href="http://publications.naturalengland.org.uk/publication/6049804846366720">Biodiversity Metric 3.0 calculation tool</a>.</p>
+
+      <p>We have saved the details you entered so far.</p>
+
+      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ pageURL }}/government-gateway-login">https://gov.uk/register-biodiversity-gain</a>.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

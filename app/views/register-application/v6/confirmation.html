@@ -1,0 +1,38 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Application submitted" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          {{ pageHeading }}
+        </h1>
+        
+        <div class="govuk-panel__body">
+          Site reference number<br>150384
+        </div>
+        
+      </div>
+
+      <p>We've sent you a confirmation email.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>Natural England will review your details.</p>
+
+      <p>They'll email you with their decision.</p>
+
+      <h3 class="govuk-heading-s">If the whole land or a part of it becomes linked to a new development</h3>
+      <p class="govuk-body">You must <a class="govuk-link" href="/register-application/{{ pageURL }}/allocate-development/government-gateway-login"> add the development to your registration</a>. </p>
+
+    </div>
+  </div>
+
+{% endblock %}
