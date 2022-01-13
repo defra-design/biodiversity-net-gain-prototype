@@ -159,29 +159,6 @@ router.post('/metric-answer', function (req, res) {
   }
 })
 
-// Metric statement
-router.post('/metric-statement-answer', function (req, res) {
-
-  var install = req.session.data['metric-statement']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/metric-statement-no')
-  } else {
-    res.redirect('/register-application/v6/metric-adjusted')
-  }
-})
-
-// Metric adjusted
-router.post('/metric-adjusted-answer', function (req, res) {
-
-  var install = req.session.data['metric-adjusted']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/metric-adjusted-no')
-  } else {
-    res.redirect('/register-application/v6/metric-upload')
-  }
-})
 
 // Metric check
 router.post('/metric-correct-answer', function (req, res) {
@@ -191,19 +168,7 @@ router.post('/metric-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v6/metric-upload')
   } else {
-    res.redirect('/register-application/v6/metric-data')
-  }
-})
-
-// Metric check
-router.post('/metric-data-answer', function (req, res) {
-
-  var install = req.session.data['metric-data']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/metric-upload')
-  } else {
-    res.redirect('/register-application/v6/task-list')
+    res.redirect('/register-application/v6/development-confirm')
   }
 })
 

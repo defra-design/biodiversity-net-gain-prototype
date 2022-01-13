@@ -64,34 +64,8 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/metric" aria-describedby="biodiversity-metric-status">
-                  Biodiversity metric 3.0
-                </a>
-              </span>
-              {% if data['metric-correct'] %}
-              <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="land-management-status">
-                  Habitat management and monitoring plan
-                </a>
-              </span>
-              {% if data['management-plan-correct'] %}
-              <strong class="govuk-tag govuk-tag app-task-list__tag" id="land-management-status">Completed</strong>
-              {% else %}
-              <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="land-management-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/development" aria-describedby="land-management-status">
-                  Legal agreements
+                  Legal agreement
                 </a>
               </span>
               {% if data['conservation-covenant-correct'] == 'yes' or data['legal-agreement'] == 'yes' %}

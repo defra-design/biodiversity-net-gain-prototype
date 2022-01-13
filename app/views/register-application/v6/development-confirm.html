@@ -12,10 +12,10 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Planning reference
+            Planning application
           </dt>
           <dd class="govuk-summary-list__value">
-            21/02367/FUL
+            21/02367/FUL,<br> {{ data['input-autocomplete'] or 'York City Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
@@ -23,22 +23,52 @@
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Local Planning Authority
+          <dt class="govuk-summary-list__key" style="vertical-align:top;">
+            Land boundary
           </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['input-autocomplete'] or 'York City Council' }}
+          <dd class="govuk-summary-list__value" style="vertical-align:top;">
+            <img src="/public/images/location-confirm.png" alt="" width="100%" style="border: 1px solid #b1b4b6;">
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
-              Change<span class="govuk-visually-hidden"> Local planning authority</span>
+          <dd class="govuk-summary-list__actions" style="vertical-align:top;">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> Land boundary</span>
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Legal agreement
+            Biodiversity Metric 3.0
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="/public/images/Biodiversity Metric 3.0_meadow-croft.xlsm">Biodiversity Metric 3.0_meadow-croft.xlsm</a>, 4.1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/metric-upload">
+              Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat management and monitoring plan
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="/public/images/meadow-croft-farm-mandm-plan.pdf">meadow-croft-farm-mandm-plan.pdf</a>, 3.6MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning obligation
           </dt>
           <dd class="govuk-summary-list__value">
             <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
@@ -46,21 +76,6 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-legal-agreement-upload">
               Change<span class="govuk-visually-hidden"> Legal agreement</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Allocated units
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Grassland = 1.53 <br>
-            Heathland and scrub = 0.10 <br>
-            Native species rich hedgerow = 0.45
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-allocation">
-              Change<span class="govuk-visually-hidden"> Allocated units</span>
             </a>
           </dd>
         </div>

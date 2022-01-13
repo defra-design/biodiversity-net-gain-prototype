@@ -12,17 +12,7 @@
       </h1>
 
       <p><strong>SBI number:</strong> 200435817 <a class="govuk-link--no-visited-state govuk-body-s" href="/register-application/{{ pageURL }}/location-rpa-search"><br>Change <span class="govuk-visually-hidden">SBI number</span></a></p>
-
-    </div>
-  </div>
-
-  <script>
-    var onImg= "/public/images/location-rpa.png";
-    var offImg= "/public/images/location-rpa-selected.png";
-  </script>
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-one-third">
+      
       <details class="govuk-details govuk-!-margin-top-4" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
@@ -36,8 +26,17 @@
           </ol>
         </div>
       </details>
+
     </div>
-    <div class="govuk-grid-column-two-thirds">
+  </div>
+
+  <script>
+    var onImg= "/public/images/location-rpa.png";
+    var offImg= "/public/images/location-rpa-selected.png";
+  </script>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
         <img src="/public/images/location-rpa.png" alt="" width="100%" style="margin-bottom: 20px; cursor: pointer; border: 1px solid #b1b4b6;" onclick="this.src = this.src == offImg ? onImg : offImg;">
     </div>
   </div>
