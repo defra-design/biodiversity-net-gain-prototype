@@ -73,6 +73,18 @@ router.post('/landowner-permission-correct-answer-land-registry-no', function (r
   }
 })
 
+// Land ownership cerificate upload
+router.post('/land-ownership-certificate-correct-answer', function (req, res) {
+
+  var install = req.session.data['land-ownership-certificate-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/land-ownership-certificate-upload')
+  } else {
+    res.redirect('/register-application/v6/task-list')
+  }
+})
+
 // Third parties
 router.post('/third-parties-answer', function (req, res) {
 

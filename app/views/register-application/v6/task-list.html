@@ -75,7 +75,7 @@
                     </a>
                   {% endif %} 
                 </span>
-                {% if data['land-registry-correct'] %}
+                {% if data['land-registry-correct'] or data['land-ownership-certificate-correct'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
                 {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
