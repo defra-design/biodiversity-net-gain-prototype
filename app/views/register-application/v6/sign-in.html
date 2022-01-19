@@ -42,8 +42,12 @@
       <h1 class="govuk-heading-xl">
         Sign in using Government Gateway
       </h1>
-      
+
+      {% if data['signed-in'] == 'yes' %}
+      <form action="/register-application/{{ pageURL }}/applications" method="post">
+      {% else %}
       <form action="/register-application/{{ pageURL }}/task-list" method="post">
+      {% endif %}
       
       <div class="govuk-form-group">
         <label class="govuk-label" for="govGateUserId">

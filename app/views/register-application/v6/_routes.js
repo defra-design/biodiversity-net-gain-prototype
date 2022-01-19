@@ -33,11 +33,11 @@ router.post('/land-registry-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v6/land-ownership-certificate')
   } else {
-    res.redirect('/register-application/v6/legal-agreements')
+    res.redirect('/register-application/v6/third-parties')
   }
 })
 
-// Landowner permission
+// Landowner certificate
 router.post('/land-ownership-certificate-answer', function (req, res) {
 
   var install = req.session.data['land-ownership-certificate']
@@ -312,6 +312,18 @@ router.post('/payment-bacs-answer', function (req, res) {
     res.redirect('/register-application/v6/payment-bacs-no')
   } else {
     res.redirect('/register-application/v6/payment-status')
+  }
+})
+
+// New application
+router.post('/sign-in-answer', function (req, res) {
+
+  var install = req.session.data['sign-in']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v6/applications')
+  } else {
+    res.redirect('/register-application/v6/task-list')
   }
 })
 

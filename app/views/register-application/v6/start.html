@@ -110,7 +110,13 @@
       }) }}
 
       <h2 id="return-to-application" class="govuk-heading-m">Return to an existing application</h2>
-      <p><a href="/register-application/{{ pageURL }}/sign-in">Sign in to continue your application</a>.</p>
+
+      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+        <input type="hidden" name="signed-in" value="yes">
+        <button class="govuk-link app-button-link" data-module="govuk-button">
+          Sign in to continue your application
+        </button>.
+      </form>
 
       <h2 id="other-ways-to-apply" class="govuk-heading-m">Other ways to apply</h2>
       <p class="govuk-body">You can also <a class="govuk-link" href="#">apply by post using form BNG01</a>.</p>
