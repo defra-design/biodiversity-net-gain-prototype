@@ -1,6 +1,6 @@
 {% extends "register-application/v6/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your planning legal agreement" %}
+{% set pageHeading = "Upload your landowner permission" %}
 
 {% block content %}
 
@@ -11,11 +11,11 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/development-legal-agreement-check">
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-check">
 
         {{ govukFileUpload({
-          id: "legal-agreement-upload",
-          name: "legal-agreement-upload",
+          id: "landowner-permission-upload",
+          name: "landowner-permission-upload",
           label: {
             text: "Upload a file",
             classes:"govuk-visually-hidden"

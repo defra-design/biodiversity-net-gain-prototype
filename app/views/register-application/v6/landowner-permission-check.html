@@ -1,4 +1,4 @@
-{% extends "register-application/v6/allocate-development/layout-register-application.html" %}
+{% extends "register-application/v6/layout-register-application.html" %}
 
 {% set pageHeading = "Check your file" %}
 
@@ -20,17 +20,21 @@
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              html: '<a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB'
+              html: '<a download href="#">landowner-permission.pdf</a>, 3.6MB'
             }
           }
         ]
       }) }}
 
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer-allocate">
+      {% if data['land-registry'] == 'yes' %}
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
+      {% endif %}
 
         {{ govukRadios({
-          idPrefix: "legal-agreement-correct",
-          name: "legal-agreement-correct",
+          idPrefix: "landowner-permission-correct",
+          name: "landowner-permission-correct",
           fieldset: {
             legend: {
               text: "Is this file correct?",

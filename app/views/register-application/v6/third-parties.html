@@ -1,17 +1,17 @@
 {% extends "register-application/v6/layout-register-application.html" %}
 
-{% set pageHeading = "Do you have a legal agreement called a conservation covenant?" %}
+{% set pageHeading = "Have you checked third parties rights?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/conservation-covenant-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/third-parties-answer">
 
         {{ govukRadios({
-          idPrefix: "conservation-covenant",
-          name: "conservation-covenant",
+          idPrefix: "third-parties",
+          name: "third-parties",
           fieldset: {
             legend: {
               text: pageHeading,

@@ -19,9 +19,9 @@ router.post('/landowner-permission-answer', function (req, res) {
   var install = req.session.data['landowner-permission']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/landowner-permission-no')
+    res.redirect('/register-application/v6/not-eligible')
   } else {
-    res.redirect('/register-application/v6/landowner-permission-declaration')
+    res.redirect('/register-application/v6/land-registry')
   }
 })
 
@@ -31,9 +31,93 @@ router.post('/land-registry-answer', function (req, res) {
   var install = req.session.data['land-registry']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/task-list')
+    res.redirect('/register-application/v6/land-ownership-certificate')
+  } else {
+    res.redirect('/register-application/v6/legal-agreements')
+  }
+})
+
+// Landowner permission
+router.post('/landownership-certificate-answer', function (req, res) {
+
+  var install = req.session.data['landownership-certificate']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/not-eligible')
+  } else {
+    res.redirect('/register-application/v6/third-parties')
+  }
+})
+
+// Landowner permission upload - Land registry yes
+router.post('/landowner-permission-correct-answer-land-registry-yes', function (req, res) {
+
+  var install = req.session.data['landowner-permission-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/landowner-permission-upload')
   } else {
     res.redirect('/register-application/v6/land-registry-search')
+  }
+})
+
+// Landowner permission upload - Land registry no
+router.post('/landowner-permission-correct-answer-land-registry-no', function (req, res) {
+
+  var install = req.session.data['landowner-permission-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/landowner-permission-upload')
+  } else {
+    res.redirect('/register-application/v6/land-ownership-certificate-upload')
+  }
+})
+
+// Third parties
+router.post('/third-parties-answer', function (req, res) {
+
+  var install = req.session.data['third-parties']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/not-eligible')
+  } else {
+    res.redirect('/register-application/v6/legal-agreements')
+  }
+})
+
+// Legal agreements
+router.post('/legal-agreements-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreements']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/not-eligible')
+  } else {
+    res.redirect('/register-application/v6/management-plan')
+  }
+})
+
+// Management plan
+router.post('/management-plan-answer', function (req, res) {
+
+  var install = req.session.data['management-plan']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/not-eligible')
+  } else {
+    res.redirect('/register-application/v6/metric')
+  }
+})
+
+// Metric
+router.post('/metric-answer', function (req, res) {
+
+  var install = req.session.data['metric']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/not-eligible')
+  } else {
+    res.redirect('/register-application/v6/eligible')
   }
 })
 
@@ -147,19 +231,6 @@ router.post('/location-draw-confirm-answer', function (req, res) {
   }
 })
 
-// Metric
-router.post('/metric-answer', function (req, res) {
-
-  var install = req.session.data['metric']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/metric-no')
-  } else {
-    res.redirect('/register-application/v6/metric-upload')
-  }
-})
-
-
 // Metric check
 router.post('/metric-correct-answer', function (req, res) {
 
@@ -232,18 +303,6 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   }
 })
 
-// Management plan
-router.post('/management-plan-answer', function (req, res) {
-
-  var install = req.session.data['management-plan']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/management-plan-no')
-  } else {
-    res.redirect('/register-application/v6/management-plan-upload')
-  }
-})
-
 // Management plan check
 router.post('/management-plan-correct-answer', function (req, res) {
 
@@ -277,44 +336,6 @@ router.post('/payment-bacs-answer', function (req, res) {
     res.redirect('/register-application/v6/payment-bacs-no')
   } else {
     res.redirect('/register-application/v6/payment-status')
-  }
-})
-
-// ALLOCATION JOURNEY
-
-// Legal agreement file
-router.post('/legal-agreement-file-answer-allocate', function (req, res) {
-
-  var install = req.session.data['legal-agreement-file']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/allocate-development/development-legal-agreement-upload')
-  } else {
-    res.redirect('/register-application/v6/allocate-development/development-allocation')
-  }
-})
-
-// Legal agreement check
-router.post('/legal-agreement-correct-answer-allocate', function (req, res) {
-
-  var install = req.session.data['legal-agreement-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/allocate-development/development-legal-agreement-upload')
-  } else {
-    res.redirect('/register-application/v6/allocate-development/development-allocation')
-  }
-})
-
-// Legal agreement check
-router.post('/gain-site-confirm-answer-allocate', function (req, res) {
-
-  var install = req.session.data['site-confirm']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/allocate-development/site-search')
-  } else {
-    res.redirect('/register-application/v6/allocate-development/development-planning-ref-search')
   }
 })
 

@@ -1,0 +1,27 @@
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "You're eligible to register land as a site for biodiversity gain" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+
+        <input type="hidden" name="eligible" value="true">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
