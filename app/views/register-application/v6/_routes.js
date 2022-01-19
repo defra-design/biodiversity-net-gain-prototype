@@ -76,7 +76,7 @@ router.post('/landowner-permission-correct-answer-land-registry-no', function (r
 // Land ownership cerificate upload
 router.post('/land-ownership-certificate-correct-answer', function (req, res) {
 
-  var install = req.session.data['land-ownership-certificate-correct']
+  var install = req.session.data['land-ownership-correct']
 
   if (install == "no"){
     res.redirect('/register-application/v6/land-ownership-certificate-upload')
@@ -136,7 +136,7 @@ router.post('/metric-answer', function (req, res) {
 // Land registry check
 router.post('/land-registry-search-confirm-answer', function (req, res) {
 
-  var install = req.session.data['land-registry-correct']
+  var install = req.session.data['land-ownership-correct']
 
   if (install == "no"){
     res.redirect('/register-application/v6/land-registry-search')

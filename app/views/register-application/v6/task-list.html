@@ -12,21 +12,20 @@
         {{ pageHeading }}
       </h1>
       
-      {% if data['declaration']  %}
+      {% if data['answers-checked'] %}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 4 of 4 sections.</p>
-      {% elif data['conservation-covenant-correct'] == 'yes' or data['development-confirm']  %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 4 sections.</p>
-      {% elif data['conservation-covenant-correct'] == 'yes' or data['development-confirm']  %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 4 sections.</p>
-      {% elif data['eligible'] %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 4 sections.</p>
       {% else %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 4 sections.</p>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+        {% if data['development-confirm'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 4 sections.</p>
+        {% elif data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 4 sections.</p>
+        {% elif data['eligible'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 4 sections.</p>
+        {% else %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 4 sections.</p>
+        {% endif %} 
       {% endif %} 
 
       {% if data['eligible']  %}
@@ -80,7 +79,7 @@
                     </a>
                   {% endif %} 
                 </span>
-                {% if data['land-registry-correct'] or data['land-ownership-certificate-correct'] %}
+                {% if data['land-ownership-correct'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
                 {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
@@ -212,7 +211,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-registry-correct'] %}
+              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
@@ -237,11 +236,11 @@
             <li class="app-task-list__item">
               {% if data['payment-success'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/declaration" aria-describedby="submit-application">
+                <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
                   Submit the application
                 </a>
               </span>
-              {% if data['declaration'] %}
+              {% if data['answers-checked'] %}
               <strong class="govuk-tag app-task-list__tag" id="submit-application">completed</strong>
               {% else %}
               <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">not started</strong>

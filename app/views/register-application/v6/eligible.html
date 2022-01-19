@@ -11,7 +11,11 @@
         {{ pageHeading }}
       </h1>
 
-      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+      {% if data['signed-in'] == 'yes' %}
+        <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+      {% else %}
+        <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+      {% endif %}
 
         <input type="hidden" name="eligible" value="true">
 
