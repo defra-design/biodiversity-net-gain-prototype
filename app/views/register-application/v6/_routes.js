@@ -19,7 +19,7 @@ router.post('/landowner-permission-answer', function (req, res) {
   var install = req.session.data['landowner-permission']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/not-eligible')
+    res.redirect('/register-application/v6/not-eligible-landowner')
   } else {
     res.redirect('/register-application/v6/land-registry')
   }
@@ -38,12 +38,12 @@ router.post('/land-registry-answer', function (req, res) {
 })
 
 // Landowner permission
-router.post('/landownership-certificate-answer', function (req, res) {
+router.post('/land-ownership-certificate-answer', function (req, res) {
 
-  var install = req.session.data['landownership-certificate']
+  var install = req.session.data['land-ownership-certificate']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/not-eligible')
+    res.redirect('/register-application/v6/not-eligible-land-ownership')
   } else {
     res.redirect('/register-application/v6/third-parties')
   }
@@ -91,7 +91,7 @@ router.post('/third-parties-answer', function (req, res) {
   var install = req.session.data['third-parties']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/not-eligible')
+    res.redirect('/register-application/v6/not-eligible-third-parties')
   } else {
     res.redirect('/register-application/v6/legal-agreements')
   }
@@ -103,7 +103,7 @@ router.post('/legal-agreements-answer', function (req, res) {
   var install = req.session.data['legal-agreements']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/not-eligible')
+    res.redirect('/register-application/v6/not-eligible-legal-agreements')
   } else {
     res.redirect('/register-application/v6/management-plan')
   }
@@ -115,7 +115,7 @@ router.post('/management-plan-answer', function (req, res) {
   var install = req.session.data['management-plan']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/not-eligible')
+    res.redirect('/register-application/v6/not-eligible-management-plan')
   } else {
     res.redirect('/register-application/v6/metric')
   }
@@ -127,7 +127,7 @@ router.post('/metric-answer', function (req, res) {
   var install = req.session.data['metric']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/not-eligible')
+    res.redirect('/register-application/v6/not-eligible-metric')
   } else {
     res.redirect('/register-application/v6/eligible')
   }
@@ -251,67 +251,31 @@ router.post('/metric-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v6/metric-upload')
   } else {
-    res.redirect('/register-application/v6/development-confirm')
-  }
-})
-
-// Legal agreement
-router.post('/legal-agreement-answer', function (req, res) {
-
-  var install = req.session.data['legal-agreement']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/development-conservation-covenant')
-  } else {
     res.redirect('/register-application/v6/task-list')
   }
 })
 
-// Conservation covenant
-router.post('/conservation-covenant-answer', function (req, res) {
+// Legal agreement conservation check
+router.post('/legal-agreement-conservation-correct-answer', function (req, res) {
 
-  var install = req.session.data['conservation-covenant']
+  var install = req.session.data['legal-agreement-conservation-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/development-conservation-covenant-no')
+    res.redirect('/register-application/v6/legal-agreement-conservation-upload')
   } else {
-    res.redirect('/register-application/v6/development-conservation-covenant-upload')
+    res.redirect('/register-application/v6/legal-agreement-financial-upload')
   }
 })
 
-// Conservation covenant check
-router.post('/conservation-covenant-correct-answer', function (req, res) {
+// Legal agreement financial check
+router.post('/legal-agreement-financial-correct-answer', function (req, res) {
 
-  var install = req.session.data['conservation-covenant-correct']
+  var install = req.session.data['legal-agreement-financial-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v6/development-conservation-covenant-upload')
+    res.redirect('/register-application/v6/legal-agreement-financial-upload')
   } else {
     res.redirect('/register-application/v6/task-list')
-  }
-})
-
-// Legal agreement file
-router.post('/legal-agreement-file-answer', function (req, res) {
-
-  var install = req.session.data['legal-agreement-file']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/development-legal-agreement-upload')
-  } else {
-    res.redirect('/register-application/v6/development-allocation')
-  }
-})
-
-// Legal agreement check
-router.post('/legal-agreement-correct-answer', function (req, res) {
-
-  var install = req.session.data['legal-agreement-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v6/development-legal-agreement-upload')
-  } else {
-    res.redirect('/register-application/v6/development-allocation')
   }
 })
 
