@@ -13,20 +13,25 @@
       </h1>
       
       {% if data['declaration']  %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 4 of 4 sections.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application complete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 4 of 4 sections.</p>
       {% elif data['conservation-covenant-correct'] == 'yes' or data['development-confirm']  %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 3 of 4 sections.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 4 sections.</p>
       {% elif data['conservation-covenant-correct'] == 'yes' or data['development-confirm']  %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 2 of 4 sections.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 4 sections.</p>
       {% elif data['eligible'] %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 1 of 4 sections.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 4 sections.</p>
       {% else %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-      <p class="govuk-body govuk-!-margin-bottom-7">You have completed 0 of 4 sections.</p>
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 4 sections.</p>
+      {% endif %} 
+
+      {% if data['eligible']  %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application saved</h2>
+        <p class="govuk-body govuk-!-margin-bottom-7">Reference: <br> 2022-0115-BNG <br> <a href="/register-application/{{ pageURL }}/applications">View applications</a></p>
       {% endif %} 
 
       <ol class="app-task-list">

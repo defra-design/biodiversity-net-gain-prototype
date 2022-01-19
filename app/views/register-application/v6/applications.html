@@ -1,1 +1,59 @@
-[TO DO] Application list
+{% extends "register-application/v6/layout-register-application.html" %}
+
+{% set pageHeading = "Applications" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        {{ pageHeading }}
+      </h1>
+
+      <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+        <input type="hidden" name="start-new-application" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Start new application
+        </button>
+      </form>
+
+      {{ govukTable({
+        caption: "Applications",
+        captionClasses: "govuk-visually-hidden",
+        head: [
+          {
+            text: "Application"
+          },
+          {
+            text: "Last updated"
+          },
+          {
+            text: "Status"
+          },
+          {
+            html: "<span class='govuk-visually-hidden'>Action</span>"
+          }
+        ],
+        rows: [
+          [
+            {
+              text: "2022-0115-BNG"
+            },
+            {
+              text: "14 January 2022"
+            },
+            {
+              html: "<strong class='govuk-tag govuk-tag--yellow'>In progress</strong>"
+            },
+            {
+              html: "<a href='/register-application/v6/task-list'>Continue with application <span class='govuk-visually-hidden'>2022-0115-BNG</span></a>"
+            }
+          ]
+        ]
+      }) }}
+        
+    </div>
+</div>
+
+{% endblock %}
