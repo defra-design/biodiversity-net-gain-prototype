@@ -263,7 +263,7 @@ router.post('/legal-agreement-conservation-correct-answer', function (req, res) 
   if (install == "no"){
     res.redirect('/register-application/v6/legal-agreement-conservation-upload')
   } else {
-    res.redirect('/register-application/v6/legal-agreement-financial-upload')
+    res.redirect('/register-application/v6/task-list')
   }
 })
 
@@ -316,15 +316,9 @@ router.post('/payment-bacs-answer', function (req, res) {
 })
 
 // New application
-router.post('/sign-in-answer', function (req, res) {
-
-  var install = req.session.data['sign-in']
-
-  if (install == "yes"){
-    res.redirect('/register-application/v6/applications')
-  } else {
-    res.redirect('/register-application/v6/task-list')
-  }
+router.post('/new-application', function (req, res) {
+  req.session.data = {}
+  res.redirect('/register-application/v6/task-list')
 })
 
 // Add your routes above the module.exports line

@@ -17,9 +17,9 @@
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 4 of 4 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        {% if data['development-confirm'] %}
+        {% if data['development-confirm'] and data['metric-correct'] and data['legal-agreement-financial-correct'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 4 sections.</p>
-        {% elif data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] %}
+        {% elif data['legal-agreement-conservation-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 4 sections.</p>
         {% elif data['eligible'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 4 sections.</p>
@@ -115,26 +115,6 @@
             <li class="app-task-list__item">
               {% if data['eligible'] %}
                 <span class="app-task-list__task-name">
-                  <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
-                    Biodiversity metric 3.0
-                  </a>
-                </span>
-                {% if data['metric-correct'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
-                {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
-                {% endif %} 
-              {% else %}
-                <span class="app-task-list__task-name">
-                  Biodiversity metric 3.0
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Cannot start yet</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              {% if data['eligible'] %}
-                <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="landowner-permission-status">
                     Habitat management and monitoring plan
                   </a>
@@ -156,7 +136,7 @@
               {% if data['eligible'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload" aria-describedby="landowner-permission-status">
-                    Legal agreements
+                    Legal agreement conservation
                   </a>
                 </span>
                 {% if data['legal-agreement-financial-correct'] %}
@@ -166,7 +146,7 @@
                 {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Legal agreements
+                  Legal agreement conservation
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Cannot start yet</strong>
               {% endif %} 
@@ -177,7 +157,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Link habitat enhancements to developments
+            <span class="app-task-list__section-number">3. </span> Link habitat enhancements to a development
           </h2>
 
           <ul class="app-task-list__items">
@@ -202,6 +182,46 @@
               {% endif %} 
             </li>
 
+            <li class="app-task-list__item">
+              {% if data['eligible'] %}
+                <span class="app-task-list__task-name">
+                  <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
+                    Biodiversity metric 3.0
+                  </a>
+                </span>
+                {% if data['metric-correct'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
+                {% endif %} 
+              {% else %}
+                <span class="app-task-list__task-name">
+                  Biodiversity metric 3.0
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              {% if data['eligible'] %}
+                <span class="app-task-list__task-name">
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
+                    Legal agreement financial
+                  </a>
+                </span>
+                {% if data['legal-agreement-financial-correct'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
+                {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
+                {% endif %} 
+              {% else %}
+                <span class="app-task-list__task-name">
+                  Legal agreement financial
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+
           </ul>
         </li>
 
@@ -211,7 +231,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] %}
+              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] and data['legal-agreement-conservation-correct'] %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
