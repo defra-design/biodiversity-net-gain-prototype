@@ -318,7 +318,7 @@ router.post('/payment-bacs-answer', function (req, res) {
 // New application
 router.post('/new-application', function (req, res) {
   req.session.data = {}
-  res.redirect('/register-application/v6/task-list')
+  res.redirect('/register-application/v6/landowner')
 })
 
 // Add your routes above the module.exports line
