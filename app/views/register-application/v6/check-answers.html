@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-l">Land and habitat</h2>
+      <h2 class="govuk-heading-m">Land and habitat</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -31,10 +31,10 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Landowner consent
+            Landowner consent evidence
           </dt>
           <dd class="govuk-summary-list__value">
-            Yes
+            <a download href="#">landowner-consent-evidence.pdf</a>, 2.8MB
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
@@ -75,10 +75,24 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Legal agreement
+            Biodiversity Metric 3.0
           </dt>
           <dd class="govuk-summary-list__value">
-            Has legal agreements for linked developments
+            <a download href="#">Biodiversity Metric 3.0_meadow-croft.xlsm</a>, 4.1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement conservation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="#">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
@@ -89,63 +103,65 @@
 
       </dl>
 
-      <h2 class="govuk-heading-l">Linked developments</h2>
+      <h2 class="govuk-heading-m">Linked development</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Planning reference
+            Planning reference number
           </dt>
           <dd class="govuk-summary-list__value">
-            21/02367/FUL
+            21/02367/FUL, <br>{{ data['input-autocomplete'] or 'York City Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
               Change<span class="govuk-visually-hidden"> Planning reference</span>
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Local Planning Authority
+            Biodiversity Metric 3.0
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['input-autocomplete'] or 'York City Council' }}
+            <a download href="#">Biodiversity Metric 3.0_21/02367/FUL_complete.xlsm</a>, 5.8MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
-              Change<span class="govuk-visually-hidden"> Local planning authority</span>
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
             </a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Legal agreement
+            Habitat management and monitoring plan
           </dt>
           <dd class="govuk-summary-list__value">
-            <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
+            <a download href="/public/images/meadow-croft-farm-mandm-plan.pdf">meadow-croft-farm-mandm-plan.pdf</a>, 3.6MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-legal-agreement-upload">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement financial
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="#">legal-agreement-financial.pdf</a>, 2.3MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
               Change<span class="govuk-visually-hidden"> Legal agreement</span>
             </a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Allocated units
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Grassland = 1.53 <br>
-            Heathland and scrub = 0.10 <br>
-            Native species rich hedgerow = 0.45
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-allocation">
-              Change<span class="govuk-visually-hidden"> Allocated units</span>
-            </a>
-          </dd>
-        </div>
+
       </dl>
 
       <h2 class="govuk-heading-l">Now send your application</h2>
