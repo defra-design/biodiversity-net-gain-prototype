@@ -255,6 +255,18 @@ router.post('/metric-correct-answer', function (req, res) {
   }
 })
 
+// Metric check baseline
+router.post('/metric-baseline-correct-answer', function (req, res) {
+
+  var install = req.session.data['metric-baseline-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/metric-baseline-upload')
+  } else {
+    res.redirect('/register-application/v6/task-list')
+  }
+})
+
 // Legal agreement conservation check
 router.post('/legal-agreement-conservation-correct-answer', function (req, res) {
 
