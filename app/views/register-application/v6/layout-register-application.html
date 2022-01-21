@@ -30,9 +30,12 @@
         href: "javascript: window.history.go(-1)"
       }) }}
     {% endif %} 
+    {% if hideSaveLink === true %}
+    {% else %}
     <div class="app-save">
       <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/signed-out?lastVisitedURL={{currentURL}}">Save and return later</a></p>
     </div>
+    {% endif %} 
   </div>
 {% endblock %}
 
