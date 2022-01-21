@@ -19,7 +19,14 @@
         </div>
       </div>
 
-      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ pageURL }}/sign-in">https://gov.uk/register-land-for-biodiversity-gain</a>.</p>
+      <h2 id="return-to-application" class="govuk-heading-m govuk-!-padding-top-4">Return to an existing application</h2>
+
+      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+        <input type="hidden" name="signed-in" value="yes">
+        <button class="govuk-link app-button-link" data-module="govuk-button">
+          Sign in to continue your application
+        </button>
+      </form>
         
     </div>
 </div>

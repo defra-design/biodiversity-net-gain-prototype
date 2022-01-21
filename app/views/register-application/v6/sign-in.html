@@ -43,11 +43,7 @@
         Sign in using Government Gateway
       </h1>
 
-      {% if data['signed-in'] == 'yes' %}
-      <form action="/register-application/{{ pageURL }}/applications" method="post">
-      {% else %}
-      <form action="/register-application/{{ pageURL }}/task-list" method="post">
-      {% endif %}
+      <form action="/register-application/{{ pageURL }}/sign-in-answer" method="post">
       
       <div class="govuk-form-group">
         <label class="govuk-label" for="govGateUserId">
@@ -68,8 +64,6 @@
       
       <input class="govuk-input govuk-!-width-three-quarters" id="govGatePwassword" name="govGatePwassword" type="text">
       </div>
-
-      <input type="hidden" name="signed-in" value="yes">
       
       <button class="govuk-button" data-module="govuk-button">
         Sign in

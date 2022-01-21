@@ -333,5 +333,17 @@ router.post('/new-application', function (req, res) {
   res.redirect('/register-application/v6/landowner')
 })
 
+// Payment
+router.post('/sign-in-answer', function (req, res) {
+
+  var install = req.session.data['signed-in']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v6/applications')
+  } else {
+    res.redirect('/register-application/v6/task-list')
+  }
+})
+
 // Add your routes above the module.exports line
 module.exports = router
