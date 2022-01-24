@@ -102,7 +102,7 @@ router.post('/legal-agreements-answer', function (req, res) {
 
   var install = req.session.data['legal-agreements']
 
-  if (install == "no"){
+  if (install == "none"){
     res.redirect('/register-application/v6/not-eligible-legal-agreements')
   } else {
     res.redirect('/register-application/v6/management-plan')
