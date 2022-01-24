@@ -1,6 +1,6 @@
 {% extends "register-application/v6/layout-register-application.html" %}
 
-{% set pageHeading = "Register land as a site for biodiversity gain" %}
+{% set pageHeading = "Register land for biodiversity gain that is linked to a development" %}
 
 {% block header %}
   {{ govukHeader({
@@ -33,7 +33,7 @@
       
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
-      <p class="gem-c-lead-paragraph">You need to register land that developers can use for biodiversity gain if they cannot use their development site.</p>
+      <p class="gem-c-lead-paragraph">How to register land that developers can use for biodiversity gain if they cannot use their development site.</p>
 
       <div class="responsive-bottom-margin">
         <nav class="gem-c-contents-list" aria-label="Contents" role="navigation">
@@ -41,9 +41,9 @@
             Contents
           </h2>
           <ol class="gem-c-contents-list__list">
-              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+              <!--<li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
                 <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#overview">Overview</a>
-              </li>
+              </li>-->
               <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
                 <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#before-you-apply">Before you apply</a>
               </li>
@@ -69,35 +69,37 @@
         </nav>
     </div>
       
-      <h2 id="overview" class="govuk-heading-m">Overview</h2>
-      <!--<p class="govuk-body">You need to register land that developers can use for biodiversity gain if they cannot use their development site.</p>-->
-      <!--<p class="govuk-body">You do not need to register development sites.</p> 
-      <p class="govuk-body">If a developer cannot create or enhance habitats on a development site, they need separate land to help them do this.</p> 
+      <!--<h2 id="overview" class="govuk-heading-m">Overview</h2>
+      <p class="govuk-body">You do not need to register development sites.</p> 
+      <p class="govuk-body">If a developer cannot create or enhance habitats on the development site, they need separate land to help them do this.</p> 
       <p class="govuk-body">The separate land needs to be registered with Natural England.</p>-->
       <p class="govuk-body">The developer needs this registration to get their <a class="govuk-link" href="#">biodiversity gain plan</a> approved before development works begin.</p>  
       
       <h2 id="before-you-apply" class="govuk-heading-m">Before you apply</h2>
       
-      <h3 class="govuk-heading-s">If the land is linked to a development</h3>
-      
-      <!--<p class="govuk-body">You must have:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        <li>a legal agreement called a <a class="govuk-link" href="#">conservation covenant</a> or a <a class="govuk-link" href="#">planning obligation</a></li>
-        <li>submitted a planning application using the <a class="govuk-link" href="#">planning portal</a> </li>
-      </ul>-->
-
-      <p class="govuk-body">You must have a legal agreement called a <a class="govuk-link" href="#">conservation covenant</a> or a <a class="govuk-link" href="#">planning obligation</a></p>  
+      <!--<h3 class="govuk-heading-s">If the land is linked to the development</h3>-->
 
       <p class="govuk-body">The developer must submit a planning application using the <a class="govuk-link" href="#">Planning portal</a></a></p>  
 
-      <h3 class="govuk-heading-s">If the land is not yet linked to a development</h3>
-      <p class="govuk-body">You must have a conservation covenant. </p>
+      <!--<h3 class="govuk-heading-s">If the land is not yet linked to the development</h3>
+      <p class="govuk-body">You must have a conservation covenant. </p>-->
       
       <h2 id="check-what-you-need" class="govuk-heading-m">Check what you need and apply</h2> 
-      <p class="govuk-body">You'll need to have:</p>
+
+      <p class="govuk-body">You can use a signed legal agreement called a <a class="govuk-link" href="#">planning obligation</a>.</p>  
+
+      <p class="govuk-body">If you do not have a planning obligation, you need 2 other signed legal agreements:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>consent from the landowner or third parties who have an interest in the land </li>
-        <li>a copy of the signed conservation covenant or a planning portal reference number</li>
+        <li>a <a class="govuk-link" href="#">conservation covenant</a> that secures the biodiversity gains for 30 years</li>
+        <li>a financial agreement that secures funding from a developer for the biodiversity gains</li>
+        </ul>
+
+
+        <p class="govuk-body">Interested third parties</p>  
+
+      <p class="govuk-body">You also need to have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>consent from the landowner</li>
         <li>the boundary of the land</li>
         <li>your completed <a class="govuk-link" href="#">biodiversity metric 3.0 calculations</a></li>
         <li>your <a class="govuk-link" href="#">habitat management and monitoring plan</a></li>
@@ -134,7 +136,7 @@
       </ul>  
         
       <h3 id="if-application-approved" class="govuk-heading-s">If your application is approved</h3> 
-      <p class="govuk-body">Only land that is linked to a development will be listed on the <a class="govuk-link" href="#">Biodiversity gain site register</a>. </p>
+      <p class="govuk-body">The land will be listed on the <a class="govuk-link" href="#">Biodiversity gain site register</a>. </p>
       
       <h2 id="after-registration" class="govuk-heading-m">After you're registered</h2> 
       <p class="govuk-body"> You must follow the habitat management and monitoring plan.  </p>
@@ -145,8 +147,8 @@
         <li>there are changes to the planning permission </li>
       </ul> 
       
-      <h3 class="govuk-heading-s">If the whole land or a part of it becomes linked to a new development</h3>
-      <p class="govuk-body">You must <a class="govuk-link" href="/register-application/{{ pageURL }}/allocate-development/government-gateway-login">add the development to your registration</a>. </p>
+      <!--<h3 class="govuk-heading-s">If the whole land or a part of it becomes linked to a new development</h3>
+      <p class="govuk-body">You must <a class="govuk-link" href="/register-application/{{ pageURL }}/allocate-development/government-gateway-login">add the development to your registration</a>. </p>-->
     
     </div>
     <div class="govuk-grid-column-one-third">

@@ -1,6 +1,6 @@
 {% extends "register-application/v6/layout-register-application.html" %}
 
-{% set pageHeading = "Register land as a site for biodiversity gain" %}
+{% set pageHeading = "Register land for biodiversity gain that is linked to a development" %}
 
 {% set hideBackLink = true %}
 
@@ -33,7 +33,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Give details about the land and habitat
+            <span class="app-task-list__section-number">1. </span> Give details about the whole land
           </h2>
           <ul class="app-task-list__items">
 
@@ -72,7 +72,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/metric-upload-baseline" aria-describedby="landowner-permission-status">
-                  Biodiversity metric 3.0
+                  Biodiversity Metric 3.0 calculations
                 </a>
               </span>
               {% if data['metric-baseline-correct'] %}
@@ -85,7 +85,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload" aria-describedby="landowner-permission-status">
-                  Legal agreement conservation
+                  Legal agreement for 30 years of biodiversity gain
                 </a>
               </span>
               {% if data['legal-agreement-conservation-correct'] %}
@@ -100,7 +100,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Link habitat enhancements to a development
+            <span class="app-task-list__section-number">2. </span> Link biodiversity gain on land to the development
           </h2>
 
           <ul class="app-task-list__items">
@@ -121,7 +121,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
-                  Biodiversity metric 3.0
+                  Biodiversity metric 3.0 calculations for biodiversity gains not on the development site
                 </a>
               </span>
               {% if data['metric-correct'] %}
@@ -147,7 +147,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
-                  Legal agreement financial
+                  Legal agreement between the developer and landowner
                 </a>
               </span>
               {% if data['legal-agreement-financial-correct'] %}
