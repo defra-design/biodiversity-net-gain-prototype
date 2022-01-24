@@ -1,6 +1,6 @@
 {% extends "register-application/v6/layout-register-application.html" %}
 
-{% set pageHeading = "Confirm document for the land boundary" %}
+{% set pageHeading = "Confirm document or image for the land boundary" %}
 
 {% block content %}
 
@@ -33,7 +33,7 @@
           name: "location-confirm",
           fieldset: {
             legend: {
-              text: "Is it the correct document?",
+              text: "Is it the correct document or image?",
               classes: "govuk-fieldset__legend--m"
             }
           },
@@ -44,7 +44,7 @@
             },
             {
               value: "no-again",
-              text: "No, upload a different document"
+              text: "No, upload a different document or image"
             },
             {
               value: "no",
