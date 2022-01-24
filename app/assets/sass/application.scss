@@ -496,3 +496,9 @@ a.skiplink:focus {
       margin-bottom:40px
   }
 }
+
+@media (min-width: 28.125em) {
+  .app-task-list__task-name {
+    max-width: 70%;
+  }
+}
