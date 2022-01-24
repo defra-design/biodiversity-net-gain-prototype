@@ -19,7 +19,7 @@
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
         {% if data['development-confirm'] and data['metric-correct'] and data['legal-agreement-financial-correct'] and data['management-plan-correct'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 3 sections.</p>
-        {% elif data['legal-agreement-conservation-correct'] and data['location-confirm'] and data['land-ownership-correct'] and data['metric-baseline-correct'] %}
+        {% elif data['legal-agreement-conservation-correct'] and data['location-confirm'] and data['land-ownership-correct'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 3 sections.</p>
         {% else %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 3 sections.</p>
@@ -71,21 +71,8 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/metric-upload-baseline" aria-describedby="landowner-permission-status">
-                  Biodiversity Metric 3.0 calculations
-                </a>
-              </span>
-              {% if data['metric-baseline-correct'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload" aria-describedby="landowner-permission-status">
-                  Legal agreement for 30 years of biodiversity gain
+                  Conservation covenant
                 </a>
               </span>
               {% if data['legal-agreement-conservation-correct'] %}
@@ -121,7 +108,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
-                  Biodiversity metric 3.0 calculations for biodiversity gains not on the development site
+                  Biodiversity metric 3.0 calculations
                 </a>
               </span>
               {% if data['metric-correct'] %}
@@ -147,7 +134,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
-                  Legal agreement between the developer and landowner
+                  Financial agreement between the developer and landowner
                 </a>
               </span>
               {% if data['legal-agreement-financial-correct'] %}
