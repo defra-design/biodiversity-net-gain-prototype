@@ -502,3 +502,9 @@ a.skiplink:focus {
     max-width: 70%;
   }
 }
+
+.app-radios--inline {
+  .govuk-radios__item {
+    clear: none;
+  }
+}

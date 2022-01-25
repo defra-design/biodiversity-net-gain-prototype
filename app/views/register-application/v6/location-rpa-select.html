@@ -13,7 +13,7 @@
 
       <p><strong>SBI number:</strong> 200435817 <a class="govuk-link--no-visited-state govuk-body-s" href="/register-application/{{ pageURL }}/location-rpa-search"><br>Change <span class="govuk-visually-hidden">SBI number</span></a></p>
 
-      <details class="govuk-details govuk-!-margin-top-4" data-module="govuk-details">
+      <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
           How to select a boundary
@@ -37,6 +37,29 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+
+      <div class="govuk-form-group" style="margin-bottom: 0;">
+        <fieldset class="govuk-fieldset">        
+        <legend class="govuk-fieldset__legend govuk-visually-hidden app-form-margin">       
+            Map or list view     
+        </legend>
+        <div class="govuk-radios govuk-radios--inline app-radios--inline govuk-radios--small">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="rpa-boundary-map" name="rpa-boundary-map" type="radio" value="map" checked="">
+            <label class="govuk-label govuk-radios__label" for="rpa-boundary-map">
+              View on a map
+            </label> 
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="rpa-boundary-map-2" name="rpa-boundary-map" type="radio" value="list">
+                <label class="govuk-label govuk-radios__label" for="rpa-boundary-map-2">
+              View as a list
+            </label>        
+          </div>
+        </div>
+      </fieldset>
+      </div>
+
       <img src="/public/images/location-rpa.png" alt="" width="100%" style="margin-bottom: 20px; cursor: pointer;" onclick="this.src = this.src == offImg ? onImg : offImg;">
     </div>
   </div>
