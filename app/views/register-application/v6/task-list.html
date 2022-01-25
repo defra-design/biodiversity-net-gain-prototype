@@ -33,7 +33,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Give details about the land in the conservation covenant
+            <span class="app-task-list__section-number">1. </span> Give details about the land for biodiversity gain
           </h2>
           <ul class="app-task-list__items">
 
@@ -71,16 +71,32 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload" aria-describedby="landowner-permission-status">
-                  Conservation covenant
+                <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="landowner-permission-status">
+                  Habitat management and monitoring plan
                 </a>
               </span>
-              {% if data['legal-agreement-conservation-correct'] %}
+              {% if data['management-plan-correct'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
               {% endif %} 
             </li>
+
+            {% if data['legal-agreements'] == 'planning-obligation' %} 
+            {% else %} 
+              <li class="app-task-list__item">
+                <span class="app-task-list__task-name">
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload" aria-describedby="landowner-permission-status">
+                    Conservation covenant
+                  </a>
+                </span>
+                {% if data['legal-agreement-conservation-correct'] %}
+                  <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
+                {% endif %} 
+              </li>
+            {% endif %} 
 
           </ul>
         </li>
@@ -120,22 +136,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="landowner-permission-status">
-                  Habitat management and monitoring plan
-                </a>
-              </span>
-              {% if data['management-plan-correct'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
-                  Financial agreement
-                </a>
+                {% if data['legal-agreements'] == 'planning-obligation' %} 
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
+                    Planning obligation
+                  </a>
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
+                    Financial agreement
+                  </a>
+                {% endif %} 
               </span>
               {% if data['legal-agreement-financial-correct'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
