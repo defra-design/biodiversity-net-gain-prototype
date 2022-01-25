@@ -4,6 +4,8 @@
 
 {% block content %}
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
@@ -38,20 +40,20 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
 
-      <div class="govuk-form-group" style="margin-bottom: 0;">
+      <div class="govuk-form-group" style="margin-bottom: 10px;">
         <fieldset class="govuk-fieldset">        
         <legend class="govuk-fieldset__legend govuk-visually-hidden app-form-margin">       
             Map or list view     
         </legend>
         <div class="govuk-radios govuk-radios--inline app-radios--inline govuk-radios--small">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="rpa-boundary-map" name="rpa-boundary-map" type="radio" value="map" checked="">
+            <input class="govuk-radios__input" id="rpa-boundary-map" name="rpa-boundary-map" type="radio" value="1" checked="checked">
             <label class="govuk-label govuk-radios__label" for="rpa-boundary-map">
               View on a map
             </label> 
               </div>
               <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="rpa-boundary-map-2" name="rpa-boundary-map" type="radio" value="list">
+                <input class="govuk-radios__input" id="rpa-boundary-map-2" name="rpa-boundary-map" type="radio" value="2">
                 <label class="govuk-label govuk-radios__label" for="rpa-boundary-map-2">
               View as a list
             </label>        
@@ -60,83 +62,88 @@
       </fieldset>
       </div>
 
-      <img src="/public/images/location-rpa.png" alt="" width="100%" style="margin-bottom: 20px; cursor: pointer;" onclick="this.src = this.src == offImg ? onImg : offImg;">
-    </div>
-  </div>
+      <div id="RPA1" class="rpa-map" >
 
-  <!--<div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+        <h2 class="govuk-visually-hidden">
+          Map view
+        </h2>
 
-      <h2 class="govuk-heading-m">
-        List view
-      </h2>
-
-      <div class="app-table-responsive">
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Land parcels</caption>
-          <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Parcel ID</th>
-              <th scope="col" class="govuk-table__header">Area</th>
-              <th scope="col" class="govuk-table__header">Perimeter / Length</th>
-              <th scope="col" class="govuk-table__header">Select parcel</th>
-            </tr>
-          </thead>
-          <tbody class="govuk-table__body">
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                9859
-              </td>
-              <td class="govuk-table__cell">5.78 ha</td>
-              <td class="govuk-table__cell">1311.92 m</td>
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                  <label class="govuk-label govuk-checkboxes__label" for="waste">
-                    <span class="govuk-visually-hidden">Parcel ID 9859</span>
-                  </label>
-                </div>
-              </td>
-            </tr>
-
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                1363
-              </td>
-              <td class="govuk-table__cell">4.44 ha</td>
-              <td class="govuk-table__cell">986.20 m</td>
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                  <label class="govuk-label govuk-checkboxes__label" for="waste">
-                    <span class="govuk-visually-hidden">Parcel ID 1363</span>
-                  </label>
-                </div>
-              </td>
-            </tr>
-
-            <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                2463
-              </td>
-              <td class="govuk-table__cell">3.82 ha</td>
-              <td class="govuk-table__cell">856.09 m</td>
-              <td class="govuk-table__cell">
-                <div class="govuk-checkboxes__item">
-                  <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
-                  <label class="govuk-label govuk-checkboxes__label" for="waste">
-                    <span class="govuk-visually-hidden">Parcel ID 2463</span>
-                  </label>
-                </div>
-              </td>
-            </tr>
-
-          </tbody>
-        </table>
+        <img src="/public/images/location-rpa.png" alt="" width="100%" style="margin-bottom: 20px; cursor: pointer;" onclick="this.src = this.src == offImg ? onImg : offImg;">
       </div>
 
+        <div id="RPA2" class="rpa-map" style="display: none">
+
+          <h2 class="govuk-visually-hidden">
+            List view
+          </h2>
+
+          <div class="app-table-responsive">
+            <table class="govuk-table">
+              <caption class="govuk-visually-hidden">Land parcels</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Parcel ID</th>
+                  <th scope="col" class="govuk-table__header">Area</th>
+                  <th scope="col" class="govuk-table__header">Perimeter / Length</th>
+                  <th scope="col" class="govuk-table__header">Select parcel</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">
+                    9859
+                  </td>
+                  <td class="govuk-table__cell">5.78 ha</td>
+                  <td class="govuk-table__cell">1311.92 m</td>
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        <span class="govuk-visually-hidden">Parcel ID 9859</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">
+                    1363
+                  </td>
+                  <td class="govuk-table__cell">4.44 ha</td>
+                  <td class="govuk-table__cell">986.20 m</td>
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses" checked=""">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        <span class="govuk-visually-hidden">Parcel ID 1363</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <td scope="row" class="govuk-table__cell">
+                    2463
+                  </td>
+                  <td class="govuk-table__cell">3.82 ha</td>
+                  <td class="govuk-table__cell">856.09 m</td>
+                  <td class="govuk-table__cell">
+                    <div class="govuk-checkboxes__item">
+                      <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                      <label class="govuk-label govuk-checkboxes__label" for="waste">
+                        <span class="govuk-visually-hidden">Parcel ID 2463</span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+      </div>
     </div>
-  </div>-->
+  </div>
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
@@ -151,5 +158,16 @@
 
     </div>
   </div>
+
+  <script>
+      $(document).ready(function() {
+        $("input[name$='rpa-boundary-map']").click(function() {
+            var test = $(this).val();
+
+            $("div.rpa-map").hide();
+            $("#RPA" + test).show();
+        });
+    });
+  </script>
 
 {% endblock %}
