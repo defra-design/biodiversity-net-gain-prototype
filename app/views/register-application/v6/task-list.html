@@ -17,9 +17,9 @@
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 3 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        {% if data['development-confirm'] and data['metric-correct'] and data['legal-agreement-financial-correct'] and data['management-plan-correct'] %}
+        {% if data['development-confirm'] and data['metric-correct'] and data['legal-agreement-financial-correct'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 3 sections.</p>
-        {% elif data['legal-agreement-conservation-correct'] and data['location-confirm'] and data['land-ownership-correct'] %}
+        {% elif data['legal-agreement-conservation-correct'] and data['location-confirm'] and data['land-ownership-correct'] and data['management-plan-correct'] or data['location-confirm'] and data['land-ownership-correct'] and data['legal-agreements'] == 'planning-obligation' %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 3 sections.</p>
         {% else %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 3 sections.</p>
@@ -160,7 +160,7 @@
           </h2>
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
-              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] and data['legal-agreement-conservation-correct'] %}
+              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] and data['legal-agreement-conservation-correct'] or data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] and data['legal-agreements'] == 'planning-obligation' %}
                 
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">

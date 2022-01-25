@@ -31,15 +31,21 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">2022-0115-BNG</td>
-            <td class="govuk-table__cell">15 January 2022</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--yellow">In progress</strong></td>
-            <td class="govuk-table__cell"><a href="/register-application/v6/task-list">Continue application <span class="govuk-visually-hidden">2022-0115-BNG</span></a></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2021-1201-BNG</td>
-            <td class="govuk-table__cell">05 December 2021</td>
-            <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--blue">Submitted</strong></td>
-            <td class="govuk-table__cell"><a href="#">View application <span class="govuk-visually-hidden">2021-1201-BNG</span></a></td>
+            <td class="govuk-table__cell">27 January 2022</td>
+            <td class="govuk-table__cell">
+              {% if data['answers-checked'] == 'true' %} 
+                <strong class="govuk-tag govuk-tag--blue">Submitted</strong></td>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--yellow">In progress</strong></td>
+              {% endif %}
+            <td class="govuk-table__cell"><a href="/register-application/v6/task-list">
+              {% if data['answers-checked'] == 'true' %} 
+                View application
+              {% else %}
+                Continue application 
+              {% endif %}   
+              <span class="govuk-visually-hidden">2022-0115-BNG</span></a></td>
+            
           </tr>
         </tbody>
       </table>

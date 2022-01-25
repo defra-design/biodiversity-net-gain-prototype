@@ -11,38 +11,43 @@
         {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-m">Land details</h2>
+      <h2 class="govuk-heading-m">Land for off-site biodiversity gain</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner
-          </dt>
-          <dd class="govuk-summary-list__value">
-            No
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> Landowner</span>
-            </a>
-          </dd>
-        </div>
+        {% if data['landowner-permission-correct'] %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Landowner consent
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">landowner-consent-evidence.pdf</a>, 1.1MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Landowner consent</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %} 
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner consent
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a download href="#">landowner-consent-evidence.pdf</a>, 2.8MB
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> Landowner consent</span>
-            </a>
-          </dd>
-        </div>
+        {% if data['land-ownership-check'] %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Ownership certificate
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">ownership-certificate.pdf</a>, 1.6MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Ownership certificate</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
 
+        {% if data['land-registry-check'] %} 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             HM Land registry details
@@ -58,6 +63,7 @@
             </a>
           </dd>
         </div>
+        {% endif %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key" style="vertical-align:top;">
@@ -75,31 +81,34 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Biodiversity Metric 3.0
+            Habitat management and monitoring plan
           </dt>
           <dd class="govuk-summary-list__value">
-            <a download href="#">Biodiversity Metric 3.0_meadow-croft.xlsm</a>, 4.1MB
+            <a download href="#">habitat-management-plan.pdf</a>, 1MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
+            <a class="govuk-link govuk-link--no-visited-state" href="#">
+              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
             </a>
           </dd>
         </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Conservation covenant
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a download href="#">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
-              Change<span class="govuk-visually-hidden"> Legal agreement</span>
-            </a>
-          </dd>
-        </div>
+        
+        {% if data['legal-agreements'] == 'planning-obligation' %} 
+        {% else %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Conservation covenant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">conservation-covenant.pdf</a>, 1MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">
+                Change<span class="govuk-visually-hidden"> Legal agreement</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %} 
 
       </dl>
 
@@ -125,7 +134,7 @@
             Biodiversity Metric 3.0
           </dt>
           <dd class="govuk-summary-list__value">
-            <a download href="#">Biodiversity Metric 3.0_21/02367/FUL_complete.xlsm</a>, 5.8MB
+            <a download href="#">metric_3.0_21/02367/FUL.xlsm</a>, 4.1MB
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">
@@ -136,24 +145,18 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Habitat management and monitoring plan
+            {% if data['legal-agreements'] == 'planning-obligation' %} 
+              Planning obligation
+            {% else %}
+              Financial agreement
+            {% endif %} 
           </dt>
           <dd class="govuk-summary-list__value">
-            <a download href="/public/images/meadow-croft-farm-mandm-plan.pdf">meadow-croft-farm-mandm-plan.pdf</a>, 3.6MB
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">
-              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
-            </a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Financial agreement
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a download href="#">legal-agreement-financial.pdf</a>, 2.3MB
+            {% if data['legal-agreements'] == 'planning-obligation' %} 
+              <a download href="#">planning-obligation.pdf</a>, 1.2MB
+            {% else %}
+              <a download href="#">financial-agreement.pdf</a>, 1.2MB
+            {% endif %} 
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="#">

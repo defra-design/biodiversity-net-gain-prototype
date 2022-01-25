@@ -11,20 +11,41 @@
         {{ pageHeading }}
       </h1>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "File added",
-              classes: "app-summary-list__key--narrow",
-              classes: "govuk-!-width-one-quarter"
-            },
-            value: {
-              html: '<a download href="#">legal-agreement-financial.pdf</a>, 2.3MB'
+      {% if data['legal-agreements'] == 'planning-obligation' %} 
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "File added",
+                classes: "app-summary-list__key--narrow",
+                classes: "govuk-!-width-one-quarter"
+              },
+              value: {
+                html: '<a download href="#">planning-obligation.pdf</a>, 1.2MB'
+              }
             }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+
+      {% else %} 
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "File added",
+                classes: "app-summary-list__key--narrow",
+                classes: "govuk-!-width-one-quarter"
+              },
+              value: {
+                html: '<a download href="#">financial-agreement.pdf</a>, 1.2MB'
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %} 
       
       <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-financial-correct-answer">
 
