@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Come back when you have the legal agreements" %}
+{% set pageHeading = "Come back later" %}
 
 {% block content %}
 
@@ -13,7 +13,13 @@
         {{ pageHeading }}
       </h1>
 
-      <p><a href="javascript: window.history.go(-1)">Change my previous answer</a></p>
+      <p class="govuk-body">You need one of the following:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>a planning obligation</li>
+        <li>a conservation covenant and financial agreement between the developer and the landowner</li>
+      </ul> 
+      
+      <!--<p><a href="javascript: window.history.go(-1)">Change my previous answer</a></p>-->
 
     </div>
   </div>
