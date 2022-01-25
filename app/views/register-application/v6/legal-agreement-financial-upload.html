@@ -1,6 +1,11 @@
 {% extends "register-application/v6/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the financial agreement that funds the biodiversity gain on this land" %}
+{% if data['legal-agreements'] == 'planning-obligation' %} 
+  {% set pageHeading = "Upload the planning obligation that funds the biodiversity gain on this land" %}
+{% else %} 
+  {% set pageHeading = "Upload the financial agreement that funds the biodiversity gain on this land" %}
+{% endif %} 
+
 
 {% block content %}
 

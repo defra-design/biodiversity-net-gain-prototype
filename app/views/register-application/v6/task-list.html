@@ -136,15 +136,13 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['legal-agreements'] == 'planning-obligation' %} 
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
+                  {% if data['legal-agreements'] == 'planning-obligation' %} 
                     Planning obligation
-                  </a>
-                {% else %}
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-financial-upload" aria-describedby="landowner-permission-status">
+                  {% else %}
                     Financial agreement
-                  </a>
-                {% endif %} 
+                  {% endif %} 
+                </a>
               </span>
               {% if data['legal-agreement-financial-correct'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
