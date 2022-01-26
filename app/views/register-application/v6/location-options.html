@@ -7,7 +7,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+      {% if data['land-registry-check'] == 'yes' %} 
+        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer-land-registry">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+      {% endif %}
 
         {{ govukRadios({
           idPrefix: "location-options",

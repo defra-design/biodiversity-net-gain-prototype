@@ -272,7 +272,12 @@ a.skiplink:focus {
   margin: 0 0 20px 0;
   z-index: 1;
   background: #fff;
-  box-shadow: 0 20px 15px -10px #fff
+  box-shadow: 0 20px 15px -10px #fff;
+
+  @include govuk-media-query($until: desktop) {
+    margin-bottom: 40px;
+    padding-top: 20px;
+  }
 }
 
 .gem-c-contents-list__title {

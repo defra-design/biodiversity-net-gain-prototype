@@ -161,6 +161,22 @@ router.post('/location-options-answer', function (req, res) {
   }
 })
 
+// Location options - Land registry yes
+router.post('/location-options-answer-land-registry', function (req, res) {
+
+  var install = req.session.data['location-options']
+
+  if (install == "location-rpa"){
+    res.redirect('/register-application/v6/location-rpa-search')
+  } else if (install == "location-import"){
+    res.redirect('/register-application/v6/location-import')
+  } else if (install == "location-upload"){
+    res.redirect('/register-application/v6/location-upload')
+  } else {
+    res.redirect('/register-application/v6/location-draw-map')
+  }
+})
+
 // Location RPA bespoke
 router.post('/location-rpa-bespoke-answer', function (req, res) {
 

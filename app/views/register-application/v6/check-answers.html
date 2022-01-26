@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-m">Land for off-site biodiversity gain</h2>
+      <h2 class="govuk-heading-l">Land for off-site biodiversity gain</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -31,7 +31,23 @@
           </div>
         {% endif %} 
 
-        {% if data['land-ownership-check'] %} 
+        {% if data['land-registry-check'] == 'yes' %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              HM Land registry details
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p>AGL117262</p>
+              <p>Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>
+              <p>Freehold</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/register-application/{{ pageURL }}/land-registry-confirm">
+                Change<span class="govuk-visually-hidden"> HM Land Registry</span>
+              </a>
+            </dd>
+          </div>
+        {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Ownership certificate
@@ -45,24 +61,6 @@
               </a>
             </dd>
           </div>
-        {% endif %}
-
-        {% if data['land-registry-check'] %} 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            HM Land registry details
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p>AGL117262</p>
-            <p>Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>
-            <p>Freehold</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/land-registry-confirm">
-              Change<span class="govuk-visually-hidden"> HM Land Registry</span>
-            </a>
-          </dd>
-        </div>
         {% endif %}
 
         <div class="govuk-summary-list__row">
@@ -95,7 +93,7 @@
 
       </dl>
 
-      <h2 class="govuk-heading-m">Linked development</h2>
+      <h2 class="govuk-heading-l">Linked development</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -126,7 +124,7 @@
           </dd>
         </div>
 
-        {% if data['legal-agreement-conservation-correct'] == 'yes' %} 
+        {% if data['legal-agreement-financial-correct'] == 'yes' and data['legal-agreement-planning-obligation-correct'] != 'yes' %} 
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Conservation covenant
@@ -140,38 +138,34 @@
               </a>
             </dd>
           </div>
-        {% endif %} 
 
-        {% if data['legal-agreement-financial-correct'] == 'yes' and data['legal-agreement-planning-obligation-correct'] != 'yes' %} 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Financial agreement
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a download href="#">financial-agreement.pdf</a>, 1.2MB
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-financial-check">
-              Change<span class="govuk-visually-hidden"> Financial agreement</span>
-            </a>
-          </dd>
-        </div>
-        {% endif %}
-
-        {% if data['legal-agreement-planning-obligation-correct'] == 'yes' %} 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Planning obligation
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a download href="#">planning-obligation.pdf</a>, 1.2MB
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
-              Change<span class="govuk-visually-hidden"> Planning obligation</span>
-            </a>
-          </dd>
-        </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Financial agreement
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">financial-agreement.pdf</a>, 1.2MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-financial-check">
+                Change<span class="govuk-visually-hidden"> Financial agreement</span>
+              </a>
+            </dd>
+          </div>
+        {% else %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Planning obligation
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">planning-obligation.pdf</a>, 1.2MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
+                Change<span class="govuk-visually-hidden"> Planning obligation</span>
+              </a>
+            </dd>
+          </div>
         {% endif %}
 
       </dl>
