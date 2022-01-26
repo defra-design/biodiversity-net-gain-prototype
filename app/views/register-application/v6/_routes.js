@@ -275,7 +275,7 @@ router.post('/legal-agreement-conservation-correct-answer', function (req, res) 
   if (install == "no"){
     res.redirect('/register-application/v6/legal-agreement-conservation-upload')
   } else {
-    res.redirect('/register-application/v6/task-list')
+    res.redirect('/register-application/v6/legal-agreement-financial-upload')
   }
 })
 
@@ -286,6 +286,18 @@ router.post('/legal-agreement-financial-correct-answer', function (req, res) {
 
   if (install == "no"){
     res.redirect('/register-application/v6/legal-agreement-financial-upload')
+  } else {
+    res.redirect('/register-application/v6/task-list')
+  }
+})
+
+// Legal agreement planning obligation check
+router.post('/legal-agreement-planning-obligation-correct-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement-planning-obligation-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v6/legal-agreement-planning-obligation-upload')
   } else {
     res.redirect('/register-application/v6/task-list')
   }

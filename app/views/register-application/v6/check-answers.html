@@ -24,7 +24,7 @@
               <a download href="#">landowner-consent-evidence.pdf</a>, 1.1MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-permission-check">
                 Change<span class="govuk-visually-hidden"> Landowner consent</span>
               </a>
             </dd>
@@ -40,7 +40,7 @@
               <a download href="#">ownership-certificate.pdf</a>, 1.6MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
+              <a class="govuk-link" href="/register-application/{{ pageURL }}/land-ownership-certificate-check">
                 Change<span class="govuk-visually-hidden"> Ownership certificate</span>
               </a>
             </dd>
@@ -58,7 +58,7 @@
             <p>Freehold</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/land-registry-confirm">
               Change<span class="govuk-visually-hidden"> HM Land Registry</span>
             </a>
           </dd>
@@ -73,7 +73,7 @@
             <img src="/public/images/location-confirm.png" alt="" width="100%" style="border: 1px solid #b1b4b6;">
           </dd>
           <dd class="govuk-summary-list__actions" style="vertical-align:top;">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/location-confirm">
               Change<span class="govuk-visually-hidden"> Land boundary</span>
             </a>
           </dd>
@@ -87,28 +87,11 @@
             <a download href="#">habitat-management-plan.pdf</a>, 1MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
             </a>
           </dd>
         </div>
-        
-        {% if data['legal-agreements'] == 'planning-obligation' %} 
-        {% else %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Conservation covenant
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">conservation-covenant.pdf</a>, 1MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">
-                Change<span class="govuk-visually-hidden"> Legal agreement</span>
-              </a>
-            </dd>
-          </div>
-        {% endif %} 
 
       </dl>
 
@@ -123,7 +106,7 @@
             21/02367/FUL, <br>{{ data['input-autocomplete'] or 'York City Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
               Change<span class="govuk-visually-hidden"> Planning reference</span>
             </a>
           </dd>
@@ -137,33 +120,59 @@
             <a download href="#">metric_3.0_21/02367/FUL.xlsm</a>, 4.1MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-upload-check">
               Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
             </a>
           </dd>
         </div>
 
+        {% if data['legal-agreement-conservation-correct'] == 'yes' %} 
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Conservation covenant
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">conservation-covenant.pdf</a>, 1MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="/register-application/{{ pageURL }}/legal-agreement-conservation-check">
+                Change<span class="govuk-visually-hidden"> Conservation covenant</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %} 
+
+        {% if data['legal-agreement-financial-correct'] == 'yes' and data['legal-agreement-planning-obligation-correct'] != 'yes' %} 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            {% if data['legal-agreements'] == 'planning-obligation' %} 
-              Planning obligation
-            {% else %}
-              Financial agreement
-            {% endif %} 
+            Financial agreement
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['legal-agreements'] == 'planning-obligation' %} 
-              <a download href="#">planning-obligation.pdf</a>, 1.2MB
-            {% else %}
-              <a download href="#">financial-agreement.pdf</a>, 1.2MB
-            {% endif %} 
+            <a download href="#">financial-agreement.pdf</a>, 1.2MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="#">
-              Change<span class="govuk-visually-hidden"> Legal agreement</span>
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-financial-check">
+              Change<span class="govuk-visually-hidden"> Financial agreement</span>
             </a>
           </dd>
         </div>
+        {% endif %}
+
+        {% if data['legal-agreement-planning-obligation-correct'] == 'yes' %} 
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning obligation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="#">planning-obligation.pdf</a>, 1.2MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
+              Change<span class="govuk-visually-hidden"> Planning obligation</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
 
       </dl>
 
