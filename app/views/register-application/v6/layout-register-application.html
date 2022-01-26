@@ -41,21 +41,24 @@
 {% endblock %}
 
 {% block beforeContent %}
-  <!--<div class="app-save__wrapper">-->
-    {% if hideBackLink === true %}
-    {% else %}
-      {{ govukBackLink({
-        text: "Back",
-        href: "javascript: window.history.go(-1)"
-      }) }}
-    {% endif %} 
-    {% if hideSaveLink === true %}
-    {% else %}
-    <!--<div class="app-save">
-      <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/signed-out?lastVisitedURL={{currentURL}}">Save and return later</a></p>
-    </div>-->
-    {% endif %} 
-  <!--</div>-->
+  {% if hideSaveSection === true %}
+  {% else %}
+    <div class="app-save__wrapper">
+      {% if hideBackLink === true %}
+      {% else %}
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript: window.history.go(-1)"
+        }) }}
+      {% endif %} 
+      {% if hideSaveLink === true %}
+      {% else %}
+        <div class="app-save">
+          <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/signed-out?lastVisitedURL={{currentURL}}">Save and return later</a></p>
+        </div>
+      {% endif %} 
+    </div>
+  {% endif %} 
 {% endblock %}
 
 {% block footer %}
