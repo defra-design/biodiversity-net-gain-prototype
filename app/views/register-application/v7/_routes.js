@@ -259,6 +259,56 @@ router.post('/location-draw-confirm-answer', function (req, res) {
   }
 })
 
+// Habitat
+router.post('/habitat-answer', function (req, res) {
+
+  var install = req.session.data['habitat']
+
+  if (install == "metric"){
+    res.redirect('/register-application/v7/habitat-metric-upload')
+  } else {
+    res.redirect('/register-application/v7/habitat-add')
+  }
+})
+
+// Habitat
+router.post('/habitat-answer', function (req, res) {
+
+  var install = req.session.data['habitat']
+
+  if (install == "metric"){
+    res.redirect('/register-application/v7/habitat-metric-upload')
+  } else {
+    res.redirect('/register-application/v7/habitat-add')
+  }
+})
+
+// Habitat add
+router.post('/habitat-add-answer', function (req, res) {
+
+  var install = req.session.data['habitat-add']
+
+  if (install == "river"){
+    res.redirect('/register-application/v7/habitat-add-river')
+  } else if (install == "hedgerow"){
+    res.redirect('/register-application/v7/habitat-add-hedgerow')
+  } else {
+    res.redirect('/register-application/v7/habitat-add-broad-type')
+  }
+})
+
+// Habitat metric
+router.post('/habitat-metric-answer', function (req, res) {
+
+  var install = req.session.data['habitat-metric-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v7/habitat-metric-upload')
+  } else {
+    res.redirect('/register-application/v7/habitat-check-data')
+  }
+})
+
 // Metric check
 router.post('/metric-correct-answer', function (req, res) {
 

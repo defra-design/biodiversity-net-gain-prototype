@@ -66,6 +66,23 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
+                {% if data['habitat-checked-data'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/habitat-check-data" aria-describedby="landowner-permission-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="landowner-permission-status">
+                {% endif %} 
+                  Habitat information
+                </a>
+              </span>
+              {% if data['habitat-checked-data'] == 'yes' %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
                 {% if data['management-plan-correct'] == 'yes' %}
                   <a href="/register-application/{{ pageURL }}/management-plan-check" aria-describedby="landowner-permission-status">
                 {% else %}
@@ -149,9 +166,30 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Pay and apply
+            <span class="app-task-list__section-number">3. </span> Check, pay and and submit your application
           </h2>
           <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              {% if data['payment-success'] %}
+                <span class="app-task-list__task-name">
+                  <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
+                    Check your answers
+                  </a>
+                </span>
+              {% if data['answers-checked'] %}
+                <strong class="govuk-tag app-task-list__tag" id="submit-application">completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">not started</strong>
+              {% endif %} 
+              {% else %}
+                <span class="app-task-list__task-name">
+                  Check your answers
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+
             <li class="app-task-list__item">
               {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] or data['development-confirm'] and data['legal-agreement-planning-obligation-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] %}
                 
@@ -173,28 +211,9 @@
 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Pay the application fee
+                  Pay and submit your application
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-pay-status">Cannot start yet</strong>
-              {% endif %} 
-            </li>
-            <li class="app-task-list__item">
-              {% if data['payment-success'] %}
-                <span class="app-task-list__task-name">
-                  <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
-                    Check your answers and submit application
-                  </a>
-                </span>
-              {% if data['answers-checked'] %}
-                <strong class="govuk-tag app-task-list__tag" id="submit-application">completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">not started</strong>
-              {% endif %} 
-              {% else %}
-                <span class="app-task-list__task-name">
-                  Check your answers and submit application
-                </span>
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">Cannot start yet</strong>
               {% endif %} 
             </li>
           </ul>

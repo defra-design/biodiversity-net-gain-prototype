@@ -1,0 +1,49 @@
+{% extends "register-application/v7/layout-register-application.html" %}
+
+{% set pageHeading = "How do you want to provide the habitat data for the entire land?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/habitat-answer">
+
+        {{ govukRadios({
+          idPrefix: "habitat",
+          name: "habitat",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "metric",
+              text: "Upload Biodiversity Metric 3.0 calculations",
+              hint: {
+                text: "XLSM or XLSX file"
+              }
+            },
+            {
+              value: "manual",
+              text: "Enter data manually",
+              hint: {
+                text: "Habitat, hedgerow or river type, area or length and condition"
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
