@@ -1,6 +1,6 @@
 {% extends "register-application/v7/layout-register-application.html" %}
 
-{% set pageHeading = "Register land for off-site biodiversity gain" %}
+{% set pageHeading = "Register land for biodiversity gain that is linked to a development" %}
 
 {% block header %}
   {{ govukHeader({
@@ -33,7 +33,7 @@
       
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
-      <p class="gem-c-lead-paragraph">How to register land used for biodiversity gain that is linked to a development.</p>
+      <p class="gem-c-lead-paragraph">How to register land used for biodiversity gain when a developer cannot use their development site.</p>
 
       <div class="responsive-bottom-margin">
         <nav class="gem-c-contents-list" aria-label="Contents" role="navigation">
@@ -48,7 +48,7 @@
                 <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#before-you-apply">Before you apply</a>
               </li>
               <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#check-what-you-need">Check what you need and apply</a>
+                <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#check-what-you-need">Apply</a>
               </li>
               <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
                 <a class="gem-c-contents-list__link govuk-link govuk-link--no-underline" href="#return-to-application">Return to an existing application</a>
@@ -73,42 +73,58 @@
       <p class="govuk-body">You do not need to register development sites.</p> 
       <p class="govuk-body">If a developer cannot create or enhance habitats on the development site, they need separate land to help them do this.</p> 
       <p class="govuk-body">The separate land needs to be registered with Natural England.</p>-->
-      <p class="govuk-body">The developer needs this registration to get their <a class="govuk-link" href="#">biodiversity gain plan</a> approved before development works begin.</p>  
+      <p class="govuk-body">The developer needs this registration before development works can begin.</p>  
 
       <p class="govuk-body">Consultants can apply on behalf of developers or landowners.</p>  
       
       <h2 id="before-you-apply" class="govuk-heading-m">Before you apply</h2>
       
-      <!--<h3 class="govuk-heading-s">If the land is linked to the development</h3>-->
+      <h3 id="before-you-apply" class="govuk-heading-s">Planning application</h3>
 
-      <p class="govuk-body">The developer must submit a planning application using the <a class="govuk-link" href="#">Planning portal</a>.</p>  
+      <p class="govuk-body">The developer needs to submit a planning application using the <a class="govuk-link" href="https://www.planningportal.co.uk/">Planning portal</a>.</p> 
 
-      <!--<h3 class="govuk-heading-s">If the land is not yet linked to the development</h3>
-      <p class="govuk-body">You must have a conservation covenant. </p>-->
+      <p class="govuk-body">As part of their planning application, they need to include a draft or final <a class="govuk-link" href="#">biodiversity gain plan</a>. </p>
+
+        <p class="govuk-body">The draft or final biodiversity gain plan needs to include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>completed <a class="govuk-link" href="#"> biodiversity metric 3.0 calculations</a> for the land being used by the development</li>
+        <li>draft or final <a class="govuk-link" href="#">habitat or management monitoring plan </a> </li>
+        <li>site reference number from this registration</a> </li>
+        </ul>
+
+        <p class="govuk-body">The Local Planning Authority could give planning permission with drafts of the plans. However, the developer will need to get approval of the final plans before they can begin development works.</p> 
+
+      <h3 id="before-you-apply" class="govuk-heading-s">Legal agreements</h3>
+
+      <p class="govuk-body">You need legal agreements that secure funds from a developer to pay for the biodiversity gain for 30 years or more.</p>  
       
-      <h2 id="check-what-you-need" class="govuk-heading-m">Check what you need and apply</h2> 
+      <p class="govuk-body">You can use a signed agreement called a <a class="govuk-link" href="https://www.gov.uk/guidance/planning-obligations">planning obligation</a>, which is between a landowner and a developer.</p>  
 
-      <p class="govuk-body">You can use a signed legal agreement called a <a class="govuk-link" href="#">planning obligation</a>.</p>  
-
-      <p class="govuk-body">If you do not have a planning obligation, you need 2 other signed legal agreements:</p>
+      <p class="govuk-body">If you do not have a planning obligation, you need 2 other signed agreements:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>a <a class="govuk-link" href="#">conservation covenant</a> that secures the biodiversity gain for 30 years or more</li>
         <li>a financial agreement that secures funding from a developer for the biodiversity gain</li>
         </ul>
+
+        <h3 id="before-you-apply" class="govuk-heading-s">Interested third parties</h3>
 
 
         <p class="govuk-body">You need to confirm with all <a class="govuk-link" href="#">interested third parties</a> that your application does not conflict with their interests.</p>  
         
         <p class="govuk-body">A third party can be someone who has shooting rights, public right of way or is the mortage lender.</p>      
 
-      <p class="govuk-body">You also need to have:</p>
+        <h3 id="before-you-apply" class="govuk-heading-s">Information from the landowner</h3>
+
+      <p class="govuk-body">You also need the following from the landowner:</p>
       <ul class="govuk-list govuk-list--bullet">
-        <li>signed consent from the landowner to register the land</li>
+        <li>signed consent to register the land</li>
         <li>a copy of the certificate of ownership for the land</li>
         <li>the boundary of the land</li>
-        <li>your completed <a class="govuk-link" href="#"> biodiversity metric 3.0 calculations</a></li>
-        <li>your <a class="govuk-link" href="#">habitat management and monitoring plan</a> for the off-site biodiversity gain</li>
+        <li>completed <a class="govuk-link" href="#"> biodiversity metric 3.0 calculations</a> for the whole land</li>
       </ul> 
+
+      <h2 id="check-what-you-need" class="govuk-heading-m">Apply</h2>
+
       <p class="govuk-body">It costs £? to apply. You can pay by debit or credit card or Bacs.</p>
       
       {{ govukButton({
