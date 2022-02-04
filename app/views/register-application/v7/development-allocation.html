@@ -1,0 +1,130 @@
+{% extends "register-application/v5/layout-register-application.html" %}
+
+{% set pageHeading = "Allocate land to the development" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <!--<p class="govuk-!-margin-bottom-6"><span class="govuk-!-font-weight-bold">Development: </span>21/02367/FUL, City of York</p>-->
+
+      <form method="post" action="/register-application/{{ pageURL }}/development-confirm">
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Habitat</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
+                <th scope="col" class="govuk-table__header">Condition</th>
+                <th scope="col" class="govuk-table__header">Total area (ha)</th>
+                <th scope="col" class="govuk-table__header">Allocate area (ha)</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Grassland
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Modified grassland
+                  </span>
+                </td>
+                <td class="govuk-table__cell">Good</td>
+                <td class="govuk-table__cell">2.40</td>
+                <td class="govuk-table__cell">
+                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
+                    Grassland area in heactares allocated
+                  </label>
+                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Heathland and scrub
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Bramble scrub
+                  </span>
+                </td>
+                <td class="govuk-table__cell">Good</td>
+                <td class="govuk-table__cell">1.25</td>
+                <td class="govuk-table__cell">
+                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
+                    Bramble scrub area in heactares allocated
+                  </label>
+                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Woodland and forest
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                    Lowland mixed deciduous woodland
+                  </span>
+                </td>
+                <td class="govuk-table__cell">Good</td>
+                <td class="govuk-table__cell">0.50</td>
+                <td class="govuk-table__cell">
+                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
+                    Woodland and forest area in hectares allocated
+                  </label>
+                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Hedgerow</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="width:50%">Hedgerow type</th>
+                <th scope="col" class="govuk-table__header">Total units</th>
+                <th scope="col" class="govuk-table__header">Available units</th>
+                <th scope="col" class="govuk-table__header">Allocate units</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Native species rich hedgerow
+                </td>
+                <td class="govuk-table__cell">3.26</td>
+                <td class="govuk-table__cell">2.40</td>
+                <td class="govuk-table__cell">
+                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
+                    Native species rich hedgerow units allocated
+                  </label>
+                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
+                </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">
+                  Line of trees
+                </td>
+                <td class="govuk-table__cell">3.40</td>
+                <td class="govuk-table__cell">1.40</td>
+                <td class="govuk-table__cell">
+                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
+                    Line of trees
+                  </label>
+                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

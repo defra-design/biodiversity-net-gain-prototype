@@ -157,7 +157,7 @@ router.post('/location-options-answer', function (req, res) {
   } else if (install == "location-upload"){
     res.redirect('/register-application/v7/location-upload')
   } else {
-    res.redirect('/register-application/v7/location-draw-find')
+    res.redirect('/register-application/v7/location-upload')
   }
 })
 
