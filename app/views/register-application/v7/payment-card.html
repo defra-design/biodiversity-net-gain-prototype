@@ -17,7 +17,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/payment-card-success">
+      <form method="post" action="/register-application/{{ pageURL }}/confirmation">
 
         {% call govukFieldset({
           legend: {
@@ -86,6 +86,8 @@
             id: "card-security-code",
             name: "card-security-code"
           }) }}
+
+          <input class="govuk-input" id="payment-success" name="payment-success" type="hidden" value="paid">
 
         {% endcall %}
 
