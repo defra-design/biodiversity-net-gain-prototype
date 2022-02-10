@@ -1,6 +1,6 @@
 {% extends "register-application/v7/layout-register-application.html" %}
 
-{% set pageHeading = "Check the data" %}
+{% set pageHeading = "Check the data before you continue" %}
 
 {% block content %}
 
@@ -16,7 +16,7 @@
     </div>
     <div class="govuk-grid-column-full">
 
-      <h2 class="govuk-heading-m">Habitats</h2>
+      <h2 class="govuk-heading-m">Proposed habitat enhancements for the entire off-site</h2>
 
       <div class="app-table-responsive">
         <table class="govuk-table">
@@ -63,11 +63,15 @@
                 </div>
               </td>
             </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">4.15</td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+            </tr>
           </tbody>
         </table>
       </div>
-
-      <h2 class="govuk-heading-m">Hedgerows</h2>
 
       <div class="app-table-responsive">
         <table class="govuk-table">
@@ -103,6 +107,12 @@
                 </div>
               </td>
             </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">0.68</td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -126,7 +136,7 @@
 
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/habitat">Remove all data and start again</a></p>
+      <p><a href="/register-application/{{ pageURL }}/habitat" class="govuk-link--no-visited-state">Remove all data and start again</a></p>
 
     </div>
   </div>
