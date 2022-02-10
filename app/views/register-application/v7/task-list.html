@@ -127,15 +127,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['metric-correct'] == 'yes' %} 
-                  <a href="/register-application/{{ pageURL }}/metric-upload-check" aria-describedby="landowner-permission-status">
+                {% if data['metric-check-data'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/metric-check-data" aria-describedby="landowner-permission-status">
                 {% else %}
                 <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Biodiversity Metric 3.0 calculations
                 </a>
               </span>
-              {% if data['metric-correct'] %}
+              {% if data['metric-check-data'] == 'yes' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>

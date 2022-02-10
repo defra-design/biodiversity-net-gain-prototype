@@ -1,6 +1,6 @@
 {% extends "register-application/v7/layout-register-application.html" %}
 
-{% set pageHeading = "Check the data" %}
+{% set pageHeading = "Check the data before you continue" %}
 
 {% block content %}
 
@@ -11,10 +11,12 @@
         {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-m">Habitat enhancements allocated to development 21/02367/FUL (York City Council)</h2>
-
     </div>
     <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m">Off-site habitat enhancements allocated to the development</h2>
+
+      <p class="govuk-!-margin-bottom-5"><strong>Development:</strong> 21/02367/FUL, York City Council</p>
 
       <div class="app-table-responsive">
         <table class="govuk-table">
@@ -112,16 +114,19 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-check-data-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/metric-check-data-answer">
 
         {{ govukRadios({
-          idPrefix: "allocate-check-data",
-          name: "allocate-check-data",
+          idPrefix: "metric-check-data",
+          name: "metric-check-data",
           fieldset: {
             legend: {
               text: "Is the data correct?",
               classes: "govuk-fieldset__legend--m"
             }
+          },
+          hint: {
+            text: "The data should match what has been agreed between the landowner and developer in the legal agreement (planning obligation or financial agreement)."
           },
           items: [
             {

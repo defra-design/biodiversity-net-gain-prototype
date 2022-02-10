@@ -321,6 +321,18 @@ router.post('/metric-correct-answer', function (req, res) {
   }
 })
 
+// Metric check
+router.post('/metric-check-data-answer', function (req, res) {
+
+  var install = req.session.data['metric-check-data']
+
+  if (install == "no"){
+    res.redirect('/register-application/v7/metric-upload')
+  } else {
+    res.redirect('/register-application/v7/task-list')
+  }
+})
+
 // Metric check baseline
 router.post('/metric-baseline-correct-answer', function (req, res) {
 
