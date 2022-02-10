@@ -1,0 +1,23 @@
+{% extends "register-application/v7/layout-register-application.html" %}
+
+{% set pageHeading = "Developer metric data does not match with the land data" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>The off-site habitat parcels in the developer metric do not match with the land data you entered.</p>
+
+      <p><a href="#">Upload different metric 3.0 calculations</a></p>
+
+      <p><a href="#">Edit the land data</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

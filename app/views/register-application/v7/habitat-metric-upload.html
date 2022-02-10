@@ -1,6 +1,6 @@
 {% extends "register-application/v7/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the Biodiversity Metric 3.0 calculations" %}
+{% set pageHeading = "Upload the Biodiversity Metric 3.0 calculations for the entire off-site" %}
 
 {% block content %}
 
@@ -10,6 +10,9 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+
+      <p>Including the baseline and post development data for the off-site only, and not the developer on-site data.</p>
+      <p class="govuk-!-margin-bottom-7">The data should match what is in the habitat management and monitoring plan.</p> 
       
       <form method="post" action="/register-application/{{ pageURL }}/habitat-metric-check">
 
@@ -21,9 +24,11 @@
             classes:"govuk-visually-hidden"
           },
           hint: {
-            text: "XLSM or XLSX, max size 50MB"
+            html: "XLSM or XLSX, max size 50MB"
           }
         }) }}
+
+        
 
         {{ govukButton({
           text: "Continue"

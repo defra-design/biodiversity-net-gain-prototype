@@ -1,6 +1,6 @@
 {% extends "register-application/v7/layout-register-application.html" %}
 
-{% set pageHeading = "Check your file" %}
+{% set pageHeading = "Check your file before uploading it" %}
 
 {% block content %}
 
@@ -20,7 +20,7 @@
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              html: '<a download href="#">metric_3.0_21/02367/FUL.xlsm</a>, 4.1MB'
+              html: '<a download href="/public/images/metric_2102367FUL.xlsm">metric_2102367FUL.xlsm</a>, 4.1MB'
             }
           }
         ]
@@ -49,7 +49,7 @@
           ]
         }) }}
         
-        {{ govukButton({ text: 'Continue' }) }}
+        {{ govukButton({ text: 'Upload file' }) }}
         
       </form>
 
