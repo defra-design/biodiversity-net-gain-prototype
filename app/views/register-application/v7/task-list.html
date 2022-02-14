@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">
-        {{ pageHeading }}
+        {{ serviceName }}
       </h1>
       
       {% if data['answers-checked'] %}
@@ -166,7 +166,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Check, pay and and apply
+            <span class="app-task-list__section-number">3. </span> Submit
           </h2>
           <ul class="app-task-list__items">
 
@@ -184,7 +184,7 @@
               {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Check your answers, pay and apply
+                  Check your answers and pay
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application">Cannot start yet</strong>
               {% endif %} 
