@@ -15,7 +15,7 @@
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 3 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-        {% if data['development-confirm'] and data['metric-correct'] and data['legal-agreement-financial-correct'] or data['development-confirm'] and data['metric-correct'] and data['legal-agreement-planning-obligation-correct']%}
+        {% if data['development-confirm'] and data['metric-check-data'] == 'yes' and data['legal-agreement-financial-correct'] or data['development-confirm'] and data['metric-check-data'] == 'yes' and data['legal-agreement-planning-obligation-correct']%}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 3 sections.</p>
         {% elif data['location-confirm'] and data['land-ownership-correct'] and data['management-plan-correct'] and data['habitat-checked-data'] == 'yes' or data['location-confirm'] and data['land-registry-correct'] and data['management-plan-correct'] and data['habitat-checked-data'] == 'yes' %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 3 sections.</p>
@@ -71,7 +71,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                  Proposed habitat enhancements
+                  Habitat information
                 </a>
               </span>
               {% if data['habitat-checked-data'] == 'yes' %}
@@ -171,7 +171,7 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] and data['habitat-checked-data'] == 'yes' or data['development-confirm'] and data['legal-agreement-planning-obligation-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-correct'] and data['management-plan-correct'] and data['land-ownership-correct'] and data['habitat-checked-data'] == 'yes' %}
+              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-check-data'] == 'yes' and data['management-plan-correct'] and data['land-ownership-correct'] and data['habitat-checked-data'] == 'yes' or data['development-confirm'] and data['legal-agreement-planning-obligation-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-check-data'] == 'yes' and data['management-plan-correct'] and data['land-ownership-correct'] and data['habitat-checked-data'] == 'yes' %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
                     Check your answers, pay and apply
