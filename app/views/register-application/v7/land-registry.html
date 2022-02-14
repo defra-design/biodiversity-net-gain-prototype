@@ -3,7 +3,7 @@
 {% set hideSaveLink = true %}
 {% set hideSignOut = true %}
 
-{% set pageHeading = "Is the land registered with HM Land Registry?" %}
+{% set pageHeading = "Is the off-site land registered with HM Land Registry?" %}
 
 {% block content %}
 
@@ -32,6 +32,11 @@
               text: "No"
             }
           ]
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "How to find out if the land is registered with HM Land Registry",
+          html: "To find out if the land is registered you can <a href='https://www.gov.uk/search-property-information-land-registry' class='govuk-link' rel='noreferrer noopener' target='_blank'>search for property information from HM Land Registry (opens in new tab)</a>."
         }) }}
 
         {{ govukButton({
