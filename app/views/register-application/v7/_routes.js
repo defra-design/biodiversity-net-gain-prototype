@@ -117,6 +117,18 @@ router.post('/management-plan-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v7/not-eligible-management-plan')
   } else {
+    res.redirect('/register-application/v7/habitat-eligibility')
+  }
+})
+
+// Management plan
+router.post('/habitat-eligibility-answer', function (req, res) {
+
+  var install = req.session.data['habitat-eligibility']
+
+  if (install == "no"){
+    res.redirect('/register-application/v7/not-eligible-habitat')
+  } else {
     res.redirect('/register-application/v7/metric')
   }
 })
