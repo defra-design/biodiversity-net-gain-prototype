@@ -4,18 +4,18 @@
 {% block content %}
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">Prototypes</span>
         {{ serviceName }}
       </h1>
 
-      <h2 class="govuk-heading-l">Alpha</h2>
+      <h2 class="govuk-heading-l">Alpha prototypes</h2>
       
       <table class="govuk-table">
         <caption class="govuk-visually-hidden">Prototypes in the Alpha phase</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" style="width:30%"> Prototype </th>
             <th class="govuk-table__header" scope="col"> Sprint </th>
             <th class="govuk-table__header" scope="col"> Date </th>
             <th class="govuk-table__header" scope="col"> Status </th>
@@ -23,6 +23,9 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/register-application/v7/start">Regsiter application v7</a>
+            </td>
             <td class="govuk-table__cell">
               <a href="/sprint-11">Sprint 11</a>
             </td>
@@ -38,6 +41,9 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
+              <a href="/register-application/v6/start">Regsiter application v6</a>
+            </td>
+            <td class="govuk-table__cell">
               <a href="/sprint-10">Sprint 10</a>
             </td>
             <td class="govuk-table__cell">
@@ -50,6 +56,9 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/register-application/v5/start">Regsiter application v5</a>
+            </td>
             <td class="govuk-table__cell">
               <a href="/sprint-8">Sprint 8 and 9</a>
             </td>
@@ -64,6 +73,9 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
+              <a href="/register-application/v4/start">Regsiter application v4</a>
+            </td>
+            <td class="govuk-table__cell">
               <a href="/sprint-6">Sprint 6 and 7</a>
             </td>
             <td class="govuk-table__cell">
@@ -76,6 +88,9 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/register-application/v3/start">Regsiter application v3</a>
+            </td>
             <td class="govuk-table__cell">
               <a href="/sprint-5">Sprint 5</a>
             </td>
@@ -90,6 +105,9 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
+              <a href="/register-application/v2/start">Regsiter application v2</a>
+            </td>
+            <td class="govuk-table__cell">
               <a href="/sprint-4">Sprint 4</a>
             </td>
             <td class="govuk-table__cell">
@@ -102,6 +120,9 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              No prototype tested
+            </td>
             <td class="govuk-table__cell">
               <a href="/sprint-3">Sprint 3</a>
             </td>
@@ -116,6 +137,9 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
+              <a href="/public/images/map__planning_application_journey_as_is.pdf">Map - Planning application journey - As is (PDF, 172 KB)</a>
+            </td>
+            <td class="govuk-table__cell">
               <a href="/sprint-2">Sprint 2</a>
             </td>
             <td class="govuk-table__cell">
@@ -129,6 +153,9 @@
           </tr>
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
+              <a href="/register/v1/start">Get information about a biodiversity gain site</a>
+            </td>
+            <td class="govuk-table__cell">
               <a href="/sprint-1">Sprint 1</a>
             </td>
             <td class="govuk-table__cell">
@@ -141,6 +168,9 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/register-application/v1/start">Regsiter application v1</a>
+            </td>
             <td class="govuk-table__cell">
               <a href="/sprint-0">Sprint 0</a>
             </td>
@@ -156,46 +186,38 @@
         </tbody>
       </table>
 
-    </div>
+      <h2 class="govuk-heading-m">Design assets</h2>
+      <ul class="govuk-list">
+        <li>
+          <a href="https://miro.com/app/board/uXjVOXwzlnY=/?invite_link_id=978356775367">As-is journey maps (Miro)</a>
+        </li>
+        <li>
+          <a href="https://miro.com/app/board/o9J_li0SwQo=/?invite_link_id=13679557828">To-be journey maps (Miro)</a>
+        </li>
+        <li>
+          <a href="https://miro.com/app/board/o9J_li0kYTA=/?invite_link_id=637523456633">User flow diagrams (Miro)</a>
+        </li>
+      </ul>
 
-    <div class="govuk-grid-column-one-third">
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Related content
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <h3 class="govuk-heading-s">Resources</h3>
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="https://github.com/defra-design/biodiversity-net-gain-prototype">
-                Prototype GitHub repository
-              </a>
-            </li>
-            <li>
-              <a href="https://eaflood.atlassian.net/wiki/spaces/BI/overview">
-                Project Confluence
-              </a>
-            </li>
-            <li>
-              <a href="https://eaflood.atlassian.net/secure/RapidBoard.jspa?rapidView=1029&projectKey=BNG">
-                Jira board
-              </a>
-            </li>
-          </ul>
-          <h3 class="govuk-heading-s">Design assets</h3>
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a href="https://miro.com/app/board/uXjVOXwzlnY=/?invite_link_id=978356775367">As-is journey maps (Miro)</a>
-            </li>
-            <li>
-              <a href="https://miro.com/app/board/o9J_li0SwQo=/?invite_link_id=13679557828">To-be journey maps (Miro)</a>
-            </li>
-            <li>
-              <a href="https://miro.com/app/board/o9J_li0kYTA=/?invite_link_id=637523456633">User flow diagrams (Miro)</a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
+      <h2 class="govuk-heading-m">Team resources</h2>
+      <ul class="govuk-list">
+        <li>
+          <a href="https://github.com/defra-design/biodiversity-net-gain-prototype">
+            Prototype GitHub repository
+          </a>
+        </li>
+        <li>
+          <a href="https://eaflood.atlassian.net/wiki/spaces/BI/overview">
+            Project Confluence
+          </a>
+        </li>
+        <li>
+          <a href="https://eaflood.atlassian.net/secure/RapidBoard.jspa?rapidView=1029&projectKey=BNG">
+            Jira board
+          </a>
+        </li>
+      </ul>
+
     </div>
 
   </div>
