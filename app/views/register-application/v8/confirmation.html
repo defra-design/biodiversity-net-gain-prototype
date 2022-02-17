@@ -1,6 +1,6 @@
 {% extends "register-application/v8/layout-register-application.html" %}
 
-{% set pageHeading = "Application submitted" %}
+{% set pageHeading = "Registration submitted" %}
 
 {% set hideSignOut = true %}
 
@@ -31,12 +31,12 @@
 
       <p>They'll email you with their decision or send you an sms.</p>
 
-      <h2 id="return-to-application" class="govuk-heading-m">Return to an existing application</h2>
+      <h2 id="return-to-application" class="govuk-heading-m">Return to an existing registration</h2>
 
       <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
         <input type="hidden" name="signed-in" value="yes">
         <button class="govuk-link app-button-link" data-module="govuk-button">
-          Sign in to continue your application
+          Sign in to continue your regsitartion
         </button>.
       </form>
 
