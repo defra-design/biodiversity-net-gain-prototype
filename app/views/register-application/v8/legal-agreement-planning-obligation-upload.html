@@ -1,0 +1,39 @@
+{% extends "register-application/v8/layout-register-application.html" %}
+
+{% set pageHeading = "Upload your planning obligation" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
+
+        {{ govukFileUpload({
+          id: "legal-agreement-planning-obligation-upload",
+          name: "legal-agreement-planning-obligation-upload",
+          label: {
+            text: "Upload a file",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "PDF, max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+      <p>Or <a class="govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload">upload your conservation covenant</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

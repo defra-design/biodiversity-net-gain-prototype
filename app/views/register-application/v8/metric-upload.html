@@ -1,0 +1,39 @@
+{% extends "register-application/v8/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the developer Biodiversity Metric 3.0 calculations" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>This should include the onsite and off-site, baseline and post development data as completed for development 21/02367/FUL (York City Council).</p> 
+      
+      <form method="post" action="/register-application/{{ pageURL }}/metric-upload-check">
+
+        {{ govukFileUpload({
+          id: "metric-upload",
+          name: "metric-upload",
+          label: {
+            text: "Upload a file",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            html: "XLSM or XLSX, max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "register-application/v8/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+{% set hideSignOut = true %}
+
+{% set pageHeading = "Get the details of the available habitat enhancements for the entire off-site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You need to get the details of the available habitat enhancements for the entire off-site.</p>
+
+      <p>That should include:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>habitat, hedgerow or river type</li>
+        <li>size area or length and condition</li>
+      </ul>
+
+      <p>The landowner of the off-site should be able to provide you with this information.</p>
+
+      {% include "includes/not-eligible-list.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "register-application/v8/layout-register-application.html" %}
+
+{% set pageHeading = "Add the habitat type, area and condition" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/habitat-check-data">
+
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Broad habitat</h2>
+        <p class="govuk-!-margin-bottom-5">Cropland <a href="#" class="govuk-!-margin-left-2">Change <span class="govuk-visually-hidden">broad habitat</span></a></p>
+
+        {{ govukRadios({
+          idPrefix: "habitat-type",
+          name: "habitat-type",
+          fieldset: {
+            legend: {
+              text: "Habitat type",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+              {
+                value: "Arable field margins cultivated annually",
+                text: "Arable field margins cultivated annually",
+                checked: checked("habitat-type", "Arable field margins cultivated annually")
+              },
+              {
+                value: "Arable field margins game bird mix",
+                text: "Arable field margins game bird mix",
+                checked: checked("habitat-type", "Arable field margins game bird mix")
+              },
+              {
+                value: "Arable field margins pollen & nectar",
+                text: "Arable field margins pollen & nectar",
+                checked: checked("habitat-type", "Arable field margins pollen & nectar")
+              },
+              {
+                value: "Arable field margins tussocky",
+                text: "Arable field margins tussocky",
+                checked: checked("habitat-type", "Arable field margins tussocky")
+              },
+              {
+                value: "Cereal crops",
+                text: "Cereal crops",
+                checked: checked("habitat-type", "Cereal crops")
+              },
+              {
+                value: "Cereal crops other",
+                text: "Cereal crops other",
+                checked: checked("habitat-type", "Cereal crops other")
+              },
+              {
+                value: "Cereal crops winter stubble",
+                text: "Cereal crops winter stubble",
+                checked: checked("habitat-type", "Cereal crops winter stubble")
+              },
+              {
+                value: "Horticulture",
+                text: "Horticulture",
+                checked: checked("habitat-type", "Horticulture")
+              },
+              {
+                value: "Intensive orchards",
+                text: "Intensive orchards",
+                checked: checked("habitat-type", "Intensive orchards")
+              },
+              {
+                value: "Non-cereal crops",
+                text: "Non-cereal crops",
+                checked: checked("habitat-type", "Non-cereal crops")
+              },
+              {
+                value: "Temporary grass and clover leys",
+                text: "Temporary grass and clover leys",
+                checked: checked("habitat-type", "Temporary grass and clover leys")
+              }
+            ]
+          }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Area, in hectares",
+            classes: "govuk-label--s"
+          },
+          classes: "govuk-input--width-5",
+          id: "habitat-area",
+          name: "habitat-area",
+          value: data['habitat-area'],
+          suffix: {
+            text: "ha"
+          },
+          spellcheck: false
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "habitat-conditon",
+          name: "habitat-condition",
+          fieldset: {
+            legend: {
+              text: "Condition",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Good",
+              text: "Good",
+              checked: checked("habitat-condition", "Good")
+            },
+            {
+              value: "Fairly good",
+              text: "Fairly good",
+              checked: checked("habitat-condition", "Fairly good")
+            },
+            {
+              value: "Moderate",
+              text: "Moderate",
+              checked: checked("habitat-condition", "Moderate")
+            },
+            {
+              value: "Fairly Poor",
+              text: "Fairly poor",
+              checked: checked("habitat-condition", "Fairly poor")
+            },
+            {
+              value: "Poor",
+              text: "Poor",
+              checked: checked("habitat-condition", "Poor")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
