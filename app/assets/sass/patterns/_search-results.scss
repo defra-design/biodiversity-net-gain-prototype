@@ -1,0 +1,21 @@
+.app-search-results {
+  list-style: none;
+  margin-bottom: 40px;
+  padding: 0;
+}
+
+.app-search-results__item {
+  @include govuk-font(19);
+  margin-bottom: 15px;
+  padding-top: 10px;
+}
+
+.app-search-results__item-description {
+  margin: 10px 0;
+}
+
+.app-search-results__item-description--meta {
+  @include govuk-font(16);
+
+  color: govuk-colour("dark-grey");
+}

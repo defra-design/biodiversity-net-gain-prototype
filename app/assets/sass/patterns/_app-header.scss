@@ -1,0 +1,27 @@
+//header
+.app-header--login {
+  border-bottom: 10px solid #1d70b8;
+
+  .govuk-header__menu-button {
+    display: none;
+  }
+
+  .govuk-header__navigation {
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 0;
+
+    @include govuk-media-query($from: desktop) {
+      top: 10px;
+    }
+  }
+
+  .govuk-header__navigation-item {
+    border: 0;
+  }
+  
+  nav {
+    float: right;
+  }
+}

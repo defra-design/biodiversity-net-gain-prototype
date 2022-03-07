@@ -1,0 +1,27 @@
+.app-nav {
+
+  .govuk-header__menu-button {
+    display: none;
+  }
+
+  .govuk-header__navigation {
+    display: block;
+  }
+
+  .govuk-header__content {
+    @media (min-width: 40.0625em) {
+      padding-right: 80px;
+    }
+  }
+
+  nav {
+    position: absolute;
+    right: 0;
+    top: 10px;
+  }
+
+  .govuk-header__navigation-item {
+    border-bottom: none;
+  }
+
+}
