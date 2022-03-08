@@ -1,0 +1,117 @@
+{% extends "register-application/v8/layout-register-application.html" %}
+
+{% set pageHeading = "Off-site (post development) data" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Taken from the Metric 3.0 file you uploaded.</p>
+
+      <!--<div class="govuk-inset-text">This data has been extracted from the file you uploaded.</div>-->
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">Habitats</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Area (ha)</th>
+              <th scope="col" class="govuk-table__header">Condition</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span></td>
+              <td class="govuk-table__cell">2.40</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Heathland and scrub <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span></td>
+              <td class="govuk-table__cell">1.25</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Woodland and forest <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span></td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="govuk-heading-m">Hedgerows</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Length (km)</th>
+              <th scope="col" class="govuk-table__header">Condition</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td class="govuk-table__cell">0.18</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees</td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">Poor</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/allocate-check-data-answer">
+
+        {{ govukRadios({
+          idPrefix: "allocate-check-data",
+          name: "allocate-check-data",
+          fieldset: {
+            legend: {
+              text: "Is the development only using one off-site?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, the development is using multiple off-sites"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+      <p>Or</p>
+
+      <p><a href="#">Upload a different file </a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

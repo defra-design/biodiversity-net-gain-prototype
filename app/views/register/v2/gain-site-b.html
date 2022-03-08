@@ -1,0 +1,143 @@
+{% extends "register/v1/layout-register.html" %}
+
+{% set pageHeading = "14903" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Biodiversity gain site</span>
+         {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Clifton View,<br>Hillings Ln,<br>Ilkley<br>LS20 6AX"
+            }
+          },
+          {
+            key: {
+              text: "Area"
+            },
+            value: {
+              text: "2.37 hectares (ha) / 5.85 acres"
+            }
+          },
+          {
+            key: {
+              text: "Map"
+            },
+            value: {
+              html: "<a href='https://www.google.com/maps/d/u/0/edit?mid=1RUroKhjdWaC1qOmQ46UsyXMAf2HMvkya&usp=sharing'>View the site's location and boundary on a map </a>"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity units</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Gain site allocated and unallocated biodiversity units</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header"></th>
+                <th scope="col" class="govuk-table__header">Habitats</th>
+                <th scope="col" class="govuk-table__header">Hedgerows</th>
+                <th scope="col" class="govuk-table__header">Rivers</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__header">Allocated units
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/development-a">Development 21/01335/HOU</a></span>
+                </td>
+                <td class="govuk-table__cell">13.23</td>
+                <td class="govuk-table__cell">0.00</td>
+                <td class="govuk-table__cell">0.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__header">Unallocated units</td>
+                <td class="govuk-table__cell">0.00</td>
+                <td class="govuk-table__cell">0.00</td>
+                <td class="govuk-table__cell">0.00</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__header">Total units</td>
+                <td class="govuk-table__cell">13.23</td>
+                <td class="govuk-table__cell">0.00</td>
+                <td class="govuk-table__cell">0.00</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><a href="/register/{{ pageURL }}/gain-site-b-metric">View gain site biodiversity unit details</a></p>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Site works</h2>
+
+      {{ govukSummaryList({
+        classes: "app-summary-list-key-long",
+        rows: [
+          {
+            key: {
+              text: "Person or organisation carrying out the works "
+            },
+            value: {
+              text: "Acme Org Ltd"
+            }
+          },
+          {
+            key: {
+              text: "Works to be completed by"
+            },
+            value: {
+              text: "31 March 2023"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Site management</h2>
+
+      {{ govukSummaryList({
+        classes: "app-summary-list-key-long",
+        rows: [
+          {
+            key: {
+              text: "Person or organisation managing the site "
+            },
+            value: {
+              text: "Acme Org Ltd"
+            }
+          },
+          {
+            key: {
+              text: "Managed until"
+            },
+            value: {
+              text: "31 March 2053"
+            }
+          }
+        ]
+      }) }}
+
+      {% include "register/v1/includes/start-new-search.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

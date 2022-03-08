@@ -1,0 +1,41 @@
+
+{% extends "layout.html" %}
+
+{% set pageHeading = "Assumptions, backlog and user needs" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/alpha-sprints/sprint-1"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Sprint 1</span>
+        {{ pageHeading }}
+      </h1>
+
+      <h2 class="govuk-heading-m">Assumptions</h2>
+
+      <ol class="govuk-list govuk-list--number govuk-list--spaced">
+        <li>We understand the Local Planning Authorities (LPA) data needs sufficiently for them to use the register when assessing gain plans.</li>
+        <li>LPA's will want to search by unique ref.</li>
+        <li>Members of the public will want to search by area (postcode or street name).</li>
+        <li>LPA's need to see a boundary on a map to confirm the gain site area.</li>
+      </ol>
+
+      <h2 class="govuk-heading-m">Backlog</h2>
+      <p><a href="https://eaflood.atlassian.net/browse/BNG-241">Jira BNG-241</a></p>
+
+      <h2 class="govuk-heading-m">User needs</h2>
+      <p>As an LPA I need to see what biodiversity gain sites are allocated to a particular development so that I can approve the net gain plan.</p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% set serviceName = "Biodiversity gain site register" %}
+{% set serviceUrl = "/register/v1/search" %}
+{% set pageURL = "v1" %}
+
+{% extends "../../layout.html" %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: serviceUrl
+  }) }}
+
+   <div class="govuk-width-container">
+
+    {% include "includes/phase-banner.html" %}
+    <!-- {% include "includes/login-nav.html" %} -->
+    
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "register-application/v8/layout-register-application.html" %}
+
+{% set pageHeading = "Search results" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post" action="/register-application/{{ pageURL }}/land-registry-confirm">
+
+        {{ govukRadios({
+          idPrefix: "land-registry-property",
+          name: "land-registry-property",
+          fieldset: {
+            legend: {
+              text: "Select a property",
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          hint: {
+            text: "3 properties found"
+          },
+          items: [
+            {
+              value: "land-registry-address-1",
+              text: "Beechcroft, Goose Lane, Hawksworth, Leeds, LS20 8PJ"
+            },
+            {
+              value: "land-registry-address-2",
+              text: "Meadow Croft, Goose Lane, Hawksworth, Leeds, LS20 8PJ"
+            },
+            {
+              value: "land-registry-address-3",
+              text: "Meadow Croft Farm, Goose Lane, Hawksworth, Leeds, LS20 8PJ"
+            }
+          ]
+        }) }}
+
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+      <p><a class="govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/land-registry-search">Search again</a></p>
+      <p><a class="govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/land-ownership-certificate-upload">Upload land ownership certificate</a></p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

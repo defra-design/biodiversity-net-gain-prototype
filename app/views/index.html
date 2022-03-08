@@ -9,6 +9,39 @@
         {{ serviceName }}
       </h1>
 
+      <h2 class="govuk-heading-l">Beta prototypes</h2>
+      
+      <table class="govuk-table">
+        <caption class="govuk-visually-hidden">Prototypes in the Beta phase</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" style="width:30%"> Prototype </th>
+            <th class="govuk-table__header" scope="col"> Sprint </th>
+            <th class="govuk-table__header" scope="col"> Date </th>
+            <th class="govuk-table__header" scope="col"> Status </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              TBD
+            </td>
+            <td class="govuk-table__cell">
+              <a href="/beta-sprints/sprint-0"><span class="govuk-visually-hidden">Beta </span>Sprint 0</a>
+            </td>
+            <td class="govuk-table__cell">
+              16 March - 29 February 2022
+            </td>
+            <td class="govuk-table__cell">
+              {{govukTag({
+                text: "Current",
+                classes: "govuk-tag--blue"
+              })}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
       <h2 class="govuk-heading-l">Alpha prototypes</h2>
       
       <table class="govuk-table">
@@ -27,15 +60,14 @@
               <a href="/register-application/v8/start">Registration journey v8</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-12">Sprint 12</a>
+              <a href="/alpha-sprints/sprint-12"><span class="govuk-visually-hidden">Alpha </span>Sprint 12</a>
             </td>
             <td class="govuk-table__cell">
               16 February - 28 February 2022
             </td>
             <td class="govuk-table__cell">
               {{govukTag({
-                text: "Current",
-                classes: "govuk-tag--blue"
+                text: "Complete"
               })}}
             </td>
           </tr>
@@ -44,7 +76,7 @@
               <a href="/register-application/v7/start">Registration journey v7</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-11">Sprint 11</a>
+              <a href="/alpha-sprints/sprint-11"><span class="govuk-visually-hidden">Alpha </span>Sprint 11</a>
             </td>
             <td class="govuk-table__cell">
               2 February - 15 February 2022
@@ -60,7 +92,7 @@
               <a href="/register-application/v6/start">Registration journey v6</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-10">Sprint 10</a>
+              <a href="/alpha-sprints/sprint-10"><span class="govuk-visually-hidden">Alpha </span>Sprint 10</a>
             </td>
             <td class="govuk-table__cell">
               18 January - 1 February 2022
@@ -76,7 +108,7 @@
               <a href="/register-application/v5/start">Registration journey v5</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-8">Sprint 8 and 9</a>
+              <a href="/alpha-sprints/sprint-8"><span class="govuk-visually-hidden">Alpha </span>Sprint 8 and 9</a>
             </td>
             <td class="govuk-table__cell">
               8 December 2021 - 17 January 2022
@@ -92,7 +124,7 @@
               <a href="/register-application/v4/start">Registration journey v4</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-6">Sprint 6 and 7</a>
+              <a href="/alpha-sprints/sprint-6"><span class="govuk-visually-hidden">Alpha </span>Sprint 6 and 7</a>
             </td>
             <td class="govuk-table__cell">
               9 November - 7 December 2021
@@ -108,7 +140,7 @@
               <a href="/register-application/v3/start">Registration journey v3</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-5">Sprint 5</a>
+              <a href="/alpha-sprints/sprint-5"><span class="govuk-visually-hidden">Alpha </span>Sprint 5</a>
             </td>
             <td class="govuk-table__cell">
               27 October - 8 November 2021
@@ -124,7 +156,7 @@
               <a href="/register-application/v2/start">Registration journey v2</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-4">Sprint 4</a>
+              <a href="/alpha-sprints/sprint-4"><span class="govuk-visually-hidden">Alpha </span>Sprint 4</a>
             </td>
             <td class="govuk-table__cell">
               13 September - 26 October 2021
@@ -140,7 +172,7 @@
               No prototype tested - Team consolidated user research findings to date.
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-3">Sprint 3</a>
+              <a href="/alpha-sprints/sprint-3"><span class="govuk-visually-hidden">Alpha </span>Sprint 3</a>
             </td>
             <td class="govuk-table__cell">
               29 September - 12 October 2021
@@ -156,7 +188,7 @@
               <a href="/public/images/map__planning_application_journey_as_is.pdf">Map - Planning application journey - As is (PDF, 172 KB)</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-2">Sprint 2</a>
+              <a href="/alpha-sprints/sprint-2"><span class="govuk-visually-hidden">Alpha </span>Sprint 2</a>
             </td>
             <td class="govuk-table__cell">
               17 September - 28 September 2021
@@ -172,7 +204,7 @@
               <a href="/register/v1/start">Register (search and view) v1</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-1">Sprint 1</a>
+              <a href="/alpha-sprints/sprint-1"><span class="govuk-visually-hidden">Alpha </span>Sprint 1</a>
             </td>
             <td class="govuk-table__cell">
               31 August - 16 September 2021
@@ -188,7 +220,7 @@
               <a href="/register-application/v1/start">Registration journey v1</a>
             </td>
             <td class="govuk-table__cell">
-              <a href="/sprint-0">Sprint 0</a>
+              <a href="/alpha-sprints/sprint-0"><span class="govuk-visually-hidden">Alpha </span>Sprint 0</a>
             </td>
             <td class="govuk-table__cell">
               3 August - 27 August 2021

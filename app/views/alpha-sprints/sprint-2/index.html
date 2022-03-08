@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+
+{% set pageURL = "v1" %}
+{% set pageHeading = "Alpha sprint 2" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+         {{ pageHeading }}
+      </h1>
+
+      <h2 class="govuk-heading-l">Goal</h2>
+      
+      <p>We know how the metric calculator is part of the journey, understand the constraints, and what’s possible with the metric calculator.</p>
+
+      <h2 class="govuk-heading-l">Output</h2>
+
+      <p><a href="/public/images/map__planning_application_journey_as_is.pdf">Map - Planning application journey - As is (PDF, 172 KB)</a></p>
+      <p><strong>Note:</strong> Pain points and opportunities need annotating after the user research analysis is complete.</p>
+
+    </div>
+
+  </div>
+
+{% endblock %}
