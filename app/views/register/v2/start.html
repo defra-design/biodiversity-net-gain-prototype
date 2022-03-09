@@ -1,6 +1,6 @@
 {% extends "register/v2/layout-register.html" %}
 
-{% set pageHeading = "Get information about a biodiversity gain site" %}
+{% set pageHeading = "Get information about land used for off-site biodiversity gain" %}
 
 {% block header %}
   {{ govukHeader({
@@ -32,14 +32,13 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
-      <p class="govuk-body">You can get some details about a biodiversity gain site, including the:</p>
+      <p class="govuk-body">You can get some details about land used for off-site biodiversity gain, including the:</p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>location and area </li>
-        <li>type of habitats created</li>
-        <li>allocated and unallocated biodiversity units</li>
-        <li>the developments the biodiversity units are allocated to</li>
-        <li>site works and management</li>
+        <li>types of habitats enhanced or created</li>
+        <li>the developments the off-site are linked to</li>
+        <li>habitat management and monitoring plans</li>
       </ul>
 
       {{ govukButton({
@@ -48,37 +47,6 @@
         classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
         isStartButton: true
       }) }}
-
-    </div>
-
-    <div class="govuk-grid-column-one-third">
-
-      <!-- The Related items component is not part of GOV.UK Frontend but will be styled if used in the Prototype Kit -->
-
-      <aside class="app-related-items" role="complementary">
-        <h2 class="govuk-heading-m" id="subsection-title">
-          Subsection
-        </h2>
-        <nav role="navigation" aria-labelledby="subsection-title">
-          <ul class="govuk-list govuk-!-font-size-16">
-            <li>
-              <a class="govuk-link" href="#">
-                Biodiversity Net Gain
-              </a>
-            </li>
-            <li>
-              <a class="govuk-link" href="#">
-                Biodiversity Net Gain Credits
-              </a>
-            </li>
-            <li>
-              <a href="#" class="govuk-link govuk-!-font-weight-bold">
-                More <span class="govuk-visually-hidden">in Subsection</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
 
     </div>
   </div>

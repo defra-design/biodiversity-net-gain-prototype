@@ -26,10 +26,10 @@
           classes: "govuk-input--width-10"
         }) }}
 
-        {{ govukDetails({
+        <!--{{ govukDetails({
           summaryText: "Where to find the planning reference number",
           text: "..."
-        }) }}
+        }) }}-->
 
         {{ govukButton({
           text: "Search"
@@ -40,7 +40,7 @@
       <h2 class="govuk-heading-m">Other ways to search</h2>
       <ul class="govuk-list">
         <li><a href="/register/{{ pageURL }}/search-site-ref">Search by off-site reference number</a></li>
-        <li><a href="#">Search by postcode or street name</a></li>
+        <li><a href="/register/{{ pageURL }}/search-postcode">Search by postcode or street name</a></li>
       </ul>
 
     </div>

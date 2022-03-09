@@ -1,6 +1,6 @@
 {% extends "register/v2/layout-register.html" %}
 
-{% set pageHeading = "Search by off-site reference number" %}
+{% set pageHeading = "Search by postcode or street name" %}
 
 {% block beforeContent %}
 {% endblock %}
@@ -19,7 +19,7 @@
             isPageHeading: true
           },
           hint: {
-            text: "For example, BNG-220115001"
+            text: "For example, 'LS29 6JE' or 'Cleasby Road'"
           },
           id: "search-register",
           name: "search-register",
@@ -27,7 +27,7 @@
         }) }}
 
         <!--{{ govukDetails({
-          summaryText: "Where to find the off-site reference number",
+          summaryText: "Where to find the planning reference number",
           text: "..."
         }) }}-->
 
@@ -39,8 +39,8 @@
 
       <h2 class="govuk-heading-m">Other ways to search</h2>
       <ul class="govuk-list">
+        <li><a href="/register/{{ pageURL }}/search-site-ref">Search by off-site reference number</a></li>
         <li><a href="/register/{{ pageURL }}/search-planning-ref">Search by planning reference number</a></li>
-        <li><a href="/register/{{ pageURL }}/search-postcode">Search by postcode or street name</a></li>
       </ul>
 
     </div>

@@ -1,7 +1,7 @@
 
 {% extends "register/v2/layout-register.html" %}
 
-{% set pageHeading = "21/01335/HOU" %}
+{% set pageHeading = "21/02367/FUL" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -23,10 +23,10 @@
         rows: [
           {
             key: {
-              text: "Planning reference"
+              text: "Planning reference number"
             },
             value: {
-              text: "21/01335/HOU"
+              text: pageHeading
             }
           },
           {
@@ -34,7 +34,7 @@
               text: "Local planning authority"
             },
             value: {
-              html: "<a href='https://planning.bradford.gov.uk/online-applications/'>Bradford City Council</a>"
+              text: "Leeds City Council"
             }
           }
         ]
@@ -91,7 +91,7 @@
       </div>-->
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Off-sites</h2>
-      <p>Used by the development to deliver biodiversity units.</p>
+      <p>Used to deliver the developments biodiversity net gain.</p>
 
       <ul class="govuk-list">
         <li class="govuk-!-margin-bottom-4">
