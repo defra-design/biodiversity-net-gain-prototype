@@ -1,0 +1,50 @@
+{% extends "register/v2/layout-register.html" %}
+
+{% set pageHeading = "Search by planning reference number" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register/{{ pageURL }}/search-answer">
+
+        {{ govukInput({
+          label: {
+            text: pageHeading,
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "For example, 21/02367/FUL"
+          },
+          id: "search-register",
+          name: "search-register",
+          classes: "govuk-input--width-10"
+        }) }}
+
+        {{ govukDetails({
+          summaryText: "Where to find the planning reference number",
+          text: "..."
+        }) }}
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+      </form>
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register/{{ pageURL }}/search-site-ref">Search by site reference numer</a></li>
+        <li><a href="#">Search by postcode or street name</a></li>
+        <li><a href="#">Search by map</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

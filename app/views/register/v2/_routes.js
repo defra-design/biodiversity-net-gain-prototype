@@ -7,9 +7,9 @@ router.post('/search-answer', function (req, res) {
   var install = req.session.data['search-register']
 
   if (install == "150384"){
-    res.redirect('/register/v1/gain-site-a')
+    res.redirect('/register/v2/gain-site-a')
   } else {
-    res.redirect('/register/v1/search-results')
+    res.redirect('/register/v2/search-results')
   }
 })
 

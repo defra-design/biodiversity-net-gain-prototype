@@ -1,5 +1,5 @@
 
-{% extends "register/v1/layout-register.html" %}
+{% extends "register/v2/layout-register.html" %}
 
 {% set pageHeading = "Search results" %}
 
@@ -25,21 +25,104 @@
         </form>
       </div>
 
-      <h2 class="govuk-heading-m govuk-!-padding-top-8">3 results</h2>
+      <h2 class="govuk-heading-m govuk-!-padding-top-8">3 sites found</h2>
+
+      </div>
+      <div class="govuk-grid-column-full">  
       
       <ul class="app-search-results govuk-!-margin-bottom-8">
         <li class="app-search-results__item">
-          <a href="/register/{{ pageURL }}/gain-site-a">Biodiversity gain site 15384</a>
-          <p class="app-search-results__item-description">Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ</p>
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220115001</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Location:</span> 
+            Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ
+          </p>
+          <p class="app-search-results__item-description  app-search-results__item-description--developments">
+            <span class="">Linked developments:</span> 
+            <a href="/register/{{ pageURL }}/development-a">21/02367/FUL (Leeds City Council)</a>, 
+            <a href="/register/{{ pageURL }}/development-a">19/06024/FU (Leeds City Council)</a>
+          </p>
         </li>
         <li class="app-search-results__item">
-          <a href="/register/{{ pageURL }}/gain-site-b">Biodiversity gain site 14903</a>
-          <p class="app-search-results__item-description">Clifton View, Hillings Ln, Ilkley LS20 6AX</p>
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220129102</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Location:</span> 
+            Clifton View, Hillings Ln, Ilkley LS20 6AX
+          </p>
+          <p class="app-search-results__item-description  app-search-results__item-description--developments">
+            <span class="">Linked developments:</span> 
+            none
+          </p>
         </li>
         <li class="app-search-results__item">
-          <a href="/register/{{ pageURL }}/gain-site-a">Biodiversity gain site 94847</a>
-          <p class="app-search-results__item-description">G Pickersgill & Sons, Intake Side Farm LS20 8PF</p>
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-280229026</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Location:</span> 
+            G Pickersgill & Sons, Intake Side Farm LS20 8PF
+          </p>
+          <p class="app-search-results__item-description app-search-results__item-description--developments">
+            <span class="">Linked developments:</span> 
+            <a href="/register/{{ pageURL }}/development-a">21/08560/TR (Leeds City Council)</a>
+          </p>
         </li>
+      </ul>
+
+      <!--{{ govukTable({
+        caption: "Search results",
+        captionClasses: "govuk-visually-hidden",
+        head: [
+          {
+            text: "Site reference"
+          },
+          {
+            text: "Location"
+          },
+          {
+            text: "Linked developments"
+          }
+        ],
+        rows: [
+          [
+            {
+              html: "<a href='/register/{{ pageURL }}/site-a'>BNG-220115002</a>"
+            },
+            {
+              text: "Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ"
+            },
+            {
+              text: "21/02367/FUL (Leeds City Council)"
+            }
+          ],
+          [
+            {
+              text: "February"
+            },
+            {
+              text: "£95"
+            },
+            {
+              text: "£95"
+            }
+          ],
+          [
+            {
+              text: "March"
+            },
+            {
+              text: "£125"
+            },
+            {
+              text: "£125"
+            }
+          ]
+        ]
+      }) }}-->
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register/{{ pageURL }}/search-site-ref">Search by site reference numer</a></li>
+        <li><a href="#">Search by postcode or street name</a></li>
+        <li><a href="#">Search by map</a></li>
       </ul>
 
     </div>

@@ -1,5 +1,5 @@
 
-{% extends "register/v1/layout-register.html" %}
+{% extends "register/v2/layout-register.html" %}
 
 {% set pageHeading = "21/01335/HOU" %}
 
@@ -41,13 +41,14 @@
       }) }}
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity units</h2>
+      <p>Including all on-site and off-site habitat retention, creation and enhancement.</p>
 
       <div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Summary figures</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header"></th>
+                <th scope="col" class="govuk-table__header" style="width:40%"></th>
                 <th scope="col" class="govuk-table__header">Habitats</th>
                 <th scope="col" class="govuk-table__header">Hedgerows</th>
                 <th scope="col" class="govuk-table__header">Rivers</th>
@@ -55,56 +56,13 @@
             </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Onsite baseline</th>
-                <td class="govuk-table__cell">12.11</td>
-                <td class="govuk-table__cell">1.83</td>
-                <td class="govuk-table__cell">0.00</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__header">Onsite post-intervention
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including habitat retention, creation and enhancement)</span>
-                </td>
-                <td class="govuk-table__cell">5.11</td>
-                <td class="govuk-table__cell">2.81</td>
-                <td class="govuk-table__cell">0.00</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Onsite net % change
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including habitat retention, creation and enhancement)</span>
-                </th>
-                <td class="govuk-table__cell">-57.85%</td>
-                <td class="govuk-table__cell">53.57%</td>
-                <td class="govuk-table__cell">0.00%</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__header govuk-!-padding-top-7">Offsite baseline
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-b">Biodiversity gain site 14903</a></span>
-                </td>
-                <td class="govuk-table__cell govuk-!-padding-top-7">5.00</td>
-                <td class="govuk-table__cell govuk-!-padding-top-7">0.00</td>
-                <td class="govuk-table__cell govuk-!-padding-top-7">0.00</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__header">Offsite post intervetion
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-b">Biodiversity gain site 14903</a></span>
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-2 govuk-!-margin-bottom-0">(Including habitat retention, creation and enhancement)</span>
-                </td>
-                <td class="govuk-table__cell">13.23</td>
-                <td class="govuk-table__cell">0.00</td>
-                <td class="govuk-table__cell">0.00</td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header govuk-!-padding-top-7">Total net unit change
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all onsite and offsite habitat retention, creation and enhancement)</span>
-                </th>
+                <th scope="row" class="govuk-table__header govuk-!-padding-top-7">Total net unit change</th>
                 <td class="govuk-table__cell govuk-!-padding-top-7">1.23</td>
                 <td class="govuk-table__cell govuk-!-padding-top-7">0.98</td>
                 <td class="govuk-table__cell govuk-!-padding-top-7">0.00</td>
               </tr>
               <tr class="govuk-table__row">
-                <td scope="row" class="govuk-table__header">Total onsite net % change plus offsite surplus
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-bottom-0">(Including all onsite and offsite habitat retention, creation and enhancement)</span>
-                </td>
+                <td scope="row" class="govuk-table__header">Total on-site net % change plus off-site surplus</td>
                 <td class="govuk-table__cell">10.13%</td>
                 <td class="govuk-table__cell">53.57%</td>
                 <td class="govuk-table__cell">0.00%</td>
@@ -113,9 +71,28 @@
         </table>
       </div>
 
-      <p><a href="/register/{{ pageURL }}/development-a-metric">View metric calculation details</a></p>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Off-site locations</h2>
+      <p>Used by the development to deliver biodiversity units.</p>
 
-      {% include "register/v1/includes/start-new-search.html" %}
+      <ul class="app-search-results govuk-!-margin-bottom-8">
+        <li class="app-search-results__item">
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220115001</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Location:</span> 
+            Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ
+          </p>
+        </li>
+        <li class="app-search-results__item">
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220129102</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Location:</span> 
+            Clifton View, Hillings Ln, Ilkley LS20 6AX
+          </p>
+        </li>
+      </ul>
+
+
+      {% include "register/v2/includes/start-new-search.html" %}
 
     </div>
   </div>

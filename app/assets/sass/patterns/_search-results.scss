@@ -6,12 +6,26 @@
 
 .app-search-results__item {
   @include govuk-font(19);
+  border-top: 1px solid rgb(177, 180, 182);
   margin-bottom: 15px;
+  padding-bottom: 0px;
   padding-top: 10px;
+
+  &:last-child {
+    border-bottom: 1px solid rgb(177, 180, 182);
+  }
+}
+
+.app-search-results__item-title {
+  font-weight: bold;
 }
 
 .app-search-results__item-description {
   margin: 10px 0;
+}
+
+.app-search-results__item-description--developments {
+  @include govuk-font(16);
 }
 
 .app-search-results__item-description--meta {

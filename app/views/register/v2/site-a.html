@@ -1,0 +1,131 @@
+{% extends "register/v2/layout-register.html" %}
+
+{% set pageHeading = "BNG-220115001" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Off-site</span>
+         {{ pageHeading }}
+      </h1>
+
+      <img src="/public/images/location-confirm.png" alt="" width="100%" style="margin-bottom: 20px; border: 1px solid #b1b4b6;">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ"
+            }
+          },
+          {
+            key: {
+              text: "Area"
+            },
+            value: {
+              text: "4.15 hectares (ha) / 10.25 acres"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Habitat information</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
+              <th scope="col" class="govuk-table__header" style="width:25%">Area (ha)</th>
+              <th scope="col" class="govuk-table__header">Condition</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span></td>
+              <td class="govuk-table__cell">2.40</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Heathland and scrub <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span></td>
+              <td class="govuk-table__cell">1.25</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Woodland and forest <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span></td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <!--<tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">4.15</td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:50%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" style="width:25%">Length (km)</th>
+              <th scope="col" class="govuk-table__header">Condition</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td class="govuk-table__cell">0.18</td>
+              <td class="govuk-table__cell">Good</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees</td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">Poor</td>
+            </tr>
+            <!--<tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">0.68</td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Management and monitroing</h2>
+      <p><a download href="#">BNG-220115001 Habitat Management and Monitoring Plan (PDF, 1MB)</a></p>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Conservation Covenant</h2>
+      <p><a download href="#">BNG-220115001 Conservation Covenant (PDF, 1.4MB)</a></p>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Linked developments</h2>
+
+      <ul class="govuk-list">
+        <li>
+          <a href="/register/{{ pageURL }}/development-a">21/02367/FUL (Leeds City Council)</a>
+        </li>
+      </ul>
+
+
+      {% include "register/v2/includes/start-new-search.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}
