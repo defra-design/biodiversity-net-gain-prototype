@@ -1,0 +1,53 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "How do you want to provide the land boundary for the off-site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {% if data['land-registry-check'] == 'yes' %} 
+        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer-land-registry">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+      {% endif %}
+
+        {{ govukRadios({
+          idPrefix: "location-options",
+          name: "location-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "location-import",
+              text: "Upload geospatial data file",
+              hint: {
+                text: "GeoJSON, KML or Shape files"
+              }
+            },
+            {
+              value: "location-upload",
+              text: "Upload document or image",
+              hint: {
+                text: "PDF, jpg or PNG files"
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

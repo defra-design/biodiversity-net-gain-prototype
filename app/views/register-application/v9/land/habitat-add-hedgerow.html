@@ -1,0 +1,156 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "Add the hedgerow type, area and condition" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/habitat-check-data">
+
+        {{ govukRadios({
+          idPrefix: "hedgerow-type",
+          name: "hedgerow-type",
+          fieldset: {
+            legend: {
+              text: "Hedgerow type",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+              {
+                value: "Hedge Ornamental Non Native",
+                text: "Hedge Ornamental Non Native",
+                checked: checked("hedgerow-type", "Hedge Ornamental Non Native")
+              },
+              {
+                value: "Line of Trees",
+                text: "Line of Trees",
+                checked: checked("hedgerow-type", "Line of Trees")
+              },
+              {
+                value: "Line of Trees  - Associated with bank or ditch",
+                text: "Line of Trees  - Associated with bank or ditch",
+                checked: checked("hedgerow-type", "Line of Trees  - Associated with bank or ditch")
+              },
+              {
+                value: "Line of Trees (Ecologically Valuable)",
+                text: "Line of Trees (Ecologically Valuable)",
+                checked: checked("hedgerow-type", "Line of Trees (Ecologically Valuable)")
+              },
+              {
+                value: "Line of Trees (Ecologically Valuable) - with Bank or Ditch",
+                text: "Line of Trees (Ecologically Valuable) - with Bank or Ditch",
+                checked: checked("hedgerow-type", "Line of Trees (Ecologically Valuable) - with Bank or Ditch")
+              },
+              {
+                value: "Native Hedgerow",
+                text: "Native Hedgerow",
+                checked: checked("hedgerow-type", "Native Hedgerow")
+              },
+              {
+                value: "Native Hedgerow - Associated with bank or ditch",
+                text: "Native Hedgerow - Associated with bank or ditch",
+                checked: checked("hedgerow-type", "Native Hedgerow - Associated with bank or ditch")
+              },
+              {
+                value: "Native Hedgerow with trees",
+                text: "Native Hedgerow with trees",
+                checked: checked("hedgerow-type", "Native Hedgerow with trees")
+              },
+              {
+                value: "Native Hedgerow with trees - Associated with bank or ditch",
+                text: "Native Hedgerow with trees - Associated with bank or ditch",
+                checked: checked("hedgerow-type", "Native Hedgerow with trees - Associated with bank or ditch")
+              },
+              {
+                value: "Native Species Rich Hedgerow",
+                text: "Native Species Rich Hedgerow",
+                checked: checked("hedgerow-type", "Native Species Rich Hedgerow")
+              },
+              {
+                value: "Native Species Rich Hedgerow - Associated with bank or ditch",
+                text: "Native Species Rich Hedgerow - Associated with bank or ditch",
+                checked: checked("hedgerow-type", "Native Species Rich Hedgerow - Associated with bank or ditch")
+              },
+              {
+                value: "Native Species Rich Hedgerow with trees",
+                text: "Native Species Rich Hedgerow with trees",
+                checked: checked("hedgerow-type", "Native Species Rich Hedgerow with trees")
+              },
+              {
+                value: "Native Species Rich Hedgerow with trees - Associated with bank or ditch",
+                text: "Native Species Rich Hedgerow with trees - Associated with bank or ditch",
+                checked: checked("hedgerow-type", "Native Species Rich Hedgerow with trees - Associated with bank or ditch")
+              }
+            ]
+          }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Length, in kilometres",
+            classes: "govuk-label--s"
+          },
+          classes: "govuk-input--width-5",
+          id: "hedgerow-length",
+          name: "hedgerow-length",
+          value: data['hedgerow-length'],
+          suffix: {
+            text: "km"
+          },
+          spellcheck: false
+        }) }}
+
+        {{ govukRadios({
+          idPrefix: "hedgerow-condition",
+          name: "hedgerow-condition",
+          fieldset: {
+            legend: {
+              text: "Condition",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--s"
+            }
+          },
+          items: [
+            {
+              value: "Good",
+              text: "Good",
+              checked: checked("hedgerow-condition", "Good")
+            },
+            {
+              value: "Fairly good",
+              text: "Fairly good",
+              checked: checked("hedgerow-condition", "Fairly good")
+            },
+            {
+              value: "Moderate",
+              text: "Moderate",
+              checked: checked("hedgerow-condition", "Moderate")
+            },
+            {
+              value: "Fairly Poor",
+              text: "Fairly poor",
+              checked: checked("hedgerow-condition", "Fairly poor")
+            },
+            {
+              value: "Poor",
+              text: "Poor",
+              checked: checked("hedgerow-condition", "Poor")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

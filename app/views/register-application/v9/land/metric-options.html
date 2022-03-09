@@ -1,0 +1,46 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "How do you want to provide the off-site data for the land allocated to the development?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/metric-options-answer">
+
+        {{ govukRadios({
+          idPrefix: "metric-options",
+          name: "metric-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "metric",
+              text: "Upload Biodiversity Metric 3.0 calculations",
+              hint: {
+                text: "The file that includes the onsite and off-site, baseline and post development calculations."
+              }
+            },
+            {
+              value: "manual",
+              text: "Enter data manually"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

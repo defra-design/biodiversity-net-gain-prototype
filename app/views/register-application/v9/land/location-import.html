@@ -1,0 +1,37 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "Upload your geospatial data file" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
+
+        {{ govukFileUpload({
+          id: "location-import",
+          name: "location-import",
+          label: {
+            text: "Upload your file",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "GeoJSON, KML or Shape files - max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends "register-application/v9/development/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm planning reference number" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning portal reference number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['planning-ref'] or '21/02367/FUL' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/planning-ref">
+              Change<span class="govuk-visually-hidden"> Planning reference</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local Planning Authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['input-autocomplete'] or 'York City Council' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/planning-ref">
+              Change<span class="govuk-visually-hidden"> Planning reference</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+        <input class="govuk-input" id="development-confirm" name="development-confirm" type="hidden" value="development-confirm">
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

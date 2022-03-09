@@ -1,0 +1,141 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "Land allocated to development 21/02367/FUL" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <!--<div class="govuk-inset-text">This data has been extracted from the file you uploaded.</div>-->
+
+    </div>
+    <div class="govuk-grid-column-full">
+
+      <h2 class="govuk-heading-m">Habitats</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Area allocated (ha)</th>
+              <th scope="col" class="govuk-table__header">Biodiversity units</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <td scope="row" class="govuk-table__cell">
+              Grassland
+              <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                Other neutral grassland
+              </span>
+              <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                Condition: Good
+              </span>
+            </td>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                Heathland and scrub
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  Bramble scrub
+                </span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  Condition: Good
+                </span>
+              </td>
+              <td class="govuk-table__cell">1.25</td>
+              <td class="govuk-table__cell">4.25</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                Woodland and forest
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  Lowland mixed deciduous woodland
+                </span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  Condition: Good
+                </span>
+              </td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">1.93</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="govuk-heading-m">Hedgerows</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Length allocated (km)</th>
+              <th scope="col" class="govuk-table__header">Biodiversity units</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                Native species rich hedgerow
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  Condition: Good
+                </span>
+              </td>
+              <td class="govuk-table__cell">0.18</td>
+              <td class="govuk-table__cell">2.82</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">
+                Line of trees
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
+                  Condition: Poor
+                </span>
+              </td>
+              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">3.45</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/allocate-check-data-answer">
+
+        {{ govukRadios({
+          idPrefix: "allocate-check-data",
+          name: "allocate-check-data",
+          fieldset: {
+            legend: {
+              text: "Is this correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, change the allocation"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
