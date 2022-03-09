@@ -124,6 +124,10 @@ $govuk-assets-path: '/govuk/assets/';
   height: 5px;
   margin-bottom: 20px;
   margin-top: 50px;
+
+  @media (max-width: 40.0625em) {
+    margin-top: 40px;
+  }
 }
 
 .app-divider--blue {

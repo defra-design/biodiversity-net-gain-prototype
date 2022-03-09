@@ -25,7 +25,8 @@
 }
 
 .app-search-results__item-description--developments {
-  @include govuk-font(16);
+  @include govuk-font(19);
+  margin-top: 20px;
 }
 
 .app-search-results__item-description--meta {
