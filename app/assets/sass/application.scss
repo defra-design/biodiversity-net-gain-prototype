@@ -116,3 +116,16 @@ $govuk-assets-path: '/govuk/assets/';
 .autocomplete__input {
   height: 40px;
 }
+
+// HR
+.app-divider {
+  background-color: $govuk-border-colour;
+  border: 0;
+  height: 5px;
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+.app-divider--blue {
+  background-color: $govuk-brand-colour;
+}

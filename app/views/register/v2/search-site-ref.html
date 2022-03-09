@@ -1,6 +1,6 @@
 {% extends "register/v2/layout-register.html" %}
 
-{% set pageHeading = "Search by site reference number" %}
+{% set pageHeading = "Search by off-site reference number" %}
 
 {% block beforeContent %}
 {% endblock %}
@@ -27,7 +27,7 @@
         }) }}
 
         {{ govukDetails({
-          summaryText: "Where to find the site reference number",
+          summaryText: "Where to find the off-site reference number",
           text: "..."
         }) }}
 
@@ -40,8 +40,7 @@
       <h2 class="govuk-heading-m">Other ways to search</h2>
       <ul class="govuk-list">
         <li><a href="/register/{{ pageURL }}/search-planning-ref">Search by planning reference number</a></li>
-        <li><a href="#">Search by postcode or street name</a></li>
-        <li><a href="#">Search by map</a></li>
+        <li><a href="#">Search by postcode or street name</a></li>>
       </ul>
 
     </div>

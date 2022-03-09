@@ -40,10 +40,29 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-5">Biodiversity units</h2>
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Total biodiversity net change</h2>
       <p>Including all on-site and off-site habitat retention, creation and enhancement.</p>
 
-      <div class="app-table-responsive">
+      <div class="govuk-grid-row govuk-!-margin-top-6 govuk-!-margin-bottom-5">
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-margin-bottom-0">10.13%</p>
+          <p>Habitats</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-margin-bottom-0">53.57%</p>
+          <p>Hedgerows</p>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <p class="govuk-!-font-size-48 govuk-!-font-weight-bold govuk-!-margin-bottom-0">0.00%</p>
+          <p>Rivers</p>
+        </div>
+      </div>
+
+      <p>View complete <a download href="#">Biodiversity Metric 3.0 Calculations (Excel, 4.2MB)</a></p>
+
+      <hr class="app-divider app-divider--blue">
+
+      <!--<div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Summary figures</caption>
             <thead class="govuk-table__head">
@@ -69,20 +88,20 @@
               </tr>
           </tbody>
         </table>
-      </div>
+      </div>-->
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Off-site locations</h2>
-      <p>Used by the development to deliver biodiversity units.</p>
+      <p>Off-site locations used by the development to deliver biodiversity units.</p>
 
-      <ul class="app-search-results govuk-!-margin-bottom-8">
-        <li class="app-search-results__item">
+      <ul class="govuk-list">
+        <li class="govuk-!-margin-bottom-4">
           <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220115001</a>
           <p class="app-search-results__item-description">
             <span class="govuk-visually-hidden">Location:</span> 
             Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ
           </p>
         </li>
-        <li class="app-search-results__item">
+        <li>
           <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220129102</a>
           <p class="app-search-results__item-description">
             <span class="govuk-visually-hidden">Location:</span> 
@@ -91,6 +110,11 @@
         </li>
       </ul>
 
+      <hr class="app-divider">
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Documents</h2>
+      <p><a download href="#">21/01335/HOU Habitat Management and Monitoring Plan (PDF, 1MB)</a></p>
+      <p><a download href="#">21/01335/HOU Planning Obligation (PDF, 1.4MB)</a></p>
 
       {% include "register/v2/includes/start-new-search.html" %}
 
