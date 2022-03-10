@@ -42,32 +42,54 @@
       }) }}
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Habitat information</h2>
+      </div>
+      <div class="govuk-grid-column-full">
 
+      {% set proposedHtml %}
+      <h3 class="govuk-heading-m">Proposed habitat</h3>
       <div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
-              <th scope="col" class="govuk-table__header" style="width:25%">Area (ha)</th>
-              <th scope="col" class="govuk-table__header">Condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
+              <th scope="col" class="govuk-table__header">Allocated development</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Grassland <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span></td>
+              <td scope="row" class="govuk-table__cell">Grassland 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+              </td>
               <td class="govuk-table__cell">2.40</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
+              </td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Heathland and scrub <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span></td>
+              <td scope="row" class="govuk-table__cell">Heathland and scrub 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+              </td>
               <td class="govuk-table__cell">1.25</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
+              </td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Woodland and forest <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span></td>
+              <td scope="row" class="govuk-table__cell">Woodland and forest 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+              </td>
               <td class="govuk-table__cell">0.50</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
+              </td>
             </tr>
             <!--<tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
@@ -83,21 +105,32 @@
           <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:50%">Hedgerow type</th>
-              <th scope="col" class="govuk-table__header" style="width:25%">Length (km)</th>
-              <th scope="col" class="govuk-table__header">Condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
+              <th scope="col" class="govuk-table__header">
+                Allocated development
+              </th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+              </td>
               <td class="govuk-table__cell">0.18</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Not allocated</span>
+              </td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Line of trees</td>
+              <td scope="row" class="govuk-table__cell">Line of trees
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
+              </td>
               <td class="govuk-table__cell">0.50</td>
-              <td class="govuk-table__cell">Poor</td>
+              <td class="govuk-table__cell">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
+              </td>
             </tr>
             <!--<tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
@@ -107,25 +140,79 @@
           </tbody>
         </table>
       </div>
+      {% endset -%}
+
+      {% set baselineHtml %}
+      <h3 class="govuk-heading-m">Baseline habitat</h3>
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header">Area (ha)</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
+              </td>
+              <td class="govuk-table__cell">4.15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table govuk-!-margin-bottom-0">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header">Length (km)</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
+              </td>
+              <td class="govuk-table__cell">0.68</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Proposed",
+            id: "proposed",
+            panel: {
+              html: proposedHtml
+            }
+          },
+          {
+            label: "Baseline",
+            id: "baseline",
+            panel: {
+              html: baselineHtml
+            }
+          }
+        ]
+      }) }}
 
       <p><a download href="#">Habitat Management and Monitoring Plan (PDF, 1MB)</a></p>
-
-      <hr class="app-divider">
-
-      <h2 class="govuk-heading-l">Linked developments</h2>
-      <ul class="govuk-list govuk-list--spaced">
-        <li><a href="/register/{{ pageURL }}/development-a">21/02367/FUL (Leeds City Council)</a></li>
-        <li><a href="/register/{{ pageURL }}/development-a">19/06024/FU (Leeds City Council)</a></li>
-      </ul>
 
       <hr class="app-divider">
 
       <h2 class="govuk-heading-l">Legal agreements</h2>
       <ul class="govuk-list govuk-list--spaced">
         <li><a download href="#">Conservation Covenant (PDF, 1.4MB)</a></li>
-        <li><a download href="#">Financial agreement (PDF, 0.8MB)</a></li>
       </ul>
-
 
       {% include "register/v2/includes/start-new-search.html" %}
 
