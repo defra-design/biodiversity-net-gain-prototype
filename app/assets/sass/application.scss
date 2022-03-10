@@ -121,7 +121,7 @@ $govuk-assets-path: '/govuk/assets/';
 .app-divider {
   background-color: $govuk-border-colour;
   border: 0;
-  height: 5px;
+  height: 1px;
   margin-bottom: 40px;
   margin-top: 40px;
 
@@ -133,4 +133,8 @@ $govuk-assets-path: '/govuk/assets/';
 
 .app-divider--blue {
   background-color: $govuk-brand-colour;
+}
+
+.app-divider--chunk {
+  height: 5px;
 }

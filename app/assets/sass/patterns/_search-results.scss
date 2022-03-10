@@ -8,12 +8,12 @@
   @include govuk-font(19);
   border-top: 1px solid rgb(177, 180, 182);
   margin-bottom: 15px;
-  padding-bottom: 10px;
+  padding-bottom: 0;
   padding-top: 10px;
 
   &:last-child {
     border-bottom: 1px solid rgb(177, 180, 182);
-    padding-bottom: 30px;
+    padding-bottom: 0;
   }
 }
 
