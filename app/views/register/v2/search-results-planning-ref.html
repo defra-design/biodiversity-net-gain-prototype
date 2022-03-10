@@ -1,0 +1,56 @@
+
+{% extends "register/v2/layout-register.html" %}
+
+{% set pageHeading = "Search results" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">    
+
+      <div class="moj-search">
+        <form action="/register/{{ pageURL }}/search-answer" method="post">
+          <div class="govuk-form-group">
+            <label class="govuk-label moj-search__label govuk-label--xl" for="search-register">
+              {{ pageHeading }}
+            </label>
+            <input class="govuk-input moj-search__input" id="search-register" name="search-register" value="{{ data['search-register'] or '21/02367/FUL' }}" type="search">
+          </div>
+          <button class="govuk-button moj-search__button " data-module="govuk-button">
+            Search
+          </button>
+        </form>
+      </div>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-8">2 planning applications found</h2>
+      
+      <ul class="app-search-results govuk-!-margin-bottom-8">
+        <li class="app-search-results__item">
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/development-a" class="app-search-results__item-title">21/02367/FUL</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Local Planning Authority:</span> 
+            Leeds City Council
+          </p>
+        </li>
+        <li class="app-search-results__item">
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ pageURL }}/development-a" class="app-search-results__item-title">21/02367/FUL</a>
+          <p class="app-search-results__item-description">
+            <span class="govuk-visually-hidden">Local Planning Authority:</span> 
+            Manchester City Council
+          </p>
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register/{{ pageURL }}/search-site-ref">Search by off-site reference number</a></li>
+        <li><a href="/register/{{ pageURL }}/search-postcode">Search by postcode ot street name</a></li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}
