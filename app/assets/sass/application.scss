@@ -8,6 +8,8 @@ $govuk-assets-path: '/govuk/assets/';
 // Import GOV.UK Frontend and any extension styles if extensions have been configured
 @import "lib/extensions/extensions";
 
+@import "node_modules/@hmcts/frontend/all";
+
 // Patterns that aren't in Frontend
 @import "patterns/step-by-step-header";
 @import "patterns/step-by-step-nav";
@@ -142,4 +144,9 @@ $govuk-assets-path: '/govuk/assets/';
 // Secondary text colour
 .app-secondary-text-colour {
   color: #505a5f;
+}
+
+.app-search-results__development + .app-search-results__development {
+  display: block;
+  margin-top: 3px;
 }

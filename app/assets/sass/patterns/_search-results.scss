@@ -13,7 +13,7 @@
 
   &:last-child {
     border-bottom: 1px solid rgb(177, 180, 182);
-    padding-bottom: 5px;
+    padding-bottom: 15px;
   }
 }
 
@@ -34,4 +34,35 @@
   @include govuk-font(16);
 
   color: govuk-colour("dark-grey");
+}
+
+.app-search-results__meta {
+  @include govuk-font(16);
+  display: block;
+}
+
+.app-search-results__title {
+  @include govuk-font(19);
+  margin-bottom: 5px;
+  margin-top: 0;
+}
+
+.app-search-results__term-wrapper {
+  margin-bottom: 15px;
+}
+
+.app-search-results__term-wrapper--meta {
+  @include govuk-font(16);
+  margin-bottom: 0px;
+  color: $govuk-secondary-text-colour;
+
+  @media (max-width: 40.0625em) {
+    margin-bottom: 10px;
+  }
+}
+
+.app-search-results__term {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 3px;
 }

@@ -1,0 +1,136 @@
+
+{% extends "register/v2/layout-register.html" %}
+
+{% set pageHeading = "Search results" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">    
+
+      <div class="moj-search">
+        <form action="/register/{{ pageURL }}/search-answer" method="post">
+          <div class="govuk-form-group">
+            <label class="govuk-label moj-search__label govuk-label--xl" for="search-register">
+              {{ pageHeading }}
+            </label>
+            <input class="govuk-input moj-search__input" id="search-register" name="search-register" value="{{ data['search-register'] or 'LS20' }}" type="search">
+          </div>
+          <button class="govuk-button moj-search__button " data-module="govuk-button">
+            Search
+          </button>
+        </form>
+      </div>
+
+      </div>
+      <div class="govuk-grid-column-full">   
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-8">3 off-sites found</h2>
+      
+      <ul class="app-search-results govuk-!-margin-bottom-8">
+        <li class="app-search-results__item">
+          
+          <h3 class="app-search-results__title"><span class="govuk-visually-hidden">Site reference:</span> 
+            <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220115001</a>
+          </h3>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full app-search-results__term-wrapper"> 
+              <span class="govuk-visually-hidden">Location:</span> Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ
+            </div>
+
+            <div class="govuk-grid-column-one-third app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Linked developments</span>
+                <span class="app-search-results__development">
+                  <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a> - Leeds City Council
+                </span>
+            </div>
+
+            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Local ward</span> Leeds North West
+            </div>
+
+            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Date registered</span> 15 Mar 2022
+            </div>
+
+          </div>
+
+        </li>
+        <li class="app-search-results__item">
+          
+          <h3 class="app-search-results__title"><span class="govuk-visually-hidden">Site reference:</span> 
+            <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220607202</a>
+          </h3>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full app-search-results__term-wrapper"> 
+              <span class="govuk-visually-hidden">Location:</span> Clifton View, Hillings Ln, Ilkley LS20 6AX
+            </div>
+
+            <div class="govuk-grid-column-one-third app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Linked developments</span>
+                <span class="app-search-results__development">
+                  None
+                </span>
+            </div>
+
+            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Local ward</span> Leeds North West
+            </div>
+
+            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Date registered</span> 7 Jun 2022
+            </div>
+            
+          </div>
+
+        </li>
+        <li class="app-search-results__item">
+          
+          <h3 class="app-search-results__title"><span class="govuk-visually-hidden">Site reference:</span> 
+            <a href="/register/{{ pageURL }}/site-a" class="app-search-results__item-title">BNG-220607202</a>
+          </h3>
+
+          <div class="govuk-grid-row">
+
+            <div class="govuk-grid-column-full app-search-results__term-wrapper"> 
+              <span class="govuk-visually-hidden">Location:</span> G Pickersgill & Sons, Intake Side Farm LS20 8PF
+            </div>
+
+            <div class="govuk-grid-column-one-third app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Linked developments</span>
+                <span class="app-search-results__development">
+                  <span class="app-search-results__development">
+                    <a href="/register/{{ pageURL }}/development-a">21/08560/TR</a> - Leeds City Council
+                  </span>
+                  <span class="app-search-results__development">
+                    <a href="/register/{{ pageURL }}/development-a">22/098376/TUL</a> - Bradford City Council
+                  </span>
+                </span>
+            </div>
+
+            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Local ward</span> Leeds North West
+            </div>
+
+            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+              <span class="app-search-results__term">Date registered</span> 5 Nov 2022
+            </div>
+            
+          </div>
+
+        </li>
+      </ul>
+
+      {% include "register/v2/includes/start-new-search.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}
