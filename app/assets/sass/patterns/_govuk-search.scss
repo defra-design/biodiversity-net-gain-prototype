@@ -3,6 +3,12 @@
   margin-bottom: 30px
 }
 
+@media (max-width: 40.0625em) {
+  .gem-c-search {
+    margin-bottom: 20px
+  }
+}
+
 .gem-c-search__label {
   font-family: "GDS Transport",arial,sans-serif;
   -webkit-font-smoothing: antialiased;

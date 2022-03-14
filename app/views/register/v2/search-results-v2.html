@@ -4,6 +4,10 @@
 {% set pageHeading = "Search results" %}
 
 {% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back to Biodiversity net gain register",
+    href: "javascript: window.history.go(-1)"
+  }) }}
 {% endblock %}
 
 {% block content %}
@@ -11,33 +15,35 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">    
 
-      <h1 class="gem-c-heading govuk-heading-xl govuk-!-margin-bottom-4">Search <span class="govuk-visually-hidden">all content</span>
+      <h1 class="gem-c-heading govuk-heading-xl govuk-!-margin-bottom-4">
+        Search <span class="govuk-visually-hidden">all content</span>
       </h1>
 
+      <!-- Search box code taken from the GOV.UK website search -->
       <div id="keywords" class="app-patch--search-input-override" role="search" aria-label="Sitewide">
-          
         <div class="gem-c-search govuk-!-display-none-print  gem-c-search--on-white" data-module="gem-toggle-input-class-on-focus">
-            <label for="finder-keyword-search" class="gem-c-search__label">Search on GOV.UK</label>
+          <label for="finder-keyword-search" class="gem-c-search__label">Search on biodiversity net gain register</label>
           <div class="gem-c-search__item-wrapper">
             <input aria-controls="js-search-results-info" enterkeyhint="search" class="gem-c-search__item gem-c-search__input js-class-toggle focus" id="finder-keyword-search" name="keywords" title="Search" type="search" value="{{ data['search-register'] or 'LS20' }}">
             <div class="gem-c-search__item gem-c-search__submit-wrapper">
               <button class="gem-c-search__submit" type="submit" data-module="gem-track-click" enterkeyhint="search">
                 Search
-                
-        <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-          <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
-          <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
-        </svg>
-        </button>    </div>
+                <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
+                  <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
+                </svg>
+              </button>    
+            </div>
           </div>
         </div>
-        
-                </div>
-
       </div>
-      <div class="govuk-grid-column-full">   
 
-      <h2 class="govuk-heading-m">3 off-sites found</h2>
+      <p class="govuk-!-margin-bottom-6"><a href="#">Advanced search</a></p>
+
+    </div>
+    <div class="govuk-grid-column-full">   
+
+      <h2 class="govuk-heading-m">3 results</h2>
       
       <ul class="app-search-results govuk-!-margin-bottom-8">
         <li class="app-search-results__item">
@@ -59,13 +65,13 @@
                 </span>
             </div>
 
-            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+            <!--<div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
               <span class="app-search-results__term">Local ward</span> Leeds North West
             </div>
 
             <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
               <span class="app-search-results__term">Date registered</span> 15 Mar 2022
-            </div>
+            </div>-->
 
           </div>
 
@@ -89,13 +95,13 @@
                 </span>
             </div>
 
-            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+            <!--<div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
               <span class="app-search-results__term">Local ward</span> Leeds North West
             </div>
 
             <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
               <span class="app-search-results__term">Date registered</span> 7 Jun 2022
-            </div>
+            </div>-->
             
           </div>
 
@@ -124,20 +130,18 @@
                 </span>
             </div>
 
-            <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
+            <!--<div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
               <span class="app-search-results__term">Local ward</span> Leeds North West
             </div>
 
             <div class="govuk-grid-column-one-quarter app-search-results__term-wrapper app-search-results__term-wrapper--meta"> 
               <span class="app-search-results__term">Date registered</span> 5 Nov 2022
-            </div>
+            </div>-->
             
           </div>
 
         </li>
       </ul>
-
-      {% include "register/v2/includes/start-new-search.html" %}
 
     </div>
   </div>
