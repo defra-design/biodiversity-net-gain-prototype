@@ -11,24 +11,33 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">    
 
-      <div class="moj-search">
-        <form action="/register/{{ pageURL }}/search-answer" method="post">
-          <div class="govuk-form-group">
-            <label class="govuk-label moj-search__label govuk-label--xl" for="search-register">
-              {{ pageHeading }}
-            </label>
-            <input class="govuk-input moj-search__input" id="search-register" name="search-register" value="{{ data['search-register'] or 'LS20' }}" type="search">
+      <h1 class="gem-c-heading govuk-heading-xl govuk-!-margin-bottom-4">Search <span class="govuk-visually-hidden">all content</span>
+      </h1>
+
+      <div id="keywords" class="app-patch--search-input-override" role="search" aria-label="Sitewide">
+          
+        <div class="gem-c-search govuk-!-display-none-print  gem-c-search--on-white" data-module="gem-toggle-input-class-on-focus">
+            <label for="finder-keyword-search" class="gem-c-search__label">Search on GOV.UK</label>
+          <div class="gem-c-search__item-wrapper">
+            <input aria-controls="js-search-results-info" enterkeyhint="search" class="gem-c-search__item gem-c-search__input js-class-toggle focus" id="finder-keyword-search" name="keywords" title="Search" type="search" value="{{ data['search-register'] or 'LS20' }}">
+            <div class="gem-c-search__item gem-c-search__submit-wrapper">
+              <button class="gem-c-search__submit" type="submit" data-module="gem-track-click" enterkeyhint="search">
+                Search
+                
+        <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+          <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
+          <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
+        </svg>
+        </button>    </div>
           </div>
-          <button class="govuk-button moj-search__button " data-module="govuk-button">
-            Search
-          </button>
-        </form>
-      </div>
+        </div>
+        
+                </div>
 
       </div>
       <div class="govuk-grid-column-full">   
 
-      <h2 class="govuk-heading-m govuk-!-padding-top-8">3 off-sites found</h2>
+      <h2 class="govuk-heading-m">3 off-sites found</h2>
       
       <ul class="app-search-results govuk-!-margin-bottom-8">
         <li class="app-search-results__item">
