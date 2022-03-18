@@ -1,0 +1,243 @@
+{% extends "register-application/v9/layout-register-application.html" %}
+
+{% set hideSaveSection = true %}
+{% set govukcss = true %}
+{% set pageHeading = "Register land for off-site biodiversity gain" %}
+{% set mainClasses = "govuk-!-padding-top-0" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %} 
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: pageHeading
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="guide">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    
+
+    <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+      <h1 class="gem-c-title__text govuk-heading-xl">
+        {{ pageHeading }}
+      </h1>
+    </div>
+
+      <a class="gem-c-skip-link govuk-skip-link govuk-!-display-none-print" data-module="govuk-skip-link" href="#guide-contents">Skip to contents of guide</a>
+
+      <aside class="part-navigation-container" role="complementary">
+        <nav class="gem-c-contents-list" aria-label="Pages in this guide" role="navigation" data-module="gem-track-click">
+          <h2 class="gem-c-contents-list__title">
+                Contents
+          </h2>
+          <ol class="gem-c-contents-list__list">
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+                Overview
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/guide-2">Guide part 2</a>
+              </li>
+              <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+                <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/guide-3">Guide part 3</a>
+              </li>
+
+          </ol>
+        </nav>
+      </aside>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds" id="guide-contents">
+      <h1 class="part-title">
+        Overview
+      </h1>
+      
+      <div class="gem-c-govspeak govuk-govspeak direction-ltr disable-youtube" data-module="govspeak">
+    
+        <p>A lasting power of attorney (<abbr title="lasting power of attorney">LPA</abbr>) is a legal document that lets you (the 'donor') appoint one or more people (known as 'attorneys') to help you make decisions or to make decisions on your behalf.</p>
+
+        <p>This gives you more control over what happens to you if you have an accident or an illness and cannot make your own decisions (you 'lack mental capacity').</p>
+
+        <div role="note" aria-label="Information" class="application-notice info-notice">
+        <p>You must be 18 or over and have mental capacity (the ability to make your own decisions) when you make your LPA.</p>
+        </div>
+
+        <p>You do not need to live in the UK or be a British citizen.</p>
+
+        <div role="note" aria-label="Information" class="application-notice info-notice">
+        <p>This guide is also available <a href="/atwrneiaeth">in Welsh (Cymraeg)</a>.</p>
+        </div>
+
+        <p>There are 2 types of <abbr title="lasting power of attorney">LPA</abbr>:</p>
+
+        <ul>
+          <li>health and welfare</li>
+          <li>property and financial affairs</li>
+        </ul>
+
+        <p>You can choose to make one type or both.</p>
+
+        <div role="note" aria-label="Information" class="application-notice info-notice">
+        <p>There's a different process in <a rel="external" href="#">Scotland</a> and <a rel="external" href="http://www.nidirect.gov.uk/managing-your-affairs-and-enduring-power-of-attorney">Northern Ireland</a>.</p>
+        </div>
+
+        <h2 id="how-to-make-a-lasting-power-of-attorney">How to make a lasting power of attorney</h2>
+
+        <ol class="steps">
+        <li>
+        <p><a href="/power-of-attorney/choose">Choose your attorney</a> (you can have more than one).</p>
+        </li>
+        <li>
+        <p>Fill in the forms to <a href="/power-of-attorney/make-lasting-power">appoint them as an attorney</a>.</p>
+        </li>
+        <li>
+        <p><a href="/power-of-attorney/register">Register your LPA</a> with the Office of the Public Guardian (this can take up to 20 weeks).</p>
+        </li>
+        </ol>
+        <p>It costs £82 to register an <abbr title="lasting power of attorney">LPA</abbr> unless you get a <a href="/government/publications/power-of-attorney-fees">reduction or exemption</a>.</p>
+
+        <div role="note" aria-label="Information" class="application-notice info-notice">
+        <p>You can <a href="/power-of-attorney/end">cancel your LPA</a> if you no longer need it or want to make a new one.</p>
+        </div>
+
+        <h2 id="health-and-welfare-lasting-power-of-attorney">Health and welfare lasting power of attorney</h2>
+
+        <p>Use this <abbr title="lasting power of attorney">LPA</abbr> to give an attorney the power to make decisions about things like:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          <li>your daily routine, for example washing, dressing, eating</li>
+          <li>medical care</li>
+          <li>moving into a care home</li>
+          <li>life-sustaining treatment</li>
+        </ul>
+
+        <div role="note" aria-label="Information" class="application-notice info-notice">
+          <p>It can only be used when you're unable to make your own decisions.</p>
+        </div>
+
+        <h2 id="property-and-financial-affairs-lasting-power-of-attorney">Property and financial affairs lasting power of attorney</h2>
+
+        <p>Use this <abbr title="lasting power of attorney">LPA</abbr> to give an attorney the power to make decisions about money and property for you, for example:</p>
+
+        <ul>
+          <li>managing a bank or building society account</li>
+          <li>paying bills</li>
+          <li>collecting benefits or a pension</li>
+          <li>selling your home</li>
+        </ul>
+
+        <div role="note" aria-label="Information" class="application-notice info-notice">
+          <p>It can be used as soon as it's registered, with your permission.</p>
+        </div>
+
+        <h2 id="help-deciding-if-you-should-make-a-lasting-power-of-attorney">Help deciding if you should make a lasting power of attorney</h2>
+
+        <p>Contact the Office of the Public Guardian if you need help.</p>
+
+        <div class="contact">
+          <p><strong>Office of the Public Guardian</strong><br>
+          <a href="mailto:customerservices@publicguardian.gov.uk">customerservices@publicguardian.gov.uk</a><br>
+          Telephone: 0300 456 0300<br>
+          Textphone: 0115 934 2778<br>
+          Monday, Tuesday, Thursday and Friday, 9.30am to 5pm  <br>
+          Wednesday, 10am to 5pm   <br>
+          <a href="/call-charges">Find out about call charges</a></p>
+        </div>
+      </div>
+
+      <nav class="gem-c-pagination" role="navigation" aria-label="Pagination">
+        <ul class="gem-c-pagination__list" data-module="gem-track-click">
+          <li class="gem-c-pagination__item gem-c-pagination__item--next">
+            <a href="/register-application/{{ pageURL }}/guide-2" class="govuk-link gem-c-pagination__link" rel="next" data-track-category="contentsClicked" data-track-action="next" data-track-label="/power-of-attorney/choose" data-track-dimension="next" data-track-dimension-index="29">
+              <span class="gem-c-pagination__link-title">
+                <svg class="gem-c-pagination__link-icon" xmlns="http://www.w3.org/2000/svg" height="13" width="17" viewBox="0 0 17 13">
+                  <path d="m10.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                </svg>
+                <span class="gem-c-pagination__link-text">Next</span>
+              </span>
+                <span class="gem-c-pagination__link-divider visually-hidden">:</span>
+                <span class="gem-c-pagination__link-label">Choose your attorney</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+
+      <div class="responsive-bottom-margin">
+        <a href="/power-of-attorney/print" class="govuk-link govuk-link--no-visited-state govuk-body">View a printable version of the whole guide</a>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-one-third">   
+      <div class="gem-c-contextual-sidebar">
+        <div class="gem-c-related-navigation">
+          <h2 id="related-nav-related_items-844e4bc9" class="gem-c-related-navigation__main-heading" data-track-count="sidebarRelatedItemSection">
+            Related content
+          </h2>
+          
+          <nav role="navigation" class="gem-c-related-navigation__nav-section" aria-labelledby="related-nav-related_items-844e4bc9" data-module="gem-toggle">
+            <ul class="gem-c-related-navigation__link-list" data-module="gem-track-click">
+              <li class="gem-c-related-navigation__link">
+                <a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--sidebar  govuk-link gem-c-related-navigation__section-link--other" data-track-category="relatedLinkClicked" data-track-action="1.1 Related content" data-track-label="/find-someones-attorney-deputy-or-guardian" data-track-options="{&quot;dimension28&quot;:&quot;5&quot;,&quot;dimension29&quot;:&quot;Find out if someone has an attorney, deputy or guardian acting for them&quot;}" href="/find-someones-attorney-deputy-or-guardian">Find out if someone has an attorney, deputy or guardian acting for them</a>
+              </li>
+              <li class="gem-c-related-navigation__link">
+                <a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--sidebar  govuk-link gem-c-related-navigation__section-link--other" data-track-category="relatedLinkClicked" data-track-action="1.2 Related content" data-track-label="/report-concern-about-attorney-deputy-guardian" data-track-options="{&quot;dimension28&quot;:&quot;5&quot;,&quot;dimension29&quot;:&quot;Report a concern about an attorney, deputy or guardian&quot;}" href="/report-concern-about-attorney-deputy-guardian">Report a concern about an attorney, deputy or guardian</a>
+              </li>
+              <li class="gem-c-related-navigation__link">
+                <a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--sidebar  govuk-link gem-c-related-navigation__section-link--other" data-track-category="relatedLinkClicked" data-track-action="1.3 Related content" data-track-label="/lasting-power-attorney-duties" data-track-options="{&quot;dimension28&quot;:&quot;5&quot;,&quot;dimension29&quot;:&quot;Lasting power of attorney: acting as an attorney&quot;}" href="/lasting-power-attorney-duties">Lasting power of attorney: acting as an attorney</a>
+              </li>
+              <li class="gem-c-related-navigation__link">
+                <a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--sidebar  govuk-link gem-c-related-navigation__section-link--other" data-track-category="relatedLinkClicked" data-track-action="1.4 Related content" data-track-label="/make-decisions-for-someone" data-track-options="{&quot;dimension28&quot;:&quot;5&quot;,&quot;dimension29&quot;:&quot;Make decisions on behalf of someone&quot;}" href="/make-decisions-for-someone">Make decisions on behalf of someone</a>
+              </li>
+              <li class="gem-c-related-navigation__link">
+                <a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--sidebar govuk-link gem-c-related-navigation__section-link--inline  govuk-link gem-c-related-navigation__section-link--other" data-track-category="relatedLinkClicked" data-track-action="1.5 Related content" data-track-label="/use-lasting-power-of-attorney" data-track-options="{&quot;dimension28&quot;:&quot;5&quot;,&quot;dimension29&quot;:&quot;Use a lasting power of attorney&quot;}" href="/use-lasting-power-of-attorney">Use a lasting power of attorney</a>
+              </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">   
+    <div class="gem-c-contextual-footer"> 
+      <div class="gem-c-related-navigation">
+        <nav role="navigation" class="gem-c-related-navigation__nav-section" aria-labelledby="related-nav-topics-986fc6b3" data-module="gem-toggle">
+          <h2 id="related-nav-topics-986fc6b3" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer" data-track-count="footerRelatedItemSection">Explore the topic</h2>
+            <ul class="gem-c-related-navigation__link-list" data-module="gem-track-click">
+              <li class="gem-c-related-navigation__link"><a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--footer" data-track-category="relatedLinkClicked" data-track-action="1.1 Explore the topic" data-track-label="/browse/births-deaths-marriages/lasting-power-attorney" data-track-options="{&quot;dimension28&quot;:&quot;1&quot;,&quot;dimension29&quot;:&quot;Lasting power of attorney, being in care and your financial affairs&quot;}" href="/browse/births-deaths-marriages/lasting-power-attorney">Lasting power of attorney, being in care and your financial affairs</a></li>
+            </ul>
+          </nav>
+          <nav role="navigation" class="gem-c-related-navigation__nav-section" aria-labelledby="related-nav-related_external_links-986fc6b3" data-module="gem-toggle">
+            <h2 id="related-nav-related_external_links-986fc6b3" class="gem-c-related-navigation__sub-heading gem-c-related-navigation__sub-heading--footer  gem-c-related-navigation__sub-heading--other" data-track-count="footerRelatedItemSection">Elsewhere on the web</h2>
+              <ul class="gem-c-related-navigation__link-list" data-module="gem-track-click">
+                <li class="gem-c-related-navigation__link"><a class="govuk-link govuk-link gem-c-related-navigation__section-link govuk-link gem-c-related-navigation__section-link--footer  govuk-link gem-c-related-navigation__section-link--other" rel="external" data-track-category="relatedLinkClicked" data-track-action="2.1 Elsewhere on the web" data-track-label="https://www.lastingpowerofattorney.service.gov.uk/login" data-track-options="{&quot;dimension28&quot;:&quot;1&quot;,&quot;dimension29&quot;:&quot;Sign in to your LPA account&quot;}" href="https://www.lastingpowerofattorney.service.gov.uk/login">Sign in to your LPA account</a></li>
+              </ul>
+          </nav>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}
