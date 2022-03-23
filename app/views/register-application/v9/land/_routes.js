@@ -291,7 +291,7 @@ router.post('/habitat-answer', function (req, res) {
   if (install == "metric"){
     res.redirect('/register-application/v9/land/habitat-metric-upload')
   } else {
-    res.redirect('/register-application/v9/land/habitat-add')
+    res.redirect('/register-application/v9/land/habitat-add-stage')
   }
 })
 

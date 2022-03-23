@@ -9,6 +9,15 @@
       
       <form method="post" action="/register-application/{{ pageURL }}/habitat-add-answer">
 
+        <span class="govuk-caption-l">
+          {% if data['habitat-add-stage'] == 'baseline' %}
+            Baseline
+          {% else %}
+            Proposed
+          {% endif %}
+          habitat
+        </span>
+
         {{ govukRadios({
           idPrefix: "habitat-add",
           name: "habitat-add",

@@ -66,15 +66,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['management-plan-correct'] == 'yes' %}
+                {% if data['habitat-checked-data'] == 'yes' %}
                   <a href="/register-application/{{ pageURL }}/habitat-check-data" aria-describedby="landowner-permission-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                  Habitat parcel information
+                  Habitat information
                 </a>
               </span>
-              {% if data['management-plan-correct'] == 'yes' %}
+              {% if data['habitat-checked-data'] == 'yes' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
