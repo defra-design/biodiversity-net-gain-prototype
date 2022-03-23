@@ -93,7 +93,7 @@ router.post('/third-parties-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v9/land/not-eligible-third-parties')
   } else {
-    res.redirect('/register-application/v9/land/eligible-legal-agreements')
+    res.redirect('/register-application/v9/land/eligible-habitat')
   }
 })
 
@@ -117,7 +117,7 @@ router.post('/management-plan-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v9/land/not-eligible-management-plan')
   } else {
-    res.redirect('/register-application/v9/land/eligible-metric')
+    res.redirect('/register-application/v9/land/eligible')
   }
 })
 
@@ -130,6 +130,18 @@ router.post('/habitat-eligibility-answer', function (req, res) {
     res.redirect('/register-application/v9/land/not-eligible-habitat')
   } else {
     res.redirect('/register-application/v9/land/eligible-metric')
+  }
+})
+
+// Habitat
+router.post('/habitat-info-answer', function (req, res) {
+
+  var install = req.session.data['habitat-info']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/land/not-eligible-habitat')
+  } else {
+    res.redirect('/register-application/v9/land/eligible-management-plan')
   }
 })
 

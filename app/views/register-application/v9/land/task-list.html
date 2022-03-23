@@ -28,7 +28,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Give details of the land for off-site biodiversity gain
+            <span class="app-task-list__section-number">1. </span> Land and habitat information
           </h2>
           <ul class="app-task-list__items">
 
@@ -67,9 +67,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['management-plan-correct'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-check" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ pageURL }}/habitat-check-data" aria-describedby="landowner-permission-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Habitat parcel information
                 </a>
