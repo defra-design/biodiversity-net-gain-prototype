@@ -269,20 +269,6 @@ router.post('/location-upload-confirm-answer', function (req, res) {
   }
 })
 
-// Location draw confirm
-router.post('/location-draw-confirm-answer', function (req, res) {
-
-  var install = req.session.data['location-confirm']
-
-  if (install == "no-again"){
-    res.redirect('/register-application/v9/land/location-draw-map')
-  } else if (install == "no"){
-    res.redirect('/register-application/v9/land/location-options')
-  } else {
-    res.redirect('/register-application/v9/land/task-list')
-  }
-})
-
 // Habitat
 router.post('/habitat-answer', function (req, res) {
 
@@ -333,39 +319,16 @@ router.post('/habitat-metric-answer', function (req, res) {
   }
 })
 
-// Metric check
-router.post('/metric-correct-answer', function (req, res) {
 
-  var install = req.session.data['metric-correct']
+// Legal agreement
+router.post('/legal-agreement-answer', function (req, res) {
 
-  if (install == "no"){
-    res.redirect('/register-application/v9/land/metric-upload')
-  } else {
-    res.redirect('/register-application/v9/land/metric-check-data')
-  }
-})
-
-// Metric check
-router.post('/metric-check-data-answer', function (req, res) {
-
-  var install = req.session.data['metric-check-data']
+  var install = req.session.data['legal-agreement']
 
   if (install == "no"){
-    res.redirect('/register-application/v9/land/metric-upload')
+    res.redirect('/register-application/v9/land/legal-agreement-no')
   } else {
-    res.redirect('/register-application/v9/land/task-list')
-  }
-})
-
-// Metric check baseline
-router.post('/metric-baseline-correct-answer', function (req, res) {
-
-  var install = req.session.data['metric-baseline-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v9/land/metric-baseline-upload')
-  } else {
-    res.redirect('/register-application/v9/land/task-list')
+    res.redirect('/register-application/v9/land/legal-agreement-conservation-upload')
   }
 })
 
@@ -376,30 +339,6 @@ router.post('/legal-agreement-conservation-correct-answer', function (req, res) 
 
   if (install == "no"){
     res.redirect('/register-application/v9/land/legal-agreement-conservation-upload')
-  } else {
-    res.redirect('/register-application/v9/land/legal-agreement-financial-upload')
-  }
-})
-
-// Legal agreement financial check
-router.post('/legal-agreement-financial-correct-answer', function (req, res) {
-
-  var install = req.session.data['legal-agreement-financial-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v9/land/legal-agreement-financial-upload')
-  } else {
-    res.redirect('/register-application/v9/land/task-list')
-  }
-})
-
-// Legal agreement planning obligation check
-router.post('/legal-agreement-planning-obligation-correct-answer', function (req, res) {
-
-  var install = req.session.data['legal-agreement-planning-obligation-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v9/land/legal-agreement-planning-obligation-upload')
   } else {
     res.redirect('/register-application/v9/land/task-list')
   }

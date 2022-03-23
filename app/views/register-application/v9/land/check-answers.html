@@ -10,8 +10,6 @@
       <h1 class="govuk-heading-xl">
         {{ pageHeading }}
       </h1>
-
-      <h2 class="govuk-heading-l">Land for off-site biodiversity gain</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
@@ -99,83 +97,6 @@
 
       </dl>
 
-      <h2 class="govuk-heading-l">Linked development</h2>
-      
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Planning reference number
-          </dt>
-          <dd class="govuk-summary-list__value">
-            21/02367/FUL, <br>{{ data['input-autocomplete'] or 'York City Council' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
-              Change<span class="govuk-visually-hidden"> Planning reference</span>
-            </a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Biodiversity Metric 3.0
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <a download href="#">metric_3.0_21/02367/FUL.xlsm</a>, 4.1MB
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-upload-check">
-              Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
-            </a>
-          </dd>
-        </div>
-
-        {% if data['legal-agreement-financial-correct'] == 'yes' and data['legal-agreement-planning-obligation-correct'] != 'yes' %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Conservation covenant
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">conservation-covenant.pdf</a>, 1MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/legal-agreement-conservation-check">
-                Change<span class="govuk-visually-hidden"> Conservation covenant</span>
-              </a>
-            </dd>
-          </div>
-
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Financial agreement
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">financial-agreement.pdf</a>, 1.2MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-financial-check">
-                Change<span class="govuk-visually-hidden"> Financial agreement</span>
-              </a>
-            </dd>
-          </div>
-        {% else %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Planning obligation
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">planning-obligation.pdf</a>, 1.2MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
-                Change<span class="govuk-visually-hidden"> Planning obligation</span>
-              </a>
-            </dd>
-          </div>
-        {% endif %}
-
-      </dl>
-
       <h2 class="govuk-heading-l">Confirm your answers</h2>
 
       <p class="govuk-body">By accepting you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
@@ -185,7 +106,7 @@
         <input type="hidden" name="answers-checked" value="true">
 
         <button class="govuk-button" data-module="govuk-button">
-          Accept and pay
+          Accept and submit
         </button>
 
       </form>

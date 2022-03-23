@@ -3,18 +3,18 @@
 {% set hideSaveLink = true %}
 {% set hideSignOut = true %}
 
-{% set pageHeading = "Do you have the habitat management and monitoring plan?" %}
+{% set pageHeading = "Do you have Conservation Covenant for the land?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/management-plan-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-answer">
 
         {{ govukRadios({
-          idPrefix: "management-plan",
-          name: "management-plan",
+          idPrefix: "legal-agreement",
+          name: "legal-agreement",
           fieldset: {
             legend: {
               text: pageHeading,

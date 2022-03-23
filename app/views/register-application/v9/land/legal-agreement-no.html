@@ -3,7 +3,7 @@
 {% set hideSaveLink = true %}
 {% set hideSignOut = true %}
 
-{% set pageHeading = "Check if you're eligible to register land for biodiversity gain" %}
+{% set pageHeading = "Something something you can still continue" %}
 
 {% block content %}
 
@@ -14,9 +14,9 @@
         {{ pageHeading }}
       </h1>
 
-      <p>We will now ask you some simple questions to check if you're eligible to register the land for biodiversity gain.</p>
+      <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
 
-      <form action="/register-application/{{ pageURL }}/eligible-landowner" class="govuk-!-padding-top-4" method="post" novalidate>
+        <input type="hidden" name="legal-agreement-no" value="true">
 
         <button class="govuk-button" data-module="govuk-button">
           Continue
