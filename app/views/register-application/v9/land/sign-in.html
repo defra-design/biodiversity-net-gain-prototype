@@ -1,23 +1,9 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
+{% set hideSaveLink = true %}
+{% set hideSignOut = true %}
+
 {% set pageHeading = "Sign in using Government Gateway" %}
-
-{% block header %}
-
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceName: "Government Gateway",
-    serviceUrl: serviceUrl
-  }) }}
-
-   <div class="govuk-width-container">
-
-    {% include "includes/phase-banner.html" %}
-    <!-- {% include "includes/login-nav.html" %} -->
-    
-  </div>
-
-{% endblock %}
 
 {% block beforeContent %}
 {% endblock %}
@@ -27,7 +13,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <!--<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
         <div class="govuk-notification-banner__header">
           <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
             Keep your information secure
@@ -36,23 +22,23 @@
         <div class="govuk-notification-banner__content">
             <p>Do not share your Government Gateway user ID and password with anyone else.</p>
           </div>
-      </div>
+      </div>-->
       
       
       <h1 class="govuk-heading-xl">
-        Sign in using Government Gateway
+        Sign in <!--using Government Gateway-->
       </h1>
 
       <form action="/register-application/{{ pageURL }}/sign-in-answer" method="post">
       
       <div class="govuk-form-group">
         <label class="govuk-label" for="govGateUserId">
-          Government Gateway user ID
+          <!--Government Gateway user ID--> User name
         </label>
 
-        <div id="govGateUserId-hint" class="govuk-hint">
+        <!--<div id="govGateUserId-hint" class="govuk-hint">
           This could be up to 12 characters.
-        </div>
+        </div>-->
       
       <input class="govuk-input govuk-!-width-one-half" id="govGateUserId" name="govGateUserId" type="text" aria-describedby="govGateUserId-hint">
       </div>
