@@ -1,90 +1,21 @@
-{% extends "register-application/v9/layout-register-application.html" %}
+{% extends "register-application/v9/start-page-guide-template.html" %}
 
-{% set pageURL = "v9" %}
-
-{% set hideSaveSection = true %}
-{% set govukcss = true %}
-{% set guideHeading = "Register land for off-site biodiversity gain" %}
 {% set pageHeading = "Overview" %}
 
-{% set mainClasses = "govuk-!-padding-top-0" %}
+{% set pageURL = "v9" %}
 
 {% set nextPageName = "Add land information" %}
 {% set nextPageURL = "/register-application/" + pageURL + "/start-part-2" %}
 
-{% block header %}
-  {{ govukHeader({
-    homepageUrl: "/",
-    serviceUrl: "/"
-  }) }}
+{% block guideContent %}
+
+  <p>How to register land used for biodiversity gain that is linked to a development.</p>
+
+  <ol class="steps">
+    <li><p><a href="/register-application/{{ pageURL }}/start-part-2">Add land information</a>.</p></li>
+    <li><p><a href="/register-application/{{ pageURL }}/start-part-3">Add development information</a>.</p></li>
+  </ol>
+
+  <p>It costs £240 to register. You can pay by debit or credit card.</p>
+
 {% endblock %} 
-
-{% block beforeContent %}
-  {{ govukBreadcrumbs({
-    items: [
-      {
-        text: "Home",
-        href: "#"
-      },
-      {
-        text: "Biodiversity Net Gain",
-        href: "#"
-      },
-      {
-        text: pageHeading
-      }
-    ]
-  }) }}
-{% endblock %}
-
-{% block content %}
-
-<div class="guide">
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      
-
-      <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
-        <h1 class="gem-c-title__text govuk-heading-xl">
-          {{ guideHeading }}
-        </h1>
-      </div>
-
-        {% include "register-application/v9/includes/contents-nav.html" %}
-
-      </div>
-
-      <div class="govuk-grid-column-two-thirds" id="guide-contents">
-        <h1 class="part-title">
-          {{ pageHeading }}
-        </h1>
-        
-        <div class="gem-c-govspeak govuk-govspeak direction-ltr disable-youtube" data-module="govspeak">
-
-          <p>How to register land used for biodiversity gain that is linked to a development.</p>
-
-          <ol class="steps">
-            <li><p><a href="/register-application/{{ pageURL }}/start-part-2">Add land information</a>.</p></li>
-            <li><p><a href="/register-application/{{ pageURL }}/start-part-2">Add development information</a>.</p></li>
-          </ol>
-
-          <p>It costs £240 to register. You can pay by debit or credit card.</p>
-
-          {% include "register-application/v9/includes/get-help.html" %}
-          
-        </div>
-
-        {% include "register-application/v9/includes/pagination.html" %}
-        {% include "register-application/v9/includes/print.html" %}
-        
-      </div>
-
-      {% include "register-application/v9/includes/related-content.html" %}
-
-  </div>
-
-  {% include "register-application/v9/includes/contextual-footer.html" %}
-
-</div>
-
-{% endblock %}

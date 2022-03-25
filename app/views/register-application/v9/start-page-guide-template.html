@@ -1,0 +1,88 @@
+{% extends "../../layout.html" %}
+
+{% set serviceName = "Register land available for biodiversity gain" %}
+{% set serviceUrl = "" %}
+{% set pageURL = "v9" %}
+{% set hideSaveSection = true %}
+{% set govukcss = true %}
+
+{% set pageHeadingOne = "Overview" %}
+{% set pageHeadingTwo = "Add land information" %}
+{% set pageHeadingThree = "Add development information" %}
+
+{% set mainClasses = "govuk-!-padding-top-0" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %} 
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: serviceName
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="guide">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+      <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+        <h1 class="gem-c-title__text govuk-heading-xl">
+          {{ serviceName }}
+        </h1>
+      </div>
+
+        {% include "register-application/v9/includes/contents-nav.html" %}
+
+      </div>
+
+      <div class="govuk-grid-column-two-thirds" id="guide-contents">
+        <h1 class="part-title">
+          {{ pageHeading }}
+        </h1>
+        
+        <div class="gem-c-govspeak govuk-govspeak direction-ltr disable-youtube" data-module="govspeak">
+
+          {% block guideContent %}
+          {% endblock %} 
+
+          {% include "register-application/v9/includes/get-help.html" %}
+          
+        </div>
+
+        {% include "register-application/v9/includes/pagination.html" %}
+        {% include "register-application/v9/includes/print.html" %}
+        
+      </div>
+
+      {% include "register-application/v9/includes/related-content.html" %}
+
+  </div>
+
+  {% include "register-application/v9/includes/contextual-footer.html" %}
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}
