@@ -61,6 +61,30 @@ router.post('/sign-in-answer', function (req, res) {
   }
 })
 
+// Metric check file
+router.post('/metric-correct-answer', function (req, res) {
+
+  var install = req.session.data['metric-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/metric-upload')
+  } else {
+    res.redirect('/register-application/v9/development/metric-check-data')
+  }
+})
+
+// Metric check data
+router.post('/metric-check-data-answer', function (req, res) {
+
+  var install = req.session.data['metric-check-data']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/metric-upload')
+  } else {
+    res.redirect('/register-application/v9/development/task-list')
+  }
+})
+
 
 // Add your routes above the module.exports line
 module.exports = router
