@@ -41,7 +41,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/landowner-permission-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                    Land ownership
+                    Provide land ownership information
                   </a>
               </span>
               {% if data['land-ownership-correct'] %}
@@ -54,7 +54,7 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="landowner-permission-status">
-                  Land boundary
+                  Upload off-site boundary
                 </a>
               </span>
               {% if data['location-confirm'] %}
@@ -71,7 +71,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                  Habitat information
+                  Provide habitat information
                 </a>
               </span>
               {% if data['habitat-checked-data'] == 'yes' %}
@@ -88,7 +88,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                  Habitat management and monitoring plan
+                  Upload habitat management and monitoring plan
                 </a>
               </span>
               {% if data['management-plan-correct'] == 'yes' %}
@@ -97,6 +97,15 @@
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
               {% endif %} 
             </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Legal agreement
+          </h2>
+          <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
@@ -120,7 +129,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Check and submit
+            <span class="app-task-list__section-number">3. </span> Check and submit
           </h2>
           <ul class="app-task-list__items">
 
