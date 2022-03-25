@@ -1,0 +1,36 @@
+{% extends "register-application/v9/development/layout-register-application.html" %}
+
+{% set pageHeading = "Add an off-site used by the development" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm">
+
+        {{ govukInput({
+          label: {
+              text: "Off-site reference"
+          },
+          hint: {
+            text: "For example, BNG15031984001"
+          },
+            classes: "govuk-input--width-10",
+            id: "offsite-ref",
+            name: "offsite-ref"
+          })  
+        }}
+
+        {{ govukButton({
+          text: 'Continue'
+        }) }}
+          
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

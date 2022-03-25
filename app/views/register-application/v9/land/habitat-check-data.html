@@ -120,12 +120,6 @@
           </tbody>
         </table>
 
-        {{ govukButton({ 
-          text: 'Add a habitat, hedgerow or river',
-          classes: "govuk-button--secondary",
-          href: "/register-application/" + pageURL + "/habitat-add"
-        }) }}
-
       </div>
       {% endset -%}
 
@@ -195,12 +189,6 @@
           </tbody>
         </table>
 
-        {{ govukButton({ 
-          text: 'Add a habitat, hedgerow or river',
-          classes: "govuk-button--secondary",
-          href: "/register-application/" + pageURL + "/habitat-add"
-        }) }}
-
       </div>
       {% endset -%}
 
@@ -224,6 +212,12 @@
         ]
       }) }}
 
+      {{ govukButton({ 
+        text: 'Add a habitat, hedgerow or river',
+        classes: "govuk-button--secondary",
+        href: "/register-application/" + pageURL + "/habitat-add-stage"
+      }) }}
+
     </div>
     <div class="govuk-grid-column-two-thirds">
 
@@ -231,7 +225,7 @@
 
         <input type="hidden" name="habitat-checked-data" value="yes">
 
-        {{ govukButton({ text: 'Continue' }) }}
+        {{ govukButton({ text: 'Confirm and continue' }) }}
         
       </form>
 

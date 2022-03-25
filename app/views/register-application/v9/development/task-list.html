@@ -62,15 +62,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['metric-check-data'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/metric-check-data" aria-describedby="landowner-permission-status">
+                {% if data['offsite-confirm'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/offsite-confirm" aria-describedby="landowner-permission-status">
                 {% else %}
-                <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ pageURL }}/offsite-ref" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                  Add off-site references
+                  Add off-sites used by the development
                 </a>
               </span>
-              {% if data['metric-check-data'] == 'yes' %}
+              {% if data['offsite-confirm'] == 'yes' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>

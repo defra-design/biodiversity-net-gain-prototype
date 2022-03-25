@@ -1,0 +1,91 @@
+{% extends "register-application/v9/development/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm off-sites used by the development" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Off-site reference"
+            },
+            value: {
+              html: "BNG1503184001"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Off-site reference"
+            },
+            value: {
+              html: "BNG20042022903"
+            },
+            actions: {
+              items: [
+                {
+                  href: "#",
+                  text: "Remove",
+                  visuallyHiddenText: "name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Cleasby Farm<br>Main Street<br>Leeds<br>LS29 6JE"
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({ 
+        text: 'Add another off-site',
+        classes: "govuk-button--secondary",
+        href: "/register-application/" + pageURL + "/offsite-ref"
+      }) }}
+      
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        <input class="govuk-input" id="offsite-confirm" name="offsite-confirm" type="hidden" value="yes">
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
