@@ -3,7 +3,7 @@
 {% set hideSaveLink = true %}
 {% set hideSignOut = true %}
 
-{% set pageHeading = "You're eligible to register the developments off-site biodiversity net gain information" %}
+{% set pageHeading = "Check if you're eligible to register land for biodiversity gain" %}
 
 {% block content %}
 
@@ -14,13 +14,9 @@
         {{ pageHeading }}
       </h1>
 
-      {% if data['signed-in'] == 'yes' %}
-        <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
-      {% else %}
-        <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
-      {% endif %}
+      <p>We will now ask you some simple questions to check if you're eligible to register a developments off-site biodiversity net gain information.</p>
 
-        <input type="hidden" name="eligible" value="true">
+      <form action="/register-application/{{ pageURL }}/eligible-planning-ref" class="govuk-!-padding-top-4" method="post" novalidate>
 
         <button class="govuk-button" data-module="govuk-button">
           Continue

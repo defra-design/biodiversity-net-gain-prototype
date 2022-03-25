@@ -386,7 +386,7 @@ router.post('/new-application', function (req, res) {
   res.redirect('/register-application/v9/land/landowner')
 })
 
-// Payment
+// Sign in 
 router.post('/sign-in-answer', function (req, res) {
 
   var install = req.session.data['signed-in']
