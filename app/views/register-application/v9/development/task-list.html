@@ -121,7 +121,7 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-check-data'] == 'yes' and data['management-plan-correct'] and data['land-ownership-correct']  or data['development-confirm'] and data['legal-agreement-planning-obligation-correct'] and data['location-confirm'] and data['management-plan-correct'] and data['metric-check-data'] == 'yes' and data['management-plan-correct'] and data['land-ownership-correct']  %}
+              {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['metric-check-data'] == 'yes' or data['development-confirm'] and data['legal-agreement-planning-obligation-correct'] and  data['development-confirm'] and data['metric-check-data'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
                     Check your answers, pay and apply

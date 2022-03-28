@@ -85,6 +85,42 @@ router.post('/metric-check-data-answer', function (req, res) {
   }
 })
 
+// Legal agreement planning obligation check
+router.post('/legal-agreement-planning-obligation-correct-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement-planning-obligation-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/legal-agreement-planning-obligation-upload')
+  } else {
+    res.redirect('/register-application/v9/development/task-list')
+  }
+})
+
+// Legal agreement conservation check
+router.post('/legal-agreement-conservation-correct-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement-conservation-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/legal-agreement-conservation-upload')
+  } else {
+    res.redirect('/register-application/v9/development/legal-agreement-financial-upload')
+  }
+})
+
+// Legal agreement financial check
+router.post('/legal-agreement-financial-correct-answer', function (req, res) {
+
+  var install = req.session.data['legal-agreement-financial-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/legal-agreement-financial-upload')
+  } else {
+    res.redirect('/register-application/v9/development/task-list')
+  }
+})
+
 
 // Add your routes above the module.exports line
 module.exports = router
