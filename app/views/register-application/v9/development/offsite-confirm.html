@@ -23,6 +23,7 @@
             </a>
           </dd>
         </div>
+        {% if data['offsite-multiple'] == 'yes' %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Off-site habitats
@@ -47,6 +48,8 @@
             </a>
           </dd>
         </div>
+        {% else %}
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Legal agreement
@@ -64,6 +67,10 @@
           Remove off-site<span class="govuk-visually-hidden">BNG220315001</span></a>
         </p>
       </dl>
+
+      {% if data['offsite-multiple'] == 'yes' %}
+      
+      <hr class="app-divider">
 
       <dl class="govuk-summary-list app-summary-list--border">
         <div class="govuk-summary-list__row">
@@ -127,7 +134,12 @@
         </p>
       </dl>
 
+      <hr class="app-divider">
+
       <a href="/register-application/{{ pageURL }}/offsite-ref" class="govuk-button govuk-button--secondary">Add another off-site</a>
+      
+      {% else %}
+      {% endif %}
 
       <form method="post" action="/register-application/{{ pageURL }}/task-list">
         

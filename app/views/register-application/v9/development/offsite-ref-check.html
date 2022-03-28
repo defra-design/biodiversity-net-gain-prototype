@@ -41,9 +41,12 @@
           }
         ]
       }) }}
-
       
-      <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm-answer">
+      {% if data['offsite-multiple'] == 'yes' %}
+        <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm-answer-multiple">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm-answer">
+      {% endif %}
 
         {{ govukRadios({
           idPrefix: "offsite-confirm",

@@ -129,6 +129,30 @@ router.post('/offsite-confirm-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v9/development/offsite-ref')
   } else {
+    res.redirect('/register-application/v9/development/offsite-multiple')
+  }
+})
+
+// Offsite ref check - multiple
+router.post('/offsite-confirm-answer-multiple', function (req, res) {
+
+  var install = req.session.data['offsite-confirm']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/offsite-ref')
+  } else {
+    res.redirect('/register-application/v9/development/offsite-allocate')
+  }
+})
+
+// Offsite multiple
+router.post('/offsite-multiple-answer', function (req, res) {
+
+  var install = req.session.data['offsite-multiple']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/legal-agreement-planning-obligation-upload')
+  } else {
     res.redirect('/register-application/v9/development/offsite-allocate')
   }
 })
