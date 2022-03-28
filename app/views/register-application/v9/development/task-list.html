@@ -98,10 +98,8 @@
               <span class="app-task-list__task-name">
                 {% if data['legal-agreement-planning-obligation-correct'] == 'yes' %} 
                   <a href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check" aria-describedby="landowner-permission-status">
-                {% elif data['legal-agreements'] == 'planning-obligation' %} 
+                {% else %} 
                   <a href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-upload" aria-describedby="landowner-permission-status">
-                {% else %}
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Upload legal agreements
                 </a>

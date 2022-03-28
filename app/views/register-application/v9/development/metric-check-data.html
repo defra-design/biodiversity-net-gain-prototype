@@ -1,6 +1,6 @@
 {% extends "register-application/v9/development/layout-register-application.html" %}
 
-{% set pageHeading = "Check that the habitat data for the off-site land matches your calculations" %}
+{% set pageHeading = "Check that your off-site habitat information is correct" %}
 
 {% block content %}
 
@@ -11,60 +11,51 @@
         {{ pageHeading }}
       </h1>
 
-      <p>The off-site habitat data has been taken from the Biodiversity Metric 3.0 calculations you uploaded. </p>
+      <div class="govuk-inset-text">The off-site habitat information has been taken from the Biodiversity Metric 3.0 file you uploaded.</div>
 
     </div>
     <div class="govuk-grid-column-full">
 
+      {% set proposedHtml %}
+      <h3 class="govuk-heading-m">Proposed habitat (off-site)</h3>
       <div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type</th>
-              <th scope="col" class="govuk-table__header" style="width:20%">Area (ha)</th>
-              <th scope="col" class="govuk-table__header" style="width:20%">Condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
               <th scope="col" class="govuk-table__header">Biodiversity units</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                Grassland
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
-                  Other neutral grassland
-                </span>
+              <td scope="row" class="govuk-table__cell">Grassland 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">2.25</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">2.40</td>
               <td class="govuk-table__cell">5.87</td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                Heathland and scrub
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
-                  Bramble scrub
-                </span>
+              <td scope="row" class="govuk-table__cell">Heathland and scrub 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">0.90</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">1.25</td>
               <td class="govuk-table__cell">4.25</td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                Woodland and forest
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">
-                  Lowland mixed deciduous woodland
-                </span>
+              <td scope="row" class="govuk-table__cell">Woodland and forest 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">0.40</td>
-              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell">0.50</td>
               <td class="govuk-table__cell">1.93</td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
-              <td class="govuk-table__cell">3.55</td>
-              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell">4.15</td>
               <td class="govuk-table__cell">12.05</td>
             </tr>
           </tbody>
@@ -76,38 +67,115 @@
           <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type</th>
-              <th scope="col" class="govuk-table__header" style="width:20%">Length (km)</th>
-              <th scope="col" class="govuk-table__header" style="width:20%">Condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
               <th scope="col" class="govuk-table__header">Biodiversity units</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                Native species rich hedgerow
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
               <td class="govuk-table__cell">0.18</td>
-              <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">2.82</td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">
-                Line of trees
+              <td scope="row" class="govuk-table__cell">Line of trees
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
               </td>
-              <td class="govuk-table__cell">0.25</td>
-              <td class="govuk-table__cell">Poor</td>
+              <td class="govuk-table__cell">0.50</td>
               <td class="govuk-table__cell">3.45</td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
-              <td class="govuk-table__cell">0.43</td>
-              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell">0.68</td>
               <td class="govuk-table__cell">6.27</td>
             </tr>
           </tbody>
         </table>
+
       </div>
+      {% endset -%}
+
+      {% set baselineHtml %}
+      <h3 class="govuk-heading-m">Baseline habitat (off-site)</h3>
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
+              <th scope="col" class="govuk-table__header">Biodiversity units</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
+              </td>
+              <td class="govuk-table__cell">4.15</td>
+              <td class="govuk-table__cell">1.25</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">4.15</td>
+              <td class="govuk-table__cell">1.25</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
+              <th scope="col" class="govuk-table__header">Biodiversity units</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
+              </td>
+              <td class="govuk-table__cell">0.68</td>
+              <td class="govuk-table__cell">0.85</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">0.68</td>
+              <td class="govuk-table__cell">0.85</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      {% endset -%}
+
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Proposed",
+            id: "proposed",
+            panel: {
+              html: proposedHtml
+            }
+          },
+          {
+            label: "Baseline",
+            id: "baseline",
+            panel: {
+              html: baselineHtml
+            }
+          }
+        ]
+      }) }}
 
     </div>
     <div class="govuk-grid-column-two-thirds">
