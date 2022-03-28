@@ -1,0 +1,76 @@
+{% extends "register-application/v9/development/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm off-site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <img src="/public/images/location-confirm.png" alt="" width="100%" style="margin-bottom: 20px; border: 1px solid #b1b4b6;">
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Off-site reference"
+            },
+            value: {
+              html: "BNG220315001"
+            }
+          },
+          {
+            key: {
+              text: "Location"
+            },
+            value: {
+              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ"
+            }
+          },
+          {
+            key: {
+              text: "Total area"
+            },
+            value: {
+              text: "7.59 hectares (ha) / 18.75 acres"
+            }
+          }
+        ]
+      }) }}
+
+      
+      <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm-answer">
+
+        {{ govukRadios({
+          idPrefix: "offsite-confirm",
+          name: "offsite-confirm",
+          fieldset: {
+            legend: {
+              text: "Is this an off-site used by the development?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, enter a different off-site reference"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

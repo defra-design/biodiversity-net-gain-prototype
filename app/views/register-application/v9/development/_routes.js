@@ -93,7 +93,7 @@ router.post('/legal-agreement-planning-obligation-correct-answer', function (req
   if (install == "no"){
     res.redirect('/register-application/v9/development/legal-agreement-planning-obligation-upload')
   } else {
-    res.redirect('/register-application/v9/development/task-list')
+    res.redirect('/register-application/v9/development/offsite-confirm')
   }
 })
 
@@ -117,7 +117,19 @@ router.post('/legal-agreement-financial-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v9/development/legal-agreement-financial-upload')
   } else {
-    res.redirect('/register-application/v9/development/task-list')
+    res.redirect('/register-application/v9/development/offsite-confirm')
+  }
+})
+
+// Offsite ref check
+router.post('/offsite-confirm-answer', function (req, res) {
+
+  var install = req.session.data['offsite-confirm']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/development/offsite-ref')
+  } else {
+    res.redirect('/register-application/v9/development/offsite-allocate')
   }
 })
 

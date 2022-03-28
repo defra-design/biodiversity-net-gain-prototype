@@ -1,0 +1,142 @@
+{% extends "register-application/v9/development/layout-register-application.html" %}
+
+{% set pageHeading = "Select off-site habitats" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+    </div>
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-upload">
+
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Select</th>
+                <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+                <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
+                <th scope="col" class="govuk-table__header">Biodiversity units</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-0" for="waste">
+                      <span class="govuk-visually-hidden">Habitat parcel 1</span>
+                    </label>
+                  </div>
+                </td>
+                <td scope="row" class="govuk-table__cell">Grassland 
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+                </td>
+                <td class="govuk-table__cell">2.40</td>
+                <td class="govuk-table__cell">5.87</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-0" for="waste">
+                      <span class="govuk-visually-hidden">Habitat parcel 1</span>
+                    </label>
+                  </div>
+                </td>
+                <td scope="row" class="govuk-table__cell">Heathland and scrub 
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+                </td>
+                <td class="govuk-table__cell">1.25</td>
+                <td class="govuk-table__cell">4.25</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-0" for="waste">
+                      <span class="govuk-visually-hidden">Habitat parcel 1</span>
+                    </label>
+                  </div>
+                </td>
+                <td scope="row" class="govuk-table__cell">Woodland and forest 
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+                </td>
+                <td class="govuk-table__cell">0.50</td>
+                <td class="govuk-table__cell">1.93</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Select</th>
+                <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+                <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
+                <th scope="col" class="govuk-table__header">Biodiversity units</th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-0" for="waste">
+                      <span class="govuk-visually-hidden">Habitat parcel 1</span>
+                    </label>
+                  </div>
+                </td>
+                <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
+                </td>
+                <td class="govuk-table__cell">0.18</td>
+                <td class="govuk-table__cell">2.82</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+                    <label class="govuk-label govuk-checkboxes__label govuk-!-padding-0 govuk-!-margin-0" for="waste">
+                      <span class="govuk-visually-hidden">Habitat parcel 1</span>
+                    </label>
+                  </div>
+                </td>
+                <td scope="row" class="govuk-table__cell">Line of trees
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
+                </td>
+                <td class="govuk-table__cell">0.50</td>
+                <td class="govuk-table__cell">3.45</td>
+              </tr>
+            </tbody>
+          </table>
+  
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

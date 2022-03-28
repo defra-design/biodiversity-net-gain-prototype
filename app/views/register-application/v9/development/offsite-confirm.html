@@ -1,88 +1,66 @@
 {% extends "register-application/v9/development/layout-register-application.html" %}
 
-{% set pageHeading = "Confirm the off-sites used by the development" %}
+{% set pageHeading = "Confirm off-site information" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {{ pageHeading }}
-      </h1>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Off-site reference"
-            },
-            value: {
-              html: "BNG220315001"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Location"
-            },
-            value: {
-              html: "Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ"
-            }
-          }
-        ]
-      }) }}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Off-site reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BNG220315001
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/offsite-ref-check">
+              Change<span class="govuk-visually-hidden"> Planning reference</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Off-site habitats
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Grassland, 2ha, 2.3 units <br>
+            Cropland, 2ha, 2.3 units
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/offsite-allocate">
+              Change<span class="govuk-visually-hidden"> Allocated units</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
+              Change<span class="govuk-visually-hidden"> Legal agreement</span>
+            </a>
+          </dd>
+        </div>
+        <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">development 21/02367/FUL, York City Council</span></a></p>
+      </dl>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Off-site reference"
-            },
-            value: {
-              html: "BNG220224046"
-            },
-            actions: {
-              items: [
-                {
-                  href: "#",
-                  text: "Remove",
-                  visuallyHiddenText: "name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Location"
-            },
-            value: {
-              html: "Cleasby Farm<br>Main Street<br>Leeds<br>LS29 6JE"
-            }
-          }
-        ]
-      }) }}
+      <a href="/register-application/{{ pageURL }}/offsite-ref" class="govuk-button govuk-button--secondary">Add another off-site</a>
 
-      {{ govukButton({ 
-        text: 'Add another off-site',
-        classes: "govuk-button--secondary",
-        href: "/register-application/" + pageURL + "/offsite-ref"
-      }) }}
-      
       <form method="post" action="/register-application/{{ pageURL }}/task-list">
-
+        
         <input class="govuk-input" id="offsite-confirm" name="offsite-confirm" type="hidden" value="yes">
         
         {{ govukButton({ text: 'Continue' }) }}
-        
+
       </form>
 
     </div>
