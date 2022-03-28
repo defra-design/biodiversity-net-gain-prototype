@@ -151,3 +151,11 @@ $govuk-assets-path: '/govuk/assets/';
   display: block;
   margin-top: 3px;
 }
+
+// Summary list
+
+.app-summary-list--border {
+  border-bottom: 5px solid #b1b4b6;
+  margin-bottom: 40px;
+  padding-bottom: 15px;
+}

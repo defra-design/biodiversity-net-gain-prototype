@@ -9,7 +9,7 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list app-summary-list--border">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Off-site reference
@@ -19,7 +19,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/offsite-ref-check">
-              Change<span class="govuk-visually-hidden"> Planning reference</span>
+              Change<span class="govuk-visually-hidden"> Off-site reference</span>
             </a>
           </dd>
         </div>
@@ -28,8 +28,18 @@
             Off-site habitats
           </dt>
           <dd class="govuk-summary-list__value">
-            Grassland, 2ha, 2.3 units <br>
-            Cropland, 2ha, 2.3 units
+            <p class="govuk-!-margin-bottom-3">
+              Grassland, Other neutral grassland<br>
+              <span class="govuk-!-font-size-16">
+                Good condition, 2.4 ha, 5.87 units
+              </span>
+            </p>
+            <p class="govuk-!-margin-bottom-3">
+              Heathland and scrub, Hazel scrub<br>
+              <span class="govuk-!-font-size-16">
+                Good condition, 1.25 ha, 4.25 units
+              </span>
+            </p>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/offsite-allocate">
@@ -50,7 +60,71 @@
             </a>
           </dd>
         </div>
-        <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">development 21/02367/FUL, York City Council</span></a></p>
+        <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">
+          Remove off-site<span class="govuk-visually-hidden">BNG220315001</span></a>
+        </p>
+      </dl>
+
+      <dl class="govuk-summary-list app-summary-list--border">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Off-site reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BNG220127098
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/offsite-ref-check">
+              Change<span class="govuk-visually-hidden"> Off-site reference</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Off-site habitats
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-!-margin-bottom-3">
+              Woodland and forest, Other woodland; mixed<br>
+              <span class="govuk-!-font-size-16">
+                Good condition, 0.5 ha, 1.93 units
+              </span>
+            </p>
+            <p class="govuk-!-margin-bottom-3">
+              Native species rich hedgerow<br>
+              <span class="govuk-!-font-size-16">
+                Good condition, 1.25 km, 2.82 units
+              </span>
+            </p>
+            <p class="govuk-!-margin-bottom-3">
+              Line of trees<br>
+              <span class="govuk-!-font-size-16">
+                Poor condition, 0.50 km, 3.45 units
+              </span>
+            </p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/offsite-allocate">
+              Change<span class="govuk-visually-hidden"> Allocated units</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">cleasby-farm-legal-agreement.pdf</a>, 2.1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
+              Change<span class="govuk-visually-hidden"> Legal agreement</span>
+            </a>
+          </dd>
+        </div>
+        <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">
+          Remove off-site<span class="govuk-visually-hidden">BNG220127098</span></a>
+        </p>
       </dl>
 
       <a href="/register-application/{{ pageURL }}/offsite-ref" class="govuk-button govuk-button--secondary">Add another off-site</a>
