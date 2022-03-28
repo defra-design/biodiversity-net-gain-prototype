@@ -20,7 +20,7 @@
         {% elif data['location-confirm'] and data['land-ownership-correct'] and data['management-plan-correct']  or data['location-confirm'] and data['land-registry-correct'] and data['management-plan-correct']  %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 3 sections.</p>
         {% else %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 3 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 4 sections.</p>
         {% endif %} 
       {% endif %} 
 
@@ -55,28 +55,11 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Off-site information
+            <span class="app-task-list__section-number">2. </span> Biodiversity Metric 3.0 calculations
           </h2>
 
           <ul class="app-task-list__items">
 
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                {% if data['offsite-confirm'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/offsite-confirm" aria-describedby="landowner-permission-status">
-                {% else %}
-                <a href="/register-application/{{ pageURL }}/offsite-ref" aria-describedby="landowner-permission-status">
-                {% endif %} 
-                  Add off-sites used by the development
-                </a>
-              </span>
-              {% if data['offsite-confirm'] == 'yes' %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
-              {% endif %} 
-            </li>
-            
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['metric-check-data'] == 'yes' %}
@@ -94,17 +77,27 @@
               {% endif %} 
             </li>
 
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">3. </span> Off-site information
+          </h2>
+
+          <ul class="app-task-list__items">
+
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['legal-agreement-planning-obligation-correct'] == 'yes' %} 
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check" aria-describedby="landowner-permission-status">
-                {% else %} 
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-upload" aria-describedby="landowner-permission-status">
+                {% if data['offsite-confirm'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/offsite-confirm" aria-describedby="landowner-permission-status">
+                {% else %}
+                <a href="/register-application/{{ pageURL }}/offsite-ref" aria-describedby="landowner-permission-status">
                 {% endif %} 
-                  Upload legal agreements
+                  Add off-site information
                 </a>
               </span>
-              {% if data['legal-agreement-financial-correct'] or data['legal-agreement-planning-obligation-correct'] %}
+              {% if data['offsite-confirm'] == 'yes' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="biodiversity-metric-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="biodiversity-metric-status">Not started</strong>
@@ -116,7 +109,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Submit
+            <span class="app-task-list__section-number">4. </span> Submit
           </h2>
           <ul class="app-task-list__items">
 
