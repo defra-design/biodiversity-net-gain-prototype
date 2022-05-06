@@ -37,5 +37,8 @@ router.use('/register/v1', registerv1);
 const registerv2 = require('./views/register/v2/_routes');
 router.use('/register/v2', registerv2);
 
+const registerv3 = require('./views/register/v3/_routes');
+router.use('/register/v3', registerv3);
+
 // Add your routes above the module.exports line
 module.exports = router
