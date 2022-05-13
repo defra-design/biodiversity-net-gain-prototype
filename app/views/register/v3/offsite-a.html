@@ -35,7 +35,7 @@
               text: "Area"
             },
             value: {
-              text: "4.15 hectares (ha) / 10.25 acres"
+              text: "4.15 hectares (ha)"
             }
           }
         ]
@@ -46,46 +46,50 @@
       <div class="govuk-grid-column-full">
 
       {% set proposedHtml %}
-      <h3 class="govuk-heading-m">Proposed habitat</h3>
+      <h3 class="govuk-heading-m">Planned habitat</h3>
       <div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
-              <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
+              <th scope="col" class="govuk-table__header" style="width:15%">Area</th>
+              <th scope="col" class="govuk-table__header" style="width:15%">Biodiversity units</th>
               <th scope="col" class="govuk-table__header">Allocated development</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Grassland 
+              <td scope="row" class="govuk-table__cell">Grassland
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">2.40</td>
+              <td class="govuk-table__cell">2.40 ha</td>
+              <td class="govuk-table__cell">28.80 units</td>
               <td class="govuk-table__cell">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Heathland and scrub 
+              <td scope="row" class="govuk-table__cell">Heathland and scrub
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">1.25</td>
+              <td class="govuk-table__cell">1.25 ha</td>
+              <td class="govuk-table__cell">15.00 units</td>
               <td class="govuk-table__cell">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
               </td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Woodland and forest 
+              <td scope="row" class="govuk-table__cell">Woodland and forest
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">0.50 ha</td>
+              <td class="govuk-table__cell">6.00 units</td>
               <td class="govuk-table__cell">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
@@ -106,7 +110,8 @@
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
-              <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
+              <th scope="col" class="govuk-table__header" style="width:15%">Length</th>
+              <th scope="col" class="govuk-table__header" style="width:15%">Biodiversity units</th>
               <th scope="col" class="govuk-table__header">
                 Allocated development
               </th>
@@ -117,7 +122,8 @@
               <td scope="row" class="govuk-table__cell">Native species rich hedgerow
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
-              <td class="govuk-table__cell">0.18</td>
+              <td class="govuk-table__cell">0.18 km</td>
+              <td class="govuk-table__cell">2.16 units</td>
               <td class="govuk-table__cell">
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Not allocated</span>
               </td>
@@ -126,7 +132,8 @@
               <td scope="row" class="govuk-table__cell">Line of trees
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
               </td>
-              <td class="govuk-table__cell">0.50</td>
+              <td class="govuk-table__cell">0.50 km</td>
+              <td class="govuk-table__cell">1.00 units</td>
               <td class="govuk-table__cell">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
@@ -150,16 +157,18 @@
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
-              <th scope="col" class="govuk-table__header">Area (ha)</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Area</th>
+              <th scope="col" class="govuk-table__header">Biodiversity units</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Grassland 
+              <td scope="row" class="govuk-table__cell">Grassland
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
               </td>
-              <td class="govuk-table__cell">4.15</td>
+              <td class="govuk-table__cell">4.15 ha</td>
+              <td class="govuk-table__cell">16.6 units</td>
             </tr>
           </tbody>
         </table>
@@ -171,7 +180,8 @@
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
               <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
-              <th scope="col" class="govuk-table__header">Length (km)</th>
+              <th scope="col" class="govuk-table__header" style="width:20%">Length</th>
+              <th scope="col" class="govuk-table__header">Biodiversity units</th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
@@ -179,7 +189,8 @@
               <td scope="row" class="govuk-table__cell">Native species rich hedgerow
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
               </td>
-              <td class="govuk-table__cell">0.68</td>
+              <td class="govuk-table__cell">0.68 ha</td>
+              <td class="govuk-table__cell">2.72 units</td>
             </tr>
           </tbody>
         </table>
@@ -189,7 +200,7 @@
       {{ govukTabs({
         items: [
           {
-            label: "Proposed",
+            label: "Planned",
             id: "proposed",
             panel: {
               html: proposedHtml
