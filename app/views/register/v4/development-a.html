@@ -1,0 +1,78 @@
+
+{% extends "register/v4/layout-register.html" %}
+
+{% set pageHeading = "21/02367/FUL" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Development</span>
+         {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Planning reference number"
+            },
+            value: {
+              text: pageHeading
+            }
+          },
+          {
+            key: {
+              text: "Local planning authority"
+            },
+            value: {
+              text: "Leeds City Council"
+            }
+          }
+        ]
+      }) }}
+
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-2">Off-sites</h2>
+
+      <ul class="govuk-list">
+        <li class="govuk-!-margin-bottom-4">
+          <span class="govuk-visually-hidden">Site reference:</span> 
+          <a href="/register/{{ pageURL }}/offsite-a" class="">BNG-220115001</a>
+          <p class="govuk-!-padding-top-1">
+            <span class="govuk-visually-hidden">Location:</span> 
+            Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ
+          </p>
+        </li>
+        <li>
+          <span class="govuk-visually-hidden">Site reference:</span> 
+          <a href="/register/{{ pageURL }}/offsite-a" class="">BNG-220129102</a>
+          <p class="govuk-!-padding-top-1">
+            <span class="govuk-visually-hidden">Location:</span> 
+            Clifton View, Hillings Ln, Ilkley LS20 6AX
+          </p>
+        </li>
+      </ul>
+
+      <hr class="app-divider">
+
+      <h2 class="govuk-heading-m">Documents</h2>
+      <ul class="govuk-list govuk-list--spaced">
+        <li><a download href="#">Planning Obligation (PDF, 1.4MB)</a></li>
+        <li><a download href="#">Complete Biodiversity Metric 3.0 Calculations (Excel, 4.2MB)</a></li>
+      </ul>
+
+      {% include "register/v4/includes/start-new-search.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}
