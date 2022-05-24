@@ -1,5 +1,7 @@
 {% extends "register/v4/layout-register.html" %}
 
+{% set map = true %}
+
 {% set pageHeading = "BNG-220115001" %}
 
 {% block beforeContent %}
@@ -18,7 +20,8 @@
          {{ pageHeading }}
       </h1>
 
-      <img src="/public/images/location-confirm.png" alt="" width="100%" style="margin-bottom: 20px; border: 1px solid #b1b4b6;">
+      <div id="offsite" class="map map--location" tabindex="0">
+      </div>
 
       {{ govukSummaryList({
         rows: [
@@ -230,4 +233,8 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
 {% endblock %}

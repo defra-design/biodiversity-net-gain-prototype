@@ -114,3 +114,11 @@ a.skiplink:focus {
 .ol-full-screen {
   display: none;
 }
+
+.map--location {
+  height: auto;
+
+  .ol-viewport {
+    height: 300px !important;
+  }
+}

@@ -142,6 +142,22 @@ const map = new Map({
   }),
 });
 
+// Create the map offsite
+const offsite = new Map({
+  controls: defaultControls().extend([fullScreenControl]),
+  target: 'offsite',
+  layers: [
+    osmLayer,
+    gainSiteDevelopmentLayer
+  ],
+  view: new View({
+    center: fromLonLat([ -1.4622600, 52.564470]),
+    zoom: 18,
+    minZoom: 14,
+    maxZoom: 20,
+  }),
+});
+
 // Add interactions
 
 map.addInteraction(
@@ -169,5 +185,4 @@ const deleteBoundary = document.getElementById('deleteBoundary');
 deleteBoundary.addEventListener('click', function () {
   gainSiteDevelopmentSource.clear()
 });
-
 
