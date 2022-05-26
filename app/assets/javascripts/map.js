@@ -31,6 +31,8 @@ import Draw from 'ol/interaction/Draw';
 import Modify from 'ol/interaction/Modify';
 import Snap from 'ol/interaction/Snap';
 
+import GeoJSON from 'ol/format/GeoJSON'
+
 // Define styles
 
 const gainSiteDevelopmentPolygonStyle = new Style({
@@ -142,18 +144,47 @@ const map = new Map({
   }),
 });
 
+// Land boundary file
+const getLandBoundarySource = () => {
+  return new VectorSource({
+    format: new GeoJSON({
+      dataProjection: `EPSG:4326`
+    }),
+    url: '/public/data/offsite.geojson'
+  })
+}
+
+const getLandBoundaryStyle = () => {
+  return new Style({
+    fill: new Fill({
+      color: 'rgba(178, 17, 34, 0.1)'
+    }),
+    stroke: new Stroke({
+      color: '#b21122',
+      width: 3
+    })
+  })
+}
+
+const getLandBoundaryLayer = () => {
+  return new VectorLayer({
+    source: getLandBoundarySource(),
+    style: getLandBoundaryStyle()
+  })
+}
+
 // Create the map offsite
 const offsite = new Map({
   controls: defaultControls().extend([fullScreenControl]),
   target: 'offsite',
   layers: [
     osmLayer,
-    gainSiteDevelopmentLayer
+    getLandBoundaryLayer()
   ],
   view: new View({
-    center: fromLonLat([ -1.768670, 53.877750]),
-    zoom: 18,
-    minZoom: 14,
+    center: fromLonLat([ -1.76392, 53.87576]),
+    zoom: 16,
+    minZoom: 10,
     maxZoom: 20,
   }),
 });
