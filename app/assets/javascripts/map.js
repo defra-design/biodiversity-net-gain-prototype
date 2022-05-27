@@ -161,7 +161,7 @@ const getLandBoundaryStyle = () => {
     }),
     stroke: new Stroke({
       color: '#b21122',
-      width: 3
+      width: 4
     })
   })
 }
