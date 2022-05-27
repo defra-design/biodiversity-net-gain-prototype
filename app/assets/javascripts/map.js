@@ -144,7 +144,7 @@ const map = new Map({
   }),
 });
 
-// Land boundary file
+// Off-site map
 const getLandBoundarySource = () => {
   return new VectorSource({
     format: new GeoJSON({
@@ -173,13 +173,56 @@ const getLandBoundaryLayer = () => {
   })
 }
 
-// Create the map offsite
 const offsite = new Map({
   controls: defaultControls().extend([fullScreenControl]),
   target: 'offsite',
   layers: [
     osmLayer,
     getLandBoundaryLayer()
+  ],
+  view: new View({
+    center: fromLonLat([ -1.76392, 53.87576]),
+    zoom: 16,
+    minZoom: 10,
+    maxZoom: 20,
+  }),
+});
+
+// Off-site map
+const getLandBoundarySourceDevelopment = () => {
+  return new VectorSource({
+    format: new GeoJSON({
+      dataProjection: `EPSG:4326`
+    }),
+    url: '/public/data/offsite.geojson'
+  })
+}
+
+const getLandBoundaryStyleDevelopment = () => {
+  return new Style({
+    fill: new Fill({
+      color: 'rgba(178, 17, 34, 0.1)'
+    }),
+    stroke: new Stroke({
+      color: '#b21122',
+      width: 4
+    })
+  })
+}
+
+const getLandBoundaryLayerDevelopment = () => {
+  return new VectorLayer({
+    source: getLandBoundarySource(),
+    style: getLandBoundaryStyle()
+  })
+}
+
+const development = new Map({
+  controls: defaultControls().extend([fullScreenControl]),
+  target: 'development',
+  layers: [
+    osmLayer,
+    getLandBoundaryLayerDevelopment()
   ],
   view: new View({
     center: fromLonLat([ -1.76392, 53.87576]),
