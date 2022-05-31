@@ -152,8 +152,14 @@ $govuk-assets-path: '/govuk/assets/';
   margin-top: 3px;
 }
 
-// Summary list
+.app-table__cell--padding-left {
+  padding-left: 20px !important;
+}
 
-.app-summary-list--border {
+.app-table__cell--padding-right {
+  padding-right: 20px !important;
+}
 
+.app-table__cell--grey {
+  background-color: #f3f2f1;
 }

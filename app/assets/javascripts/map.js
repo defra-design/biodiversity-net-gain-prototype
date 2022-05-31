@@ -188,13 +188,13 @@ const offsite = new Map({
   }),
 });
 
-// Off-site map
+// Development map
 const getLandBoundarySourceDevelopment = () => {
   return new VectorSource({
     format: new GeoJSON({
       dataProjection: `EPSG:4326`
     }),
-    url: '/public/data/offsite.geojson'
+    url: '/public/data/development.geojson'
   })
 }
 
@@ -225,7 +225,7 @@ const development = new Map({
     getLandBoundaryLayerDevelopment()
   ],
   view: new View({
-    center: fromLonLat([ -1.76392, 53.87576]),
+    center: fromLonLat([ -1.734600, 53.883700]),
     zoom: 16,
     minZoom: 10,
     maxZoom: 20,

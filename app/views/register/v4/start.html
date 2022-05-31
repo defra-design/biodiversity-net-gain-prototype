@@ -1,6 +1,6 @@
 {% extends "register/v4/layout-register.html" %}
 
-{% set pageHeading = "Find information about the land used for off-site biodiversity net gain" %}
+{% set pageHeading = "Find information about the land used for biodiversity net gain" %}
 
 {% block header %}
   {{ govukHeader({
@@ -32,13 +32,14 @@
     <div class="govuk-grid-column-two-thirds">
       <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
 
-      <p class="govuk-body">You can search the Biodiversity Net Gain Register and find details about the land used, including the:</p>
+      <p class="govuk-body">You can search the Biodiversity Net Gain (BNG) Register and find details about the land used, including the:
+      </p>
 
       <ul class="govuk-list govuk-list--bullet">
         <li>location and area </li>
         <li>types of habitats enhanced or created</li>
-        <li>the developments linked to the off-site</li>
         <li>habitat management and monitoring plans</li>
+        <li>associated legal documents</li>
       </ul>
 
       {{ govukButton({
