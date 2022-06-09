@@ -1,0 +1,40 @@
+{% extends "register/v5/layout-register.html" %}
+
+{% set pageHeading = "Search the register" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        <!-- Search box code taken from the GOV.UK website search -->
+        <form method="post" action="/register/{{ pageURL }}/search-answer" accept-charset="utf-8" class="search-header" role="search">
+          <div class="gem-c-search govuk-!-display-none-print  gem-c-search--large gem-c-search--on-white gem-c-search--separate-label" data-module="gem-toggle-input-class-on-focus">
+            <label for="search-main" class="">
+              <h1 class="gem-c-heading govuk-heading-xl govuk-!-margin-bottom-4">
+              Search the register
+            </h1>
+            </label>
+            <p id="search-hint">Enter a biodiversity gain site reference, planning reference number, postcode or street name</p>
+            <div class="gem-c-search__item-wrapper">
+              <input enterkeyhint="search" class="gem-c-search__item gem-c-search__input js-class-toggle" id="search-main" name="search-register" title="Search" type="search" value="" aria-describedby="search-hint">
+              <div class="gem-c-search__item gem-c-search__submit-wrapper">
+                <button class="gem-c-search__submit" type="submit" data-module="gem-track-click" enterkeyhint="search">
+                  Search
+                <svg class="gem-c-search__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                  <circle cx="12.0161" cy="11.0161" r="8.51613" stroke="currentColor" stroke-width="3"></circle>
+                  <line x1="17.8668" y1="17.3587" x2="26.4475" y2="25.9393" stroke="currentColor" stroke-width="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% set serviceName = "Biodiversity Net Gain (BNG) Register" %}
+{% set serviceUrl = "/register/v5/search" %}
+{% set pageURL = "v5" %}
+
+{% extends "../../layout.html" %}
+
+{% block header %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: serviceUrl
+  }) }}
+
+   <div class="govuk-width-container">
+
+    {% include "includes/phase-banner.html" %}
+    <!-- {% include "includes/login-nav.html" %} -->
+    
+  </div>
+
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}
