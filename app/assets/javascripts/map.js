@@ -7,8 +7,7 @@ import Map from 'ol/Map';
 import {fromLonLat} from 'ol/proj';
 
 // Formatting and styling
-import {Style, Fill, Stroke} from 'ol/style';
-import Icon from 'ol/style/Icon';
+import {Icon, Style, Fill, Stroke} from 'ol/style';
 
 // Sources
 import OSM from 'ol/source/OSM';
@@ -32,6 +31,8 @@ import Modify from 'ol/interaction/Modify';
 import Snap from 'ol/interaction/Snap';
 
 import GeoJSON from 'ol/format/GeoJSON'
+import Feature from 'ol/Feature';
+import Point from 'ol/geom/Point';
 
 // Define styles
 
@@ -198,22 +199,21 @@ const getLandBoundarySourceDevelopment = () => {
   })
 }
 
-const getLandBoundaryStyleDevelopment = () => {
+const getMarkerStyle = () => {
   return new Style({
-    fill: new Fill({
-      color: 'rgba(178, 17, 34, 0.1)'
-    }),
-    stroke: new Stroke({
-      color: '#b21122',
-      width: 4
+    image: new Icon({
+      anchor: [0.5, 46],
+      anchorXUnits: 'fraction',
+      anchorYUnits: 'pixels',
+      src: '/public/images/iconfinder_marker.png'
     })
   })
 }
 
 const getLandBoundaryLayerDevelopment = () => {
   return new VectorLayer({
-    source: getLandBoundarySource(),
-    style: getLandBoundaryStyle()
+    source: getLandBoundarySourceDevelopment(),
+    style: getMarkerStyle()
   })
 }
 
@@ -225,9 +225,9 @@ const development = new Map({
     getLandBoundaryLayerDevelopment()
   ],
   view: new View({
-    center: fromLonLat([ -1.734600, 53.883700]),
-    zoom: 16,
-    minZoom: 10,
+    center: fromLonLat([ -1.7358183860778809,53.88337334136589]),
+    zoom: 15,
+    minZoom: 1,
     maxZoom: 20,
   }),
 });
