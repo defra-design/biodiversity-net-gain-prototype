@@ -29,14 +29,14 @@
       
       <ul class="app-search-results govuk-!-margin-bottom-8">
         <li class="app-search-results__item">
-          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/" + data['version'] + "/development-a" class="app-search-results__item-title">21/02367/FUL</a>
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ data['version'] }}/development-a" class="app-search-results__item-title">21/02367/FUL</a>
           <p class="app-search-results__item-description">
             <span class="govuk-visually-hidden">Local Planning Authority:</span> 
             Leeds City Council
           </p>
         </li>
         <li class="app-search-results__item">
-          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/" + data['version'] + "/development-a" class="app-search-results__item-title">21/02367/FUL</a>
+          <span class="govuk-visually-hidden">Site reference:</span> <a href="/register/{{ data['version'] }}/development-a" class="app-search-results__item-title">21/02367/FUL</a>
           <p class="app-search-results__item-description">
             <span class="govuk-visually-hidden">Local Planning Authority:</span> 
             Manchester City Council
@@ -46,8 +46,8 @@
 
       <h2 class="govuk-heading-m">Other ways to search</h2>
       <ul class="govuk-list">
-        <li><a href="/register/" + data['version'] + "/search-site-ref">Search by off-site reference number</a></li>
-        <li><a href="/register/" + data['version'] + "/search-postcode">Search by postcode ot street name</a></li>
+        <li><a href="/register/{{ data['version'] }}/search-site-ref">Search by off-site reference number</a></li>
+        <li><a href="/register/{{ data['version'] }}/search-postcode">Search by postcode ot street name</a></li>
       </ul>
 
     </div>
