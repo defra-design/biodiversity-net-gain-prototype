@@ -1,4 +1,4 @@
-{% extends "register-application/v2/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Confirm the location" %}
 
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm-answer">
+      <form method="post" action="/register-application/{{data['version']}}/location-import-confirm-answer">
 
         {{ govukRadios({
           idPrefix: "location-import-confirm",

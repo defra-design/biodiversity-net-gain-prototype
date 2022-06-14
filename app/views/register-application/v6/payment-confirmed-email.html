@@ -1,6 +1,6 @@
 {% extends "layout-email.html" %}
 
-{% set pageURL = "v6" %}
+
 
 {% block pageTitle %}
 We've recived payment | {{serviceName}} prototype
@@ -13,7 +13,7 @@ We've recived payment | {{serviceName}} prototype
 
       <p>Dear Jo Smith</p>
       <p>We've received your application fee for registering a biodiversity gain site.</p>
-      <p>You can now complete your application by signing into your account - <a href="/register-application/{{ pageURL }}/sign-in">https://bng.defra.gov.uk/signin</a></p>
+      <p>You can now complete your application by signing into your account - <a href="/register-application/{{ data['version'] }}/sign-in">https://bng.defra.gov.uk/signin</a></p>
       <p>
         From<br />
         Natural England

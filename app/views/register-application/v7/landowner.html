@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Are you the landowner of the off-site?" %}
 
@@ -10,7 +10,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/landowner-answer">
+      <form method="post" action="/register-application/{{data['version']}}/landowner-answer">
 
         {{ govukRadios({
           idPrefix: "landowner",

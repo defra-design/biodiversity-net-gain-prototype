@@ -1,4 +1,4 @@
-{% extends "register-application/v4/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Add the broad habitat, type, area and condition" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-        <form method="post" action="/register-application/{{ pageURL }}/development-local-authority-confirm">
+        <form method="post" action="/register-application/{{data['version']}}/development-local-authority-confirm">
 
           {% call govukFieldset({
             legend: {

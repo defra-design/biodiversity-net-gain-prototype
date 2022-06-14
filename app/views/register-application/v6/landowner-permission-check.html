@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check your file" %}
 
@@ -27,9 +27,9 @@
       }) }}
 
       {% if data['land-registry'] == 'yes' %}
-        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
+        <form method="post" action="/register-application/{{data['version']}}/landowner-permission-correct-answer-land-registry-yes">
       {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
+        <form method="post" action="/register-application/{{data['version']}}/landowner-permission-correct-answer-land-registry-no">
       {% endif %}
 
         {{ govukRadios({

@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Select land parcels on this off-site" %}
 
@@ -179,7 +179,7 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{data['version']}}/task-list">
 
         <input type="hidden" name="allocate-select-data" value="yes">
 

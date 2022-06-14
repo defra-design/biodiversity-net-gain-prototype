@@ -1,4 +1,4 @@
-{% extends "register-application/v5/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Is the land registered with HM Land Registry?" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-registry-answer">
+      <form method="post" action="/register-application/{{data['version']}}/land-registry-answer">
 
         {{ govukRadios({
           idPrefix: "land-registry",

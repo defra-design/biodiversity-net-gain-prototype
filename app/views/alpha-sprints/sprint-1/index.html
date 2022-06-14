@@ -1,7 +1,7 @@
 
 {% extends "layout.html" %}
 
-{% set pageURL = "v1" %}
+
 {% set pageHeading = "Alpha sprint 1" %}
 
 {% block beforeContent %}
@@ -40,7 +40,7 @@
               Register
             </td>
             <td class="govuk-table__cell">
-              <a href="../register/{{ pageURL }}/start">Register (search and view) v1</a>
+              <a href="../register/" + data['version'] + "/start">Register (search and view) v1</a>
             </td>
             <td class="govuk-table__cell">
               <ol class="govuk-list govuk-list--number">

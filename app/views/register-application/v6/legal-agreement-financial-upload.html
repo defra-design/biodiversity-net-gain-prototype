@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload the financial agreement between the developer and the landowner" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-financial-check">
+      <form method="post" action="/register-application/{{data['version']}}/legal-agreement-financial-check">
 
         {{ govukFileUpload({
           id: "legal-agreement-financial-upload",

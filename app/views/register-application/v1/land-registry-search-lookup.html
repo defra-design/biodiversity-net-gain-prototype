@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Search results" %}
 
@@ -23,11 +23,11 @@
       {% else %}
 
       <h2 class="govuk-heading-m">Postcode</h2>
-      <p><span class="govuk-!-margin-right-1" style="text-transform: uppercase;">LS20 8PJ</span> <a href="/register-application/{{ pageURL }}/land-registry-search">Change <span class="govuk-visually-hidden">Postcode</span></a></p>
+      <p><span class="govuk-!-margin-right-1" style="text-transform: uppercase;">LS20 8PJ</span> <a href="/register-application/{{ data['version'] }}/land-registry-search">Change <span class="govuk-visually-hidden">Postcode</span></a></p>
 
       {% endif %}
 
-      <form method="post" action="/register-application/{{ pageURL }}/land-registry-search-confirm">
+      <form method="post" action="/register-application/{{data['version']}}/land-registry-search-confirm">
 
         {{ govukRadios({
           idPrefix: "land-registry-address",
@@ -64,7 +64,7 @@
 
       </form>
 
-      <p><a href="/register-application/{{ pageURL }}/land-registry-search">Search again</a></p>
+      <p><a href="/register-application/{{ data['version'] }}/land-registry-search">Search again</a></p>
 
 
     </div>

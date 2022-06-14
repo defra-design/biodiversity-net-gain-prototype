@@ -1,4 +1,4 @@
-{% extends "register-application/v4/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Draw the boundary" %}
 
@@ -43,7 +43,7 @@
           </div>
           <div id="map-coordinates" class="map-coordinates"><strong>Coordinates</strong></div>
         </div>
-        <form method="post" action="/register-application/{{ pageURL }}/location-draw-confirm">
+        <form method="post" action="/register-application/{{data['version']}}/location-draw-confirm">
 
         {{ govukButton({
           text: "Continue"

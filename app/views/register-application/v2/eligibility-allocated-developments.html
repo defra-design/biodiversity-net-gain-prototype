@@ -1,4 +1,4 @@
-{% extends "register-application/v2/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Does the biodiversity gain site have allocated developments?" %}
 
@@ -14,7 +14,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/eligibility-allocated-developments-answer">
+      <form method="post" action="/register-application/{{data['version']}}/eligibility-allocated-developments-answer">
 
         {{ govukRadios({
           idPrefix: "allocated-developments",

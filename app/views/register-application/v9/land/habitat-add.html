@@ -1,4 +1,4 @@
-{% extends "register-application/v9/land/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/land/layout-register-application.html" %}
 
 {% set pageHeading = "Add a habitat, hedgerow or river" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/habitat-add-answer">
+      <form method="post" action="/register-application/{{data['version']}}/habitat-add-answer">
 
         <span class="govuk-caption-l">
           {% if data['habitat-add-stage'] == 'baseline' %}

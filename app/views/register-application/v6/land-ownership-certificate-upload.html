@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload the certificate of ownership" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-ownership-certificate-check">
+      <form method="post" action="/register-application/{{data['version']}}/land-ownership-certificate-check">
 
         {{ govukFileUpload({
           id: "land-ownership-certificate-upload",
@@ -31,7 +31,7 @@
         
       </form>
 
-      <p>Or <a href="/register-application/{{ pageURL }}/land-registry-search">search for the property on HM Land Registry</a></p>
+      <p>Or <a href="/register-application/{{ data['version'] }}/land-registry-search">search for the property on HM Land Registry</a></p>
 
     </div>
   </div>

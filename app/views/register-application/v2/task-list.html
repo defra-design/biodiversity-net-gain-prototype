@@ -1,4 +1,4 @@
-{% extends "register-application/v2/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Register a biodiversity gain site" %}
 
@@ -32,7 +32,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/landowner" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ data['version'] }}/landowner" aria-describedby="landowner-permission-status">
                   Landowner permission
                 </a>
               </span>
@@ -45,7 +45,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="location-status">
+                <a href="/register-application/{{ data['version'] }}/location-options" aria-describedby="location-status">
                   Location
                 </a>
               </span>
@@ -60,7 +60,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/interested-third-parties" aria-describedby="interested-third-parties-status">
+                <a href="/register-application/{{ data['version'] }}/interested-third-parties" aria-describedby="interested-third-parties-status">
                   Interested third parties
                 </a>
               </span>
@@ -73,7 +73,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/metric" aria-describedby="biodiversity-metric-status">
+                <a href="/register-application/{{ data['version'] }}/metric" aria-describedby="biodiversity-metric-status">
                   The biodiversity metric
                 </a>
               </span>
@@ -86,7 +86,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/land-management-responsible" aria-describedby="land-management-status">
+                <a href="/register-application/{{ data['version'] }}/land-management-responsible" aria-describedby="land-management-status">
                   Management and monitoring
                 </a>
               </span>
@@ -108,7 +108,7 @@
             <li class="app-task-list__item">
               {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['land-management-responsible'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
+                <a href="/register-application/{{ data['version'] }}/development-local-authority" aria-describedby="allocated-developments-status">
                   Development information
                 </a>
               </span>
@@ -136,7 +136,7 @@
               {% if data['planningref'] %}
                 
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
+                <a href="/register-application/{{ data['version'] }}/payment" aria-describedby="eligibility-status">
                   Pay the application fee
                 </a>
               </span>
@@ -158,7 +158,7 @@
             <li class="app-task-list__item">
               {% if data['payment-success'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/declaration" aria-describedby="submit-application">
+                <a href="/register-application/{{ data['version'] }}/declaration" aria-describedby="submit-application">
                   Submit the application
                 </a>
               </span>

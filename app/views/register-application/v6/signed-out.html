@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "You've signed out" %}
 
@@ -23,7 +23,7 @@
 
       <h2 id="return-to-application" class="govuk-heading-m govuk-!-padding-top-4">Return to an existing application</h2>
 
-      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+      <form action="/register-application/{{data['version']}}/sign-in" method="post" novalidate>
         <input type="hidden" name="signed-in" value="yes">
         <button class="govuk-link app-button-link" data-module="govuk-button">
           Sign in to continue your application

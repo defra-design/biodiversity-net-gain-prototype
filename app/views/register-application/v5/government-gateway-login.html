@@ -1,4 +1,4 @@
-{% extends "register-application/v5/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Sign in using Government Gateway" %}
 
@@ -43,7 +43,7 @@
         Sign in using Government Gateway
       </h1>
       
-      <form action="/register-application/{{ pageURL }}/task-list" method="post">
+      <form action="/register-application/{{data['version']}}/task-list" method="post">
       
       <div class="govuk-form-group">
         <label class="govuk-label" for="govGateUserId">

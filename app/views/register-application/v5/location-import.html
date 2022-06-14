@@ -1,4 +1,4 @@
-{% extends "register-application/v5/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload your geospatial data file" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
+      <form method="post" action="/register-application/{{data['version']}}/location-import-confirm">
 
         {{ govukFileUpload({
           id: "location-import",

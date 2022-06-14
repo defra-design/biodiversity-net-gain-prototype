@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Where is the location of the biodiversity gain site?" %}
 
@@ -18,7 +18,7 @@
         {{ pageHeading }}
       </h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/site-location-address-lookup">
+      <form method="post" action="/register-application/{{data['version']}}/site-location-address-lookup">
 
         {{ govukInput({
           label: {
@@ -37,7 +37,7 @@
 
       </form>
 
-      <p><a href="/register-application/{{ pageURL }}/site-location-address-manual">There is no postcode for the gain site</a></p>
+      <p><a href="/register-application/{{ data['version'] }}/site-location-address-manual">There is no postcode for the gain site</a></p>
 
     </div>
   </div>

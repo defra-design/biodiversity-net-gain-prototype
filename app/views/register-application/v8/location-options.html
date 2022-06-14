@@ -1,4 +1,4 @@
-{% extends "register-application/v8/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "How do you want to provide the land boundary for the off-site?" %}
 
@@ -8,9 +8,9 @@
     <div class="govuk-grid-column-two-thirds">
       
       {% if data['land-registry-check'] == 'yes' %} 
-        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer-land-registry">
+        <form method="post" action="/register-application/{{data['version']}}/location-options-answer-land-registry">
       {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+        <form method="post" action="/register-application/{{data['version']}}/location-options-answer">
       {% endif %}
 
         {{ govukRadios({

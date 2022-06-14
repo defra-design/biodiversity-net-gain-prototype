@@ -1,4 +1,4 @@
-{% extends "register-application/v3/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Register land as a site for habitat enhancement" %}
 
@@ -49,7 +49,7 @@
 
       {{ govukButton({
         text: "Start now",
-        href: "/register-application/" + pageURL + "/eligibility-england",
+        href: "/register-application/{{ data['version'] }}/eligibility-england",
         classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
         isStartButton: true
       }) }}

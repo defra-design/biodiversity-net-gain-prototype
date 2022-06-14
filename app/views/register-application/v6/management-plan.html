@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set hideSaveLink = true %}
 {% set hideSignOut = true %}
@@ -10,7 +10,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/management-plan-answer">
+      <form method="post" action="/register-application/{{data['version']}}/management-plan-answer">
 
         {{ govukRadios({
           idPrefix: "management-plan",

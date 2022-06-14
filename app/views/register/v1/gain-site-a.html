@@ -1,4 +1,4 @@
-{% extends "register/v1/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "15384" %}
 
@@ -63,7 +63,7 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__header">Allocated units
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/development-c">Development 21/02367/FUL</a></span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/" + data['version'] + "/development-c">Development 21/02367/FUL</a></span>
                 </td>
                 <td class="govuk-table__cell">4.58</td>
                 <td class="govuk-table__cell">6.54</td>
@@ -71,7 +71,7 @@
               </tr>
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__header">Allocated units
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/development-a">Development 21/01335/HOU</a></span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/" + data['version'] + "/development-a">Development 21/01335/HOU</a></span>
                 </td>
                 <td class="govuk-table__cell">3.41</td>
                 <td class="govuk-table__cell">8.36</td>
@@ -79,7 +79,7 @@
               </tr>
               <tr class="govuk-table__row">
                 <td scope="row" class="govuk-table__header">Allocated units
-                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/development-a">Development 20/04182/CLP</a></span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/" + data['version'] + "/development-a">Development 20/04182/CLP</a></span>
                 </td>
                 <td class="govuk-table__cell">7.38</td>
                 <td class="govuk-table__cell">9.73</td>
@@ -101,7 +101,7 @@
         </table>
       </div>
 
-      <p><a href="/register/{{ pageURL }}/gain-site-a-metric">View gain site biodiversity unit details</a></p>
+      <p><a href="/register/" + data['version'] + "/gain-site-a-metric">View gain site biodiversity unit details</a></p>
 
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Site works</h2>
 
@@ -151,7 +151,7 @@
         ]
       }) }}
 
-      {% include "register/v1/includes/start-new-search.html" %}
+      {% include "register/" + data['version'] + "/includes/start-new-search.html" %}
 
     </div>
   </div>

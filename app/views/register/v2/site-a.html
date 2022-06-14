@@ -1,4 +1,4 @@
-{% extends "register/v2/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "BNG-220115001" %}
 
@@ -65,7 +65,7 @@
               </td>
               <td class="govuk-table__cell">2.40</td>
               <td class="govuk-table__cell">
-                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <a href="/register/" + data['version'] + "/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
               </td>
             </tr>
@@ -76,7 +76,7 @@
               </td>
               <td class="govuk-table__cell">1.25</td>
               <td class="govuk-table__cell">
-                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <a href="/register/" + data['version'] + "/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
               </td>
             </tr>
@@ -87,7 +87,7 @@
               </td>
               <td class="govuk-table__cell">0.50</td>
               <td class="govuk-table__cell">
-                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <a href="/register/" + data['version'] + "/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
               </td>
             </tr>
@@ -128,7 +128,7 @@
               </td>
               <td class="govuk-table__cell">0.50</td>
               <td class="govuk-table__cell">
-                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                <a href="/register/" + data['version'] + "/development-a">21/02367/FUL</a>
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Leeds City Council</span>
               </td>
             </tr>
@@ -214,7 +214,7 @@
         <li><a download href="#">Conservation Covenant (PDF, 1.4MB)</a></li>
       </ul>
 
-      {% include "register/v2/includes/start-new-search.html" %}
+      {% include "register/" + data['version'] + "/includes/start-new-search.html" %}
 
     </div>
   </div>

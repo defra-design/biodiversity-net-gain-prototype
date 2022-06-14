@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Applications" %}
 
@@ -40,7 +40,7 @@
               {% else %}
                 <strong class="govuk-tag govuk-tag--yellow">In progress</strong></td>
               {% endif %}
-            <td class="govuk-table__cell"><a href="/register-application/v6/task-list">
+            <td class="govuk-table__cell"><a href="/register-application/{{ data['version'] }}/task-list">
               {% if data['answers-checked'] == 'true' %} 
                 View application
               {% else %}

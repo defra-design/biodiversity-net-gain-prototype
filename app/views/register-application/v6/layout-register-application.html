@@ -1,6 +1,6 @@
 {% set serviceName = "Register land for off-site biodiversity gain" %}
 {% set serviceUrl = "" %}
-{% set pageURL = "v6" %}
+
 
 {% extends "../../layout.html" %}
 
@@ -23,7 +23,7 @@
     classes: "app-nav",
     navigation: [
     {
-      href: "/register-application/" + pageURL + "/signed-out?lastVisitedURL={{currentURL}}",
+      href: "/register-application/{{ data['version'] }}/signed-out?lastVisitedURL={{currentURL}}",
       text: "Sign out"
     }
   ]
@@ -54,7 +54,7 @@
       {% if hideSaveLink === true %}
       {% else %}
         <div class="app-save">
-          <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/signed-out?lastVisitedURL={{currentURL}}">Save and return later</a></p>
+          <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/signed-out?lastVisitedURL={{currentURL}}">Save and return later</a></p>
         </div>
       {% endif %} 
     </div>

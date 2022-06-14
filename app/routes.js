@@ -1,6 +1,20 @@
 const express = require('express')
 const router = express.Router()
 
+
+router.get('/*/:version/*', function (req, res, next) {
+  req.params;
+  
+  if (req.session.data['version'] == req.params['version']){
+    next();
+  } else {
+      req.session.data['version'] = req.params['version'];
+      console.log(req.session.data['version']);
+      res.redirect(req.originalUrl);
+  }
+});
+
+
 const registerapplicationv1 = require('./views/register-application/v1/_routes');
 router.use('/register-application/v1', registerapplicationv1);
 

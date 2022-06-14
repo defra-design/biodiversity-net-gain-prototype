@@ -1,4 +1,4 @@
-{% extends "register-application/v9/development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/development/layout-register-application.html" %}
 
 {% set pageHeading = "Confirm off-site" %}
 
@@ -43,9 +43,9 @@
       }) }}
       
       {% if data['offsite-multiple'] == 'yes' %}
-        <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm-answer-multiple">
+        <form method="post" action="/register-application/{{data['version']}}/offsite-confirm-answer-multiple">
       {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/offsite-confirm-answer">
+        <form method="post" action="/register-application/{{data['version']}}/offsite-confirm-answer">
       {% endif %}
 
         {{ govukRadios({

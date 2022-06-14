@@ -1,4 +1,4 @@
-{% extends "register-application/v5/allocate-development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/allocate-development/layout-register-application.html" %}
 
 {% set pageHeading = "Confirm and apply to add developments to register" %}
 
@@ -18,7 +18,7 @@
             21/02367/FUL
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/allocate-development/development-planning-ref-search">
               Change<span class="govuk-visually-hidden"> Planning reference</span>
             </a>
           </dd>
@@ -31,7 +31,7 @@
             {{ data['input-autocomplete'] or 'York City Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/allocate-development/development-planning-ref-search">
               Change<span class="govuk-visually-hidden"> Local planning authority</span>
             </a>
           </dd>
@@ -44,7 +44,7 @@
             <a download href="/public/images/meadow-croft-farm-legal-agreement.pdf">meadow-croft-farm-legal-agreement.pdf</a>, 2.8MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-legal-agreement-upload">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/allocate-development/development-legal-agreement-upload">
               Change<span class="govuk-visually-hidden"> Legal agreement</span>
             </a>
           </dd>
@@ -59,7 +59,7 @@
             Native species rich hedgerow = 0.45
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocate-development/development-allocation">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/allocate-development/development-allocation">
               Change<span class="govuk-visually-hidden"> Allocated units</span>
             </a>
           </dd>
@@ -67,9 +67,9 @@
         <p class="govuk-!-margin-bottom-0 govuk-!-margin-top-2"><a href="#" class="govuk-link govuk-link--no-visited-state">Remove <span class="govuk-visually-hidden">development 21/02367/FUL, York City Council</span></a></p>
       </dl>
 
-      <a href="/register-application/{{ pageURL }}/allocate-development/development-planning-ref-search" class="govuk-button govuk-button--secondary">Add another development</a>
+      <a href="/register-application/{{ data['version'] }}/allocate-development/development-planning-ref-search" class="govuk-button govuk-button--secondary">Add another development</a>
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/confirmation">
+      <form method="post" action="/register-application/{{data['version']}}/allocate-development/confirmation">
         <input class="govuk-input" id="allocate-development-confirm" name="development-allocate-confirm" type="hidden" value="development-allocate-confirm">
 
         {{ govukButton({

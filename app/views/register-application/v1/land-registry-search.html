@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Find the land on HM Land Registry" %}
 
@@ -18,7 +18,7 @@
         {{ pageHeading }}
       </h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/land-registry-search-lookup">
+      <form method="post" action="/register-application/{{data['version']}}/land-registry-search-lookup">
 
         {{ govukInput({
           label: {
@@ -31,7 +31,7 @@
           })  
         }}
 
-        <p><a href="/register-application/{{ pageURL }}/land-registry-search-detailed">The land doesn't have a postcode</a></p>
+        <p><a href="/register-application/{{ data['version'] }}/land-registry-search-detailed">The land doesn't have a postcode</a></p>
 
         {{ govukButton({
             text: "Search"

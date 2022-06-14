@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Do you have a legal agreement that links habitat enhancement on the land to the development site?" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-answer">
+      <form method="post" action="/register-application/{{data['version']}}/legal-agreement-answer">
 
         {{ govukRadios({
           idPrefix: "legal-agreement",

@@ -1,4 +1,4 @@
-{% extends "register-application/v8/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check the land details from HM Land Registry" %}
 
@@ -34,7 +34,7 @@
 
       
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-registry-search-confirm-answer">
+      <form method="post" action="/register-application/{{data['version']}}/land-registry-search-confirm-answer">
 
         {{ govukRadios({
           idPrefix: "land-ownership-correct",

@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Search results" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/development-confirm">
+      <form method="post" action="/register-application/{{data['version']}}/development-confirm">
 
         {{ govukRadios({
           idPrefix: "planning-application-search-results",
@@ -48,7 +48,7 @@
 
       </form>
 
-      <p><a class="govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">Search again</a></p>
+      <p><a class="govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/development-planning-ref-search">Search again</a></p>
 
 
     </div>

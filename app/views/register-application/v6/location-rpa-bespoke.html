@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Is it a full parcel?" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-bespoke-answer">
+      <form method="post" action="/register-application/{{data['version']}}/location-rpa-bespoke-answer">
 
         {{ govukRadios({
           idPrefix: "location-rpa-bespoke",

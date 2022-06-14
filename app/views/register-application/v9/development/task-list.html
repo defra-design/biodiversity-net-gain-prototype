@@ -1,4 +1,4 @@
-{% extends "register-application/v9/development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/development/layout-register-application.html" %}
 
 {% set pageHeading = serviceName %}
 
@@ -36,9 +36,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['development-confirm'] %}
-                  <a href="/register-application/{{ pageURL }}/planning-ref-confirm" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/planning-ref-confirm" aria-describedby="landowner-permission-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/planning-ref" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/planning-ref" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Add planning reference number
                 </a>
@@ -63,9 +63,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['metric-check-data'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/metric-check-data" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/metric-check-data" aria-describedby="landowner-permission-status">
                 {% else %}
-                <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ data['version'] }}/metric-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Upload Biodiversity Metric 3.0 calculations
                 </a>
@@ -90,9 +90,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['offsite-confirm'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/offsite-confirm" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/offsite-confirm" aria-describedby="landowner-permission-status">
                 {% else %}
-                <a href="/register-application/{{ pageURL }}/offsite-ref" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ data['version'] }}/offsite-ref" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Add off-site information
                 </a>
@@ -116,7 +116,7 @@
             <li class="app-task-list__item">
               {% if data['development-confirm'] and data['legal-agreement-financial-correct'] and data['metric-check-data'] == 'yes' or data['development-confirm'] and data['legal-agreement-planning-obligation-correct'] and  data['development-confirm'] and data['metric-check-data'] %}
                 <span class="app-task-list__task-name">
-                  <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
+                  <a href="/register-application/{{ data['version'] }}/check-answers" aria-describedby="submit-application">
                     Check your answers, pay and apply
                   </a>
                 </span>
@@ -140,7 +140,7 @@
                 {% if data['payment-success'] %}
                   Pay the application fee
                 {% else %}
-                <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
+                <a href="/register-application/{{ data['version'] }}/payment" aria-describedby="eligibility-status">
                   Pay the application fee
                 </a>
                 {% endif %} 

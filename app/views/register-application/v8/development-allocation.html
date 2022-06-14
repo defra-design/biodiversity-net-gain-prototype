@@ -1,4 +1,4 @@
-{% extends "register-application/v5/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Allocate land to development 21/02367/FUL" %}
 
@@ -15,7 +15,7 @@
 
       <h2 class="govuk-heading-m">Habitats</h2>
 
-      <form method="post" action="/register-application/{{ pageURL }}/development-confirm">
+      <form method="post" action="/register-application/{{data['version']}}/development-confirm">
         <div class="app-table-responsive">
           <table class="govuk-table">
             <caption class="govuk-visually-hidden">Habitats</caption>

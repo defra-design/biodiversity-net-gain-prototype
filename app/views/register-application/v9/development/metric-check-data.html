@@ -1,4 +1,4 @@
-{% extends "register-application/v9/development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/development/layout-register-application.html" %}
 
 {% set pageHeading = "Check that your off-site habitat information is correct" %}
 
@@ -180,7 +180,7 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/metric-check-data-answer">
+      <form method="post" action="/register-application/{{data['version']}}/metric-check-data-answer">
 
         {{ govukRadios({
           idPrefix: "metric-check-data",

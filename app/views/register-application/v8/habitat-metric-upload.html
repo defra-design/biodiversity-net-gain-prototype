@@ -1,4 +1,4 @@
-{% extends "register-application/v8/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload the Biodiversity Metric 3.0 calculations for the entire off-site" %}
 
@@ -13,7 +13,7 @@
 
       <p>This should include the baseline and post development data for the off-site only, and not the developer on-site data.</p>
       
-      <form method="post" action="/register-application/{{ pageURL }}/habitat-metric-check">
+      <form method="post" action="/register-application/{{data['version']}}/habitat-metric-check">
 
         {{ govukFileUpload({
           id: "habitat-metric-upload",

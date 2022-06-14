@@ -2,7 +2,7 @@
 
 {% set serviceName = "Register land for off-site biodiversity gain" %}
 {% set serviceUrl = "" %}
-{% set pageURL = "v9" %}
+
 {% set hideSaveSection = true %}
 {% set govukcss = true %}
 
@@ -50,7 +50,7 @@
         </h1>
       </div>
 
-        {% include "register-application/v9/includes/contents-nav.html" %}
+        {% include "register-application/" + data['version'] + "/includes/contents-nav.html" %}
 
       </div>
 
@@ -64,20 +64,20 @@
           {% block guideContent %}
           {% endblock %} 
 
-          {% include "register-application/v9/includes/get-help.html" %}
+          {% include "register-application/" + data['version'] + "/includes/get-help.html" %}
           
         </div>
 
-        {% include "register-application/v9/includes/pagination.html" %}
-        {% include "register-application/v9/includes/print.html" %}
+        {% include "register-application/" + data['version'] + "/includes/pagination.html" %}
+        {% include "register-application/" + data['version'] + "/includes/print.html" %}
         
       </div>
 
-      {% include "register-application/v9/includes/related-content.html" %}
+      {% include "register-application/" + data['version'] + "/includes/related-content.html" %}
 
   </div>
 
-  {% include "register-application/v9/includes/contextual-footer.html" %}
+  {% include "register-application/" + data['version'] + "/includes/contextual-footer.html" %}
 
 </div>
 

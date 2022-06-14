@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Register a biodiversity gain site" %}
 
@@ -83,7 +83,7 @@
           <ul class="app-task-list__items">
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
+                <a href="/register-application/{{ data['version'] }}/payment" aria-describedby="eligibility-status">
                   Pay the application fee
                 </a>
               </span>

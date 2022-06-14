@@ -1,19 +1,19 @@
-{% extends "register-application/v9/start-page-guide-template.html" %}
+{% extends "register-application/" + data['version'] + "/start-page-guide-template.html" %}
 
 {% set pageHeading = "Overview" %}
 
-{% set pageURL = "v9" %}
+
 
 {% set nextPageName = "Add land information" %}
-{% set nextPageURL = "/register-application/" + pageURL + "/start-part-2" %}
+{% set nextPageURL = "/register-application/{{ data['version'] }}/start-part-2" %}
 
 {% block guideContent %}
 
   <p>How to register land used for biodiversity gain that is linked to a development.</p>
 
   <ol class="steps">
-    <li><p><a href="/register-application/{{ pageURL }}/start-part-2">Add land information</a>.</p></li>
-    <li><p><a href="/register-application/{{ pageURL }}/start-part-3">Add development information</a>.</p></li>
+    <li><p><a href="/register-application/{{ data['version'] }}/start-part-2">Add land information</a>.</p></li>
+    <li><p><a href="/register-application/{{ data['version'] }}/start-part-3">Add development information</a>.</p></li>
   </ol>
 
   <p>It costs £240 to register. You can pay by debit or credit card.</p>

@@ -1,4 +1,4 @@
-{% extends "register-application/v4/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Register land as a site for habitat enhancement" %}
 
@@ -36,7 +36,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/landowner" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ data['version'] }}/landowner" aria-describedby="landowner-permission-status">
                   Landowner consent
                 </a>
               </span>
@@ -49,7 +49,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="location-status">
+                <a href="/register-application/{{ data['version'] }}/location-options" aria-describedby="location-status">
                   Land boundary
                 </a>
               </span>
@@ -64,7 +64,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/interested-third-parties" aria-describedby="interested-third-parties-status">
+                <a href="/register-application/{{ data['version'] }}/interested-third-parties" aria-describedby="interested-third-parties-status">
                   Interested third parties
                 </a>
               </span>
@@ -77,7 +77,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/metric" aria-describedby="biodiversity-metric-status">
+                <a href="/register-application/{{ data['version'] }}/metric" aria-describedby="biodiversity-metric-status">
                   Biodiversity metric 3.0
                 </a>
               </span>
@@ -90,7 +90,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
+                <a href="/register-application/{{ data['version'] }}/legal-agreement" aria-describedby="legal-agreement-status">
                   Legal agreement
                 </a>
               </span>
@@ -103,7 +103,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="land-management-status">
+                <a href="/register-application/{{ data['version'] }}/management-plan" aria-describedby="land-management-status">
                   Management and monitoring plan
                 </a>
               </span>
@@ -125,7 +125,7 @@
             <li class="app-task-list__item">
               {% if data['landowner'] == 'yes' and data['location-confirm'] and data['interested-third-parties'] and data['metric-correct'] and data['legal-agreement-correct'] and data['management-plan-correct'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/development-local-authority" aria-describedby="allocated-developments-status">
+                <a href="/register-application/{{ data['version'] }}/development-local-authority" aria-describedby="allocated-developments-status">
                   Planning reference number
                 </a>
               </span>
@@ -153,7 +153,7 @@
               {% if data['development-confirm'] %}
                 
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/payment" aria-describedby="eligibility-status">
+                <a href="/register-application/{{ data['version'] }}/payment" aria-describedby="eligibility-status">
                   Pay the application fee
                 </a>
               </span>
@@ -175,7 +175,7 @@
             <li class="app-task-list__item">
               {% if data['payment-success'] %}
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/declaration" aria-describedby="submit-application">
+                <a href="/register-application/{{ data['version'] }}/declaration" aria-describedby="submit-application">
                   Submit the application
                 </a>
               </span>

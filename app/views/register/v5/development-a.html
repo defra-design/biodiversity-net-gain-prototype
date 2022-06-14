@@ -1,5 +1,6 @@
 
-{% extends "register/v5/layout-register.html" %}
+<!--{% extends "register/" + data['version'] + "/layout-register.html" %}-->
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set map = true %}
 
@@ -18,7 +19,7 @@
     <div class="govuk-grid-column-full">
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
         <span class="govuk-caption-xl">Development project</span>
-         {{ pageHeading }}
+         {{ pageHeading }}  {{data['version']}}
       </h1>
 
       <p class="govuk-body-s app-secondary-text-colour govuk-!-margin-bottom-7">Added to the BNG Register on 7 March 2022</p>
@@ -26,6 +27,7 @@
       <div id="development" class="map map--location" tabindex="0">
       </div>
 
+    
       {{ govukSummaryList({
         rows: [
         {
@@ -213,7 +215,7 @@
       <ul class="govuk-list">
         <li>
           <h3 class="app-search-results__title govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Off-site reference:</span> 
-            <a href="/register/{{ pageURL }}/offsite-a" class="app-search-results__item-title">BNG-220115001</a>
+            <a href="/register/" + data['version'] + "/offsite-a" class="app-search-results__item-title">BNG-220115001</a>
           </h3>
           <p class="app-secondary-text-colour govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Location:</span> Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ</p>
           <p class="govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Local planning authority:</span> Leeds City Council</p>
@@ -222,7 +224,7 @@
       </ul>
       
 
-      {% include "register/v5/includes/start-new-search.html" %}
+      {% include "register/" + data['version'] + "/includes/start-new-search.html" %}
 
     </div>
   </div>

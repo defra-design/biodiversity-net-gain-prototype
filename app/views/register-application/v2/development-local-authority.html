@@ -1,4 +1,4 @@
-{% extends "register-application/v2/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Local planning authority" %}
 
@@ -20,7 +20,7 @@
 
   <h2 class="govuk-heading-l moj-add-another__heading" tabindex="-1">Add developments allocated to the biodiversity gain site</h2>
 
-  <form method="post" action="/register-application/{{ pageURL }}/task-list">
+  <form method="post" action="/register-application/{{data['version']}}/task-list">
 
     {% call govukFieldset({
       classes: 'moj-add-another__item',

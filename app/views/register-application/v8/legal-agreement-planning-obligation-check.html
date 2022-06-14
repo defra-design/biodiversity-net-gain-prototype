@@ -1,4 +1,4 @@
-{% extends "register-application/v8/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check your file" %}
 
@@ -27,7 +27,7 @@
         ]
       }) }}
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-correct-answer">
+      <form method="post" action="/register-application/{{data['version']}}/legal-agreement-planning-obligation-correct-answer">
 
         {{ govukRadios({
           idPrefix: "legal-agreement-planning-obligation-correct",

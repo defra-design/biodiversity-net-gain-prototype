@@ -1,4 +1,4 @@
-{% extends "register-application/v2/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check the details from the biodiversity metric calculation tool" %}
 
@@ -79,7 +79,7 @@
         </tbody>
       </table>
 
-      <form method="post" action="/register-application/{{ pageURL }}/metric-correct-answer">
+      <form method="post" action="/register-application/{{data['version']}}/metric-correct-answer">
 
         {{ govukRadios({
           idPrefix: "metric-correct",

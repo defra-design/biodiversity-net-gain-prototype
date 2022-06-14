@@ -1,4 +1,4 @@
-{% extends "register-application/v9/development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/development/layout-register-application.html" %}
 
 {% set pageHeading = "Enter card details" %}
 
@@ -17,7 +17,7 @@
 
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/confirmation">
+      <form method="post" action="/register-application/{{data['version']}}/confirmation">
 
         {% call govukFieldset({
           legend: {

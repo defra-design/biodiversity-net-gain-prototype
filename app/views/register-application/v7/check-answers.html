@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check and confirm your answers" %}
 
@@ -24,7 +24,7 @@
               <a download href="#">landowner-consent-evidence.pdf</a>, 1.1MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-permission-check">
+              <a class="govuk-link" href="/register-application/{{ data['version'] }}/landowner-permission-check">
                 Change<span class="govuk-visually-hidden"> Landowner consent</span>
               </a>
             </dd>
@@ -42,7 +42,7 @@
               <p>Freehold</p>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/land-registry-confirm">
+              <a class="govuk-link" href="/register-application/{{ data['version'] }}/land-registry-confirm">
                 Change<span class="govuk-visually-hidden"> HM Land Registry</span>
               </a>
             </dd>
@@ -56,7 +56,7 @@
               <a download href="#">ownership-certificate.pdf</a>, 1.6MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/land-ownership-certificate-check">
+              <a class="govuk-link" href="/register-application/{{ data['version'] }}/land-ownership-certificate-check">
                 Change<span class="govuk-visually-hidden"> Ownership certificate</span>
               </a>
             </dd>
@@ -71,7 +71,7 @@
             <img src="/public/images/location-confirm.png" alt="" width="100%" style="border: 1px solid #b1b4b6;">
           </dd>
           <dd class="govuk-summary-list__actions" style="vertical-align:top;">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/location-confirm">
+            <a class="govuk-link" href="/register-application/{{ data['version'] }}/location-confirm">
               Change<span class="govuk-visually-hidden"> Land boundary</span>
             </a>
           </dd>
@@ -85,7 +85,7 @@
             <a download href="#">habitat-management-plan.pdf</a>, 1MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-check">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
             </a>
           </dd>
@@ -104,7 +104,7 @@
             21/02367/FUL, <br>{{ data['input-autocomplete'] or 'York City Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-planning-ref-search">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/development-planning-ref-search">
               Change<span class="govuk-visually-hidden"> Planning reference</span>
             </a>
           </dd>
@@ -118,7 +118,7 @@
             <a download href="#">metric_3.0_21/02367/FUL.xlsm</a>, 4.1MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-upload-check">
+            <a class="govuk-link" href="/register-application/{{ data['version'] }}/metric-upload-check">
               Change<span class="govuk-visually-hidden"> Biodiversity Metric 3.0</span>
             </a>
           </dd>
@@ -133,7 +133,7 @@
               <a download href="#">conservation-covenant.pdf</a>, 1MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/legal-agreement-conservation-check">
+              <a class="govuk-link" href="/register-application/{{ data['version'] }}/legal-agreement-conservation-check">
                 Change<span class="govuk-visually-hidden"> Conservation covenant</span>
               </a>
             </dd>
@@ -147,7 +147,7 @@
               <a download href="#">financial-agreement.pdf</a>, 1.2MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-financial-check">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/legal-agreement-financial-check">
                 Change<span class="govuk-visually-hidden"> Financial agreement</span>
               </a>
             </dd>
@@ -161,7 +161,7 @@
               <a download href="#">planning-obligation.pdf</a>, 1.2MB
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-check">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ data['version'] }}/legal-agreement-planning-obligation-check">
                 Change<span class="govuk-visually-hidden"> Planning obligation</span>
               </a>
             </dd>
@@ -174,7 +174,7 @@
 
       <p class="govuk-body">By accepting you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form action="/register-application/{{ pageURL }}/payment-card" method="post" novalidate>
+      <form action="/register-application/{{data['version']}}/payment-card" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 

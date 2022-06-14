@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload the biodiversity Metric 3.0 calculations for the whole land" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/metric-upload-baseline-check">
+      <form method="post" action="/register-application/{{data['version']}}/metric-upload-baseline-check">
 
         {{ govukFileUpload({
           id: "metric-upload-baseline",

@@ -1,4 +1,4 @@
-{% extends "register/v1/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "Metric calculation" %}
 
@@ -86,7 +86,7 @@
       <div class="app-table-responsive govuk-!-padding-top-5">
         <table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Offsite change by broad habitat type
-            <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/{{ pageURL }}/gain-site-b">Biodiversity gain site 14903</a></span>
+            <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0"><a href="/register/" + data['version'] + "/gain-site-b">Biodiversity gain site 14903</a></span>
           
           </caption>
           <thead class="govuk-table__head">
@@ -339,7 +339,7 @@
         </table>
       </div>
 
-      {% include "register/v1/includes/start-new-search.html" %}
+      {% include "register/" + data['version'] + "/includes/start-new-search.html" %}
 
     </div>
   </div>

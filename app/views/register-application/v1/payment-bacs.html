@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Pay the registration fee" %}
 
@@ -70,7 +70,7 @@
       <p><a href="#">Download invoice</a> (PDF, 25MB)</p>
 
 
-      <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer" class="govuk-!-padding-top-5">
+      <form method="post" action="/register-application/{{data['version']}}/payment-bacs-answer" class="govuk-!-padding-top-5">
 
         {{ govukRadios({
           idPrefix: "payment-bacs-paid",

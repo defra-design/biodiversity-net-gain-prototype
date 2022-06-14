@@ -1,6 +1,6 @@
 {% set serviceName = "Biodiversity net gain register" %}
-{% set serviceUrl = "/register/v3/search" %}
-{% set pageURL = "v3" %}
+{% set serviceUrl = "/register/" + data['version'] + "/search" %}
+
 
 {% extends "../../layout.html" %}
 

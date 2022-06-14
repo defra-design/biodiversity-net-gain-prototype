@@ -1,4 +1,4 @@
-{% extends "register/v1/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "Biodiversity units" %}
 
@@ -480,7 +480,7 @@
         </tbody>
       </table>
 
-      {% include "register/v1/includes/start-new-search.html" %}
+      {% include "register/" + data['version'] + "/includes/start-new-search.html" %}
 
     </div>
   </div>

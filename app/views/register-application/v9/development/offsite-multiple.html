@@ -1,4 +1,4 @@
-{% extends "register-application/v9/development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/development/layout-register-application.html" %}
 
 {% set pageHeading = "Is the development using more than 1 off-site?" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/offsite-multiple-answer">
+      <form method="post" action="/register-application/{{data['version']}}/offsite-multiple-answer">
 
         {{ govukRadios({
           idPrefix: "offsite-multiple",

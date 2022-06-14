@@ -1,4 +1,4 @@
-{% extends "register-application/v4/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Is the organisation registered with Companies House?" %}
 
@@ -7,7 +7,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible-business-companies-house-number">
+      <form method="post" action="/register-application/{{data['version']}}/land-works-responsible-business-companies-house-number">
 
         {{ govukRadios({
           idPrefix: "land-works-responsible-business-companies-house",

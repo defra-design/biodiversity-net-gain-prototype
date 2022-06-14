@@ -1,5 +1,5 @@
 
-{% extends "register/v3/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "21/02367/FUL" %}
 
@@ -46,7 +46,7 @@
       <ul class="govuk-list">
         <li class="govuk-!-margin-bottom-4">
           <span class="govuk-visually-hidden">Site reference:</span> 
-          <a href="/register/{{ pageURL }}/offsite-a" class="">BNG-220115001</a>
+          <a href="/register/" + data['version'] + "/offsite-a" class="">BNG-220115001</a>
           <p class="govuk-!-padding-top-1">
             <span class="govuk-visually-hidden">Location:</span> 
             Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ
@@ -54,7 +54,7 @@
         </li>
         <li>
           <span class="govuk-visually-hidden">Site reference:</span> 
-          <a href="/register/{{ pageURL }}/offsite-a" class="">BNG-220129102</a>
+          <a href="/register/" + data['version'] + "/offsite-a" class="">BNG-220129102</a>
           <p class="govuk-!-padding-top-1">
             <span class="govuk-visually-hidden">Location:</span> 
             Clifton View, Hillings Ln, Ilkley LS20 6AX
@@ -70,7 +70,7 @@
         <li><a download href="#">Complete Biodiversity Metric 3.0 Calculations (Excel, 4.2MB)</a></li>
       </ul>
 
-      {% include "register/v3/includes/start-new-search.html" %}
+      {% include "register/" + data['version'] + "/includes/start-new-search.html" %}
 
     </div>
   </div>

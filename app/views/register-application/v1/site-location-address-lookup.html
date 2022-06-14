@@ -1,6 +1,6 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 ter a biodiversity gain site" %}
-{% set pageURL = "v1" %}
+
 {% set pageHeading = "Where is the location of the biodiversity gain site?" %}
 
 {% block beforeContent %}
@@ -20,9 +20,9 @@ ter a biodiversity gain site" %}
       </h1>
 
       <h2 class="govuk-heading-m">Postcode</h2>
-      <p><span class="govuk-!-margin-right-1" style="text-transform: uppercase;">LS20 8PJ</span> <a href="/register-application/{{ pageURL }}/site-location-postcode">Change <span class="govuk-visually-hidden">Postcode</span></a></p>
+      <p><span class="govuk-!-margin-right-1" style="text-transform: uppercase;">LS20 8PJ</span> <a href="/register-application/{{ data['version'] }}/site-location-postcode">Change <span class="govuk-visually-hidden">Postcode</span></a></p>
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list-3">
+      <form method="post" action="/register-application/{{data['version']}}/task-list-3">
 
         {{ govukRadios({
           idPrefix: "site-address",
@@ -52,7 +52,7 @@ ter a biodiversity gain site" %}
           ]
         }) }}
 
-        <p><a href="/register-application/{{ pageURL }}/site-location-address-manual">I can't find the address in the list</a></p>
+        <p><a href="/register-application/{{ data['version'] }}/site-location-address-manual">I can't find the address in the list</a></p>
 
         {{ govukButton({
           text: "Continue"

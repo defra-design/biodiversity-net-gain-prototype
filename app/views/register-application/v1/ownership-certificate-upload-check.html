@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check the ownership certificate" %}
 
@@ -26,7 +26,7 @@
       
       <p class="govuk-body">ownership-certificate.jpg, 2MB</p>
       
-      <form method="post" action="/register-application/{{ pageURL }}/ownership-certificate-check-answer">
+      <form method="post" action="/register-application/{{data['version']}}/ownership-certificate-check-answer">
 
         {{ govukRadios({
           idPrefix: "ownership-certificate-correct",

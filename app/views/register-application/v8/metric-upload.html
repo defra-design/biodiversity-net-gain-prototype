@@ -1,4 +1,4 @@
-{% extends "register-application/v8/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload the developer Biodiversity Metric 3.0 calculations" %}
 
@@ -13,7 +13,7 @@
 
       <p>This should include the onsite and off-site calculations which were submitted to the Local Planning Authority, as part of the development plans.</p> 
       
-      <form method="post" action="/register-application/{{ pageURL }}/metric-upload-check">
+      <form method="post" action="/register-application/{{data['version']}}/metric-upload-check">
 
         {{ govukFileUpload({
           id: "metric-upload",

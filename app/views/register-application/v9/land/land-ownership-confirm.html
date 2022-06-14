@@ -1,4 +1,4 @@
-{% extends "register-application/v9/land/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/land/layout-register-application.html" %}
 
 {% set pageHeading = "Check your answers for land ownership" %}
 
@@ -19,7 +19,7 @@
             <a download href="#">landowner-consent-evidence.pdf</a>, 1.1MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-permission-check">
+            <a class="govuk-link" href="/register-application/{{ data['version'] }}/landowner-permission-check">
               Change<span class="govuk-visually-hidden"> Landowner consent</span>
             </a>
           </dd>
@@ -37,7 +37,7 @@
             <p>Freehold</p>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/land-registry-confirm">
+            <a class="govuk-link" href="/register-application/{{ data['version'] }}/land-registry-confirm">
               Change<span class="govuk-visually-hidden"> HM Land Registry</span>
             </a>
           </dd>
@@ -51,7 +51,7 @@
             <a download href="#">ownership-certificate.pdf</a>, 1.6MB
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/land-ownership-certificate-check">
+            <a class="govuk-link" href="/register-application/{{ data['version'] }}/land-ownership-certificate-check">
               Change<span class="govuk-visually-hidden"> Ownership certificate</span>
             </a>
           </dd>
@@ -60,7 +60,7 @@
       
       </dl>
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{data['version']}}/task-list">
         <input class="govuk-input" id="development-confirm" name="development-confirm" type="hidden" value="development-confirm">
 
         {{ govukButton({

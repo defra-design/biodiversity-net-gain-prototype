@@ -1,4 +1,4 @@
-{% extends "register-application/v4/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Confirm the land boundary" %}
 
@@ -52,7 +52,7 @@
       }) }}
 
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-confirm-answer">
+      <form method="post" action="/register-application/{{data['version']}}/location-rpa-confirm-answer">
 
         {{ govukRadios({
           idPrefix: "location-confirm",

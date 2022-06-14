@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check the data before you continue" %}
 
@@ -114,7 +114,7 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/metric-check-data-answer">
+      <form method="post" action="/register-application/{{data['version']}}/metric-check-data-answer">
 
         {{ govukRadios({
           idPrefix: "metric-check-data",

@@ -1,4 +1,4 @@
-{% extends "register-application/v5/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Come back after you complete the calculations" %}
 
@@ -15,7 +15,7 @@
 
       <p>We have saved the details you entered so far.</p>
 
-      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ pageURL }}/government-gateway-login">https://gov.uk/register-biodiversity-gain</a>.</p>
+      <p>You can save the following link and use it to return to your application: <a href="/register-application/{{ data['version'] }}/government-gateway-login">https://gov.uk/register-biodiversity-gain</a>.</p>
 
     </div>
   </div>

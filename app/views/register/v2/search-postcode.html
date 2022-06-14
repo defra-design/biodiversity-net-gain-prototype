@@ -1,4 +1,4 @@
-{% extends "register/v2/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "Search by postcode or street name" %}
 
@@ -10,7 +10,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register/{{ pageURL }}/search-answer">
+      <form method="post" action="/register/{{data['version']}}/search-answer">
 
         {{ govukInput({
           label: {
@@ -39,8 +39,8 @@
 
       <h2 class="govuk-heading-m">Other ways to search</h2>
       <ul class="govuk-list">
-        <li><a href="/register/{{ pageURL }}/search-site-ref">Search by off-site reference number</a></li>
-        <li><a href="/register/{{ pageURL }}/search-planning-ref">Search by planning reference number</a></li>
+        <li><a href="/register/" + data['version'] + "/search-site-ref">Search by off-site reference number</a></li>
+        <li><a href="/register/" + data['version'] + "/search-planning-ref">Search by planning reference number</a></li>
       </ul>
 
     </div>

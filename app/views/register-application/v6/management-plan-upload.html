@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload your habitat management and monitoring plan for the off-site biodiversity gain" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/management-plan-check">
+      <form method="post" action="/register-application/{{data['version']}}/management-plan-check">
 
         {{ govukFileUpload({
           id: "management-plan-upload",

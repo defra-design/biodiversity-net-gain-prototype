@@ -1,4 +1,4 @@
-{% extends "register/v4/layout-register.html" %}
+{% extends "register/" + data['version'] + "/layout-register.html" %}
 
 {% set pageHeading = "Search the register" %}
 
@@ -11,7 +11,7 @@
     <div class="govuk-grid-column-two-thirds">
 
         <!-- Search box code taken from the GOV.UK website search -->
-        <form method="post" action="/register/{{ pageURL }}/search-answer" accept-charset="utf-8" class="search-header" role="search">
+        <form method="post" action="/register/{{data['version']}}/search-answer" accept-charset="utf-8" class="search-header" role="search">
           <div class="gem-c-search govuk-!-display-none-print  gem-c-search--large gem-c-search--on-white gem-c-search--separate-label" data-module="gem-toggle-input-class-on-focus">
             <label for="search-main" class="">
               <h1 class="gem-c-heading govuk-heading-xl govuk-!-margin-bottom-4">

@@ -1,4 +1,4 @@
-{% extends "register-application/v9/land/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/land/layout-register-application.html" %}
 
 {% set pageHeading = "Check that the baseline and proposed habitat information is correct" %}
 
@@ -37,7 +37,7 @@
               <td class="govuk-table__cell">2.40</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -50,7 +50,7 @@
               <td class="govuk-table__cell">1.25</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -63,7 +63,7 @@
               <td class="govuk-table__cell">0.50</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -95,7 +95,7 @@
               <td class="govuk-table__cell">0.18</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -107,7 +107,7 @@
               <td class="govuk-table__cell">0.50</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -144,7 +144,7 @@
               <td class="govuk-table__cell">4.15</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -176,7 +176,7 @@
               <td class="govuk-table__cell">0.68</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -215,13 +215,13 @@
       {{ govukButton({ 
         text: 'Add a habitat, hedgerow or river',
         classes: "govuk-button--secondary",
-        href: "/register-application/" + pageURL + "/habitat-add-stage"
+        href: "/register-application/{{ data['version'] }}/habitat-add-stage"
       }) }}
 
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{data['version']}}/task-list">
 
         <input type="hidden" name="habitat-checked-data" value="yes">
 
@@ -231,7 +231,7 @@
 
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/habitat" class="govuk-link--no-visited-state">Remove all data and start again</a></p>
+      <p><a href="/register-application/{{ data['version'] }}/habitat" class="govuk-link--no-visited-state">Remove all data and start again</a></p>
 
     </div>
   </div>

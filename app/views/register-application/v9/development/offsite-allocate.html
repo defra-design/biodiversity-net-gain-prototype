@@ -1,4 +1,4 @@
-{% extends "register-application/v9/development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/development/layout-register-application.html" %}
 
 {% set pageHeading = "Off-site habitats" %}
 
@@ -19,7 +19,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-planning-obligation-upload">
+      <form method="post" action="/register-application/{{data['version']}}/legal-agreement-planning-obligation-upload">
 
         <div class="app-table-responsive">
           <table class="govuk-table">

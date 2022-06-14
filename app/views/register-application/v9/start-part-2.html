@@ -1,19 +1,19 @@
-{% extends "register-application/v9/start-page-guide-template.html" %}
+{% extends "register-application/" + data['version'] + "/start-page-guide-template.html" %}
 
 {% set pageHeading = "Add land information" %}
 
-{% set pageURL = "v9" %}
+
 
 {% set previousPageName = "Overview" %}
-{% set previousPageURL = "/register-application/" + pageURL + "/start" %}
+{% set previousPageURL = "/register-application/{{ data['version'] }}/start" %}
 {% set nextPageName = "Add development information" %}
-{% set nextPageURL = "/register-application/" + pageURL + "/start-part-3" %}
+{% set nextPageURL = "/register-application/{{ data['version'] }}/start-part-3" %}
 
 {% block guideContent %}
 
   {{ govukButton({
     text: "Start now",
-    href: "/register-application/v9/land/eligible-before-you-start",
+    href: "/register-application/{{ data['version'] }}/land/eligible-before-you-start",
     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
     isStartButton: true
   }) }}

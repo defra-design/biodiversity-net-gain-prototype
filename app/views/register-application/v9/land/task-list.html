@@ -1,4 +1,4 @@
-{% extends "register-application/v9/land/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/land/layout-register-application.html" %}
 
 {% set pageHeading = serviceName %}
 
@@ -35,11 +35,11 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['landowner'] == 'yes' and data['land-registry'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/land-registry-search" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/land-registry-search" aria-describedby="landowner-permission-status">
                 {% elif data['landowner'] == 'yes' and data['land-registry'] == 'no' %}
-                  <a href="/register-application/{{ pageURL }}/land-ownership-certificate-upload" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/land-ownership-certificate-upload" aria-describedby="landowner-permission-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/landowner-permission-upload" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/landowner-permission-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
                     Provide land ownership information
                   </a>
@@ -53,7 +53,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="landowner-permission-status">
+                <a href="/register-application/{{ data['version'] }}/location-options" aria-describedby="landowner-permission-status">
                   Upload off-site boundary
                 </a>
               </span>
@@ -67,9 +67,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['habitat-checked-data'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/habitat-check-data" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/habitat-check-data" aria-describedby="landowner-permission-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/habitat" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Provide habitat information
                 </a>
@@ -84,9 +84,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['management-plan-correct'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-check" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/management-plan-check" aria-describedby="landowner-permission-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/management-plan-upload" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Upload habitat management and monitoring plan
                 </a>
@@ -110,9 +110,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['legal-agreement-conservation-correct'] == 'yes' %} 
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-conservation-check" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/legal-agreement-conservation-check" aria-describedby="landowner-permission-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="landowner-permission-status">
+                  <a href="/register-application/{{ data['version'] }}/legal-agreement" aria-describedby="landowner-permission-status">
                 {% endif %} 
                   Legal agreement
                 </a>
@@ -136,7 +136,7 @@
             <li class="app-task-list__item">
               {% if data['land-ownership-correct'] and  data['location-confirm'] and data['habitat-checked-data'] == 'yes' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-conservation-correct']  or data['land-ownership-correct'] and  data['location-confirm'] and data['habitat-checked-data'] == 'yes' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-no'] %}
                 <span class="app-task-list__task-name">
-                  <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application">
+                  <a href="/register-application/{{ data['version'] }}/check-answers" aria-describedby="submit-application">
                     Check your answers and submit information
                   </a>
                 </span>

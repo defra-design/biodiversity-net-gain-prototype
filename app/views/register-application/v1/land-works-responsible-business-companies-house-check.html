@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Are these the correct registered company details?" %}
 
@@ -24,7 +24,7 @@
 
       <p>1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
 
-      <p>Company number 01234567.  <a href="/register-application/{{ pageURL }}/land-works-responsible-business-companies-house-number">Enter a different number</a>.</p>
+      <p>Company number 01234567.  <a href="/register-application/{{ data['version'] }}/land-works-responsible-business-companies-house-number">Enter a different number</a>.</p>
 
       <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
@@ -38,7 +38,7 @@
         </div>
       </details>
 
-      <form method="post" action="/register-application/{{ pageURL }}/land-works-responsible-business-contact">
+      <form method="post" action="/register-application/{{data['version']}}/land-works-responsible-business-contact">
 
         {{ govukButton({
             text: "Continue"

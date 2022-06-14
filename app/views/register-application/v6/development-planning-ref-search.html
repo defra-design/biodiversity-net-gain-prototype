@@ -1,4 +1,4 @@
-{% extends "register-application/v6/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Find a planning application" %}
 
@@ -9,7 +9,7 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/development-planning-ref-select">
+      <form method="post" action="/register-application/{{data['version']}}/development-planning-ref-select">
 
         {{ govukInput({
           label: {

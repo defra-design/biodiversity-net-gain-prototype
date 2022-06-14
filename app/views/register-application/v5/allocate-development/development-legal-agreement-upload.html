@@ -1,4 +1,4 @@
-{% extends "register-application/v5/allocate-development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/allocate-development/layout-register-application.html" %}
 
 {% set pageHeading = "Upload your planning legal agreement" %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/development-legal-agreement-check">
+      <form method="post" action="/register-application/{{data['version']}}/allocate-development/development-legal-agreement-check">
 
         {{ govukFileUpload({
           id: "legal-agreement-upload",

@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check the data before you continue" %}
 
@@ -36,7 +36,7 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -47,7 +47,7 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -58,7 +58,7 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -91,7 +91,7 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-hedgerow" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-hedgerow" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -102,7 +102,7 @@
               <td class="govuk-table__cell">Poor</td>
               <td class="govuk-table__cell">
                 <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-hedgerow" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
+                  <a href="/register-application/{{ data['version'] }}/habitat-add-hedgerow" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
                   <a href="#" class="app-link--red">Remove</a>
                 </div>
               </td>
@@ -120,13 +120,13 @@
       {{ govukButton({ 
         text: 'Add a habitat, hedgerow or river',
         classes: "govuk-button--secondary",
-        href: "/register-application/" + pageURL + "/habitat-add"
+        href: "/register-application/{{ data['version'] }}/habitat-add"
       }) }}
 
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{data['version']}}/task-list">
 
         <input type="hidden" name="habitat-checked-data" value="yes">
 
@@ -136,7 +136,7 @@
 
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/habitat" class="govuk-link--no-visited-state">Remove all data and start again</a></p>
+      <p><a href="/register-application/{{ data['version'] }}/habitat" class="govuk-link--no-visited-state">Remove all data and start again</a></p>
 
     </div>
   </div>

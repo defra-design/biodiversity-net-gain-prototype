@@ -1,4 +1,4 @@
-{% extends "register-application/v5/allocate-development/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/allocate-development/layout-register-application.html" %}
 
 {% set pageHeading = "Find land on the Biodiversity gain site register" %}
 
@@ -9,7 +9,7 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-development/site-confirm">
+      <form method="post" action="/register-application/{{data['version']}}/allocate-development/site-confirm">
 
         {{ govukInput({
           label: {

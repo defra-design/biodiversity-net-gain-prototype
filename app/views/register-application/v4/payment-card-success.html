@@ -1,4 +1,4 @@
-{% extends "register-application/v4/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Payment successful" %}
 
@@ -16,7 +16,7 @@
 
       <p>The application fee has been paid.</p>
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{data['version']}}/task-list">
 
         <input class="govuk-input" id="payment-success" name="payment-success" type="hidden" value="paid">
 

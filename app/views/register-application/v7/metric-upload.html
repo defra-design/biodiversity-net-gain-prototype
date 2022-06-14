@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Upload the developer Biodiversity Metric 3.0 calculations" %}
 
@@ -13,7 +13,7 @@
 
       <p>This should include the onsite and off-site, baseline and post development data as completed for development 21/02367/FUL (York City Council).</p> 
       
-      <form method="post" action="/register-application/{{ pageURL }}/metric-upload-check">
+      <form method="post" action="/register-application/{{data['version']}}/metric-upload-check">
 
         {{ govukFileUpload({
           id: "metric-upload",

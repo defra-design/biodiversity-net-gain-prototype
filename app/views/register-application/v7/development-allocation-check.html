@@ -1,4 +1,4 @@
-{% extends "register-application/v7/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Land allocated to development 21/02367/FUL" %}
 
@@ -108,7 +108,7 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocate-check-data-answer">
+      <form method="post" action="/register-application/{{data['version']}}/allocate-check-data-answer">
 
         {{ govukRadios({
           idPrefix: "allocate-check-data",

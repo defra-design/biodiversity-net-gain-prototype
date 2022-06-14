@@ -1,4 +1,4 @@
-{% extends "register-application/v1/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "Check the planning reference number is correct" %}
 
@@ -24,7 +24,7 @@
 
       <hr>
       
-      <form method="post" action="/register-application/{{ pageURL }}/metric-correct-answer">
+      <form method="post" action="/register-application/{{data['version']}}/metric-correct-answer">
 
         {{ govukRadios({
           idPrefix: "planning-ref-correct",

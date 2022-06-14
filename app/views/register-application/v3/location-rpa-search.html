@@ -1,4 +1,4 @@
-{% extends "register-application/v3/layout-register-application.html" %}
+{% extends "register-application/" + data['version'] + "/layout-register-application.html" %}
 
 {% set pageHeading = "What is your Single Business Identifier (SBI) number?" %}
 
@@ -18,7 +18,7 @@
         {{ pageHeading }}
       </h1>
 
-      <form method="post" action="/register-application/{{ pageURL }}/location-rpa-select">
+      <form method="post" action="/register-application/{{data['version']}}/location-rpa-select">
 
         {{ govukInput({
           label: {
