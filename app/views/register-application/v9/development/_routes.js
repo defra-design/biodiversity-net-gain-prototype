@@ -91,7 +91,7 @@ router.post('/legal-agreement-planning-obligation-correct-answer', function (req
   var install = req.session.data['legal-agreement-planning-obligation-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v9/development/legal-agreement-planning-obligation-upload')
+    res.redirect('/register-application/v9/development/upload-planning-obligation')
   } else {
     res.redirect('/register-application/v9/development/offsite-confirm')
   }
@@ -151,7 +151,7 @@ router.post('/offsite-multiple-answer', function (req, res) {
   var install = req.session.data['offsite-multiple']
 
   if (install == "no"){
-    res.redirect('/register-application/v9/development/legal-agreement-planning-obligation-upload')
+    res.redirect('/register-application/v9/development/upload-planning-obligation')
   } else {
     res.redirect('/register-application/v9/development/offsite-allocate')
   }
