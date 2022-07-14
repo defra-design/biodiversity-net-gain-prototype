@@ -163,3 +163,23 @@ $govuk-assets-path: '/govuk/assets/';
 .app-table__cell--grey {
   background-color: #f3f2f1;
 }
+
+// app-summary-list
+
+.app-summary-list__actions-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.app-summary-list__actions-item{
+  display: inline;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+.app-summary-list__actions-item:not(:last-child) {
+  border-right: 1px solid #b1b4b6;
+}
