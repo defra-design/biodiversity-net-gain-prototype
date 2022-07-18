@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Check that the baseline and proposed habitat information is correct" %}
+{% set pageHeading = "Check that the Metric information is correct" %}
 
 {% block content %}
 
@@ -23,55 +23,37 @@
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Condition</th>
               <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
-              <th scope="col" class="govuk-table__header"><span class=" govuk-visually-hidden">Actions</span></th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Grassland 
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
+              <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">2.40</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Heathland and scrub 
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
+              <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">1.25</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Woodland and forest 
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
               </td>
+              <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">0.50</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
-              <td class="govuk-table__cell">4.15</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell">4.15</td>
             </tr>
           </tbody>
         </table>
@@ -82,40 +64,26 @@
           <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Condition</th>
               <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
-              <th scope="col" class="govuk-table__header"><span class=" govuk-visually-hidden">Actions</span></th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span>
-              </td>
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell">0.18</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Line of trees
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
-              </td>
+              <td scope="row" class="govuk-table__cell">Line of trees</td>
+              <td class="govuk-table__cell">Poor</td>
               <td class="govuk-table__cell">0.50</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
-              <td class="govuk-table__cell">0.68</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell">0.68</td>
             </tr>
           </tbody>
         </table>
@@ -130,29 +98,23 @@
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Habitat type</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Condition</th>
               <th scope="col" class="govuk-table__header" style="width:30%">Area (ha)</th>
-              <th scope="col" class="govuk-table__header"><span class=" govuk-visually-hidden">Actions</span></th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Grassland 
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
               </td>
+              <td class="govuk-table__cell">Poor</td>
               <td class="govuk-table__cell">4.15</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
-              <td class="govuk-table__cell">4.15</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell">4.15</td>
             </tr>
           </tbody>
         </table>
@@ -163,28 +125,21 @@
           <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type and condition</th>
+              <th scope="col" class="govuk-table__header" style="width:40%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Condition</th>
               <th scope="col" class="govuk-table__header" style="width:30%">Length (km)</th>
-              <th scope="col" class="govuk-table__header"><span class=" govuk-visually-hidden">Actions</span></th>
             </tr>
           </thead>
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
-              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
-                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Poor condition</span>
-              </td>
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td class="govuk-table__cell">Poor</td>
               <td class="govuk-table__cell">0.68</td>
-              <td class="govuk-table__cell">
-                <div class="app-table--actions">
-                  <a href="/register-application/{{ pageURL }}/habitat-add-habitat" class="govuk-!-margin-right-1 govuk-link--no-visited-state app-link--action-top">Edit</a>
-                  <a href="#" class="app-link--red">Remove</a>
-                </div>
-              </td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
-              <td class="govuk-table__cell">0.68</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              <td class="govuk-table__cell">0.68</td>
             </tr>
           </tbody>
         </table>
@@ -212,12 +167,6 @@
         ]
       }) }}
 
-      {{ govukButton({ 
-        text: 'Add a habitat, hedgerow or river',
-        classes: "govuk-button--secondary",
-        href: "/register-application/" + pageURL + "/habitat-add-stage"
-      }) }}
-
     </div>
     <div class="govuk-grid-column-two-thirds">
 
@@ -231,7 +180,7 @@
 
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/habitat" class="govuk-link--no-visited-state">Remove all data and start again</a></p>
+      <p><a href="/register-application/{{ pageURL }}/habitat" class="govuk-link--no-visited-state">Upload a different Metric</a></p>
 
     </div>
   </div>

@@ -28,33 +28,14 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Land and habitat information
+            <span class="app-task-list__section-number">1. </span> Land boundary and ownership
           </h2>
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['landowner'] == 'yes' and data['land-registry'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/land-registry-search" aria-describedby="habitat-information-status">
-                {% elif data['landowner'] == 'yes' and data['land-registry'] == 'no' %}
-                  <a href="/register-application/{{ pageURL }}/land-ownership-certificate-upload" aria-describedby="habitat-information-status">
-                {% else %}
-                  <a href="/register-application/{{ pageURL }}/landowner-permission-upload" aria-describedby="habitat-information-status">
-                {% endif %} 
-                    Provide land ownership information
-                  </a>
-              </span>
-              {% if data['land-ownership-correct'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
-              {% endif %} 
-            </li>
-
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="boundary-status">
-                  Upload off-site boundary
+                  Land boundary
                 </a>
               </span>
               {% if data['location-confirm'] %}
@@ -66,12 +47,40 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['habitat-checked-data'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/habitat-check-data" aria-describedby="habitat-data-status">
+                {% if data['landowner'] == 'yes' and data['land-registry'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/land-registry-search" aria-describedby="habitat-information-status">
+                {% elif data['landowner'] == 'yes' and data['land-registry'] == 'no' %}
+                  <a href="/register-application/{{ pageURL }}/land-ownership-certificate-upload" aria-describedby="habitat-information-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/habitat" aria-describedby="habitat-data-status">
+                  <a href="/register-application/{{ pageURL }}/landowner-permission-upload" aria-describedby="habitat-information-status">
                 {% endif %} 
-                  Provide habitat information
+                    Land ownership
+                  </a>
+              </span>
+              {% if data['land-ownership-correct'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            <span class="app-task-list__section-number">2. </span> Habitat information
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['habitat-checked-data'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/metric-data-confirm" aria-describedby="habitat-data-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="habitat-data-status">
+                {% endif %} 
+                  Biodiversity Metric data
                 </a>
               </span>
               {% if data['habitat-checked-data'] == 'yes' %}
@@ -81,29 +90,12 @@
               {% endif %} 
             </li>
 
-            <li class="app-task-list__item">
-              <span class="app-task-list__task-name">
-                {% if data['management-plan-correct'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-check" aria-describedby="management-plan-status">
-                {% else %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="management-plan-status">
-                {% endif %} 
-                  Upload habitat management and monitoring plan
-                </a>
-              </span>
-              {% if data['management-plan-correct'] == 'yes' %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="management-plan-status">Completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="management-plan-status">Not started</strong>
-              {% endif %} 
-            </li>
-
           </ul>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Legal agreement
+            <span class="app-task-list__section-number">3. </span> Legal information
           </h2>
           <ul class="app-task-list__items">
 
@@ -124,12 +116,29 @@
               {% endif %} 
             </li>
 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['management-plan-correct'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/management-plan-check" aria-describedby="management-plan-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="management-plan-status">
+                {% endif %} 
+                  Habitat Management and Monitoring Plan
+                </a>
+              </span>
+              {% if data['management-plan-correct'] == 'yes' %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="management-plan-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="management-plan-status">Not started</strong>
+              {% endif %} 
+            </li>
+
           </ul>
         </li>
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Check and submit
+            <span class="app-task-list__section-number">4. </span> Check and submit
           </h2>
           <ul class="app-task-list__items">
 

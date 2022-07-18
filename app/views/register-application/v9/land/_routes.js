@@ -267,53 +267,16 @@ router.post('/location-upload-confirm-answer', function (req, res) {
   }
 })
 
-// Habitat
-router.post('/habitat-answer', function (req, res) {
-
-  var install = req.session.data['habitat']
-
-  if (install == "metric"){
-    res.redirect('/register-application/v9/land/habitat-metric-upload')
-  } else {
-    res.redirect('/register-application/v9/land/habitat-add-stage')
-  }
-})
-
-// Habitat
-router.post('/habitat-answer', function (req, res) {
-
-  var install = req.session.data['habitat']
-
-  if (install == "metric"){
-    res.redirect('/register-application/v9/land/habitat-metric-upload')
-  } else {
-    res.redirect('/register-application/v9/land/habitat-add')
-  }
-})
-
-// Habitat add
-router.post('/habitat-add-answer', function (req, res) {
-
-  var install = req.session.data['habitat-add']
-
-  if (install == "river"){
-    res.redirect('/register-application/v9/land/habitat-add-river')
-  } else if (install == "hedgerow"){
-    res.redirect('/register-application/v9/land/habitat-add-hedgerow')
-  } else {
-    res.redirect('/register-application/v9/land/habitat-add-broad-type')
-  }
-})
 
 // Habitat metric
-router.post('/habitat-metric-answer', function (req, res) {
+router.post('/metric-correct-answer', function (req, res) {
 
-  var install = req.session.data['habitat-metric-correct']
+  var install = req.session.data['metric-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v9/land/habitat-metric-upload')
+    res.redirect('/register-application/v9/land/metric-upload')
   } else {
-    res.redirect('/register-application/v9/land/habitat-check-data')
+    res.redirect('/register-application/v9/land/metric-data-confirm')
   }
 })
 

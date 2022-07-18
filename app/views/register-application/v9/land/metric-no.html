@@ -1,9 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set hideSaveLink = true %}
-{% set hideSignOut = true %}
-
-{% set pageHeading = "Get the baseline and proposed habitats parcel information" %}
+{% set pageHeading = "You need to complete a metric" %}
 
 {% block content %}
 
@@ -14,18 +11,13 @@
         {{ pageHeading }}
       </h1>
 
-      <p>You need to get the baseline and proposed habitats parcel information for the off-site.</p>
+      <p>You need to complete a metric for the baseline and proposed habitats parcel information for the off-site.</p>
 
       <p>That should include:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>habitat, hedgerow or river type</li>
         <li>size area or length and condition</li>
       </ul>
-
-      <p>The landowner of the off-site should be able to provide you with this information.</p>
-
-      {% include "includes/not-eligible-list.html" %}
-      {% include "includes/get-help.html" %}
 
     </div>
   </div>
