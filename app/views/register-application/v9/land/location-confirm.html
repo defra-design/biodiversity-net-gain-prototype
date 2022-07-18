@@ -1,6 +1,8 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Confirm the land boundary" %}
+{% set map = true %}
+
+{% set pageHeading = "Check the land boundary" %}
 
 {% block content %}
 
@@ -11,46 +13,39 @@
         {{ pageHeading }}
       </h1>
 
-      <img src="/public/images/location-confirm.png" alt="" width="100%" style="margin-bottom: 20px; border: 1px solid #b1b4b6;">
+      <div id="offsite" class="map map--location" tabindex="0">
+      </div>
 
       {{ govukSummaryList({
         rows: [
           {
             key: {
-              text: "Address"
+              text: "Area (in hectares)"
             },
             value: {
-              html: "Meadow Croft Farm, <br>Goose Lane, <br>Leeds, <br>LS20 8PJ"
+              text: "4.2 ha"
             }
           },
           {
             key: {
-              text: "Grid Reference"
+              text: "Central Grid Reference"
             },
             value: {
               text: "SP41989814"
-            }
-          },
-          {
-            key: {
-              text: "Latitude, Longitude"
-            },
-            value: {
-              text: "52.579466, -1.381870"
             }
           }
         ]
       }) }}
 
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-confirm-answer">
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/location-confirm-answer">
 
         {{ govukRadios({
           idPrefix: "location-confirm",
           name: "location-confirm",
           fieldset: {
             legend: {
-              text: "Is the land boundary correct?",
+              text: "Is the land boundary information correct?",
               classes: "govuk-fieldset__legend--m"
             }
           },
@@ -61,11 +56,11 @@
             },
             {
               value: "no-again",
-              text: "No, search HM Land Registry again"
+              text: "No, upload a different geospatial file"
             },
             {
               value: "no",
-              text: "No, choose a different way to provide the land boundary"
+              text: "No, provide the land boundary a different way"
             }
           ]
         }) }}
@@ -77,4 +72,8 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
 {% endblock %}

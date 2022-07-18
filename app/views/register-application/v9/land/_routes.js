@@ -1,7 +1,7 @@
 const express = require('express')
 const router = new express.Router()
 
-// Landowner
+/*// Landowner
 router.post('/landowner-answer', function (req, res) {
 
   var install = req.session.data['landowner']
@@ -167,7 +167,7 @@ router.post('/land-registry-search-confirm-answer', function (req, res) {
   } else {
     res.redirect('/register-application/v9/land/task-list')
   }
-})
+})*/
 
 // Location options
 router.post('/location-options-answer', function (req, res) {
@@ -262,10 +262,8 @@ router.post('/location-upload-confirm-answer', function (req, res) {
 
   if (install == "no-again"){
     res.redirect('/register-application/v9/land/location-upload')
-  } else if (install == "no"){
-    res.redirect('/register-application/v9/land/location-options')
   } else {
-    res.redirect('/register-application/v9/land/task-list')
+    res.redirect('/register-application/v9/land/location-area')
   }
 })
 
@@ -395,6 +393,30 @@ router.post('/sign-in-answer', function (req, res) {
     res.redirect('/register-application/v9/land/applications')
   } else {
     res.redirect('/register-application/v9/land/task-list')
+  }
+})
+
+// Address confirm
+router.post('/address-confirm-answer', function (req, res) {
+
+  var install = req.session.data['address-confirm']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/address-search')
+  } else {
+    res.redirect('/register-application/v9/land/landowner')
+  }
+})
+
+// Landowner
+router.post('/landowner-answer', function (req, res) {
+
+  var install = req.session.data['landowner']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/landowner-confirm')
+  } else {
+    res.redirect('/register-application/v9/land/landowner-name')
   }
 })
 
