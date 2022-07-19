@@ -46,5 +46,28 @@ router.use('/register/v4', registerv4);
 const registerv5 = require('./views/register/v5/_routes');
 router.use('/register/v5', registerv5);
 
+var NotifyClient = require('notifications-node-client').NotifyClient,
+    notify = new NotifyClient(process.env.NOTIFYAPIKEY);
+
+// The URL here needs to match the URL of the page that the user is on
+// when they type in their email address
+router.post('/notify-email', function (req, res) {
+
+  notify.sendEmail(
+    // this long string is the template ID, copy it from the template
+    // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+    // in your code.
+    '4ba89f17-3e66-465b-8d21-5bb1320aa373',
+    // `emailAddress` here needs to match the name of the form field in
+    // your HTML page
+    req.body.emailAddress
+  );
+
+  // This is the URL the users will be redirected to once the email
+  // has been sent
+  res.redirect('/notify-email-confirmation');
+
+});
+
 // Add your routes above the module.exports line
 module.exports = router
