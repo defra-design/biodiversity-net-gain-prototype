@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "What is the landowners name of Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ?" %}
+{% set pageHeading = "Who are the landowners of Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ?" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -14,25 +14,53 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {{ pageHeading }}
-      </h1>
-      
-      <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
+      <div data-module="moj-add-another">
 
-        {{ govukInput({
-          label: {
-            text: "Full name"
-          },
-          id: "landowner-name",
-          name: "landowner-name",
-          autocomplete: "name",
-          spellcheck: false
-        }) }}
-        
-        {{ govukButton({ text: 'Continue' }) }}
-        
-      </form>
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+      
+        <form method="post">
+      
+          {% call govukFieldset({
+            classes: 'moj-add-another__item',
+            legend: {
+              text: 'Person',
+              classes: 'moj-add-another__title govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+      
+          {{ govukInput({
+            id: 'person[0][first_name]',
+            name: 'person[0][first_name]',
+            label: {
+              html: 'Full name'
+            },
+            attributes: {
+              'data-name': 'person[%index%][full_name]',
+              'data-id': 'person[%index%][full_name]'
+            }
+          }) }}
+      
+          {% endcall %}
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Add another person',
+              classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Submit'
+            }) }}
+          </div>
+      
+        </form>
+      
+      </div>
 
     </div>
   </div>
