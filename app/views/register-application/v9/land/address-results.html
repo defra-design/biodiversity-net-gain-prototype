@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "What is the address of the gain site?" %}
+{% set pageHeading = "Search the HM Land Registry for the property the biodiversity gain site is on" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -27,7 +27,7 @@
 
       {% endif %}
 
-      <form method="post" action="/register-application/{{ pageURL }}/address-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/landowner">
 
 
         {{ govukSelect({

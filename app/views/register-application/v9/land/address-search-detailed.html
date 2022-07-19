@@ -19,7 +19,7 @@
         {% call govukFieldset({
           legend: {
             text: pageHeading,
-            classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-7",
+            classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-5",
             isPageHeading: true
           }
         }) %}
@@ -92,8 +92,9 @@
 
       </form>
 
-      <h2 class="govuk-heading-m govuk-!-padding-top-5">Property not registered on the HM Land Registry?</h2>
-      <p>If the property is not registered on the HM Land Registry, you can <a href="/register-application/{{ pageURL }}/address-add">tell us the address and upload the land ownership certificate</a>.</p>
+      <p>Or</p>
+
+      <p><a href="/register-application/{{ pageURL }}/address-add" class="govuk-link--no-visited-state">The property is not registered on the HM Land Registry</a></p>
 
     </div>
   </div>

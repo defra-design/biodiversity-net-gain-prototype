@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "What is the address of the biodiversity gain site?" %}
+{% set pageHeading = "Tell us the address of the property the biodiversity gain site is on" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -14,12 +14,12 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/address-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate">
 
       {% call govukFieldset({
         legend: {
           text: pageHeading,
-          classes: "govuk-fieldset__legend--l",
+          classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-5",
           isPageHeading: true
         }
       }) %}

@@ -46,10 +46,32 @@
           </dd>
         </div>
       </dl>
-      
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
 
-        <input type="hidden" name="landowner-confirm" value="yes">
+      <form method="post" action="/register-application/{{ pageURL }}/address-confirm-answer">
+
+        {{ govukRadios({
+          idPrefix: "address-confirm",
+          name: "address-confirm",
+          fieldset: {
+            legend: {
+              text: "Do you need to add another address?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Some gain sites will have multiple addresses. You must add them all."
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
         
         {{ govukButton({ text: 'Continue' }) }}
         

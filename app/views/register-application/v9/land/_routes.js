@@ -359,13 +359,25 @@ router.post('/sign-in-answer', function (req, res) {
   }
 })
 
-// Address confirm
-router.post('/address-confirm-answer', function (req, res) {
+// Landowner certificate
+router.post('/landowner-certificate-answer', function (req, res) {
 
-  var install = req.session.data['address-confirm']
+  var install = req.session.data['landowner-certificate']
 
-  if (install == "yes"){
-    res.redirect('/register-application/v9/land/address-search')
+  if (install == "no"){
+    res.redirect('/register-application/v9/land/landowner-certificate-no')
+  } else {
+    res.redirect('/register-application/v9/land/landowner-certificate-upload')
+  }
+})
+
+// Landowner certificate check
+router.post('/landowner-certificate-correct-answer', function (req, res) {
+
+  var install = req.session.data['landowner-certificate-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/land/landowner-certificate-upload')
   } else {
     res.redirect('/register-application/v9/land/landowner')
   }
@@ -377,9 +389,33 @@ router.post('/landowner-answer', function (req, res) {
   var install = req.session.data['landowner']
 
   if (install == "yes"){
-    res.redirect('/register-application/v9/land/landowner-confirm')
+    res.redirect('/register-application/v9/land/landowner-others')
   } else {
     res.redirect('/register-application/v9/land/landowner-name')
+  }
+})
+
+// Landowner others
+router.post('/landowner-others-answer', function (req, res) {
+
+  var install = req.session.data['landowner-others']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/landowner-name')
+  } else {
+    res.redirect('/register-application/v9/land/landowner-confirm')
+  }
+})
+
+// Address confirm
+router.post('/address-confirm-answer', function (req, res) {
+
+  var install = req.session.data['address-confirm']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/address-search')
+  } else {
+    res.redirect('/register-application/v9/land/landowner')
   }
 })
 
