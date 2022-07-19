@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "What is the address of the gain site?" %}
+{% set pageHeading = "Search the HM Land Registry for the property the biodiversity gain site is on" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -19,7 +19,7 @@
         {% call govukFieldset({
           legend: {
             text: pageHeading,
-            classes: "govuk-fieldset__legend--l",
+            classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-7",
             isPageHeading: true
           }
         }) %}
@@ -91,6 +91,9 @@
         }) }}
 
       </form>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Property not registered on the HM Land Registry?</h2>
+      <p>If the property is not registered on the HM Land Registry, you can <a href="/register-application/{{ pageURL }}/address-add">tell us the address and upload the land ownership certificate</a>.</p>
 
     </div>
   </div>
