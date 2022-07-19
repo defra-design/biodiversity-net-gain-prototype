@@ -47,17 +47,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['landowner'] == 'yes' and data['land-registry'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/land-registry-search" aria-describedby="habitat-information-status">
-                {% elif data['landowner'] == 'yes' and data['land-registry'] == 'no' %}
-                  <a href="/register-application/{{ pageURL }}/land-ownership-certificate-upload" aria-describedby="habitat-information-status">
+                {% if data['landowner-confirm'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/landowner-confirm" aria-describedby="landowner-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/landowner-permission-upload" aria-describedby="habitat-information-status">
+                  <a href="/register-application/{{ pageURL }}/address-search" aria-describedby="landowner-status">
                 {% endif %} 
                     Land ownership
                   </a>
               </span>
-              {% if data['land-ownership-correct'] %}
+              {% if data['landowner-confirm'] == 'yes' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>

@@ -48,6 +48,8 @@
       </dl>
       
       <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="landowner-confirm" value="yes">
         
         {{ govukButton({ text: 'Continue' }) }}
         
