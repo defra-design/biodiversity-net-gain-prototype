@@ -1,22 +1,29 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Do you have a Habitat Management and Monitoring Plan for the gain site?" %}
+{% set pageHeading = "Are you responsible for monitoring the gain site?" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/management-plan-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-monitoring-answer">
 
         {{ govukRadios({
-          idPrefix: "management-plan",
-          name: "management-plan",
+          idPrefix: "management-plan-monitoring",
+          name: "management-plan-monitoring",
           fieldset: {
             legend: {
               text: pageHeading,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+              classes: "govuk-fieldset__legend--l",
+              pageHeading: true
             }
           },
           items: [
@@ -27,17 +34,11 @@
             {
               value: "no",
               text: "No"
-            },
-            {
-              value: "not-sure",
-              text: "I'm not sure"
             }
           ]
         }) }}
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
         
       </form>
 

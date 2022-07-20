@@ -305,6 +305,54 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   }
 })
 
+// Management plan
+router.post('/management-plan-answer', function (req, res) {
+
+  var install = req.session.data['management-plan']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/management-plan-works')
+  } else {
+    res.redirect('/register-application/v9/land/management-plan-no')
+  }
+})
+
+// Management plan works
+router.post('/management-plan-works-answer', function (req, res) {
+
+  var install = req.session.data['management-plan-works']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/management-plan-date-start')
+  } else {
+    res.redirect('/register-application/v9/land/management-plan-works-name')
+  }
+})
+
+// Management plan maintaining
+router.post('/management-plan-maintaining-answer', function (req, res) {
+
+  var install = req.session.data['management-plan-maintaining']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/management-plan-monitoring')
+  } else {
+    res.redirect('/register-application/v9/land/management-plan-maintaining-name')
+  }
+})
+
+// Management plan monitoring
+router.post('/management-plan-monitoring-answer', function (req, res) {
+
+  var install = req.session.data['management-plan-monitoring']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/management-plan-monitoring')
+  } else {
+    res.redirect('/register-application/v9/land/management-plan-monitoring-name')
+  }
+})
+
 // Management plan check
 router.post('/management-plan-correct-answer', function (req, res) {
 
@@ -313,7 +361,7 @@ router.post('/management-plan-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v9/land/management-plan-upload')
   } else {
-    res.redirect('/register-application/v9/land/task-list')
+    res.redirect('/register-application/v9/land/management-plan-confirm')
   }
 })
 

@@ -120,15 +120,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['management-plan-correct'] == 'yes' %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-check" aria-describedby="management-plan-status">
+                {% if data['management-plan-confirm'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/management-plan-confirm" aria-describedby="management-plan-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="management-plan-status">
+                  <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="management-plan-status">
                 {% endif %} 
                   Habitat Management and Monitoring Plan
                 </a>
               </span>
-              {% if data['management-plan-correct'] == 'yes' %}
+              {% if data['management-plan-confirm'] == 'yes' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="management-plan-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="management-plan-status">Not started</strong>

@@ -1,0 +1,32 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "Tell us the name of the person or organisation responsible for monitoring the gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-upload">
+
+        {{ govukInput({
+          id: "management-plan-monitoring-name",
+          name: "management-plan-monitoring-name",
+          label: {
+            text: pageHeading,
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          spellcheck: false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
