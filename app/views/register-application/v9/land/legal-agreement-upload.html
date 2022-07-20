@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your conservation covenant" %}
+{% set pageHeading = "Upload your legal agreement" %}
 
 {% block content %}
 
@@ -11,11 +11,11 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-conservation-check">
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-check">
 
         {{ govukFileUpload({
-          id: "legal-agreement-conservation-upload",
-          name: "legal-agreement-conservation-upload",
+          id: "legal-agreement-upload",
+          name: "legal-agreement-upload",
           label: {
             text: "Upload a file",
             classes:"govuk-visually-hidden"

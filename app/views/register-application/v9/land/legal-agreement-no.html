@@ -3,7 +3,7 @@
 {% set hideSaveLink = true %}
 {% set hideSignOut = true %}
 
-{% set pageHeading = "Something something you can still continue" %}
+{% set pageHeading = "You need a legal agreement" %}
 
 {% block content %}
 
@@ -14,15 +14,9 @@
         {{ pageHeading }}
       </h1>
 
-      <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+      <p>You need a legal agreement to register a biodiversity gain site.</p>
 
-        <input type="hidden" name="legal-agreement-no" value="true">
-
-        <button class="govuk-button" data-module="govuk-button">
-          Continue
-        </button>
-
-      </form>
+      <p>You can do this...</p>
 
     </div>
   </div>

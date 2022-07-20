@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Check your answers" %}
+{% set pageHeading = "You have added 2 addresses" %}
 
 {% block beforeContent %}
   {{ govukBackLink({
@@ -37,7 +37,7 @@
             Landowner name
           </dt>
           <dd class="govuk-summary-list__value">
-            Alan Hansen
+            Lily Brinn
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
@@ -58,6 +58,53 @@
             </a>
           </dd>
         </div>
+        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove address</a></p>
+      </dl>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Hunters Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/address-search">
+              Change<span class="govuk-visually-hidden"> address</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>David Hunter</li>
+              <li>Alice Hunter</li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
+              Change<span class="govuk-visually-hidden"> landowner name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
+            </a>
+          </dd>
+        </div>
+        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove address</a></p>
       </dl>
 
       <form method="post" action="/register-application/{{ pageURL }}/address-confirm-answer">

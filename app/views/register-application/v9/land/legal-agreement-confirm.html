@@ -1,0 +1,103 @@
+{% extends "register-application/v9/land/layout-register-application.html" %}
+
+{% set pageHeading = "Check legal agreement information" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Conservation Covenant
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement">
+              Change<span class="govuk-visually-hidden"> legal agreement type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Parties involved
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>David Hunter (Owner)</li>
+              <li>Leeds City Council (Responsible Body)</li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties">
+              Change<span class="govuk-visually-hidden"> parties involved</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Commencement date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2022
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
+              Change<span class="govuk-visually-hidden"> commencement date</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            End date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2052
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-end">
+              Change<span class="govuk-visually-hidden"> end date</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a id="conservation-covenant-download" download href="#">conservation-covenant.pdf</a>, 1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-upload">
+              Change<span class="govuk-visually-hidden"> end date</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="legal-agreement-confirm" value="yes">
+
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

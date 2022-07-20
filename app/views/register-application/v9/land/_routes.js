@@ -286,22 +286,22 @@ router.post('/legal-agreement-answer', function (req, res) {
 
   var install = req.session.data['legal-agreement']
 
-  if (install == "no"){
+  if (install == "none"){
     res.redirect('/register-application/v9/land/legal-agreement-no')
   } else {
-    res.redirect('/register-application/v9/land/legal-agreement-conservation-upload')
+    res.redirect('/register-application/v9/land/legal-agreement-parties')
   }
 })
 
-// Legal agreement conservation check
-router.post('/legal-agreement-conservation-correct-answer', function (req, res) {
+// Legal agreement check
+router.post('/legal-agreement-correct-answer', function (req, res) {
 
-  var install = req.session.data['legal-agreement-conservation-correct']
+  var install = req.session.data['legal-agreement-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v9/land/legal-agreement-conservation-upload')
+    res.redirect('/register-application/v9/land/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v9/land/task-list')
+    res.redirect('/register-application/v9/land/legal-agreement-confirm')
   }
 })
 

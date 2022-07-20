@@ -1,9 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set hideSaveLink = true %}
-{% set hideSignOut = true %}
-
-{% set pageHeading = "Do you have Conservation Covenant for the land?" %}
+{% set pageHeading = "Which legal agreement do you have?" %}
 
 {% block content %}
 
@@ -22,14 +19,24 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+            text: "You'll need a legal agreement to show how the biodiversity gain on the off-site land will be paid for and managed for at least 30 years."
+          },
           items: [
             {
-              value: "yes",
-              text: "Yes"
+              value: "planning-obligation",
+              text: "Planning obligation"
             },
             {
-              value: "no",
-              text: "No"
+              value: "conservation-covenant",
+              text: "Conservation covenant"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "None of the above"
             }
           ]
         }) }}
