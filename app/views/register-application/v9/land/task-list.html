@@ -135,6 +135,32 @@
               {% endif %} 
             </li>
 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/declaration-degradation" aria-describedby="declaration-degradation-status">
+                  Degradation of land declaration
+                </a>
+              </span>
+              {% if data['declaration-degradation'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="declaration-degradation-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="declaration-degradation-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/declaration-additionality" aria-describedby="declaration-additionality-status">
+                  Rules on additionality funds received declaration
+                </a>
+              </span>
+              {% if data['declaration-additionality'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="declaration-additionality-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="declaration-additionality-status">Not started</strong>
+              {% endif %} 
+            </li>
+
           </ul>
         </li>
 
