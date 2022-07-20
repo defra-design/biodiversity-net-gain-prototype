@@ -219,7 +219,7 @@ router.post('/location-confirm-answer', function (req, res) {
   var install = req.session.data['location-confirm']
 
   if (install == "no-again"){
-    res.redirect('/register-application/v9/land/location-land-registry-search-detailed')
+    res.redirect('/register-application/v9/land/location-import')
   } else if (install == "no"){
     res.redirect('/register-application/v9/land/location-options')
   } else {
@@ -415,7 +415,7 @@ router.post('/address-confirm-answer', function (req, res) {
   if (install == "yes"){
     res.redirect('/register-application/v9/land/address-search')
   } else {
-    res.redirect('/register-application/v9/land/landowner')
+    res.redirect('/register-application/v9/land/task-list')
   }
 })
 

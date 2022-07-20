@@ -34,7 +34,11 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="boundary-status">
+                {% if data['location-confirm'] %}
+                  <a href="/register-application/{{ pageURL }}/location-confirm" aria-describedby="boundary-status">
+                  {% else %}
+                  <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="boundary-status">
+                {% endif %} 
                   Land boundary
                 </a>
               </span>
@@ -47,7 +51,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['landowner-confirm'] == 'yes' %}
+                {% if data['address-confirm'] == 'no' %}
                   <a href="/register-application/{{ pageURL }}/landowner-confirm" aria-describedby="landowner-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/address-search" aria-describedby="landowner-status">
@@ -55,7 +59,7 @@
                     Land ownership
                   </a>
               </span>
-              {% if data['landowner-confirm'] == 'yes' %}
+              {% if data['address-confirm'] == 'no' %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
