@@ -7,106 +7,300 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-xl">
+      <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+
+      <h2 class="govuk-heading-m">Land boundary and ownership</h2>
       
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-
-        {% if data['landowner-permission-correct'] == 'yes' %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Landowner consent
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">landowner-consent-evidence.pdf</a>, 1.1MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-permission-check">
-                Change<span class="govuk-visually-hidden"> Landowner consent</span>
-              </a>
-            </dd>
-          </div>
-        {% endif %} 
-
-        {% if data['land-registry-check'] == 'yes' %} 
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              HM Land registry details
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <p>AGL117262</p>
-              <p>Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ</p>
-              <p>Freehold</p>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/land-registry-confirm">
-                Change<span class="govuk-visually-hidden"> HM Land Registry</span>
-              </a>
-            </dd>
-          </div>
-        {% else %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Ownership certificate
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">ownership-certificate.pdf</a>, 1.6MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="/register-application/{{ pageURL }}/land-ownership-certificate-check">
-                Change<span class="govuk-visually-hidden"> Ownership certificate</span>
-              </a>
-            </dd>
-          </div>
-        {% endif %}
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key" style="vertical-align:top;">
-            Land boundary
-          </dt>
-          <dd class="govuk-summary-list__value" style="vertical-align:top;">
-            <img src="/public/images/location-confirm.png" alt="" width="100%" style="border: 1px solid #b1b4b6;margin-bottom:10px;">
-            <p><strong>Address</strong></p>
-            <p>Meadow Croft Farm, <br>Goose Lane, <br>Leeds, <br>LS20 8PJ</p>
-            <p><strong>Grid Reference</strong></p>
-            <p>SP41989814</p>
-            <p><strong>Latitude, Longitude</strong></p>
-            <p>52.579466, -1.381870</p>
-          </dd>
-          <dd class="govuk-summary-list__actions" style="vertical-align:top;">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/location-confirm">
-              Change<span class="govuk-visually-hidden"> Land boundary</span>
-            </a>
-          </dd>
-        </div>
-
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Habitat management and monitoring plan
+            Address
           </dt>
           <dd class="govuk-summary-list__value">
-            <a download href="#">habitat-management-plan.pdf</a>, 1MB
+            Meadowcroft Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-check">
-              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan</span>
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/address-search">
+              Change<span class="govuk-visually-hidden"> address</span>
             </a>
           </dd>
         </div>
-
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Lily Brinn
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
+              Change<span class="govuk-visually-hidden"> landowner name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
+            </a>
+          </dd>
+        </div>
       </dl>
 
-      <h2 class="govuk-heading-l">Now submit your information</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Hunters Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/address-search">
+              Change<span class="govuk-visually-hidden"> address</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>David Hunter</li>
+              <li>Alice Hunter</li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
+              Change<span class="govuk-visually-hidden"> landowner name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Legal agreement</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement type
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Conservation Covenant
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement">
+              Change<span class="govuk-visually-hidden"> legal agreement type</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Parties involved
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              <li>David Hunter (Owner)</li>
+              <li>Leeds City Council (Responsible Body)</li>
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties">
+              Change<span class="govuk-visually-hidden"> parties involved</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Commencement date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2022
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
+              Change<span class="govuk-visually-hidden"> commencement date</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            End date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2052
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-end">
+              Change<span class="govuk-visually-hidden"> end date</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a id="conservation-covenant-download" download href="#">conservation-covenant.pdf</a>, 1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-upload">
+              Change<span class="govuk-visually-hidden"> legal agreement</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Habitat Management and Monitoring Plan</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Person or organisation responsible for carrying out works
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              David Hunter
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-works">
+              Change<span class="govuk-visually-hidden"> person or organisation responsible for carrying out works</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Commencement date of habitat works
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2022
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-date-start">
+              Change<span class="govuk-visually-hidden"> commencement date of habitat works</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Date for expected end of capital works for habitat enhancement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            15 March 2023
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-date-end">
+              Change<span class="govuk-visually-hidden"> date for expected end of capital works for habitat enhancement</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Person or organisation responsible for maintaining the gain site
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              David Hunter
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-maintaining">
+              Change<span class="govuk-visually-hidden"> person or organisation responsible for maintaining the gain site</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Person or organisation responsible for monitoring the gain site
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              David Hunter
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-monitoring">
+              Change<span class="govuk-visually-hidden"> person or organisation responsible for monitoring the gain site</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat Management and Monitoring Plan
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a id="conservation-covenant-download" download href="#">habitat-management-and-monitoring-plan.pdf</a>, 1MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/management-plan-upload">
+              Change<span class="govuk-visually-hidden"> Habitat Management and Monitoring Plan</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Degradation of land declaration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/declaration-degradation">
+              Change<span class="govuk-visually-hidden"> degradation of land declaration</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Rules on additionality funds received declaration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/declaration-additionality">
+              Change<span class="govuk-visually-hidden"> rules on additionality funds received declaration</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Now submit your information</h2>
 
       <p class="govuk-body">By accepting you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
-      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
+      <form action="/register-application/{{ pageURL }}/payment-card" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
         <button class="govuk-button" data-module="govuk-button">
-          Accept and submit
+          Accept and make payment
         </button>
 
       </form>

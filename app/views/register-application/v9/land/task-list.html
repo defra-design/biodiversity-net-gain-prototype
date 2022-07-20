@@ -171,17 +171,17 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['land-ownership-correct'] and  data['location-confirm'] and data['habitat-checked-data'] == 'yes' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-conservation-correct']  or data['land-ownership-correct'] and  data['location-confirm'] and data['habitat-checked-data'] == 'yes' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-no'] %}
+              {% if data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' and data['declaration-degradation'] and data['declaration-additionality'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers and submit information
                   </a>
                 </span>
-              {% if data['payment-success'] %}
-                <strong class="govuk-tag app-task-list__tag" id="submit-application-status">completed</strong>
-              {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">not started</strong>
-              {% endif %} 
+                {% if data['payment-success'] %}
+                  <strong class="govuk-tag app-task-list__tag" id="submit-application-status">completed</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">not started</strong>
+                {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
                   Check your answers and submit information
