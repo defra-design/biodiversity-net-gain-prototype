@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Registrations" %}
+{% set pageHeading = "Biodiversity gain site registrations" %}
 
 {% set hideSaveSection = true %}
 
@@ -16,7 +16,7 @@
       <form action="#" method="post" novalidate>
         <input type="hidden" name="start-new-application" value="true">
         <button class="govuk-button" data-module="govuk-button">
-          Start new registration
+          Start a new registration
         </button>
       </form>
 
@@ -24,30 +24,32 @@
         <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Application</th>
+            <th scope="col" class="govuk-table__header">Gain site reference</th>
             <th scope="col" class="govuk-table__header">Last updated</th>
             <th scope="col" class="govuk-table__header">Status</th>
-            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Action</span></th>
+            <th scope="col" class="govuk-table__header">Actions</th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">2022-0115-BNG</td>
-            <td class="govuk-table__cell">27 January 2022</td>
+            <td class="govuk-table__cell">15 March 2022</td>
             <td class="govuk-table__cell">
-              {% if data['answers-checked'] == 'true' %} 
+              {% if data['payment-success'] == 'yes' %} 
                 <strong class="govuk-tag govuk-tag--blue">Submitted</strong></td>
               {% else %}
                 <strong class="govuk-tag govuk-tag--yellow">In progress</strong></td>
               {% endif %}
-            <td class="govuk-table__cell"><a href="/register-application/v9/land/task-list">
-              {% if data['answers-checked'] == 'true' %} 
-                View registration
-              {% else %}
-                Continue registration
-              {% endif %}   
-              <span class="govuk-visually-hidden">2022-0115-BNG</span></a></td>
-            
+            <td class="govuk-table__cell">
+              <a href="/register-application/v9/land/task-list">
+                {% if data['payment-success'] == 'yes' %} 
+                  View registration
+                {% else %}
+                  Continue registration
+                {% endif %}   
+                <span class="govuk-visually-hidden">2022-0115-BNG</span>
+              </a>
+            </td>
           </tr>
         </tbody>
       </table>
