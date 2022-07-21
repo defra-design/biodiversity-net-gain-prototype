@@ -41,14 +41,18 @@
                 <strong class="govuk-tag govuk-tag--yellow">In progress</strong></td>
               {% endif %}
             <td class="govuk-table__cell">
-              <a href="/register-application/v9/land/task-list">
                 {% if data['payment-success'] == 'yes' %} 
-                  View registration
+                <a href="/register-application/v9/land/allocation">
+                  Allocate units
+                  <span class="govuk-visually-hidden">2022-0115-BNG</span>
+                </a>
                 {% else %}
+                <a href="/register-application/v9/land/task-list">
                   Continue registration
+                  <span class="govuk-visually-hidden">2022-0115-BNG</span>
+                </a>
                 {% endif %}   
-                <span class="govuk-visually-hidden">2022-0115-BNG</span>
-              </a>
+                
             </td>
           </tr>
         </tbody>

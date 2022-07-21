@@ -467,5 +467,17 @@ router.post('/address-confirm-answer', function (req, res) {
   }
 })
 
+// Address confirm
+router.post('/allocation-answer', function (req, res) {
+
+  var install = req.session.data['allocation']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v9/land/allocation-yes')
+  } else {
+    res.redirect('/register-application/v9/land/allocation-no')
+  }
+})
+
 // Add your routes above the module.exports line
 module.exports = router
