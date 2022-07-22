@@ -105,7 +105,7 @@ router.post('/legal-agreements-answer', function (req, res) {
   if (install == "none"){
     res.redirect('/register-application/v9/land/not-eligible-legal-agreements')
   } else {
-    res.redirect('/register-application/v9/land/eligible-management-plan')
+    res.redirect('/register-application/v9/land/eligible-')
   }
 })
 
@@ -323,7 +323,7 @@ router.post('/management-plan-answer', function (req, res) {
   var install = req.session.data['management-plan']
 
   if (install == "yes"){
-    res.redirect('/register-application/v9/land/management-plan-works')
+    res.redirect('/register-application/v9/land/management-plan-date-start')
   } else {
     res.redirect('/register-application/v9/land/management-plan-no')
   }
@@ -335,7 +335,7 @@ router.post('/management-plan-works-answer', function (req, res) {
   var install = req.session.data['management-plan-works']
 
   if (install == "yes"){
-    res.redirect('/register-application/v9/land/management-plan-date-start')
+    res.redirect('/register-application/v9/land/management-plan-maintaining')
   } else {
     res.redirect('/register-application/v9/land/management-plan-works-name')
   }
