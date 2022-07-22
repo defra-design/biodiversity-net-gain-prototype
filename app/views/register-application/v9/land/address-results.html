@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Search the HM Land Registry for the property the biodiversity gain site is on" %}
+{% set pageHeading = "Search for the property on HM Land Registry" %}
 
 {% block content %}
 
@@ -10,6 +10,8 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+
+      <p class="govuk-hint">This should be the property where the biodiversity gain site is located.</p>
 
       {% if data['land-title-number'] or data['land-number'] or data['land-street-name'] or data['land-town']%}
 
@@ -50,7 +52,7 @@
           ]
         }) }}
 
-        <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">I can not find the address on the list</a></p>
+        <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">I cannot find the address on the list</a></p>
 
 
         {{ govukButton({

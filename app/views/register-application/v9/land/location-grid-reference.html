@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Central grid reference" %}
+{% set pageHeading = "Grid reference" %}
 
 {% block content %}
 
@@ -18,7 +18,7 @@
             isPageHeading: true
           },
           hint: {
-            text: "For example, SE170441"
+            html: "<div class='govuk-hint'>This should be for the central point of the land.</div><div class='govuk-hint'>For example, SE170441</div>"
           },
           classes: "govuk-input--width-10",
           spellcheck: false

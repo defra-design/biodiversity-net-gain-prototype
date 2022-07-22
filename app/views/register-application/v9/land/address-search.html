@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Search the HM Land Registry for the property the biodiversity gain site is on" %}
+{% set pageHeading = "Search for the property on HM Land Registry" %}
 
 {% block content %}
 
@@ -11,6 +11,7 @@
         {{ pageHeading }}
       </h1>
 
+      <p class="govuk-hint">This should be the property where the biodiversity gain site is located.</p>
 
       <form method="post" action="/register-application/{{ pageURL }}/address-results">
 
