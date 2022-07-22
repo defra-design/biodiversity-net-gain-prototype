@@ -1,6 +1,6 @@
 {% extends "register-application/v9/start-page-guide-template.html" %}
 
-{% set pageHeading = "Add development information" %}
+{% set pageHeading = "Allocate land to a development" %}
 
 {% set pageURL = "v9" %}
 
@@ -8,12 +8,5 @@
 {% set previousPageURL = "/register-application/" + pageURL + "/start-part-2" %}
 
 {% block guideContent %}
-
-  {{ govukButton({
-    text: "Start now",
-    href: "/register-application/v9/development/eligible-before-you-start",
-    classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
-    isStartButton: true
-  }) }}
 
 {% endblock %} 

@@ -1,6 +1,6 @@
 {% extends "register-application/v9/start-page-guide-template.html" %}
 
-{% set pageHeading = "Add land information" %}
+{% set pageHeading = "Register the land" %}
 
 {% set pageURL = "v9" %}
 
@@ -10,6 +10,8 @@
 {% set nextPageURL = "/register-application/" + pageURL + "/start-part-3" %}
 
 {% block guideContent %}
+
+  <p>It costs £240 to register. You can pay by debit or credit card.</p>
 
   {{ govukButton({
     text: "Start now",

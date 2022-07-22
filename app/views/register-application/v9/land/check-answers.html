@@ -1,5 +1,7 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
+{% set map = true %}
+
 {% set pageHeading = "Check your answers before submitting your information" %}
 
 {% block content %}
@@ -7,11 +9,108 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-xl">
         {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-m">Land boundary and ownership</h2>
+      <h2 class="govuk-heading-l">Land boundary</h2>
+
+      {% if data['location-upload-confirm'] == 'yes' %}
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "File added"
+              },
+              value: {
+                html: "<img src='/public/images/land-boundary-file.png' alt='' width='100%' style='border: 1px solid #b1b4b6;''>"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-upload",
+                    text: "Change",
+                    visuallyHiddenText: "file added"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Area (in hectares)"
+              },
+              value: {
+                text: "4.2 ha"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-area",
+                    text: "Change",
+                    visuallyHiddenText: "are in hectares"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Grid Reference"
+              },
+              value: {
+                text: "SP41989814"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-grid-reference",
+                    text: "Change",
+                    visuallyHiddenText: "grid reference"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% else %}
+
+        <div id="offsite" class="map map--location" tabindex="0">
+        </div>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Area (in hectares)"
+              },
+              value: {
+                text: "4.2 ha"
+              }
+            },
+            {
+              key: {
+                text: "Grid Reference"
+              },
+              value: {
+                text: "SP41989814"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-confirm",
+                    text: "Change",
+                    visuallyHiddenText: "grid reference"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %} 
+
+      <h2 class="govuk-heading-l">Land ownership</h2>
       
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
@@ -100,7 +199,33 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Legal agreement</h2>
+      <h2 class="govuk-heading-l">Habitat information</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: '<a download href="#">metric_3.0_meadow_farm.xlsm</a>, 4.1MB'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/metric-data-confirm",
+                  text: "Change",
+                  visuallyHiddenText: "habitat information"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Legal agreement</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
@@ -173,7 +298,7 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Habitat Management and Monitoring Plan</h2>
+      <h2 class="govuk-heading-l">Habitat Management and Monitoring Plan</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
@@ -291,7 +416,7 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Now submit your information</h2>
+      <h2 class="govuk-heading-l">Now submit your information</h2>
 
       <p class="govuk-body">By accepting you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
 
@@ -308,4 +433,8 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
 {% endblock %}

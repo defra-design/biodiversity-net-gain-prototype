@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the Biodiversity Metric 3.1 calculations for the entire off-site" %}
+{% set pageHeading = "Upload the Biodiversity Metric 3.1 calculations for the biodiversity gain site" %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <p>This should include the baseline and post development data for the gain site only. You do not need to add the developer on-site data.</p>
+      <p>You only need to include the baseline and proposed habitat data for the gain site. You do not need to add the developer on-site data.</p>
       
       <form method="post" action="/register-application/{{ pageURL }}/metric-check">
 
