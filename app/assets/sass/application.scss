@@ -183,3 +183,7 @@ $govuk-assets-path: '/govuk/assets/';
 .app-summary-list__actions-item:not(:last-child) {
   border-right: 1px solid #b1b4b6;
 }
+
+.govuk-summary-list__key {
+  vertical-align: top;
+}

@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Confirm document or image for the land boundary" %}
+{% set pageHeading = "Check the land boundary file" %}
 
 {% block content %}
 
@@ -15,12 +15,12 @@
         rows: [
           {
             key: {
-              text: "Document added",
+              text: "File added",
               classes: "app-summary-list__key--narrow",
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              html: '<a download href="#">meadow-croft-farm-title-plan.pdf</a>, 1.2MB'
+              html: '<img src="/public/images/land-boundary-file.png" alt="" width="100%" style="border: 1px solid #b1b4b6;">'
             }
           }
         ]
@@ -29,11 +29,11 @@
       <form method="post" action="/register-application/{{ pageURL }}/location-upload-confirm-answer">
 
         {{ govukRadios({
-          idPrefix: "location-confirm",
-          name: "location-confirm",
+          idPrefix: "location-upload-confirm",
+          name: "location-upload-confirm",
           fieldset: {
             legend: {
-              text: "Is it the correct document or image?",
+              text: "Is this file correct?",
               classes: "govuk-fieldset__legend--m"
             }
           },
@@ -44,7 +44,7 @@
             },
             {
               value: "no-again",
-              text: "No, upload a different document or image"
+              text: "No, upload a different file"
             }
           ]
         }) }}

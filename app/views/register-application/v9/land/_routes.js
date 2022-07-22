@@ -221,7 +221,19 @@ router.post('/location-confirm-answer', function (req, res) {
   if (install == "no-again"){
     res.redirect('/register-application/v9/land/location-import')
   } else if (install == "no"){
-    res.redirect('/register-application/v9/land/location-options')
+    res.redirect('/register-application/v9/land/location-upload')
+  } else {
+    res.redirect('/register-application/v9/land/task-list')
+  }
+})
+
+// Location confirm
+router.post('/location-confirm-answer-file', function (req, res) {
+
+  var install = req.session.data['location-confirm']
+
+  if (install == "no"){
+    res.redirect('/register-application/v9/land/location-import')
   } else {
     res.redirect('/register-application/v9/land/task-list')
   }
@@ -258,7 +270,7 @@ router.post('/location-import-confirm-answer', function (req, res) {
 // Location upload confirm
 router.post('/location-upload-confirm-answer', function (req, res) {
 
-  var install = req.session.data['location-confirm']
+  var install = req.session.data['location-upload-confirm']
 
   if (install == "no-again"){
     res.redirect('/register-application/v9/land/location-upload')
