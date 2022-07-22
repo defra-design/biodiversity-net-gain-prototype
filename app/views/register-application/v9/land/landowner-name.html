@@ -12,27 +12,29 @@
         <h1 class="govuk-heading-l" tabindex="-1">
           {{ pageHeading }}
         </h1>
+
+        <p class="govuk-hint">You must add all names that appear on the property's title deed.</p>
       
         <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
       
           {% call govukFieldset({
             classes: 'moj-add-another__item',
             legend: {
-              text: 'Person',
+              text: 'Landowner',
               classes: 'moj-add-another__title govuk-fieldset__legend--m',
               isPageHeading: false
             }
           }) %}
       
           {{ govukInput({
-            id: 'person[0][full_name]',
-            name: 'person[0][full_name]',
+            id: 'landowner[0][full_name]',
+            name: 'landowner[0][full_name]',
             label: {
               html: 'Full name'
             },
             attributes: {
-              'data-name': 'person[%index%][full_name]',
-              'data-id': 'person[%index%][full_name]'
+              'data-name': 'landowner[%index%][full_name]',
+              'data-id': 'landowner[%index%][full_name]'
             }
           }) }}
       
@@ -40,14 +42,14 @@
       
           <div class="moj-button-action">
             {{ govukButton({
-              text: 'Add another person',
+              text: 'Add another landowner',
               classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
             }) }}
           </div>
       
           <div class="moj-button-action">
             {{ govukButton({
-              text: 'Submit'
+              text: 'Continue'
             }) }}
           </div>
       
