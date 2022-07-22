@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Parties involved" %}
+{% set pageHeading = "Add all parties listed on the legal agreement" %}
 
 {% block content %}
 
@@ -43,7 +43,7 @@
               html: 'Role'
             },
             hint: {
-              text: "For example, Developer, Owner, County Council"
+              text: "For example, county council, developer, owner"
             },
             attributes: {
               'data-name': 'person[%index%][parties_role]',
@@ -62,7 +62,7 @@
       
           <div class="moj-button-action">
             {{ govukButton({
-              text: 'Submit'
+              text: 'Continue'
             }) }}
           </div>
       
