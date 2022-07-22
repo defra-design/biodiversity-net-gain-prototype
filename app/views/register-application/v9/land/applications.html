@@ -27,12 +27,12 @@
             <th scope="col" class="govuk-table__header">Gain site reference</th>
             <th scope="col" class="govuk-table__header">Last updated</th>
             <th scope="col" class="govuk-table__header">Status</th>
-            <th scope="col" class="govuk-table__header">Actions</th>
+            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
           </tr>
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2022-0115-BNG</td>
+            <td class="govuk-table__cell">BNG-150322001</td>
             <td class="govuk-table__cell">15 March 2022</td>
             <td class="govuk-table__cell">
               {% if data['payment-success'] == 'yes' %} 
@@ -44,12 +44,12 @@
                 {% if data['payment-success'] == 'yes' %} 
                 <a href="/register-application/v9/land/allocation">
                   Allocate units
-                  <span class="govuk-visually-hidden">2022-0115-BNG</span>
+                  <span class="govuk-visually-hidden">BNG-150322001</span>
                 </a>
                 {% else %}
                 <a href="/register-application/v9/land/task-list">
                   Continue registration
-                  <span class="govuk-visually-hidden">2022-0115-BNG</span>
+                  <span class="govuk-visually-hidden">BNG-150322001</span>
                 </a>
                 {% endif %}   
                 
