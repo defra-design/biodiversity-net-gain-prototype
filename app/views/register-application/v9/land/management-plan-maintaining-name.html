@@ -1,11 +1,15 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Tell us the name of the person or organisation responsible for maintaining the gain site" %}
+{% set pageHeading = "Who is responsible for maintaining the biodiversity gain site?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
       
       <form method="post" action="/register-application/{{ pageURL }}/management-plan-monitoring">
 
@@ -13,9 +17,7 @@
           id: "management-plan-maintaining-name",
           name: "management-plan-maintaining-name",
           label: {
-            text: pageHeading,
-            classes: "govuk-label--l",
-            isPageHeading: true
+            text: "Full name or organisation"
           },
           spellcheck: false
         }) }}
