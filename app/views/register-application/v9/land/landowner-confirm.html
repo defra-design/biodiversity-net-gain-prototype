@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "You have added 2 addresses" %}
+{% set pageHeading = "You have added 2 properties" %}
 
 {% block content %}
 
@@ -11,7 +11,9 @@
         {{ pageHeading }}
       </h1>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m">Property 1</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Address
@@ -51,10 +53,12 @@
             </a>
           </dd>
         </div>
-        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove address</a></p>
+        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove property 1</a></p>
       </dl>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <h2 class="govuk-heading-m">Property 2</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Address
@@ -97,7 +101,7 @@
             </a>
           </dd>
         </div>
-        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove address</a></p>
+        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove property 2</a></p>
       </dl>
 
       <form method="post" action="/register-application/{{ pageURL }}/address-confirm-answer">
@@ -107,7 +111,7 @@
           name: "address-confirm",
           fieldset: {
             legend: {
-              text: "Do you need to add another address?",
+              text: "Do you need to add another property?",
               classes: "govuk-fieldset__legend--m"
             }
           },
