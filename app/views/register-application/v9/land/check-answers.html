@@ -128,6 +128,24 @@
             </a>
           </dd>
         </div>
+
+        {% if data['landowner-certificate-correct'] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Certificate of ownership
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">ownership-certificate.pdf</a>, 1.6MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+                Change<span class="govuk-visually-hidden"> certificate of ownership</span>
+              </a>
+            </dd>
+          </div>
+        {% else %}
+        {% endif %}
+        
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Landowner name
@@ -409,7 +427,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Rules on additionality funds received declaration
+            Additionality funds declaration
           </dt>
           <dd class="govuk-summary-list__value">
             Yes
@@ -422,16 +440,16 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-l">Now submit your information</h2>
+      <h2 class="govuk-heading-l">Submit your biodiversity gain site information</h2>
 
-      <p class="govuk-body">By accepting you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct. </p>
 
       <form action="/register-application/{{ pageURL }}/payment-card" method="post" novalidate>
 
         <input type="hidden" name="answers-checked" value="true">
 
         <button class="govuk-button" data-module="govuk-button">
-          Accept and make payment
+          Submit and make payment
         </button>
 
       </form>
