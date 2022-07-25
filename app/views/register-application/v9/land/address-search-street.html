@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Search for the property on HM Land Registry" %}
+{% set pageHeading = "Search for the property on HM Land Registry by street and name" %}
 
 {% block content %}
 
@@ -18,16 +18,6 @@
         }) %}
 
         <p class="govuk-hint">This should be the property where the biodiversity gain site is located.</p>
-
-        {{ govukInput({
-          label: {
-            text: "HM Land Registry Title number (optional)"
-          },
-            id: "land-title-number",
-            name: "land-title-number",
-            classes: "govuk-input--width-10"
-          })  
-        }}
 
         {{ govukInput({
           label: {
@@ -87,9 +77,15 @@
 
       </form>
 
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register-application/{{ pageURL }}/address-search">Search by postcode</a></li>
+        <li><a href="/register-application/{{ pageURL }}/address-search-title">Search by title number</a></li>
+      </ul>
+
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry" class="govuk-link--no-visited-state">The property is not on HM Land Registry</a></p>
+      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">The property is not on HM Land Registry</a></p>
 
     </div>
   </div>

@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Search for the property on HM Land Registry" %}
+{% set pageHeading = "Search for the property on HM Land Registry by postcode" %}
 
 {% block content %}
 
@@ -26,17 +26,21 @@
           })  
         }}
 
-        <p><a href="/register-application/{{ pageURL }}/address-search-detailed">The property does not have a postcode</a></p>
-
         {{ govukButton({
             text: "Search"
         }) }}
 
       </form>
 
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register-application/{{ pageURL }}/address-search-street">Search by street and town</a></li>
+        <li><a href="/register-application/{{ pageURL }}/address-search-title">Search by title number</a></li>
+      </ul>
+
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry" class="govuk-link--no-visited-state">The property is not on HM Land Registry</a></p>
+      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">The property is not on HM Land Registry</a></p>
 
     </div>
   </div>
