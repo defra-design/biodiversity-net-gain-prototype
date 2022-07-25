@@ -32,7 +32,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Land boundary and ownership
+            <span class="app-task-list__section-number">1. </span> Land information
           </h2>
           <ul class="app-task-list__items">
 
@@ -43,7 +43,7 @@
                   {% else %}
                   <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="boundary-status">
                 {% endif %} 
-                  Land boundary
+                  Upload land boundary details
                 </a>
               </span>
               {% if data['location-confirm'] %}
@@ -60,7 +60,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/address-search" aria-describedby="landowner-status">
                 {% endif %} 
-                    Land ownership
+                    Add land ownership details
                   </a>
               </span>
               {% if data['address-confirm'] == 'no' %}
@@ -86,7 +86,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="habitat-data-status">
                 {% endif %} 
-                  Biodiversity Metric data
+                  Upload Biodiversity Metric 3.1
                 </a>
               </span>
               {% if data['habitat-checked-data'] == 'yes' %}
@@ -112,7 +112,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
                 {% endif %} 
-                  Legal agreement
+                  Add legal agreement details
                 </a>
               </span>
               {% if data['legal-agreement-confirm'] == 'yes' %} 
@@ -129,7 +129,7 @@
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="management-plan-status">
                 {% endif %} 
-                  Habitat Management and Monitoring Plan
+                  Add habitat management and monitoring details
                 </a>
               </span>
               {% if data['management-plan-confirm'] == 'yes' %}
@@ -170,7 +170,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Check and submit
+            <span class="app-task-list__section-number">4. </span> Submit your biodiversity gain site information
           </h2>
           <ul class="app-task-list__items">
 
@@ -188,7 +188,7 @@
                 {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Check your answers and submit information
+                  Check your answers, pay and submit
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Cannot start yet</strong>
               {% endif %} 

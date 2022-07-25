@@ -27,6 +27,24 @@
             </a>
           </dd>
         </div>
+
+        {% if data['landowner-certificate-correct'] == 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Certificate of ownership
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <a download href="#">ownership-certificate.pdf</a>, 1.6MB
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+                Change<span class="govuk-visually-hidden"> certificate of ownership</span>
+              </a>
+            </dd>
+          </div>
+        {% else %}
+        {% endif %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Landowner name
@@ -116,16 +134,16 @@
             }
           },
           hint: {
-            text: "Some gain sites will have multiple addresses. You must add them all."
+            text: "Some biodiversity gain sites will have multiple properties. You must add them all."
           },
           items: [
             {
               value: "yes",
-              text: "Yes"
+              text: "Yes, add another property"
             },
             {
               value: "no",
-              text: "No"
+              text: "No, I have added all the properties"
             }
           ]
         }) }}
