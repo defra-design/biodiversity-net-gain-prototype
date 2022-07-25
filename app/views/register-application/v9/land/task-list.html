@@ -14,15 +14,17 @@
       
       {% if data['answers-checked'] %}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 complete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 3 sections.</p>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 4 of 4 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 in progress</h2>
-        {% if data['development-confirm'] and data['metric-check-data'] == 'yes' and data['legal-agreement-financial-correct'] or data['development-confirm'] and data['metric-check-data'] == 'yes' and data['legal-agreement-planning-obligation-correct']%}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 3 sections.</p>
-        {% elif data['location-confirm'] and data['land-ownership-correct'] and data['management-plan-correct']  or data['location-confirm'] and data['land-registry-correct'] and data['management-plan-correct']  %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 3 sections.</p>
+      {% if data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' and data['declaration-degradation'] and data['declaration-additionality'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 4 sections.</p>
+        {% elif data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 4 sections.</p>
+        {% elif data['location-confirm'] and  data['address-confirm'] == 'no' %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 4 sections.</p>
         {% else %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 6 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 4 sections.</p>
         {% endif %} 
       {% endif %} 
 
