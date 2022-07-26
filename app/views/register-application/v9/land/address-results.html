@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Search for the property on HM Land Registry" %}
+{% set pageHeading = "Search results" %}
 
 {% block content %}
 
@@ -11,55 +11,24 @@
         {{ pageHeading }}
       </h1>
 
-      <p class="govuk-hint">This should be the property where the biodiversity gain site is located.</p>
+      <p>3 addresses found</p>
 
-      {% if data['land-title-number'] or data['land-number'] or data['land-street-name'] or data['land-town']%}
+      <ul class="govuk-list govuk-list--spaced">
+        <li><a href="/register-application/{{ pageURL }}/landowner">Beechcroft, Goose Lane, Hawksworth, Leeds, LS20 8PJ</a></li>
+        <li><a href="/register-application/{{ pageURL }}/landowner">Meadow Croft, Goose Lane, Hawksworth, Leeds, LS20 8PJ</a></li>
+        <li><a href="/register-application/{{ pageURL }}/landowner">Meadow Croft Farm, Goose Lane, Hawksworth, Leeds, LS20 8PJ</a></li>
+      </ul>
 
-      {% else %}
+      <h2 class="govuk-heading-m govuk-!-padding-top-5">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register-application/{{ pageURL }}/address-search">Search by postcode</a></li>
+        <li><a href="/register-application/{{ pageURL }}/address-search-street">Search by street and town</a></li>
+        <li><a href="/register-application/{{ pageURL }}/address-search-title">Search by title number</a></li>
+      </ul>
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-1">Postcode</h2>
-      <p><span class="govuk-!-margin-right-1" style="text-transform: uppercase;">LS20 8PJ</span> <a href="/register-application/{{ pageURL }}/address-search" class="govuk-link--no-visited-state">Change <span class="govuk-visually-hidden">Postcode</span></a></p>
+      <p>Or</p>
 
-      {% endif %}
-
-      <form method="post" action="/register-application/{{ pageURL }}/landowner">
-
-
-        {{ govukSelect({
-          id: "select-address",
-          name: "select-address",
-          label: {
-            text: "Select an address",
-            classes: "govuk-label--m"
-          },
-          items: [
-            {
-              value: "address",
-              text: "3 addresses found"
-            },
-            {
-              value: "address-1",
-              text: "Beechcroft, Goose Lane, Hawksworth, Leeds, LS20 8PJ"
-            },
-            {
-              value: "address-2",
-              text: "Meadow Croft, Goose Lane, Hawksworth, Leeds, LS20 8PJ"
-            },
-            {
-              value: "address-3",
-              text: "Meadow Croft Farm, Goose Lane, Hawksworth, Leeds, LS20 8PJ"
-            }
-          ]
-        }) }}
-
-        <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">I cannot find the address on the list</a></p>
-
-
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-      </form>
+      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">The property is not on HM Land Registry</a></p>
 
       
 
