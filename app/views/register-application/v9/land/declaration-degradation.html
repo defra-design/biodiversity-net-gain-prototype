@@ -6,6 +6,26 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>I confirm that either:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the biodiversity gain site has not been degraded since 30 Jan 2020</li>
+      <span class="govuk-!-display-block govuk-!-margin-top-4 govuk-!-margin-bottom-4">or</span>
+      <li>if the land has been degraded since 30 Jan 2020, the baseline data was recorded before the degradation</li>
+      </ul>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You could be prosecuted or have to pay a financial penalty if you deliberately give untrue or misleading information.
+        </strong>
+      </div>
       
       <form method="post" action="/register-application/{{ pageURL }}/task-list">
 
@@ -14,26 +34,17 @@
           name: "declaration-degradation",
           fieldset: {
             legend: {
-              text: pageHeading,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+              text: pageHeading + "agreement",
+              classes: "govuk-visually-hidden"
             }
           },
           items: [
             {
               value: "accepted",
-              html: "I confirm that no activity on the land has reduced the biodiversity value of the land before the baseline data was recorded."
+              html: "I agree"
             }
           ]
         }) }}
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            You could be prosecuted or have to pay a financial penalty if you deliberately give the wrong or there has been degradation activities before the baseline data was recorded.
-          </strong>
-        </div>
         
         {{ govukButton({ text: 'Continue' }) }}
         
