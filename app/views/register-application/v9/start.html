@@ -1,6 +1,6 @@
 {% extends "register-application/v9/start-page-guide-template.html" %}
 
-{% set pageHeading = "Overview" %}
+{% set pageHeading = "Register your land" %}
 
 {% set pageURL = "v9" %}
 
@@ -9,11 +9,28 @@
 
 {% block guideContent %}
 
-  <p>How to register land used for biodiversity gain that is linked to a development.</p>
+  <p>A landowner, or someone acting on their behalf can register land as a biodiversity gain site.</p>
 
-  <ol class="steps">
-    <li><p>The landowner (or someone with landowner consent) <a href="/register-application/{{ pageURL }}/start-part-2">registers the land</a> to generate a biodiversity gain site reference.</p></li>
-    <li><p>Something something allocate land.</p></li>
-  </ol>
+  <p>To register land as a biodiversity gain site, you'll need:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>the boundary of the land</li>
+    <li>consent from the landowner - if you're not the landowner</li>
+    <li>a certificate of ownership - if the land is not registered on HM Land Registry</li>
+    <li>a completed <a href="#">Biodiversity Metric 3.1</a> for the land</li>
+    <li>a <a href="#">Habitat Management and Monitoring Plan</a></li>
+    <li>a <a href="#">legal agreement</a> securing the habitat enhancements</li>
+  </ul>
+
+  <h2>Register</h2>
+
+  <p>It costs £630 to register. You can pay by credit or debit card.</p>
+
+  {{ govukButton({
+    text: "Start now",
+    href: "/register-application/v9/land/check-you-are-eligible",
+    classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-0",
+    isStartButton: true
+  }) }}
 
 {% endblock %} 
