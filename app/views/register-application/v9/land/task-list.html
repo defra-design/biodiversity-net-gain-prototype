@@ -14,17 +14,17 @@
       
       {% if data['answers-checked'] %}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 complete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 4 of 4 sections.</p>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 8 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 in progress</h2>
       {% if data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' and data['declaration-degradation'] and data['declaration-additionality'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 4 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 7 of 8 sections.</p>
         {% elif data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 4 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 8 sections.</p>
         {% elif data['location-confirm'] and  data['address-confirm'] == 'no' %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 4 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 8 sections.</p>
         {% else %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 4 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 8 sections.</p>
         {% endif %} 
       {% endif %} 
 
@@ -32,7 +32,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">1. </span> Land information
+            Land information
           </h2>
           <ul class="app-task-list__items">
 
@@ -75,7 +75,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">2. </span> Habitat information
+            Habitat information
           </h2>
           <ul class="app-task-list__items">
 
@@ -101,7 +101,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">3. </span> Legal information
+            Legal information
           </h2>
           <ul class="app-task-list__items">
 
@@ -170,7 +170,7 @@
 
         <li>
           <h2 class="app-task-list__section">
-            <span class="app-task-list__section-number">4. </span> Submit your biodiversity gain site information
+            Submit your biodiversity gain site information
           </h2>
           <ul class="app-task-list__items">
 

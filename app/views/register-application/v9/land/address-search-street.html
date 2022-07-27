@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Search for the property on HM Land Registry by street and town" %}
+{% set pageHeading = "Search for the property on HM Land Registry" %}
 
 {% block content %}
 
@@ -17,7 +17,7 @@
           }
         }) %}
 
-        <p class="govuk-hint">This should be the property where the biodiversity gain site is located.</p>
+        <p class="govuk-hint">This should be the street or town of the property where the biodiversity gain site is located.</p>
 
         {{ govukInput({
           label: {
