@@ -1,6 +1,6 @@
 {% extends "register-application/v9/land/layout-register-application.html" %}
 
-{% set pageHeading = "Additionality funds declaration" %}
+{% set pageHeading = "Funding declaration" %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <p>By continuing, you confirm that you have declared any other sources of funding and that they do not conflict with the additionality rules set out by Defra.</p>
+      <p>By agreeing, you confirm that you have declared any other sources of funding and that they do not conflict with the additionality rules set out by Defra.</p>
 
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -35,7 +35,7 @@
           items: [
             {
               value: "accepted",
-              html: "I agree"
+              html: "I agree to the declaration"
             }
           ]
         }) }}
