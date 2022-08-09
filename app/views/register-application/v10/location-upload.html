@@ -1,0 +1,37 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "Upload your document or image" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-upload-confirm">
+
+        {{ govukFileUpload({
+          id: "location-upload",
+          name: "location-upload",
+          label: {
+            text: "Upload your document",
+            classes:"govuk-visually-hidden"
+          },
+          hint: {
+            text: "For example, title plan PDF or jpg"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

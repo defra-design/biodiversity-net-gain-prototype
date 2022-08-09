@@ -1,0 +1,63 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "Who owns Meadow Croft Farm, Goose Lane, Leeds, LS20 8PJ?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+
+        <p class="govuk-hint">You must add all names that appear on the property's title deed.</p>
+      
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
+      
+          {% call govukFieldset({
+            classes: 'moj-add-another__item',
+            legend: {
+              text: 'Landowner',
+              classes: 'moj-add-another__title govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+      
+          {{ govukInput({
+            id: 'landowner[0][full_name]',
+            name: 'landowner[0][full_name]',
+            label: {
+              html: 'Full name'
+            },
+            attributes: {
+              'data-name': 'landowner[%index%][full_name]',
+              'data-id': 'landowner[%index%][full_name]'
+            }
+          }) }}
+      
+          {% endcall %}
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Add another landowner',
+              classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Continue'
+            }) }}
+          </div>
+      
+        </form>
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,167 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Confirm the land boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {% if data['location-upload-confirm'] == 'yes' %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added"
+            },
+            value: {
+              html: "<img src='/public/images/land-boundary-file.png' alt='' width='100%' style='border: 1px solid #b1b4b6;'><a download href='#''>meadow-croft-farm-title-plan.pdf</a>, 1.2MB"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload",
+                  text: "Change",
+                  visuallyHiddenText: "file added"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: "4.2 ha"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: "SP41989814"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/location-confirm-answer-file">
+
+        {{ govukRadios({
+          idPrefix: "location-confirm",
+          name: "location-confirm",
+          fieldset: {
+            legend: {
+              text: "Is the land boundary information correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, upload a geospatial file instead"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+          
+      {% else %}
+
+        <div id="offsite" class="map map--location" tabindex="0">
+        </div>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Area in hectares"
+              },
+              value: {
+                text: "4.2 ha"
+              }
+            },
+            {
+              key: {
+                text: "Grid reference"
+              },
+              value: {
+                text: "SP41989814"
+              }
+            }
+          ]
+        }) }}
+
+        <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/location-confirm-answer">
+
+          {{ govukRadios({
+            idPrefix: "location-confirm",
+            name: "location-confirm",
+            fieldset: {
+              legend: {
+                text: "Is this the correct land boundary information?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes"
+              },
+              {
+                value: "no-again",
+                text: "No, upload a different geospatial file"
+              },
+              {
+                value: "no",
+                text: "No, upload a document or image of the land boundary instead"
+              }
+            ]
+          }) }}
+          
+          {{ govukButton({ text: 'Continue' }) }}
+          
+        </form>
+      {% endif %} 
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

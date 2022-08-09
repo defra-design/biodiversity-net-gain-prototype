@@ -1,0 +1,59 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "Check the legal agreement file" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: "<img src='/public/images/meadow-croft-farm-legal-agreement.png' alt='' width='100%' style='border: 1px solid #b1b4b6;'><a id='conservation-covenant-download' download href='#'>legal-agreement.pdf</a>, 1MB"
+            }
+          }
+        ]
+      }) }}
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer">
+
+        {{ govukRadios({
+          idPrefix: "legal-agreement-correct",
+          name: "legal-agreement-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, choose a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

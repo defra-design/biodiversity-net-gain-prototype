@@ -1,0 +1,30 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "You need to complete a Biodiversity Metric 3.1" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You need to complete a Biodiversity Metric 3.1 of the baseline and proposed habitats for the land that you want to register as a biodiversity gain site.</p>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            Help with the Biodiversity Metric 3.1
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          {% include "register-application/v9/includes/get-help.html" %}
+        </div>
+      </details>
+
+    </div>
+  </div>
+
+{% endblock %}

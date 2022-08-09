@@ -1,0 +1,35 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "Who is responsible for monitoring the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-upload">
+
+        {{ govukInput({
+          id: "management-plan-monitoring-name",
+          name: "management-plan-monitoring-name",
+          label: {
+            text: "Full name or organisation"
+          },
+          spellcheck: false
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "Add all parties listed on the legal agreement" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+      
+        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-date-start">
+      
+          {% call govukFieldset({
+            classes: 'moj-add-another__item',
+            legend: {
+              text: 'Party',
+              classes: 'moj-add-another__title govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+      
+          {{ govukInput({
+            id: 'person[0][parties_name]',
+            name: 'person[0][parties_name]',
+            label: {
+              html: 'Full name or organisation'
+            },
+            attributes: {
+              'data-name': 'person[%index%][parties_name]',
+              'data-id': 'person[%index%][parties_name]'
+            }
+          }) }}
+
+          {{ govukInput({
+            id: 'person[0][parties_role]',
+            name: 'person[0][parties_role]',
+            label: {
+              html: 'Role'
+            },
+            hint: {
+              text: "For example, county council, developer, owner"
+            },
+            attributes: {
+              'data-name': 'person[%index%][parties_role]',
+              'data-id': 'person[%index%][parties_role]'
+            }
+          }) }}
+      
+          {% endcall %}
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Add another',
+              classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Continue'
+            }) }}
+          </div>
+      
+        </form>
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

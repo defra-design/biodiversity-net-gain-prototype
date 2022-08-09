@@ -1,0 +1,205 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = serviceName %}
+
+{% set hideBackLink = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        {{ serviceName }}
+      </h1>
+      
+      {% if data['answers-checked'] %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 complete</h2>
+        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 8 sections.</p>
+      {% else %}
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 in progress</h2>
+      {% if data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' and data['declaration-degradation'] and data['declaration-additionality'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 7 of 8 sections.</p>
+        {% elif data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 8 sections.</p>
+        {% elif data['location-confirm'] and  data['address-confirm'] == 'no' %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 8 sections.</p>
+        {% else %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 8 sections.</p>
+        {% endif %} 
+      {% endif %} 
+
+      <ol class="app-task-list govuk-!-padding-top-3">
+
+        <li>
+          <h2 class="app-task-list__section">
+            Land information
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['location-confirm'] %}
+                  <a href="/register-application/{{ pageURL }}/location-confirm" aria-describedby="boundary-status">
+                  {% else %}
+                  <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="boundary-status">
+                {% endif %} 
+                  Upload land boundary details
+                </a>
+              </span>
+              {% if data['location-confirm'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="boundary-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="boundary-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['address-confirm'] == 'no' %}
+                  <a href="/register-application/{{ pageURL }}/landowner-confirm" aria-describedby="landowner-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/address-search" aria-describedby="landowner-status">
+                {% endif %} 
+                    Add land ownership details
+                  </a>
+              </span>
+              {% if data['address-confirm'] == 'no' %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Habitat information
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['habitat-checked-data'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/metric-data-confirm" aria-describedby="habitat-data-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="habitat-data-status">
+                {% endif %} 
+                  Upload Biodiversity Metric 3.1
+                </a>
+              </span>
+              {% if data['habitat-checked-data'] == 'yes' %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-data-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-data-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Legal information
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['legal-agreement-confirm'] == 'yes' %} 
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-confirm" aria-describedby="legal-agreement-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
+                {% endif %} 
+                  Add legal agreement details
+                </a>
+              </span>
+              {% if data['legal-agreement-confirm'] == 'yes' %} 
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="legal-agreement-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="legal-agreement-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                {% if data['management-plan-confirm'] == 'yes' %}
+                  <a href="/register-application/{{ pageURL }}/management-plan-confirm" aria-describedby="management-plan-status">
+                {% else %}
+                  <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="management-plan-status">
+                {% endif %} 
+                  Add habitat management and monitoring details
+                </a>
+              </span>
+              {% if data['management-plan-confirm'] == 'yes' %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="management-plan-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="management-plan-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/declaration-degradation" aria-describedby="declaration-degradation-status">
+                  Biodiversity value declaration
+                </a>
+              </span>
+              {% if data['declaration-degradation'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="declaration-degradation-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="declaration-degradation-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/declaration-additionality" aria-describedby="declaration-additionality-status">
+                  Funding declaration
+                </a>
+              </span>
+              {% if data['declaration-additionality'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="declaration-additionality-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="declaration-additionality-status">Not started</strong>
+              {% endif %} 
+            </li>
+
+          </ul>
+        </li>
+
+        <li>
+          <h2 class="app-task-list__section">
+            Submit your biodiversity gain site information
+          </h2>
+          <ul class="app-task-list__items">
+
+            <li class="app-task-list__item">
+              {% if data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' and data['declaration-degradation'] and data['declaration-additionality'] %}
+                <span class="app-task-list__task-name">
+                  <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
+                    Check your answers and submit information
+                  </a>
+                </span>
+                {% if data['payment-success'] %}
+                  <strong class="govuk-tag app-task-list__tag" id="submit-application-status">completed</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">not started</strong>
+                {% endif %} 
+              {% else %}
+                <span class="app-task-list__task-name">
+                  Check your answers, pay and submit
+                </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Cannot start yet</strong>
+              {% endif %} 
+            </li>
+
+          </ul>
+        </li>
+
+      </ol>
+
+    </div>
+  </div>
+
+{% endblock %}

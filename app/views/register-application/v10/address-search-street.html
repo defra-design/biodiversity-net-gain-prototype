@@ -1,0 +1,96 @@
+{% extends "register-application/v10/layout-register-application.html" %}
+
+{% set pageHeading = "Search for the property on HM Land Registry" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/address-results">
+
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-5",
+            isPageHeading: true
+          }
+        }) %}
+
+        <p class="govuk-hint">This should be the street or town of the property where the biodiversity gain site is located.</p>
+
+        {{ govukInput({
+          label: {
+            text: "Flat (optional)"
+          },
+            id: "land-flat",
+            name: "land-flat",
+            classes: "govuk-!-width-one-half"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "House number or name (optional)"
+          },
+            id: "land-number",
+            name: "land-number",
+            classes: "govuk-!-width-one-half"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "Street"
+          },
+            id: "land-street-name",
+            name: "land-street-name",
+            classes: "govuk-!-width-one-half",
+            autocomplete: "address-line1"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "Town or city"
+          },
+            id: "land-town",
+            name: "land-town",
+            classes: "govuk-!-width-one-half",
+            autocomplete: "address-level2"
+          })  
+        }}
+
+        {{ govukInput({
+          label: {
+            text: "Postcode (optional)"
+          },
+            id: "land-postcode",
+            name: "land-postcode",
+            classes: "govuk-input--width-10",
+            autocomplete: "postal-code"
+          })  
+        }}
+        
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+      </form>
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register-application/{{ pageURL }}/address-search">Search by postcode</a></li>
+        <li><a href="/register-application/{{ pageURL }}/address-search-title">Search by title number</a></li>
+      </ul>
+
+      <p>Or</p>
+
+      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">The property is not on HM Land Registry</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
