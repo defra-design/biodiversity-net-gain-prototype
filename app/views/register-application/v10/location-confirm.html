@@ -13,7 +13,7 @@
         {{ pageHeading }}
       </h1>
 
-      {% if data['location-upload-confirm'] == 'yes' %}
+      <!--{% if data['location-upload-confirm'] == 'yes' %}-->
 
       {{ govukSummaryList({
         rows: [
@@ -71,35 +71,16 @@
         ]
       }) }}
 
-      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/location-confirm-answer-file">
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
 
-        {{ govukRadios({
-          idPrefix: "location-confirm",
-          name: "location-confirm",
-          fieldset: {
-            legend: {
-              text: "Is the land boundary information correct?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes"
-            },
-            {
-              value: "no",
-              text: "No, upload a geospatial file instead"
-            }
-          ]
-        }) }}
+        <input type="hidden" name="location-confirm" value="true">
         
-        {{ govukButton({ text: 'Continue' }) }}
+        {{ govukButton({ text: 'Confirm and continue' }) }}
         
       </form>
 
           
-      {% else %}
+      <!--{% else %}
 
         <div id="offsite" class="map map--location" tabindex="0">
         </div>
@@ -155,7 +136,7 @@
           {{ govukButton({ text: 'Continue' }) }}
           
         </form>
-      {% endif %} 
+      {% endif %} -->
 
     </div>
   </div>

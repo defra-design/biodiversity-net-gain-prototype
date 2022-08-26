@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "You have added 2 properties" %}
+{% set pageHeading = "Confirm land ownership details" %}
 
 {% block content %}
 
@@ -10,8 +10,6 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
-
-      <h2 class="govuk-heading-m">Property 1</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
@@ -28,22 +26,19 @@
           </dd>
         </div>
 
-        {% if data['landowner-certificate-correct'] == 'yes' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Certificate of ownership
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <a download href="#">ownership-certificate.pdf</a>, 1.6MB
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
-                Change<span class="govuk-visually-hidden"> certificate of ownership</span>
-              </a>
-            </dd>
-          </div>
-        {% else %}
-        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Certificate of ownership
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a download href="#">ownership-certificate.pdf</a>, 1.6MB
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> certificate of ownership</span>
+            </a>
+          </dd>
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -71,84 +66,13 @@
             </a>
           </dd>
         </div>
-        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove property 1</a></p>
       </dl>
 
-      <h2 class="govuk-heading-m">Property 2</h2>
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Address
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Hunters Farm<br>Goose Ln<br>Leeds<br>LS20 8PJ
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/address-search">
-              Change<span class="govuk-visually-hidden"> address</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <ul class="govuk-list">
-              <li>Kevin Francis</li>
-              <li>Alice Hunter</li>
-            </ul>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
-              Change<span class="govuk-visually-hidden"> landowner name</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner consent
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Yes
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
-              Change<span class="govuk-visually-hidden"> landowner consent</span>
-            </a>
-          </dd>
-        </div>
-        <p class="govuk-!-margin-top-4 govuk-!-margin-bottom-0"><a href="#">Remove property 2</a></p>
-      </dl>
-
-      <form method="post" action="/register-application/{{ pageURL }}/address-confirm-answer">
-
-        {{ govukRadios({
-          idPrefix: "address-confirm",
-          name: "address-confirm",
-          fieldset: {
-            legend: {
-              text: "Do you need to add another property?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "Some biodiversity gain sites will have more than one property. You must add them all."
-          },
-          items: [
-            {
-              value: "yes",
-              text: "Yes, add another property"
-            },
-            {
-              value: "no",
-              text: "No, I have added all the properties"
-            }
-          ]
-        }) }}
+        <input type="hidden" name="address-confirm" value="yes">
         
-        {{ govukButton({ text: 'Continue' }) }}
+        {{ govukButton({ text: 'Confirm and continue' }) }}
         
       </form>
 

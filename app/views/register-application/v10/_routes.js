@@ -120,7 +120,7 @@ router.post('/metric-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v10/metric-upload')
   } else {
-    res.redirect('/register-application/v10/metric-data-confirm')
+    res.redirect('/register-application/v10/task-list')
   }
 })
 
@@ -265,7 +265,7 @@ router.post('/landowner-certificate-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v10/landowner-certificate-upload')
   } else {
-    res.redirect('/register-application/v10/landowner')
+    res.redirect('/register-application/v10/landowner-name')
   }
 })
 
