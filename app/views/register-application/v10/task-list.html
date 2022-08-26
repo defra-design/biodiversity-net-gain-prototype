@@ -84,7 +84,7 @@
                 {% if data['address-confirm'] == 'yes' %}
                   <a href="/register-application/{{ pageURL }}/landowner-confirm" aria-describedby="landowner-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/address-add" aria-describedby="landowner-status">
+                  <a href="/register-application/{{ pageURL }}/landowner-certificate-upload" aria-describedby="landowner-status">
                 {% endif %} 
                     Add land ownership details
                   </a>
@@ -127,7 +127,7 @@
                 {% if data['management-plan-confirm'] == 'yes' %}
                   <a href="/register-application/{{ pageURL }}/management-plan-confirm" aria-describedby="management-plan-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/management-plan" aria-describedby="management-plan-status">
+                  <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="management-plan-status">
                 {% endif %} 
                   Add habitat management and monitoring details
                 </a>
@@ -153,7 +153,7 @@
                 {% if data['legal-agreement-confirm'] == 'yes' %} 
                   <a href="/register-application/{{ pageURL }}/legal-agreement-confirm" aria-describedby="legal-agreement-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-upload" aria-describedby="legal-agreement-status">
                 {% endif %} 
                   Add legal agreement details
                 </a>

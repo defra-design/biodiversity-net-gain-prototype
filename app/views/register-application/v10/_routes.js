@@ -107,7 +107,7 @@ router.post('/location-upload-confirm-answer', function (req, res) {
   if (install == "no-again"){
     res.redirect('/register-application/v10/location-upload')
   } else {
-    res.redirect('/register-application/v10/location-area')
+    res.redirect('/register-application/v10/address-add')
   }
 })
 
@@ -145,7 +145,7 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v10/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v10/legal-agreement-confirm')
+    res.redirect('/register-application/v10/legal-agreement-parties')
   }
 })
 
@@ -205,7 +205,7 @@ router.post('/management-plan-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v10/management-plan-upload')
   } else {
-    res.redirect('/register-application/v10/management-plan-confirm')
+    res.redirect('/register-application/v10/management-plan-date-start')
   }
 })
 
