@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your document or image" %}
+{% set pageHeading = "Upload a document or image showing the land boundary" %}
 
 {% block content %}
 
@@ -21,11 +21,11 @@
             classes:"govuk-visually-hidden"
           },
           hint: {
-            text: "For example, title plan PDF or jpg"
+            text: "PDF or JPG, no larger than 50MB"
           }
         }) }}
 
-        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have a land boundary</a></p>
+        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have a file of the land boundary</a></p>
 
         {{ govukButton({
           text: "Continue"
