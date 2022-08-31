@@ -107,7 +107,7 @@ router.post('/location-upload-confirm-answer', function (req, res) {
   if (install == "no-again"){
     res.redirect('/register-application/v10/location-upload')
   } else {
-    res.redirect('/register-application/v10/address-add')
+    res.redirect('/register-application/v10/location-grid-reference')
   }
 })
 

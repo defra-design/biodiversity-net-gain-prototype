@@ -21,11 +21,11 @@
             classes:"govuk-visually-hidden"
           },
           hint: {
-            text: "PDF, max size 50MB"
+            html: "<p>The file should be:</p> <ul class='govuk-list govuk-list--bullet'><li>a DOC, DOCX or PDF</li><li>no larger than 50MB</li></ul>"
           }
         }) }}
 
-        <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a legal agreement</a></p>
+        <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have the legal agreement</a></p>
 
         {{ govukButton({
           text: "Continue"
