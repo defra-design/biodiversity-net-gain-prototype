@@ -17,12 +17,14 @@
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 8 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 in progress</h2>
-      {% if data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' and data['declaration-degradation'] and data['declaration-additionality'] %}
+        {% if data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 6 of 7 sections.</p>
-        {% elif data['location-confirm'] and  data['address-confirm'] == 'no' and data['habitat-checked-data'] == 'yes' %}
+        {% elif data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] and data['metric-correct'] == 'yes' and data['management-plan-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 7 sections.</p>
-        {% elif data['location-confirm'] and  data['address-confirm'] == 'no' %}
+        {% elif data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 7 sections.</p>
+        {% elif data['details-confirm'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 7 sections.</p>
         {% else %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 7 sections.</p>
         {% endif %} 
@@ -38,15 +40,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['your-details'] %}
-                  <a href="/register-application/{{ pageURL }}/#" aria-describedby="your-details-status">
+                {% if data['details-confirm'] %}
+                  <a href="/register-application/{{ pageURL }}/details-confirm" aria-describedby="your-details-status">
                   {% else %}
-                  <a href="/register-application/{{ pageURL }}/#" aria-describedby="your-details-status">
+                  <a href="/register-application/{{ pageURL }}/details-name" aria-describedby="your-details-status">
                 {% endif %} 
                   Add your details
                 </a>
               </span>
-              {% if data['your-details'] %}
+              {% if data['details-confirm'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="your-details-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="your-details-status">Not started</strong>
@@ -81,7 +83,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['address-confirm'] == 'yes' %}
+                {% if data['address-confirm'] %}
                   <a href="/register-application/{{ pageURL }}/landowner-confirm" aria-describedby="landowner-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/landowner-certificate-upload" aria-describedby="landowner-status">
@@ -89,7 +91,7 @@
                     Add land ownership details
                   </a>
               </span>
-              {% if data['address-confirm'] == 'yes' %}
+              {% if data['address-confirm'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
@@ -124,7 +126,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['management-plan-confirm'] == 'yes' %}
+                {% if data['management-plan-confirm'] %}
                   <a href="/register-application/{{ pageURL }}/management-plan-confirm" aria-describedby="management-plan-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/management-plan-upload" aria-describedby="management-plan-status">
@@ -132,7 +134,7 @@
                   Add habitat management and monitoring details
                 </a>
               </span>
-              {% if data['management-plan-confirm'] == 'yes' %}
+              {% if data['management-plan-confirm'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="management-plan-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="management-plan-status">Not started</strong>
@@ -150,7 +152,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['legal-agreement-confirm'] == 'yes' %} 
+                {% if data['legal-agreement-confirm'] %} 
                   <a href="/register-application/{{ pageURL }}/legal-agreement-confirm" aria-describedby="legal-agreement-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/legal-agreement-upload" aria-describedby="legal-agreement-status">
@@ -158,7 +160,7 @@
                   Add legal agreement details
                 </a>
               </span>
-              {% if data['legal-agreement-confirm'] == 'yes' %} 
+              {% if data['legal-agreement-confirm'] %} 
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="legal-agreement-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="legal-agreement-status">Not started</strong>
@@ -201,7 +203,7 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['location-confirm'] and  data['address-confirm'] == 'yes' and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] == 'yes' and data['management-plan-confirm'] == 'yes' %}
+              {% if data['details-confirm'] and data['location-confirm'] and data['address-confirm'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers and submit information
