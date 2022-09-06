@@ -10,22 +10,24 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+
+      <div id="management-plan-upload-hint">
+        <p>The file should be:</p> 
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a DOC, DOCX or PDF</li>
+          <li>no larger than 50MB</li>
+        </ul>
+      </div>
       
       <form method="post" action="/register-application/{{ pageURL }}/management-plan-check">
 
-        {{ govukFileUpload({
-          id: "management-plan-upload",
-          name: "management-plan-upload",
-          label: {
-            text: "Upload a file",
-            classes:"govuk-visually-hidden"
-          },
-          hint: {
-            html: "<p>The file should be:</p> <ul class='govuk-list govuk-list--bullet'><li>a DOC, DOCX or PDF</li><li>no larger than 50MB</li></ul>"
-          }
-        }) }}
+        <label class="govuk-label" for="management-plan-upload">
+          Upload a file
+        </label>
 
-        <p><a href="/register-application/{{ pageURL }}/management-plan-no">I do not have the habitat management and monitoring plan</a></p>
+        <input class="govuk-file-upload" id="management-plan-upload" name="management-plan-upload" type="file" aria-describedby="management-plan-upload-hint">
+
+        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/management-plan-no">I do not have the habitat management and monitoring plan</a></p>
 
         {{ govukButton({
           text: "Continue"

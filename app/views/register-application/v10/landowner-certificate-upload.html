@@ -11,21 +11,23 @@
         {{ pageHeading }}
       </h1>
       
+      <div id="landowner-certificate-upload-hint">
+        <p>The file should be:</p> 
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a DOC, DOCX or PDF</li>
+          <li>no larger than 50MB</li>
+        </ul>
+      </div>
+      
       <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-check">
 
-        {{ govukFileUpload({
-          id: "landowner-certificate-upload",
-          name: "landowner-certificate-upload",
-          label: {
-            text: "Upload a file",
-            classes:"govuk-visually-hidden"
-          },
-          hint: {
-            html: "<p>The file should be:</p> <ul class='govuk-list govuk-list--bullet'><li>a DOC, DOCX or PDF</li><li>no larger than 50MB</li></ul>"
-          }
-        }) }}
+        <label class="govuk-label" for="landowner-certificate-upload">
+          Upload a file
+        </label>
 
-        <p><a href="/register-application/{{ pageURL }}/landowner-certificate-no">I do not have the certificate of ownership</a></p>
+        <input class="govuk-file-upload" id="landowner-certificate-upload" name="landowner-certificate-upload" type="file" aria-describedby="landowner-certificate-upload-hint">
+
+        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/landowner-certificate-no">I do not have the certificate of ownership</a></p>
 
         {{ govukButton({
           text: "Continue"
