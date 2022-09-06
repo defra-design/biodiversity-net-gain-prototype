@@ -10,25 +10,27 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+
+      <div id="location-upload-hint">
+        <p>The file should be:</p> 
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a DOC, DOCX, JPG, PNG or PDF</li>
+          <li>no larger than 50MB</li>
+        </ul>
+      </div>
       
       <form method="post" action="/register-application/{{ pageURL }}/location-upload-confirm">
+  
+        <label class="govuk-label" for="location-upload">
+          Upload a file
+        </label>
 
-        {{ govukFileUpload({
-          id: "location-upload",
-          name: "location-upload",
-          label: {
-            text: "Upload your document",
-            classes:"govuk-visually-hidden"
-          },
-          hint: {
-            html: "<p>The file should be:</p> <ul class='govuk-list govuk-list--bullet'><li>a DOC, DOCX, JPG, PNG or PDF</li><li>no larger than 50MB</li></ul>"
-          }
-        }) }}
+        <input class="govuk-file-upload" id="location-upload" name="location-upload" type="file" aria-describedby="location-upload-hint">
 
-        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have a file of the land boundary</a></p>
+        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/location-no">I do not have a file of the land boundary</a></p>
 
         {{ govukButton({
-          text: "Continue"
+          text: "Upload file"
         }) }}
         
       </form>
