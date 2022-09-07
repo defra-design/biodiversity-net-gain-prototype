@@ -13,8 +13,6 @@
         {{ pageHeading }}
       </h1>
 
-      <!--{% if data['location-upload-confirm'] == 'yes' %}-->
-
       {{ govukSummaryList({
         rows: [
           {
@@ -39,7 +37,7 @@
               text: "Grid reference"
             },
             value: {
-              text: "SP41989814"
+              text: data['grid-reference'] or 'SP41989814'
             },
             actions: {
               items: [
@@ -56,7 +54,7 @@
               text: "Area in hectares"
             },
             value: {
-              text: "4.2 ha"
+              text: data['area-in-hectares'] or '4.2 ha'
             },
             actions: {
               items: [
@@ -78,65 +76,6 @@
         {{ govukButton({ text: 'Confirm and continue' }) }}
         
       </form>
-
-          
-      <!--{% else %}
-
-        <div id="offsite" class="map map--location" tabindex="0">
-        </div>
-
-        {{ govukSummaryList({
-          rows: [
-            {
-              key: {
-                text: "Area in hectares"
-              },
-              value: {
-                text: "4.2 ha"
-              }
-            },
-            {
-              key: {
-                text: "Grid reference"
-              },
-              value: {
-                text: "SP41989814"
-              }
-            }
-          ]
-        }) }}
-
-        <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/location-confirm-answer">
-
-          {{ govukRadios({
-            idPrefix: "location-confirm",
-            name: "location-confirm",
-            fieldset: {
-              legend: {
-                text: "Is this the correct land boundary information?",
-                classes: "govuk-fieldset__legend--m"
-              }
-            },
-            items: [
-              {
-                value: "yes",
-                text: "Yes"
-              },
-              {
-                value: "no-again",
-                text: "No, upload a different geospatial file"
-              },
-              {
-                value: "no",
-                text: "No, upload a document or image of the land boundary instead"
-              }
-            ]
-          }) }}
-          
-          {{ govukButton({ text: 'Continue' }) }}
-          
-        </form>
-      {% endif %} -->
 
     </div>
   </div>

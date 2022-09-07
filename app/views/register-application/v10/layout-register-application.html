@@ -39,7 +39,7 @@
 
   {% if hideSaveSection === true %}
   {% else %}
-    <div class="app-save__wrapper">
+    <!--<div class="app-save__wrapper">-->
       {% if hideBackLink === true %}
       {% else %}
         {{ govukBackLink({
@@ -53,7 +53,7 @@
           <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/signed-out?lastVisitedURL={{currentURL}}">Save and return later</a></p>
         </div>-->
       {% endif %} 
-    </div>
+    <!--</div>-->
   {% endif %} 
 {% endblock %}
 
