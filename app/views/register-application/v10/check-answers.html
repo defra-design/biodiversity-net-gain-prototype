@@ -13,64 +13,105 @@
         {{ pageHeading }}
       </h1>
 
+      <h2 class="govuk-heading-l">Your details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data['full-name'] or 'Jo Smith'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/details-name",
+                  text: "Change",
+                  visuallyHiddenText: "full name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data['email'] or 'josmith@gmail.com'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/details-contact",
+                  text: "Change",
+                  visuallyHiddenText: "email address"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
       <h2 class="govuk-heading-l">Land boundary</h2>
 
 
-        {{ govukSummaryList({
-          rows: [
-            {
-              key: {
-                text: "File added"
-              },
-              value: {
-                text: "meadow-croft-farm-land-boundary.pdf, 1.2MB"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "/register-application/" + pageURL + "/location-upload",
-                    text: "Change",
-                    visuallyHiddenText: "file added"
-                  }
-                ]
-              }
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added"
             },
-            {
-              key: {
-                text: "Area in hectares"
-              },
-              value: {
-                text: "4.2 ha"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "/register-application/" + pageURL + "/location-area",
-                    text: "Change",
-                    visuallyHiddenText: "are in hectares"
-                  }
-                ]
-              }
+            value: {
+              html: "meadow-croft-farm-land-boundary.pdf, 1.2MB"
             },
-            {
-              key: {
-                text: "Grid reference"
-              },
-              value: {
-                text: "SP41989814"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "/register-application/" + pageURL + "/location-grid-reference",
-                    text: "Change",
-                    visuallyHiddenText: "grid reference"
-                  }
-                ]
-              }
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload",
+                  text: "Change",
+                  visuallyHiddenText: "file added"
+                }
+              ]
             }
-          ]
-        }) }}
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
       <h2 class="govuk-heading-l">Land ownership</h2>
 
