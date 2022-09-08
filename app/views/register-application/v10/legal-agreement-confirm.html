@@ -46,7 +46,7 @@
             Start date
           </dt>
           <dd class="govuk-summary-list__value">
-            15 March 2022
+            {{ data['legal-agreement-date-start-day'] or '15' }} {{ data['legal-agreement-date-start-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-start-year'] or '2022' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
@@ -59,7 +59,7 @@
             End date
           </dt>
           <dd class="govuk-summary-list__value">
-            15 March 2052
+            {{ data['legal-agreement-date-end-day'] or '15' }} {{ data['legal-agreement-date-end-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-end-year'] or '2052' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-end">
