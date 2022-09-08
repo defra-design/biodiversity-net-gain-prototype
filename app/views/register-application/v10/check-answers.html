@@ -64,7 +64,7 @@
               text: "File added"
             },
             value: {
-              html: "meadow-croft-farm-land-boundary.pdf, 1.2MB"
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
             },
             actions: {
               items: [
@@ -122,7 +122,7 @@
             Certificate of ownership
           </dt>
           <dd class="govuk-summary-list__value">
-            ownership-certificate.pdf, 1.6MB
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
@@ -170,7 +170,7 @@
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              text: 'metric_3.0_meadow_farm.xlsm, 4.1MB'
+              text: data['metric-upload'] or 'metric_3.0_meadow_farm.xlsm'
             },
             actions: {
               items: [
@@ -282,7 +282,7 @@
             Legal agreement
           </dt>
           <dd class="govuk-summary-list__value">
-            legal-agreement.pdf, 1MB
+            {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-upload">

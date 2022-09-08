@@ -18,7 +18,7 @@
             Certificate of ownership
           </dt>
           <dd class="govuk-summary-list__value">
-            ownership-certificate.pdf, 1.6MB
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
