@@ -49,27 +49,17 @@ router.use('/register/v4', registerv4);
 const registerv5 = require('./views/register/v5/_routes');
 router.use('/register/v5', registerv5);
 
-var NotifyClient = require('notifications-node-client').NotifyClient,
-    notify = new NotifyClient(process.env.NOTIFYAPIKEY);
+router.post('/email-address-page', function (req, res) {
+  // uses GOV.UK notify
+  // uses GOV.UK notify
+  var NotifyClient = require('notifications-node-client').NotifyClient;
+  var notifyClient = new NotifyClient("landowner_journey-cbaaee0b-476a-4cb2-b826-e4c49d0f269e-6c0b4885-c9f2-41f0-b2ea-e8a8718cb9a0");
 
-// The URL here needs to match the URL of the page that the user is on
-// when they type in their email address
-router.post('/notify-email', function (req, res) {
+  notifyClient.sendEmail('4ba89f17-3e66-465b-8d21-5bb1320aa373', 'david.hunter1@defra.gov.uk', {
 
-  notify.sendEmail(
-    // this long string is the template ID, copy it from the template
-    // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
-    // in your code.
-    '4ba89f17-3e66-465b-8d21-5bb1320aa373',
-    // `emailAddress` here needs to match the name of the form field in
-    // your HTML page
-    req.body.emailAddress
-  );
+  }).then(response => console.log(response)).catch(err => console.error(err))
 
-  // This is the URL the users will be redirected to once the email
-  // has been sent
   res.redirect('/notify-email-confirmation');
-
 });
 
 // Add your routes above the module.exports line
