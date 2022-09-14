@@ -55,9 +55,15 @@ router.post('/email-address-page', function (req, res) {
   var NotifyClient = require('notifications-node-client').NotifyClient;
   var notifyClient = new NotifyClient("landowner_journey-cbaaee0b-476a-4cb2-b826-e4c49d0f269e-6c0b4885-c9f2-41f0-b2ea-e8a8718cb9a0");
 
-  notifyClient.sendEmail('4ba89f17-3e66-465b-8d21-5bb1320aa373', 'david.hunter1@defra.gov.uk', {
-
-  }).then(response => console.log(response)).catch(err => console.error(err))
+  notifyClient.sendEmail(
+    // this long string is the template ID, copy it from the template
+    // page in GOV.UK Notify. It’s not a secret so it’s fine to put it
+    // in your code.
+    '4ba89f17-3e66-465b-8d21-5bb1320aa373',
+    // `emailAddress` here needs to match the name of the form field in
+    // your HTML page
+    req.body.emailAddress
+  ).then(response => console.log(response)).catch(err => console.error(err))
 
   res.redirect('/notify-email-confirmation');
 });
