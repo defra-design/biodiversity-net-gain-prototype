@@ -38,20 +38,23 @@
 
           {% set otherHtml %}
           {{ govukInput({
-            id: "role-other",
-            name: "role-other",
+            id: "role-party-other[0][parties_role_other]",
+            name: "role-party-other[0][parties_role_other]",
             type: "text",
             classes: "govuk-!-width-one-third",
-            value: data['role-other'],
             label: {
               text: "Role"
+            },
+            attributes: {
+              'data-name': 'person[%index%][parties_role_other]',
+              'data-id': 'person[%index%][parties_role_other]'
             }
           }) }}
           {% endset -%}
 
           {{ govukRadios({
-            idPrefix: "role[0][parties_role]",
-            name: "role[0][parties_role]",
+            idPrefix: "person[0][parties_role]",
+            name: "person[0][parties_role]",
             fieldset: {
               legend: {
                 text: "Role",
@@ -65,27 +68,42 @@
               {
                 value: "County Council",
                 text: "County Council",
-                checked: checked("role", "County Council")
+                attributes: {
+                  'data-name': 'person[%index%][County Council]',
+                  'data-id': 'person[%index%][County Council]'
+                }
               },
               {
                 value: "Developer",
                 text: "Developer",
-                checked: checked("role", "Developer")
+                attributes: {
+                  'data-name': 'person[%index%][Developer]',
+                  'data-id': 'person[%index%][Developer]'
+                }
               },
               {
                 value: "Landowner",
                 text: "Landowner",
-                checked: checked("role", "Landowner")
+                attributes: {
+                  'data-name': 'person[%index%][Landowner]',
+                  'data-id': 'person[%index%][Landowner]'
+                }
               },
               {
                 value: "Responsible body",
                 text: "Responsible body",
-                checked: checked("role", "Responsible body")
+                attributes: {
+                  'data-name': 'person[%index%][Responsible body]',
+                  'data-id': 'person[%index%][Responsible body]'
+                }
               },
               {
                 value: "Other",
                 text: "Other",
-                checked: checked("role", "Other"),
+                attributes: {
+                  'data-name': 'person[%index%][Other]',
+                  'data-id': 'person[%index%][Other]'
+                },
                 conditional: {
                   html: otherHtml
                 }
