@@ -54,19 +54,6 @@
             </a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            End date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['legal-agreement-date-end-day'] or '15' }} {{ data['legal-agreement-date-end-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-end-year'] or '2052' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-end">
-              Change<span class="govuk-visually-hidden"> end date</span>
-            </a>
-          </dd>
-        </div>
       </dl>
 
       <form method="post" action="/register-application/{{ pageURL }}/task-list">

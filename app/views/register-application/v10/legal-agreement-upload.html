@@ -10,27 +10,27 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
-
-      <div id="legal-agreement-upload-hint">
-        <p>The file should be:</p> 
-        <ul class="govuk-list govuk-list--bullet">
-          <li>a DOC, DOCX or PDF</li>
-          <li>no larger than 50MB</li>
-        </ul>
-      </div>
       
       <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-check">
   
-        <label class="govuk-label" for="legal-agreement-upload">
+        <label class="govuk-label govuk-visually-hidden" for="legal-agreement-upload">
           Upload a file
         </label>
+
+        <div id="legal-agreement-upload-hint">
+          <p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a DOC, DOCX or PDF</li>
+            <li>no larger than 50MB</li>
+          </ul>
+        </div>
 
         <input class="govuk-file-upload" id="legal-agreement-upload" name="legal-agreement-upload" type="file" aria-describedby="legal-agreement-upload-hint">
 
         <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have the legal agreement</a></p>
 
         {{ govukButton({
-          text: "Upload file"
+          text: "Continue"
         }) }}
         
       </form>

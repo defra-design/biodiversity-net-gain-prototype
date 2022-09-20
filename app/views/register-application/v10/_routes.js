@@ -133,7 +133,7 @@ router.post('/legal-agreement-answer', function (req, res) {
   if (install == "none"){
     res.redirect('/register-application/v10/legal-agreement-no')
   } else {
-    res.redirect('/register-application/v10/legal-agreement-parties')
+    res.redirect('/register-application/v10/legal-agreement-upload')
   }
 })
 

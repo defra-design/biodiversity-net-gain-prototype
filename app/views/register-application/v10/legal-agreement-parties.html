@@ -36,19 +36,61 @@
             }
           }) }}
 
+          {% set otherHtml %}
           {{ govukInput({
-            id: 'person[0][parties_role]',
-            name: 'person[0][parties_role]',
+            id: "role-other",
+            name: "role-other",
+            type: "text",
+            classes: "govuk-!-width-one-third",
+            value: data['role-other'],
             label: {
-              html: 'Role'
+              text: "Role"
+            }
+          }) }}
+          {% endset -%}
+
+          {{ govukRadios({
+            idPrefix: "role[0][parties_role]",
+            name: "role[0][parties_role]",
+            fieldset: {
+              legend: {
+                text: "Role",
+                classes: "govuk-fieldset__legend--m"
+              }
             },
             hint: {
-              text: "For example, county council, developer, owner"
+              text: "Select one option."
             },
-            attributes: {
-              'data-name': 'person[%index%][parties_role]',
-              'data-id': 'person[%index%][parties_role]'
-            }
+            items: [
+              {
+                value: "County Council",
+                text: "County Council",
+                checked: checked("role", "County Council")
+              },
+              {
+                value: "Developer",
+                text: "Developer",
+                checked: checked("role", "Developer")
+              },
+              {
+                value: "Landowner",
+                text: "Landowner",
+                checked: checked("role", "Landowner")
+              },
+              {
+                value: "Responsible body",
+                text: "Responsible body",
+                checked: checked("role", "Responsible body")
+              },
+              {
+                value: "Other",
+                text: "Other",
+                checked: checked("role", "Other"),
+                conditional: {
+                  html: otherHtml
+                }
+              }
+            ]
           }) }}
       
           {% endcall %}

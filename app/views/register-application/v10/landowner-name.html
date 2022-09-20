@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Who owns Meadow Croft Farm, Goose Lane, Leeds, LS20 8PJ?" %}
+{% set pageHeading = "Add all the registered owners" %}
 
 {% block content %}
 
@@ -12,8 +12,6 @@
         <h1 class="govuk-heading-l" tabindex="-1">
           {{ pageHeading }}
         </h1>
-
-        <p class="govuk-hint">You must add all names that appear on the property's title deed.</p>
       
         <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
       
@@ -25,6 +23,23 @@
               isPageHeading: false
             }
           }) %}
+
+          {% if data['role'] == 'Landowner' %}
+      
+          {{ govukInput({
+            id: 'landowner[0][full_name]',
+            name: 'landowner[0][full_name]',
+            value: data['full-name'] or 'Jo Smith',
+            label: {
+              html: 'Full name'
+            },
+            attributes: {
+              'data-name': 'landowner[%index%][full_name]',
+              'data-id': 'landowner[%index%][full_name]'
+            }
+          }) }}
+
+          {% else %}
       
           {{ govukInput({
             id: 'landowner[0][full_name]',
@@ -37,6 +52,8 @@
               'data-id': 'landowner[%index%][full_name]'
             }
           }) }}
+
+          {% endif %}
       
           {% endcall %}
       

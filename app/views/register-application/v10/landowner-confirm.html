@@ -32,7 +32,11 @@
             Landowner name
           </dt>
           <dd class="govuk-summary-list__value">
-            Emily Burn
+            {% if data['role'] == 'Landowner' %}
+              {{ data['full-name'] or 'Jo Smith' }}
+            {% else %}
+              Emily Burn
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">

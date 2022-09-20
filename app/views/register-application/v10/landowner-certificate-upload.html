@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the certificate of ownership" %}
+{% set pageHeading = "Upload proof of ownership" %}
 
 {% block content %}
 
@@ -11,26 +11,27 @@
         {{ pageHeading }}
       </h1>
       
-      <div id="landowner-certificate-upload-hint">
-        <p>The file should be:</p> 
-        <ul class="govuk-list govuk-list--bullet">
-          <li>a DOC, DOCX or PDF</li>
-          <li>no larger than 50MB</li>
-        </ul>
-      </div>
-      
       <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-check">
 
-        <label class="govuk-label" for="landowner-certificate-upload">
+        <label class="govuk-label govuk-visually-hidden" for="landowner-certificate-upload">
           Upload a file
         </label>
+
+        <div id="landowner-certificate-upload-hint">
+          <p>For example, the title register.</p>
+          <p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a DOC, DOCX or PDF</li>
+            <li>no larger than 50MB</li>
+          </ul>
+        </div>  
 
         <input class="govuk-file-upload" id="landowner-certificate-upload" name="landowner-certificate-upload" type="file" aria-describedby="landowner-certificate-upload-hint">
 
         <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/landowner-certificate-no">I do not have the certificate of ownership</a></p>
 
         {{ govukButton({
-          text: "Upload file"
+          text: "Continue"
         }) }}
         
       </form>
