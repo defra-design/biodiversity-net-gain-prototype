@@ -1,6 +1,10 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Add all the registered owners" %}
+{% if data['role'] == 'Landowner' %}
+  {% set pageHeading = "Add all the other registered owners" %}
+{% else %}
+  {% set pageHeading = "Add all the registered owners" %}
+{% endif %}
 
 {% block content %}
 
@@ -12,6 +16,10 @@
         <h1 class="govuk-heading-l" tabindex="-1">
           {{ pageHeading }}
         </h1>
+
+        {% if data['role'] == 'Landowner' %}
+        {% else %}
+        {% endif %}
       
         <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
       
@@ -23,23 +31,6 @@
               isPageHeading: false
             }
           }) %}
-
-          {% if data['role'] == 'Landowner' %}
-      
-          {{ govukInput({
-            id: 'landowner[0][full_name]',
-            name: 'landowner[0][full_name]',
-            value: data['full-name'] or 'Jo Smith',
-            label: {
-              html: 'Full name'
-            },
-            attributes: {
-              'data-name': 'landowner[%index%][full_name]',
-              'data-id': 'landowner[%index%][full_name]'
-            }
-          }) }}
-
-          {% else %}
       
           {{ govukInput({
             id: 'landowner[0][full_name]',
@@ -52,8 +43,6 @@
               'data-id': 'landowner[%index%][full_name]'
             }
           }) }}
-
-          {% endif %}
       
           {% endcall %}
       

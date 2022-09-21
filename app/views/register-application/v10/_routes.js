@@ -111,6 +111,18 @@ router.post('/location-upload-confirm-answer', function (req, res) {
   }
 })
 
+// Landowner only
+router.post('/landowner-only-answer', function (req, res) {
+
+  var install = req.session.data['landowner-only']
+
+  if (install == "Yes"){
+    res.redirect('/register-application/v10/landowner-confirm')
+  } else {
+    res.redirect('/register-application/v10/landowner-name')
+  }
+})
+
 
 // Habitat metric
 router.post('/metric-correct-answer', function (req, res) {
@@ -266,6 +278,18 @@ router.post('/landowner-certificate-correct-answer', function (req, res) {
     res.redirect('/register-application/v10/landowner-certificate-upload')
   } else {
     res.redirect('/register-application/v10/landowner-name')
+  }
+})
+
+// Landowner certificate check
+router.post('/landowner-certificate-correct-answer-landowner', function (req, res) {
+
+  var install = req.session.data['landowner-certificate-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v10/landowner-certificate-upload')
+  } else {
+    res.redirect('/register-application/v10/landowner-only')
   }
 })
 
