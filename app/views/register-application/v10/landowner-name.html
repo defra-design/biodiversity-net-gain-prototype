@@ -1,9 +1,9 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
 {% if data['role'] == 'Landowner' %}
-  {% set pageHeading = "Add all the other registered owners" %}
+  {% set pageHeading = "Add all the other registered landowners" %}
 {% else %}
-  {% set pageHeading = "Add all the registered owners" %}
+  {% set pageHeading = "Add all the registered landowners" %}
 {% endif %}
 
 {% block content %}

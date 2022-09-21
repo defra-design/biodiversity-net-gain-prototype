@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Are you the only registered owner of the land?" %}
+{% set pageHeading = "Are you the only registered landowner?" %}
 
 {% block content %}
 
@@ -28,7 +28,7 @@
             },
             {
               value: "No",
-              text: "No, there are other owners",
+              text: "No, there are other landowners",
               checked: checked("landowner-only", "No")
             }
           ]
