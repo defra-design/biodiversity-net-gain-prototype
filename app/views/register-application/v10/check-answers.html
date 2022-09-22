@@ -16,6 +16,7 @@
       <h2 class="govuk-heading-l">Your details</h2>
 
       {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-7',
         rows: [
           {
             key: {
@@ -57,12 +58,70 @@
 
       <h2 class="govuk-heading-l">Land boundary</h2>
 
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-7',
+        rows: [
+          {
+            key: {
+              text: "File added"
+            },
+            value: {
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload",
+                  text: "Change",
+                  visuallyHiddenText: "file added"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l">Land ownership</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Certificate of ownership
+            Proof of land ownership
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
@@ -80,17 +139,29 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {% if data['role'] == 'Landowner' %}
-              {{ data['full-name'] or 'Jo Smith' }}
+              {% if data['landowner-only'] == 'Yes' %}
+                {{ data['full-name'] or 'Jo Smith' }}
+              {% else %}
+                {{ data['full-name'] or 'Jo Smith' }} <br>
+                Emily Burn
+              {% endif %}
             {% else %}
               Emily Burn
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
+            {% if data['landowner-only'] == 'Yes' %}
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-only">
+            {% else %}
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
+            {% endif %}
               Change<span class="govuk-visually-hidden"> landowner name</span>
             </a>
           </dd>
         </div>
+
+        {% if data['landowner-only'] == 'Yes' %}
+        {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Landowner consent
@@ -104,57 +175,13 @@
             </a>
           </dd>
         </div>
-      </dl>
-
-      <h2 class="govuk-heading-l">Land ownership</h2>
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Certificate of ownership
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
-              Change<span class="govuk-visually-hidden"> certificate of ownership</span>
-            </a>
-          </dd>
-        </div>
-        
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Emily Burn
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
-              Change<span class="govuk-visually-hidden"> landowner name</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner consent
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Yes
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
-              Change<span class="govuk-visually-hidden"> landowner consent</span>
-            </a>
-          </dd>
-        </div>
+      {% endif %}
       </dl>
 
       <h2 class="govuk-heading-l">Habitat information</h2>
 
       {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-7',
         rows: [
           {
             key: {
@@ -180,7 +207,7 @@
 
       <h2 class="govuk-heading-l">Habitat management and monitoring details</h2>
 
-      <dl class="govuk-summary-list">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -228,6 +255,19 @@
       <h2 class="govuk-heading-l">Legal agreement</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement'] or 'Conservation covenant' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement">
+              Change<span class="govuk-visually-hidden"> type of legal agreement</span>
+            </a>
+          </dd>
+        </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Legal agreement
