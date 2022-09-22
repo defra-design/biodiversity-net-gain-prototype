@@ -9,23 +9,23 @@
       
       <form method="post" action="/register-application/{{ pageURL }}/landowner-confirm">
 
-        {{ govukCheckboxes({
-          idPrefix: "landowner-consent",
-          name: "landowner-consent",
-          fieldset: {
-            legend: {
-              text: pageHeading,
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "accepted",
-              html: "I confirm that I, <strong>" + data['full-name'] + "</strong>, am authorised to act on behalf of the landowners."
-            }
-          ]
-        }) }}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ pageHeading }}
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="landowner-consent" name="landowner-consent" type="checkbox" value="accepted">
+                <label class="govuk-label govuk-checkboxes__label" for="landowner-consent">
+                  I confirm that I, <strong>{{ data['full-name'] or 'Jo Smith' }}</strong>, am authorised to act on behalf of the landowners.
+                </label>
+                </div>
+            </div>
+          </fieldset>
+        </div>
 
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>

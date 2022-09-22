@@ -21,6 +21,6 @@ module.exports = {
 
   // Insert values here
 
-  "site-postcode": "LS29 6JE"
+  'site-postcode': 'LS29 6JE'
 
 }
