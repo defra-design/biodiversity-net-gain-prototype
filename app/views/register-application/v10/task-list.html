@@ -12,17 +12,17 @@
         {{ serviceName }}
       </h1>
       
-      {% if data['answers-checked'] %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 complete</h2>
+      {% if data['answers-checked'] == 'true' %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration complete</h2>
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 8 sections.</p>
       {% else %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration BNG-150322001 in progress</h2>
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration in progress</h2>
         {% if data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 6 of 7 sections.</p>
         {% elif data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] and data['metric-correct'] == 'yes' and data['management-plan-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 7 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 5 of 7 sections.</p>
         {% elif data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 7 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 7 sections.</p>
         {% elif data['details-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 7 sections.</p>
         {% else %}
@@ -209,7 +209,7 @@
                     Check your answers and submit information
                   </a>
                 </span>
-                {% if data['payment-success'] %}
+                {% if data['answers-checked'] == 'true' %}
                   <strong class="govuk-tag app-task-list__tag" id="submit-application-status">completed</strong>
                 {% else %}
                   <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">not started</strong>
