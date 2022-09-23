@@ -13,44 +13,38 @@
         {{ pageHeading }}
       </h1>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Full name"
-            },
-            value: {
-              text: data['full-name'] or 'Jo Smith'
-            },
-            actions: {
-              items: [
-                {
-                  href: "/register-application/" + pageURL + "/details-name",
-                  text: "Change",
-                  visuallyHiddenText: "full name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Role"
-            },
-            value: {
-              text: data['role'] or 'Ecologist'
-            },
-            actions: {
-              items: [
-                {
-                  href: "/register-application/" + pageURL + "/details-role",
-                  text: "Change",
-                  visuallyHiddenText: "role"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] or 'Jo Smith' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Role
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['role'] == 'Other' %}
+              {{ data['role-other'] or 'Planning officer' }}
+            {% else %}
+              {{ data['role'] or 'Ecologist' }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-role">
+              Change<span class="govuk-visually-hidden"> role</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
 
       <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
 
