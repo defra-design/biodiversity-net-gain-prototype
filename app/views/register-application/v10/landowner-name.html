@@ -16,10 +16,6 @@
         <h1 class="govuk-heading-l" tabindex="-1">
           {{ pageHeading }}
         </h1>
-
-        {% if data['role'] == 'Landowner' %}
-        {% else %}
-        {% endif %}
       
         <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
       
@@ -33,17 +29,17 @@
           }) %}
       
           {{ govukInput({
-            id: 'landowner[0][full_name]',
-            name: 'landowner[0][full_name]',
+            id: 'landowner_full_name',
+            name: 'landowner_full_name',
             label: {
               html: 'Full name'
             },
             attributes: {
-              'data-name': 'landowner[%index%][full_name]',
-              'data-id': 'landowner[%index%][full_name]'
+              'data-name': 'landowner_full_name_%index%',
+              'data-id': 'landowner_full_name_%index%'
             }
           }) }}
-      
+
           {% endcall %}
       
           <div class="moj-button-action">

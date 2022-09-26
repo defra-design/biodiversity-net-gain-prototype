@@ -135,11 +135,71 @@
               {% if data['landowner-only'] == 'Yes' %}
                 {{ data['full-name'] or 'Jo Smith' }}
               {% else %}
-                {{ data['full-name'] or 'Jo Smith' }} <br>
-                Emily Burn
+                {{ data['full-name'] or 'Jo Smith' }}<br>
+                {{ data['landowner_full_name'] or 'Bob Jones' }}
+                {% if data['landowner_full_name_1'] %}
+                  <br>{{ data['landowner_full_name_1'] }}
+                {% endif %}
+                {% if data['landowner_full_name_2'] %}
+                  <br>{{ data['landowner_full_name_2'] }}
+                {% endif %}
+                {% if data['landowner_full_name_3'] %}
+                  <br>{{ data['landowner_full_name_3'] }}
+                {% endif %}
+                {% if data['landowner_full_name_4'] %}
+                  <br>{{ data['landowner_full_name_4'] }}
+                {% endif %}
+                {% if data['landowner_full_name_5'] %}
+                  <br>{{ data['landowner_full_name_5'] }}
+                {% endif %}
+                {% if data['landowner_full_name_6'] %}
+                  <br>{{ data['landowner_full_name_6'] }}
+                {% endif %}
+                {% if data['landowner_full_name_7'] %}
+                  <br>{{ data['landowner_full_name_7'] }}
+                {% endif %}
+                {% if data['landowner_full_name_8'] %}
+                  <br>{{ data['landowner_full_name_8'] }}
+                {% endif %}
+                {% if data['landowner_full_name_9'] %}
+                  <br>{{ data['landowner_full_name_9'] }}
+                {% endif %}
+                {% if data['landowner_full_name_10'] %}
+                  <br>{{ data['landowner_full_name_10'] }}
+                {% endif %}
               {% endif %}
             {% else %}
-              Emily Burn
+              {{ data['landowner_full_name'] or 'Bob Jones' }}
+              {% if data['landowner_full_name_1'] %}
+                <br>{{ data['landowner_full_name_1'] }}
+              {% endif %}
+              {% if data['landowner_full_name_2'] %}
+                <br>{{ data['landowner_full_name_2'] }}
+              {% endif %}
+              {% if data['landowner_full_name_3'] %}
+                <br>{{ data['landowner_full_name_3'] }}
+              {% endif %}
+              {% if data['landowner_full_name_4'] %}
+                <br>{{ data['landowner_full_name_4'] }}
+              {% endif %}
+              {% if data['landowner_full_name_5'] %}
+                <br>{{ data['landowner_full_name_5'] }}
+              {% endif %}
+              {% if data['landowner_full_name_6'] %}
+                <br>{{ data['landowner_full_name_6'] }}
+              {% endif %}
+              {% if data['landowner_full_name_7'] %}
+                <br>{{ data['landowner_full_name_7'] }}
+              {% endif %}
+              {% if data['landowner_full_name_8'] %}
+                <br>{{ data['landowner_full_name_8'] }}
+              {% endif %}
+              {% if data['landowner_full_name_9'] %}
+                <br>{{ data['landowner_full_name_9'] }}
+              {% endif %}
+              {% if data['landowner_full_name_10'] %}
+                <br>{{ data['landowner_full_name_10'] }}
+              {% endif %}
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
