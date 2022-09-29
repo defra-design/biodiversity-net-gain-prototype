@@ -1,30 +1,32 @@
-{% extends "register-application/v10/start-page-guide-template.html" %}
+{% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Register your land" %}
+{% set hideBackLink = true %}
 
-{% set pageURL = "v10" %}
+{% block content %}
 
-{% set nextPageName = "Register the land" %}
-{% set nextPageURL = "/register-application/" + pageURL + "/start-part-2" %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-{% block guideContent %}
+  <h1 class="govuk-heading-xl">{{ serviceName }}</h1>
+
+  <p>Use this service to...</p>
+
+  <h2 class="govuk-heading-m">Who can register</h2>
 
   <p>A landowner, or someone acting on their behalf can register land as a biodiversity gain site.</p>
+
+  <h2 class="govuk-heading-m">What information you need to register</h2>
 
   <p>To register land as a biodiversity gain site, you'll need:</p>
 
   <ul class="govuk-list govuk-list--bullet">
     <li>the boundary of the land</li>
     <li>consent from the landowner - if you're not the landowner</li>
-    <li>a certificate of ownership - if the land is not registered on HM Land Registry</li>
-    <li>a completed <a href="#">Biodiversity Metric 3.1</a> for the land</li>
-    <li>a <a href="#">habitat management and monitoring plan</a></li>
-    <li>a <a href="#">legal agreement</a> securing the habitat enhancements</li>
+    <li>proof of ownership of the land</li>
+    <li>a completed Biodiversity Metric 3.1 for the land</li>
+    <li>a habitat management and monitoring plan</li>
+    <li>a legal agreement securing the habitat enhancements</li>
   </ul>
-
-  <h2>Cost to register</h2>
-
-  <p>It costs £630 to register. You can pay by credit or debit card.</p>
 
   {{ govukButton({
     text: "Start now",
@@ -32,5 +34,8 @@
     classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-0",
     isStartButton: true
   }) }}
+
+  </div>
+</div>
 
 {% endblock %} 
