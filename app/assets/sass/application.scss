@@ -192,3 +192,11 @@ $govuk-assets-path: '/govuk/assets/';
 .app-task-list__items {
   padding-left: 0;
 }
+
+.app-table__header--mobile {
+  width: 40%;
+
+  @include govuk-media-query($from: tablet) {
+    width: 60%;
+  }
+}
