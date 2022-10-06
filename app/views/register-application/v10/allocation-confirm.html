@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "Confirm allocation information" %}
+{% set pageHeading = "Check your answers before submitting your information" %}
 
 {% block content %}
 
@@ -9,30 +9,18 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Planning reference
+            Development
           </dt>
           <dd class="govuk-summary-list__value">
-            21/02367/FUL
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-              Change<span class="govuk-visually-hidden"> Planning reference number</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Local Planning Authority
-          </dt>
-          <dd class="govuk-summary-list__value">
+            21/02367/FUL <br>
             {{ data['input-autocomplete'] or 'City of York Council' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-              Change<span class="govuk-visually-hidden"> Local planning authority</span>
+              Change<span class="govuk-visually-hidden"> the development</span>
             </a>
           </dd>
         </div>
@@ -66,12 +54,17 @@
         </div>
       </dl>
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
-        <input class="govuk-input" id="development-confirm" name="development-confirm" type="hidden" value="development-confirm">
+      <h2 class="govuk-heading-m">Submit your habitat allocation information</h2>
 
-        {{ govukButton({
-            text: "Continue"
-        }) }}
+      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
+
+      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and submit
+        </button>
 
       </form>
 
