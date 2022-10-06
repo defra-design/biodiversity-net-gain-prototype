@@ -56,7 +56,7 @@
         rows: [
           {
             key: {
-              text: "File added"
+              text: "Land boundary file uploaded"
             },
             value: {
               text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
@@ -66,7 +66,7 @@
                 {
                   href: "/register-application/" + pageURL + "/location-upload",
                   text: "Change",
-                  visuallyHiddenText: "file added"
+                  visuallyHiddenText: "Land boundary file uploaded"
                 }
               ]
             }
@@ -114,14 +114,14 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Proof of land ownership
+            Proof of land ownership file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
-              Change<span class="govuk-visually-hidden"> proof of land ownership</span>
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
             </a>
           </dd>
         </div>
@@ -231,14 +231,14 @@
       {% endif %}
       </dl>
 
-      <h2 class="govuk-heading-l">Habitat information</h2>
+      <h2 class="govuk-heading-l">Biodiversity Metric</h2>
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-7',
         rows: [
           {
             key: {
-              text: "File added",
+              text: "Biodiversity Metric file uploaded",
               classes: "app-summary-list__key--narrow",
               classes: "govuk-!-width-one-quarter"
             },
@@ -250,7 +250,7 @@
                 {
                   href: "/register-application/" + pageURL + "/metric-data-confirm",
                   text: "Change",
-                  visuallyHiddenText: "habitat information"
+                  visuallyHiddenText: "Biodiversity Metric file uploaded"
                 }
               ]
             }
@@ -258,20 +258,20 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-l">Habitat management and monitoring details</h2>
+      <h2 class="govuk-heading-l">Habitat management and monitoring</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Habitat management and monitoring plan
+            Habitat management and monitoring plan uploaded
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/v10/management-plan-upload">
-              Change<span class="govuk-visually-hidden"> Habitat Management and Monitoring Plan</span>
+              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
               </a>
           </dd>
         </div>
@@ -323,14 +323,14 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Legal agreement
+            Legal agreement file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-upload">
-              Change<span class="govuk-visually-hidden"> legal agreement</span>
+              Change<span class="govuk-visually-hidden"> Legal agreement file uploaded</span>
             </a>
           </dd>
         </div>
