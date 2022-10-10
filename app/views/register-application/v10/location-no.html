@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "You need the boundary of the land" %}
+{% set pageHeading = "You need a file showing the boundary of the land" %}
 
 {% block content %}
 
@@ -11,18 +11,11 @@
         {{ pageHeading }}
       </h1>
 
-      <p>You need the boundary of the land that you want to register as a biodiversity gain site, mapped out.</p>
+      <p>You need to upload a file showing the boundary of the land that you want to register as a biodiversity gain site.</p>
 
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help with land boundaries
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          {% include "register-application/v9/includes/get-help.html" %}
-        </div>
-      </details>
+      <p>Your file can be a Word document, PDF or image. It must not be larger than 50MB.</p>
+          
+      {% include "register-application/v10/includes/get-help.html" %}
 
     </div>
   </div>

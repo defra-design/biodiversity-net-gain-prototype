@@ -1,6 +1,6 @@
 {% extends "register-application/v10/layout-register-application.html" %}
 
-{% set pageHeading = "You need to complete a Biodiversity Metric 3.1" %}
+{% set pageHeading = "You need a completed Biodiversity Metric 3.1" %}
 
 {% block content %}
 
@@ -11,18 +11,11 @@
         {{ pageHeading }}
       </h1>
 
-      <p>You need to complete a Biodiversity Metric 3.1 of the baseline and proposed habitats for the land that you want to register as a biodiversity gain site.</p>
+      <p>You need to upload a completed Biodiversity Metric 3.1 for the land that you want to register.</p>
 
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help with the Biodiversity Metric 3.1
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          {% include "register-application/v9/includes/get-help.html" %}
-        </div>
-      </details>
+      <p>Your file can be an XLSM or XLSX. It must not be larger than 50MB.</p>
+
+      {% include "register-application/v10/includes/get-help.html" %}
 
     </div>
   </div>

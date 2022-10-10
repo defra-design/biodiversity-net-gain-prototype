@@ -11,18 +11,16 @@
         {{ pageHeading }}
       </h1>
 
-      <p>You need a legal agreement for the land that you want to register as a biodiversity gain site.</p>
+      <p>You need to upload a legal agreement that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>secures the habitat enhancements on the land</li>
+        <li>is a conservation covenant or a planning obligation (section 106 agreement)</li>
+        <li>is for at least 30 years</li>
+      </ul>
 
-      <details class="govuk-details" data-module="govuk-details">
-        <summary class="govuk-details__summary">
-          <span class="govuk-details__summary-text">
-            Help with legal agreements
-          </span>
-        </summary>
-        <div class="govuk-details__text">
-          {% include "register-application/v9/includes/get-help.html" %}
-        </div>
-      </details>
+      <p>Your file can be a Word document or PDF. It must not be larger than 50MB.</p>
+
+      {% include "register-application/v10/includes/get-help.html" %}
 
     </div>
   </div>
