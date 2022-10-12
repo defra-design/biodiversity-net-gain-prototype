@@ -1,0 +1,87 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Check the land boundary details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Land boundary file uploaded"
+            },
+            value: {
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary file uploaded"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="location-confirm" value="true">
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

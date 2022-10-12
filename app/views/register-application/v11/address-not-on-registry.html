@@ -1,0 +1,32 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "The property is not on HM Land Registry" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You will need to:</p> 
+      <ul class="govuk-list govuk-list--bullet">
+        <li>tell us the address</li>
+        <li>upload proof of ownership</li>
+      </ul>
+      <p>We need this to confirm who is responsible for the land.</p>
+
+      <form action="/register-application/{{ pageURL }}/address-add" class="govuk-!-padding-top-4" method="post" novalidate>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

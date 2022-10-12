@@ -1,0 +1,48 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "Continue a saved registartion" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        {{ govukInput({
+          id: "email",
+          name: "email",
+          label: {
+            text: "Email address"
+          },
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
+        {{ govukInput({
+            label: {
+                text: "Reference number"
+            },
+            classes: "govuk-!-width-one-half",
+            id: "reference-number",
+            name: "reference-number",
+            type: "text"
+        }) }}
+
+        {{ govukButton({
+            text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "Search for the property on HM Land Registry" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/address-results">
+
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: "govuk-fieldset__legend--l govuk-!-margin-bottom-6",
+            isPageHeading: true
+          }
+        }) %}
+
+        <p class="govuk-hint">This should be the title number of the property where the biodiversity gain site is located.</p>
+
+        {{ govukInput({
+          label: {
+            text: "Title number",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "You can find the title number on HM Land Registry documents, like copies of the register"
+          },
+            id: "land-title-number",
+            name: "land-title-number",
+            classes: "govuk-input--width-10"
+          })  
+        }}
+        
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Search"
+        }) }}
+
+      </form>
+
+      <h2 class="govuk-heading-m">Other ways to search</h2>
+      <ul class="govuk-list">
+        <li><a href="/register-application/{{ pageURL }}/address-search">Search by postcode</a></li>
+        <li><a href="/register-application/{{ pageURL }}/address-search-street">Search by street and town</a></li>
+      </ul>
+
+      <p>Or</p>
+
+      <p><a href="/register-application/{{ pageURL }}/address-not-on-registry">The property is not on HM Land Registry</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

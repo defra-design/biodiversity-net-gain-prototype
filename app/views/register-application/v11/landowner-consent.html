@@ -1,0 +1,45 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "Landowner consent declaration" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-confirm">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ pageHeading }}
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="landowner-consent" name="landowner-consent" type="checkbox" value="accepted">
+                <label class="govuk-label govuk-checkboxes__label" for="landowner-consent">
+                  I confirm that I, <strong>{{ data['full-name'] or 'Jo Smith' }}</strong>, am authorised to act on behalf of the landowners.
+                </label>
+                </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You could be prosecuted or have to pay a fine if you are not authorised to act on behalf of the landowner.
+          </strong>
+        </div>
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

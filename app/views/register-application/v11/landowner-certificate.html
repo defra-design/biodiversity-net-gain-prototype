@@ -1,0 +1,46 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+{% set hideSignOut = true %}
+
+{% set pageHeading = "Do you have a copy of the certificate of ownership for the land?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-answer">
+
+        {{ govukRadios({
+          idPrefix: "landowner-certificate",
+          name: "landowner-certificate",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

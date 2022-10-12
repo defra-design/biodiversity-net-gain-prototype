@@ -1,0 +1,43 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "Registration submitted" %}
+
+{% set hideSaveSection = true %}
+{% set hideLogin = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title govuk-!-margin-bottom-4">
+          {{ pageHeading }}
+        </h1>
+        
+        <div class="govuk-panel__body govuk-!-font-size-27">
+          Biodiversity gain site reference<br> <strong>BGS-150 311 001</strong>
+        </div>
+        
+      </div>
+
+      <p>We have sent your registration information to Natural England.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p>Natural England will review the information you gave us.</p>
+      <p>They will contact you to let you know whether your registration has been approved or not.</p>
+
+      <!--<h2 id="return-to-application" class="govuk-heading-m">Return to an existing registration</h2>
+
+      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+        <input type="hidden" name="signed-in" value="yes">
+        <button class="govuk-link app-button-link" data-module="govuk-button">
+          Sign in to continue your registration
+        </button>.
+      </form>-->
+
+    </div>
+  </div>
+
+{% endblock %}
