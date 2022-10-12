@@ -6,30 +6,12 @@ router.post('/location-options-answer', function (req, res) {
 
   var install = req.session.data['location-options']
 
-  if (install == "location-rpa"){
-    res.redirect('/register-application/v11/location-rpa-search')
-  } else if (install == "location-import"){
-    res.redirect('/register-application/v11/location-import')
-  } else if (install == "location-upload"){
+  if (install == "none"){
+    res.redirect('/register-application/v11/location-no')
+  } else if (install == "Document or image"){
     res.redirect('/register-application/v11/location-upload')
   } else {
-    res.redirect('/register-application/v11/location-upload')
-  }
-})
-
-// Location options - Land registry yes
-router.post('/location-options-answer-land-registry', function (req, res) {
-
-  var install = req.session.data['location-options']
-
-  if (install == "location-rpa"){
-    res.redirect('/register-application/v11/location-rpa-search')
-  } else if (install == "location-import"){
     res.redirect('/register-application/v11/location-import')
-  } else if (install == "location-upload"){
-    res.redirect('/register-application/v11/location-upload')
-  } else {
-    res.redirect('/register-application/v11/location-draw-map')
   }
 })
 
@@ -71,34 +53,6 @@ router.post('/location-confirm-answer-file', function (req, res) {
   }
 })
 
-// Location RPA confirm
-router.post('/location-rpa-confirm-answer', function (req, res) {
-
-  var install = req.session.data['location-confirm']
-
-  if (install == "no-again"){
-    res.redirect('/register-application/v11/location-rpa-select')
-  } else if (install == "no"){
-    res.redirect('/register-application/v11/location-options')
-  } else {
-    res.redirect('/register-application/v11/task-list')
-  }
-})
-
-// Location import confirm
-router.post('/location-import-confirm-answer', function (req, res) {
-
-  var install = req.session.data['location-confirm']
-
-  if (install == "no-again"){
-    res.redirect('/register-application/v11/location-import')
-  } else if (install == "no"){
-    res.redirect('/register-application/v11/location-options')
-  } else {
-    res.redirect('/register-application/v11/task-list')
-  }
-})
-
 // Location upload confirm
 router.post('/location-upload-confirm-answer', function (req, res) {
 
@@ -108,6 +62,18 @@ router.post('/location-upload-confirm-answer', function (req, res) {
     res.redirect('/register-application/v11/location-upload')
   } else {
     res.redirect('/register-application/v11/location-grid-reference')
+  }
+})
+
+// Location import confirm
+router.post('/location-import-confirm-answer', function (req, res) {
+
+  var install = req.session.data['location-import-confirm']
+
+  if (install == "no-again"){
+    res.redirect('/register-application/v11/location-import')
+  } else {
+    res.redirect('/register-application/v11/location-confirm')
   }
 })
 

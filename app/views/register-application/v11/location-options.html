@@ -25,23 +25,31 @@
           },
           items: [
             {
-              value: "location-import",
+              value: "Geospatial data file",
               text: "Upload geospatial data file",
+              checked: checked("location-options", "Upload geospatial data file"),
               hint: {
                 text: "GeoJSON, KML or Shape files"
               }
             },
             {
-              value: "location-upload",
+              value: "Document or image",
               text: "Upload document or image",
+              checked: checked("location-options", "Upload document or image"),
               hint: {
                 text: "PDF, jpg or PNG files"
               }
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "none",
+              text: "I do not have a boundary",
+              checked: checked("location-options", "I do not have a boundary")
             }
           ]
         }) }}
-
-        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have the boundary</a></p>
 
         {{ govukButton({
           text: "Continue"

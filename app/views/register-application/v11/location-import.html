@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/location-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
 
         {{ govukFileUpload({
           id: "location-import",
@@ -25,7 +25,7 @@
           }
         }) }}
 
-        <input class="govuk-input" id="location-upload-confirm" name="location-upload-confirm" type="hidden" value="no">
+        <input class="govuk-input" id="location-import-confirm" name="location-import-confirm" type="hidden" value="no">
 
         {{ govukButton({
           text: "Continue"
