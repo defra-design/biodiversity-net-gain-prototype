@@ -1,0 +1,24 @@
+{% extends "gain-plan/v1/layout-gain-plan.html" %}
+
+{% set hideBackLink = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">{{ serviceName }}</h1>
+
+  <p>Use this service to inform the relevant planning authority of the biodiversity gain outcome.</p>
+
+  {{ govukButton({
+    text: "Start now",
+    href: "/gain-plan/v1/development",
+    classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-0",
+    isStartButton: true
+  }) }}
+
+  </div>
+</div>
+
+{% endblock %} 
