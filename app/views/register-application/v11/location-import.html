@@ -1,6 +1,6 @@
 {% extends "register-application/v11/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your geospatial data file" %}
+{% set pageHeading = "Upload a geospatial file showing the land boundary" %}
 
 {% block content %}
 
@@ -13,17 +13,21 @@
       
       <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
 
-        {{ govukFileUpload({
-          id: "location-import",
-          name: "location-import",
-          label: {
-            text: "Upload your file",
-            classes:"govuk-visually-hidden"
-          },
-          hint: {
-            text: "GeoJSON, KML or Shape files - max size 50MB"
-          }
-        }) }}
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="location-import">
+            Upload a file
+          </label>
+
+          <div id="location-import-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a GeoJSON, KML or shapefile</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="location-import" name="location-import" type="file" aria-describedby="location-import-hint">
+        </div>
 
         <input class="govuk-input" id="location-import-confirm" name="location-import-confirm" type="hidden" value="no">
 

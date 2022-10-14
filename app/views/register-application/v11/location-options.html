@@ -1,6 +1,6 @@
 {% extends "register-application/v11/layout-register-application.html" %}
 
-{% set pageHeading = "How do you want to provide the land boundary for the biodiversity gain site?" %}
+{% set pageHeading = "Choose how to add the land boundary details for the biodiversity gain site" %}
 
 {% block content %}
 
@@ -25,19 +25,19 @@
           },
           items: [
             {
-              value: "Geospatial data file",
-              text: "Upload geospatial data file",
-              checked: checked("location-options", "Upload geospatial data file"),
+              value: "Geospatial file",
+              text: "Upload geospatial file",
+              checked: checked("location-options", "Geospatial file"),
               hint: {
-                text: "GeoJSON, KML or Shape files"
+                text: "GeoJSON, KML or shapefile"
               }
             },
             {
               value: "Document or image",
               text: "Upload document or image",
-              checked: checked("location-options", "Upload document or image"),
+              checked: checked("location-options", "Document or image"),
               hint: {
-                text: "PDF, jpg or PNG files"
+                text: "DOC, DOCX, JPG, PNG or PDF"
               }
             },
             {
@@ -45,8 +45,8 @@
             },
             {
               value: "none",
-              text: "I do not have a boundary",
-              checked: checked("location-options", "I do not have a boundary")
+              text: "I do not have a file showing the boundary of the land",
+              checked: checked("location-options", "None")
             }
           ]
         }) }}
