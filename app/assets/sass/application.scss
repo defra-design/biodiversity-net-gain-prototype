@@ -147,6 +147,11 @@ $govuk-assets-path: '/govuk/assets/';
   color: #505a5f;
 }
 
+// Text colour
+.app-text-colour {
+  color: #0b0c0c;
+}
+
 .app-search-results__development + .app-search-results__development {
   display: block;
   margin-top: 3px;

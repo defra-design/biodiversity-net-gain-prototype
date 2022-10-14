@@ -1,13 +1,13 @@
 {% extends "register-application/v11/layout-register-application.html" %}
 
-{% set pageHeading = "Email address" %}
+{% set pageHeading = "What is your email address?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/details-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/details-email-confirm">
 
         {{ govukInput({
           id: "email",
@@ -18,7 +18,7 @@
             isPageHeading: true
           },
           hint: {
-            text: "We'll only use this to..."
+            text: "We'll only use this to contact you about your registration."
           },
           autocomplete: "email",
           spellcheck: false,
