@@ -203,7 +203,7 @@
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            {% if data['landowner-only'] == 'Yes' %}
+            {% if data['landowner-only'] == 'Yes' or data['role'] == 'Landowner' %}
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-only">
             {% else %}
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
