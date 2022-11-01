@@ -96,7 +96,7 @@
             actions: {
               items: [
                 {
-                  href: "/register-application/" + pageURL + "/location-upload",
+                  href: "/register-application/" + pageURL + "/location-upload-confirm",
                   text: "Change",
                   visuallyHiddenText: "Land boundary file uploaded"
                 }
@@ -347,7 +347,7 @@
             actions: {
               items: [
                 {
-                  href: "/register-application/" + pageURL + "/metric-data-confirm",
+                  href: "/register-application/" + pageURL + "/metric-check",
                   text: "Change",
                   visuallyHiddenText: "Biodiversity Metric file uploaded"
                 }
@@ -369,7 +369,7 @@
             {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v11/management-plan-upload">
+            <a class="govuk-link" href="/register-application/v11/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
               </a>
           </dd>
@@ -428,7 +428,7 @@
             {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-upload">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-check">
               Change<span class="govuk-visually-hidden"> Legal agreement file uploaded</span>
             </a>
           </dd>
