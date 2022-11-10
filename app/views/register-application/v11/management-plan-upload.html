@@ -13,21 +13,25 @@
       
       <form method="post" action="/register-application/{{ pageURL }}/management-plan-check">
 
-        <label class="govuk-label govuk-visually-hidden" for="management-plan-upload">
-          Upload a file
-        </label>
+        <div class="govuk-form-group">
+          
+          <label class="govuk-label govuk-visually-hidden" for="management-plan-upload">
+            Upload a file
+          </label>
 
-        <div id="management-plan-upload-hint">
-          <p>The file should be:</p> 
-          <ul class="govuk-list govuk-list--bullet">
-            <li>a DOC, DOCX or PDF</li>
-            <li>no larger than 50MB</li>
-          </ul>
+          <div id="management-plan-upload-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="management-plan-upload" name="management-plan-upload" type="file" aria-describedby="management-plan-upload-hint">
+
         </div>
 
-        <input class="govuk-file-upload" id="management-plan-upload" name="management-plan-upload" type="file" aria-describedby="management-plan-upload-hint">
-
-        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/management-plan-no">I do not have the habitat management and monitoring plan</a></p>
+        <p><a href="/register-application/{{ pageURL }}/management-plan-no">I do not have the habitat management and monitoring plan</a></p>
 
         {{ govukButton({
           text: "Continue"

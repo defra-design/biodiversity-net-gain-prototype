@@ -39,17 +39,11 @@
               hint: {
                 text: "DOC, DOCX, JPG, PNG or PDF"
               }
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "none",
-              text: "I do not have a file showing the boundary of the land",
-              checked: checked("location-options", "None")
             }
           ]
         }) }}
+
+        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have a file showing the boundary of the land</a></p>
 
         {{ govukButton({
           text: "Continue"

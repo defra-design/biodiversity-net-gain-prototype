@@ -32,18 +32,11 @@
               value: "Planning obligation (section 106 agreement)",
               text: "Planning obligation (section 106 agreement)",
               checked: checked("legal-agreement", "Planning obligation (section 106 agreement)")
-              
-            },
-            {
-              divider: "or"
-            },
-            {
-              value: "none",
-              text: "I do not have a legal agreement",
-              checked: checked("legal-agreement", "I do not have a legal agreement")
             }
           ]
         }) }}
+
+        <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a legal agreement</a></p>
 
         {{ govukButton({
           text: "Continue"
