@@ -1,0 +1,58 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "Do you have proof of ownership for the land you want to register?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-boundary">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-land-ownership",
+            name: "eligibility-land-ownership",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need to upload a document that proves ownership of the land where the biodiversity gain site is. We'll check this to make sure you have the right to register the biodiversity gain site.</span>
+                     <span class='govuk-!-display-block govuk-hint'>Documents we'll accept as proof are, a copy of the:</span>
+                      <ul class='govuk-list govuk-list--bullet app-secondary-text-colour'>
+                        <li>title deeds (the title register and the title plan)</li>
+                        <li>lease agreement, as long as it covers the duration of the legal agreement</li>
+                      </ul>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-land-ownership", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-land-ownership", "No")
+              },
+              {
+                value: "I'm not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-land-ownership", "I'm not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

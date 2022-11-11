@@ -1,0 +1,60 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set pageHeading = "Do you have a habitat management and monitoring plan for the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-legal-agreement">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-management-plan",
+            name: "eligibility-management-plan",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You need to upload a habitat management and monitoring plan for the habitat enhancements and creation on the site.</span>
+                     <span class='govuk-!-display-block govuk-hint'>The plan should cover how the site will be managed and monitored over at least 30 years or the time specified in your legal agreement.</span>
+                     <span class='govuk-!-display-block govuk-hint'>We'll also ask for the date:</span>
+                      <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-3 app-secondary-text-colour'>
+                        <li>that you started or intend to start the habitat creation or enhancement works</li>
+                        <li>when the 30 year management and monitoring period starts</li>
+                      </ul>
+                      <span class='govuk-!-display-block govuk-hint'>You can upload a Word document or PDF, it should not be larger than 50MB.</span>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-management-plan", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-management-plan", "No")
+              },
+              {
+                value: "I'm not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-management-plan", "I'm not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
