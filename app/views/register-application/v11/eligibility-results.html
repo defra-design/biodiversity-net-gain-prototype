@@ -1,6 +1,6 @@
 {% extends "register-application/v11/layout-register-application.html" %}
 
-{% set pageHeading = "What you've told us about the biodiversity gain site" %}
+{% set pageHeading = "Based on what you've told us about the biodiversity gain site" %}
 
 {% block content %}
 
@@ -18,7 +18,7 @@
         data['eligibility-metric'] == 'Yes' and
         data['eligibility-management-plan'] == 'Yes' and
         data['eligibility-legal-agreement'] == 'Yes'
-        %}
+      %}
 
       <p>You have everything you need to register a biodiversity gain site.</p>
 
@@ -28,6 +28,17 @@
       }) }}
 
       {% else %}
+
+      <h2 class="govuk-heading-m">You cannot register</h2>
+
+      {% if 
+        data['eligibility-boundary'] == 'Yes' or 
+        data['eligibility-landowner-consent'] == 'Yes' or 
+        data['eligibility-land-ownership'] == 'Yes' or 
+        data['eligibility-metric'] == 'Yes' or
+        data['eligibility-management-plan'] == 'Yes' or
+        data['eligibility-legal-agreement'] == 'Yes'
+      %}
 
       <p>You have:</p>
 
@@ -40,7 +51,11 @@
         {% if data['eligibility-legal-agreement'] != 'Yes' %}{% else %}<li>a legal agreement securing the habitat enhancements for 30 years</li>{% endif %}
       </ul>
 
-      <p>You do not have or not sure if you have:</p>
+      {% else %}
+
+      {% endif %}
+
+      <p>But you do not have or not sure if you have:</p>
 
       <!--<ul class="govuk-list govuk-list--bullet">
         {% if data['eligibility-boundary'] != 'Yes' %}<li><a href="#">the boundary of the land</a></li>{% else %}{% endif %}
@@ -62,7 +77,9 @@
 
       <h2 class="govuk-heading-m">What to do next</h2>
 
-      <p>Find out how to get <a href="#">the things you need to register</a>.</p>
+      <p>Get all <a href="#">the information you need to register land as a biodiversity gain site</a>.</p>
+
+      <p><a href="/register-application/{{ pageURL }}/details-name">Start the registration anyway</a></p>
 
       {% endif %}
 
