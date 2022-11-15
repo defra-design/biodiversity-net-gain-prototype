@@ -1,0 +1,52 @@
+{% extends "register-application/v11/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Is the biodiversity gain site in England?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-landowner-consent">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-england",
+            name: "eligibility-england",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-england", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-england", "No")
+              },
+              {
+                value: "I'm not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-england", "I'm not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
