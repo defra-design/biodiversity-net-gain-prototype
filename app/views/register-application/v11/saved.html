@@ -1,6 +1,6 @@
 {% extends "register-application/v11/layout-register-application.html" %}
 
-{% set pageHeading = "Application saved" %}
+{% set pageHeading = "Your registration has been saved" %}
 
 {% set hideSignOut = true %}
 
@@ -17,16 +17,22 @@
           {{ pageHeading }}
         </h1>
         <div class="govuk-panel__body">
-          We've saved the details you entered so far.
+          Your reference<br> <strong>REF-150 311 001</strong>
         </div>
       </div>
 
-      <h2 id="return-to-application" class="govuk-heading-m govuk-!-padding-top-4">Return to an existing application</h2>
+      <p>We have sent you a confirmation email.</p>
+
+      <p>Your information will be saved for 14 days.</p>
+
+      <p>To continue with a registration you will need to enter your email address and reference number.</p>
+
+      <h2 id="return-to-application" class="govuk-heading-m govuk-!-padding-top-4">Return to an existing registration</h2>
 
       <form action="/register-application/{{ pageURL }}/sign-in-return" method="post" novalidate>
         <input type="hidden" name="signed-in" value="yes">
         <button class="govuk-link app-button-link" data-module="govuk-button">
-          Sign in to continue your application
+          Continue with a registration
         </button>
       </form>
         
