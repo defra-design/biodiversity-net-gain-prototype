@@ -33,9 +33,18 @@
   {{ govukButton({
     text: "Start now",
     href: "/register-application/v11/eligibility-start",
-    classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-0",
+    classes: "govuk-!-margin-top-2",
     isStartButton: true
   }) }}
+
+  <h2 id="return-to-application" class="govuk-heading-m">Return to an existing registration</h2>
+
+  <form action="/register-application/{{ pageURL }}/sign-in-return" method="post" novalidate>
+    <input type="hidden" name="signed-in" value="yes">
+    <button class="govuk-link app-button-link" data-module="govuk-button">
+      Continue with a registration
+    </button>
+  </form>
 
   </div>
 </div>

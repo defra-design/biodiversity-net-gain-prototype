@@ -98,7 +98,7 @@ router.post('/metric-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v11/metric-upload')
   } else {
-    res.redirect('/register-application/v11/task-list')
+    res.redirect('/register-application/v11/metric-data')
   }
 })
 
