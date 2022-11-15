@@ -21,13 +21,15 @@
         </div>
       </div>
 
-      <p>We have sent you a confirmation email.</p>
+      <p>We have also sent you an email with your reference.</p>
 
       <p>Your information will be saved for 14 days.</p>
 
-      <p>To continue with a registration you will need to enter your email address and reference number.</p>
-
-      <h2 id="return-to-application" class="govuk-heading-m govuk-!-padding-top-4">Return to an existing registration</h2>
+      <p>To continue with a registration you will need to enter your:</p> 
+      <ul class="govuk-list govuk-list--bullet">
+        <li>email address</li>
+        <li>reference</li>
+      </ul>
 
       <form action="/register-application/{{ pageURL }}/sign-in-return" method="post" novalidate>
         <input type="hidden" name="signed-in" value="yes">
