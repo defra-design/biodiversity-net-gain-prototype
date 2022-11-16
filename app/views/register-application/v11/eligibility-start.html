@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Check you have everything you need to register a biodiversity gain site" %}
+{% set pageHeading = "Check you have everything to register a biodiversity gain site" %}
 
 {% block content %}
 
@@ -13,14 +13,14 @@
         {{ pageHeading }}
       </h1>
 
-      <p>Check that you have all of the documents, consent and calculations that you need to register a biodiversity gain site.</p>
+      <p>Check that you have all the documents, consent and calculations that you need.</p>
 
       {{ govukButton({
         text: "Continue",
         href: "/register-application/" + pageURL + "/eligibility-landowner-consent"
       }) }}
 
-      <p><a href="/register-application/{{ pageURL }}/details-name">Skip to the registration</a> if you know you have everything you need to register.</p>
+      <p><a href="/register-application/{{ pageURL }}/details-name">Skip to registering a biodiversity gain site</a> if you know you have everything you need.</p>
 
     </div>
   </div>
