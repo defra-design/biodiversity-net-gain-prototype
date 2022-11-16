@@ -1,6 +1,6 @@
 {% extends "register-application/v11/layout-register-application.html" %}
 
-{% set pageHeading = "When will the habitat enhancement works start?" %}
+{% set pageHeading = "When will the habitat creation and enhancement works start?" %}
 
 {% block content %}
 
@@ -20,7 +20,8 @@
             }
           },
           hint: {
-            text: "For example, 15 3 2023"
+            html: "<span class='govuk-!-display-block govuk-hint'>The works cannot have started before 30 January 2020.</span>
+                   <span class='govuk-!-display-block govuk-hint'>For example, 15 3 2023</span>"
           }
         }) }}
 
