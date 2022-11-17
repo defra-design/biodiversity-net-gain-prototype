@@ -9,7 +9,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/eligibility-landowner-consent">
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-england-answer">
 
           {{ govukRadios({
             idPrefix: "eligibility-england",
@@ -36,9 +36,9 @@
                 checked: checked("eligibility-england", "No")
               },
               {
-                value: "I'm not sure",
+                value: "Not sure",
                 text: "I'm not sure",
-                checked: checked("eligibility-england", "I'm not sure")
+                checked: checked("eligibility-england", "Not sure")
               }
             ]
           }) }}

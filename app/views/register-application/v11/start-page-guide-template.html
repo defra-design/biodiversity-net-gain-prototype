@@ -1,6 +1,6 @@
 {% extends "../../layout.html" %}
 
-{% set serviceName = "Register and allocate a biodiversity gain site" %}
+{% set serviceName = "Biodiversity net gain" %}
 {% set serviceUrl = "" %}
 {% set pageURL = "v11" %}
 {% set hideSaveSection = true %}
@@ -50,7 +50,7 @@
         </h1>
       </div>
 
-        {% include "register-application/v9/includes/contents-nav.html" %}
+        {% include "register-application/v11/includes/contents-nav.html" %}
 
       </div>
 
@@ -58,26 +58,27 @@
         <h1 class="part-title">
           {{ pageHeading }}
         </h1>
-        
-        <div class="gem-c-govspeak govuk-govspeak direction-ltr disable-youtube" data-module="govspeak">
+  
 
           {% block guideContent %}
           {% endblock %} 
 
-          {% include "register-application/v9/includes/get-help.html" %}
-          
-        </div>
+          <h2 class="govuk-heading-m">Contact Natural England if you need help</h2>
+          <p>Telephone: 0300 060 3900<br>
+            Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+            <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+        
 
-        {% include "register-application/v9/includes/pagination.html" %}
-        {% include "register-application/v9/includes/print.html" %}
+        {% include "register-application/v11/includes/pagination.html" %}
+        {% include "register-application/v11/includes/print.html" %}
         
       </div>
 
-      {% include "register-application/v9/includes/related-content.html" %}
+      {% include "register-application/v11/includes/related-content.html" %}
 
   </div>
 
-  {% include "register-application/v9/includes/contextual-footer.html" %}
+  {% include "register-application/v11/includes/contextual-footer.html" %}
 
 </div>
 

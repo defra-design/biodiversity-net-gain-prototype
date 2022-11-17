@@ -1,6 +1,18 @@
 const express = require('express')
 const router = new express.Router()
 
+// Eligibility England
+router.post('/eligibility-england-answer', function (req, res) {
+
+  var install = req.session.data['eligibility-england']
+
+  if (install == "Yes"){
+    res.redirect('/register-application/v11/eligibility-landowner-consent')
+  } else {
+    res.redirect('/register-application/v11/eligibility-england-no')
+  }
+})
+
 // Location options
 router.post('/location-options-answer', function (req, res) {
 
