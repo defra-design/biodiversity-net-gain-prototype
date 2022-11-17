@@ -9,7 +9,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/eligibility-land-ownership">
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-legal-agreement">
 
           {{ govukRadios({
             idPrefix: "eligibility-landowner-consent",
@@ -22,8 +22,7 @@
               }
             },
             hint: {
-              html: "<span class='govuk-!-display-block govuk-hint'>If you're the landowner you need the consent of all landowners listed on the title register for the land.</span>
-                     <span class='govuk-!-display-block govuk-hint'>If you're acting on behalf of the landowners you can still register, as long as you have their consent.</span>
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need the consent of all landowners listed on the title register for the land.</span>
                      <span class='govuk-!-display-block govuk-hint'>You could be prosecuted or have to pay a fine if you register a biodiversity gain site without the landowners' consent.</span>"
             },
             items: [
