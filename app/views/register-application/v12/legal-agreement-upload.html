@@ -1,0 +1,41 @@
+{% extends "register-application/v12/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the legal agreement" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-check">
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="legal-agreement-upload">
+            Upload a file
+          </label>
+
+          <div id="legal-agreement-upload-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="legal-agreement-upload" name="legal-agreement-upload" type="file" aria-describedby="legal-agreement-upload-hint">
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

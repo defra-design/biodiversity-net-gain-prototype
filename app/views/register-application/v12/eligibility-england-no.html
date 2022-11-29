@@ -1,0 +1,22 @@
+{% extends "register-application/v12/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "You cannot continue" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You've told us that the biodiversity gain site is not in England. You cannot register a biodiversity gain site that is entirely or partially in Scotland or Wales.</p>
+      <p>If you've made a mistake, you can go back and <a href="/register-application/{{ pageURL }}/eligibility-england">change your answer</a>.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "register-application/v12/layout-register-application.html" %}
+
+{% set pageHeading = "Check your answers before submitting your information" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Development
+          </dt>
+          <dd class="govuk-summary-list__value">
+            21/02367/FUL <br>
+            {{ data['input-autocomplete'] or 'City of York Council' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+              Change<span class="govuk-visually-hidden"> the development</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            meadow-croft-farm-legal-agreement.pdf
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-legal-agreement-upload">
+              Change<span class="govuk-visually-hidden"> Legal agreement</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Allocated habitat and units
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Grassland = 1.53 ha, 2.1 units <br>
+            Heathland and scrub = 0.10 ha, 1.5 units <br>
+            Native species rich hedgerow = 0.45 km, 0.8 units
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-habitat">
+              Change<span class="govuk-visually-hidden"> allocated habitat</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-m">Submit your habitat allocation information</h2>
+
+      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
+
+      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and submit
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "register-application/v12/layout-register-application.html" %}
+
+{% if data['role'] == 'Landowner' %}
+  {% set pageHeading = "Add all the other registered landowners" %}
+{% else %}
+  {% set pageHeading = "Add all the registered landowners" %}
+{% endif %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+      
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-consent">
+      
+          {% call govukFieldset({
+            classes: 'moj-add-another__item',
+            legend: {
+              text: 'Landowner',
+              classes: 'moj-add-another__title govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+      
+          {{ govukInput({
+            id: 'landowner_full_name',
+            name: 'landowner_full_name',
+            label: {
+              html: 'Full name'
+            },
+            attributes: {
+              'data-name': 'landowner_full_name_%index%',
+              'data-id': 'landowner_full_name_%index%'
+            }
+          }) }}
+
+          {% endcall %}
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Add another landowner',
+              classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Continue'
+            }) }}
+          </div>
+      
+        </form>
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "register-application/v12/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+{% set hideSignOut = true %}
+{% set hideLogin = true %}
+
+Government Gateway
+
+{% set pageHeading = "Check you're eligible to register land as a biodiversity gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Before you continue, check that you have:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the boundary of the land</li>
+        <li>consent from the landowner - if you're not the landowner</li>
+        <li>a certificate of ownership - if the land is not registered on HM Land Registry</li>
+        <li>a completed <a href="#">Biodiversity Metric 3.1</a> for the land</li>
+        <li>a <a href="#">habitat management and monitoring plan</a></li>
+        <li>a <a href="#">legal agreement</a> securing the habitat enhancements</li>
+      </ul>
+
+      <div class="govuk-inset-text">You'll need all of these before you can register land for biodiversity gain.</div>
+
+      <!--<form action="https://whoareyou:menotyou@identity-management-app.herokuapp.com/tasked/gov-gateway/login?returnUrl=https://biodiversity:netgain@bng-prototype.herokuapp.com/register-application/v12/task-list" class="govuk-!-padding-top-4" method="post" novalidate>-->
+
+      <form action="/register-application/{{ pageURL }}/sign-in" class="govuk-!-padding-top-4" method="post" novalidate>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+      {% include "includes/get-help.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

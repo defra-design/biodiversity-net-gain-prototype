@@ -1,0 +1,56 @@
+{% extends "register-application/v12/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have consent to register the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-legal-agreement">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-landowner-consent",
+            name: "eligibility-landowner-consent",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need the consent of all landowners listed on the title register for the land.</span>
+                     <span class='govuk-!-display-block govuk-hint'>You could be prosecuted or have to pay a fine if you register a biodiversity gain site without the landowners' consent.</span>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-landowner-consent", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-landowner-consent", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-landowner-consent", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
