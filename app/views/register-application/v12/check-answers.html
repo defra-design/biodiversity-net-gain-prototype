@@ -31,23 +31,6 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Role
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['role'] == 'Other' %}
-              {{ data['role-other'] or 'Planning officer' }}
-            {% else %}
-              {{ data['role'] or 'Ecologist' }}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-role">
-              Change<span class="govuk-visually-hidden"> role</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
             Email address
           </dt>
           <dd class="govuk-summary-list__value">
