@@ -21,24 +21,23 @@
         </div>
       </div>
 
-      <p>We have also sent you an email with your reference.</p>
+      <p>We've saved your biodiversity gain site information. It has not been submitted.</p>
 
-      <p>Your information will be saved for 14 days.</p>
+      <p>We'll save your information for 14 days. After that time we'll delete it unless you continue with your registration.</p>
 
-      <p>To continue with a registration you will need to enter your:</p> 
+      <p>To continue with a registration you'll need to enter your:</p> 
       <ul class="govuk-list govuk-list--bullet">
         <li>email address</li>
-        <li>reference</li>
+        <li>reference number</li>
       </ul>
 
-      <h2 id="return-to-application" class="govuk-heading-m">Return to an existing registration</h2>
+      <p>We've sent you an email with your reference number.</p>
 
-      <form action="/register-application/{{ pageURL }}/sign-in-return" method="post" novalidate>
-        <input type="hidden" name="signed-in" value="yes">
-        <button class="govuk-link app-button-link" data-module="govuk-button">
-          Continue with a registration
-        </button>
-      </form>
+      <h2 id="return-to-application" class="govuk-heading-m">Saved registrations</h2>
+
+      <p><a href="/register-application/{{ pageURL }}/sign-in-return">Continue with a saved registration</a></p>
+
+      <p class="govuk-!-padding-top-8"><a href="/register-application/{{ pageURL }}/saved-email">View confirmation email (prototype only)</a></p>
         
     </div>
 </div>
