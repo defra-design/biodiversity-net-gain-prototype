@@ -1,6 +1,6 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "Check what habitat you have available for a developer to buy" %}
+{% set pageHeading = "Check the available habitats on the biodiversity gain site" %}
 
 {% block content %}
 
@@ -11,8 +11,10 @@
         {{ pageHeading }}
       </h1>
 
-      <p>We've taken this information from the post-development (habitat enhancement and creation) part of your metric.</p>
+      <div class="govuk-inset-text">We've taken this information from the post-development part of your metric.</div>
 
+      {% set proposedHtml %}
+      <h3 class="govuk-heading-m">Enhancement and creation</h3>
       <div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
@@ -92,6 +94,57 @@
         </table>
 
       </div>
+      {% endset -%}
+
+      {% set baselineHtml %}
+      <h3 class="govuk-heading-m">Baseline</h3>
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Area (ha)</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                  Poor condition
+                </span>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+        {
+          label: "Baseline",
+          id: "baseline",
+          panel: {
+            html: baselineHtml
+          }
+          },
+          {
+            label: "Enhancement and creation",
+            id: "proposed",
+            panel: {
+              html: proposedHtml
+            }
+          }  
+        ]
+      }) }}
       
     </div>
     <div class="govuk-grid-column-two-thirds">

@@ -1,6 +1,6 @@
 {% extends "layout-email.html" %}
 
-{% set pageURL = "v12" %}
+{% set pageURL = "v11" %}
 
 {% block pageTitle %}
   Your saved biodiversity gain site registration
@@ -12,12 +12,12 @@
     <div class="govuk-grid-column-full">
 
       <p>Dear {{ data['full-name'] or 'Jo Smith' }}</p>
-      <p>We've saved your biodiversity gain site information, it has not been submitted.</p>
       <p>Your reference: REF-150 311 001</p>
+      <p>It has been 21 days since you last added your biodiversity gain site information.</p>
 
-      <p>We'll save your information for 28 days. After that time, we'll delete all the information you added.</p>
-      
-      <p>To continue with a registration you'll need to enter your:</p> 
+      <p>In 7 days we'll delete your information unless you continue with your registration.</p>
+        
+      <p>To continue with your registration, you'll need to enter your:</p> 
       <ul class="govuk-list govuk-list--bullet">
         <li>email address</li>
         <li>reference number</li>
