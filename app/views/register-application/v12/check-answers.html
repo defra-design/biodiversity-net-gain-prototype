@@ -207,110 +207,6 @@
             </a>
           </dd>
         </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if data['role'] == 'Landowner' %}
-              {% if data['landowner-only'] == 'Yes' %}
-                {{ data['full-name'] or 'Jo Smith' }}
-              {% else %}
-                {{ data['full-name'] or 'Jo Smith' }}<br>
-                {{ data['landowner_full_name'] or 'Bob Jones' }}
-                {% if data['landowner_full_name_1'] %}
-                  <br>{{ data['landowner_full_name_1'] }}
-                {% endif %}
-                {% if data['landowner_full_name_2'] %}
-                  <br>{{ data['landowner_full_name_2'] }}
-                {% endif %}
-                {% if data['landowner_full_name_3'] %}
-                  <br>{{ data['landowner_full_name_3'] }}
-                {% endif %}
-                {% if data['landowner_full_name_4'] %}
-                  <br>{{ data['landowner_full_name_4'] }}
-                {% endif %}
-                {% if data['landowner_full_name_5'] %}
-                  <br>{{ data['landowner_full_name_5'] }}
-                {% endif %}
-                {% if data['landowner_full_name_6'] %}
-                  <br>{{ data['landowner_full_name_6'] }}
-                {% endif %}
-                {% if data['landowner_full_name_7'] %}
-                  <br>{{ data['landowner_full_name_7'] }}
-                {% endif %}
-                {% if data['landowner_full_name_8'] %}
-                  <br>{{ data['landowner_full_name_8'] }}
-                {% endif %}
-                {% if data['landowner_full_name_9'] %}
-                  <br>{{ data['landowner_full_name_9'] }}
-                {% endif %}
-                {% if data['landowner_full_name_10'] %}
-                  <br>{{ data['landowner_full_name_10'] }}
-                {% endif %}
-              {% endif %}
-            {% else %}
-              {{ data['landowner_full_name'] or 'Bob Jones' }}
-              {% if data['landowner_full_name_1'] %}
-                <br>{{ data['landowner_full_name_1'] }}
-              {% endif %}
-              {% if data['landowner_full_name_2'] %}
-                <br>{{ data['landowner_full_name_2'] }}
-              {% endif %}
-              {% if data['landowner_full_name_3'] %}
-                <br>{{ data['landowner_full_name_3'] }}
-              {% endif %}
-              {% if data['landowner_full_name_4'] %}
-                <br>{{ data['landowner_full_name_4'] }}
-              {% endif %}
-              {% if data['landowner_full_name_5'] %}
-                <br>{{ data['landowner_full_name_5'] }}
-              {% endif %}
-              {% if data['landowner_full_name_6'] %}
-                <br>{{ data['landowner_full_name_6'] }}
-              {% endif %}
-              {% if data['landowner_full_name_7'] %}
-                <br>{{ data['landowner_full_name_7'] }}
-              {% endif %}
-              {% if data['landowner_full_name_8'] %}
-                <br>{{ data['landowner_full_name_8'] }}
-              {% endif %}
-              {% if data['landowner_full_name_9'] %}
-                <br>{{ data['landowner_full_name_9'] }}
-              {% endif %}
-              {% if data['landowner_full_name_10'] %}
-                <br>{{ data['landowner_full_name_10'] }}
-              {% endif %}
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            {% if data['landowner-only'] == 'Yes' %}
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-only">
-            {% else %}
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-name">
-            {% endif %}
-              Change<span class="govuk-visually-hidden"> landowner name</span>
-            </a>
-          </dd>
-        </div>
-
-        {% if data['landowner-only'] == 'Yes' %}
-        {% else %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Landowner consent
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Yes
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
-              Change<span class="govuk-visually-hidden"> landowner consent</span>
-            </a>
-          </dd>
-        </div>
-      {% endif %}
       </dl>
 
       <h2 class="govuk-heading-l">Biodiversity Metric</h2>
@@ -387,7 +283,7 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-l">Legal agreement</h2>
+      <h2 class="govuk-heading-l">Legal information</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
@@ -442,6 +338,19 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
               Change<span class="govuk-visually-hidden"> start date</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
             </a>
           </dd>
         </div>

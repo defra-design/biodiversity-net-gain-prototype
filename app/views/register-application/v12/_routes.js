@@ -255,19 +255,7 @@ router.post('/landowner-certificate-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v12/landowner-certificate-upload')
   } else {
-    res.redirect('/register-application/v12/landowner-name')
-  }
-})
-
-// Landowner certificate check
-router.post('/landowner-certificate-correct-answer-landowner', function (req, res) {
-
-  var install = req.session.data['landowner-certificate-correct']
-
-  if (install == "no"){
-    res.redirect('/register-application/v12/landowner-certificate-upload')
-  } else {
-    res.redirect('/register-application/v12/landowner-only')
+    res.redirect('/register-application/v12/task-list')
   }
 })
 

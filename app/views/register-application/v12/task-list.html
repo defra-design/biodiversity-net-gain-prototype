@@ -17,16 +17,16 @@
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 8 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration in progress</h2>
-        {% if data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 6 of 7 sections.</p>
-        {% elif data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] and data['metric-correct'] == 'yes' and data['management-plan-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 5 of 7 sections.</p>
-        {% elif data['details-confirm'] and data['location-confirm'] and  data['address-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 7 sections.</p>
+        {% if data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 7 of 8 sections.</p>
+        {% elif data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['metric-correct'] == 'yes' and data['management-plan-confirm'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 5 of 8 sections.</p>
+        {% elif data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] %}
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 8 sections.</p>
         {% elif data['details-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 7 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 1 of 8 sections.</p>
         {% else %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 7 sections.</p>
+          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 8 sections.</p>
         {% endif %} 
       {% endif %} 
 
@@ -83,15 +83,15 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['address-confirm'] %}
-                  <a href="/register-application/{{ pageURL }}/landowner-confirm" aria-describedby="landowner-status">
+                {% if data['landowner-certificate-correct'] %}
+                  <a href="/register-application/{{ pageURL }}/landowner-certificate-check" aria-describedby="landowner-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/landowner-certificate-upload" aria-describedby="landowner-status">
                 {% endif %} 
                     Add land ownership details
                   </a>
               </span>
-              {% if data['address-confirm'] %}
+              {% if data['landowner-certificate-correct'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
@@ -167,6 +167,19 @@
               {% endif %} 
             </li>
 
+            <li class="app-task-list__item">
+              <span class="app-task-list__task-name">
+                <a href="/register-application/{{ pageURL }}/landowner-consent" aria-describedby="landowner-consent-status">
+                  Landowner consent
+                </a>
+              </span>
+              {% if data['landowner-consent'] %}
+                <strong class="govuk-tag govuk-tag app-task-list__tag" id="landowner-consent-status">Completed</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="landowner-consent-status">Not started</strong>
+              {% endif %} 
+            </li>
+
             <!--<li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/declaration-degradation" aria-describedby="declaration-degradation-status">
@@ -203,7 +216,7 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['details-confirm'] and data['location-confirm'] and data['address-confirm'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] %}
+              {% if data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['metric-correct'] == 'yes' and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers and submit information

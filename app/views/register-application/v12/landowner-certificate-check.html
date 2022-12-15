@@ -26,15 +26,7 @@
         ]
       }) }}
 
-      {% if data['role'] == 'Landowner' %}
-
-      <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-correct-answer-landowner">
-
-      {% else %}
-
       <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-correct-answer">
-
-      {% endif %}
 
         {{ govukRadios({
           idPrefix: "landowner-certificate-correct",
