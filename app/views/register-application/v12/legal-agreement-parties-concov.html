@@ -1,6 +1,6 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "Add all parties listed on the conservation covenant agreement" %}
+{% set pageHeading = "Add the parties listed on the conservation covenant" %}
 
 {% block content %}
 
@@ -13,7 +13,7 @@
           {{ pageHeading }}
         </h1>
       
-        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-confirm">
+        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-date-start">
 
           {{ govukInput({
             id: "concov-responsible-body",

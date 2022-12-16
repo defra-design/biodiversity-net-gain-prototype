@@ -1,6 +1,10 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "What is the start date of the legal agreement?" %}
+{% if data['legal-agreement'] == "Planning obligation (S106 agreement)" %}
+  {% set pageHeading = "What is the start date of the planning obligation (S106 agreement)?" %}
+{% else %}
+  {% set pageHeading = "What is the start date of the conservation covenant?" %}
+{% endif %}
 
 {% block content %}
 

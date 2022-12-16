@@ -1,6 +1,6 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "Landowner consent declaration" %}
+{% set pageHeading = "Consent to register the biodiversity gain site" %}
 
 {% block content %}
 
@@ -20,7 +20,7 @@
               <div class="govuk-checkboxes__item">
                 <input class="govuk-checkboxes__input" id="landowner-consent" name="landowner-consent" type="checkbox" value="accepted">
                 <label class="govuk-label govuk-checkboxes__label" for="landowner-consent">
-                  I confirm that I, <strong>{{ data['full-name'] or 'Jo Smith' }}</strong>, am authorised to act on behalf of the landowners.
+                  I confirm that I, <strong>{{ data['full-name'] or 'Jo Smith' }}</strong>, am the landowner or that I have consent and am authorised to act on behalf of the landowner.
                 </label>
                 </div>
             </div>
