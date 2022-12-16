@@ -1,6 +1,10 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the legal agreement" %}
+{% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+  {% set pageHeading = "Upload the planning obligation (section 106 agreement)" %}
+{% else %}
+  {% set pageHeading = "Upload the conservation covenant" %}
+{% endif %}
 
 {% block content %}
 

@@ -139,6 +139,18 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   }
 })
 
+// Legal agreement check - concov
+router.post('/legal-agreement-correct-answer-concov', function (req, res) {
+
+  var install = req.session.data['legal-agreement-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v12/legal-agreement-upload')
+  } else {
+    res.redirect('/register-application/v12/legal-agreement-parties-concov')
+  }
+})
+
 // Management plan
 router.post('/management-plan-answer', function (req, res) {
 

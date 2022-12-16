@@ -301,33 +301,59 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Legal agreement file uploaded
+            {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+              Planning obligation (section 106 agreement) file uploaded
+            {% else %}
+              Conservation covenant file uploaded
+            {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-check">
-              Change<span class="govuk-visually-hidden"> Legal agreement file uploaded</span>
+              Change<span class="govuk-visually-hidden"> legal agreement</span>
             </a>
           </dd>
         </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Parties involved
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <ul class="govuk-list">
-              <li>Kevin Francis (Owner)</li>
-              <li>Leeds City Council (Responsible Body)</li>
-            </ul>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties">
-              Change<span class="govuk-visually-hidden"> parties involved</span>
-            </a>
-          </dd>
-        </div>
+
+        {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parties involved
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>Kevin Francis (Owner)</li>
+                <li>Bellway Plc (Developer)</li>
+                <li>Leeds City Council (Local Planning Authority)</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties">
+                Change<span class="govuk-visually-hidden"> parties involved</span>
+              </a>
+            </dd>
+          </div>
+        {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parties involved
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>{{ data['concov-responsible-body'] or 'Leeds City Council' }} (Responsible Body)</li>
+                <li>{{ data['concov-landowner'] or 'Kevin Francis' }} (Landowner)</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties-concov">
+                Change<span class="govuk-visually-hidden"> parties involved</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Start date

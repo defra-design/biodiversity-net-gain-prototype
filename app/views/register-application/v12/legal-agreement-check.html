@@ -1,6 +1,10 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "Check the legal agreement file" %}
+{% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+  {% set pageHeading = "Check the planning obligation (section 106 agreement)" %}
+{% else %}
+  {% set pageHeading = "Check the conservation covenant" %}
+{% endif %}
 
 {% block content %}
 
@@ -25,8 +29,12 @@
           }
         ]
       }) }}
-      
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer">
+
+      {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer-concov">
+      {% endif %}
 
         {{ govukRadios({
           idPrefix: "legal-agreement-correct",
