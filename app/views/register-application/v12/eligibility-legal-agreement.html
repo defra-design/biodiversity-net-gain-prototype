@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Do you have a legal agreement securing your biodiversity gain site?" %}
+{% set pageHeading = "Do you have a legal agreement securing the biodiversity gain site?" %}
 
 {% block content %}
 
@@ -22,7 +22,11 @@
               }
             },
             hint: {
-              html: "You will need to secure your site with either a <a href='https://www.gov.uk/guidance/planning-obligations'>planning obligation (S106 agreement)</a> or a <a href='#'>conservation covenant</a>, for at least 30 years."
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need to upload the legal agreement that secures your site for at least 30 years. It can be one of the following:</span>
+                      <ul class='govuk-list govuk-list--bullet app-secondary-text-colour'>
+                        <li>a <a href='https://www.gov.uk/guidance/planning-obligations'>planning obligation (S106 agreement)</a></li>
+                        <li>a <a href='#'>conservation covenant</a></li>
+                      </ul>"
             },
             items: [
               {
