@@ -6,26 +6,34 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
       
       <form method="post" action="/register-application/{{ pageURL }}/task-list">
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h1 class="govuk-fieldset__heading">
-                {{ pageHeading }}
-              </h1>
-            </legend>
-            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-              <div class="govuk-checkboxes__item">
-                <input class="govuk-checkboxes__input" id="landowner-consent" name="landowner-consent" type="checkbox" value="accepted">
-                <label class="govuk-label govuk-checkboxes__label" for="landowner-consent">
-                  I confirm that I, <strong>{{ data['full-name'] or 'Jo Smith' }}</strong>, am the landowner or that I have consent and am authorised to act on behalf of the landowner.
-                </label>
-                </div>
-            </div>
-          </fieldset>
-        </div>
+        {{ govukRadios({
+          idPrefix: "landowner-consent",
+          name: "landowner-consent",
+          fieldset: {
+            legend: {
+              text: "Confirm which of the two statements applies to you:"
+            }
+          },
+          items: [
+            {
+              value: "Yes, is landowner or leaseholder",
+              text: "I confirm that I, David Hunter, am the landowner or leaseholder",
+              checked: checked("landowner-consent", "Yes, is landowner or leaseholder")
+            },
+            {
+              value: "Yes, has consent",
+              text: "I, David Hunter, have the consent of the landowner or leaseholder and I'm authorised to act on their behalf",
+              checked: checked("landowner-consent", "Yes, has consent")
+            }
+          ]
+        }) }}
 
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
