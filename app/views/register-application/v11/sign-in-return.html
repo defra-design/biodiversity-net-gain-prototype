@@ -31,17 +31,20 @@
         }) }}
 
         {{ govukInput({
-            label: {
-                text: "Reference number",
-                classes: "govuk-label--s"
-            },
-            hint: {
-              text: "You should have received the reference number in a confirmation email. For example, REF-150 311 001"
-            },
-            classes: "govuk-!-width-one-half",
-            id: "reference-number",
-            name: "reference-number",
-            type: "text"
+          label: {
+              text: "Reference number",
+              classes: "govuk-label--s"
+          },
+          hint: {
+            text: "You should have received the reference number in a confirmation email. For example, REF-150 311 001"
+          },
+          prefix: {
+            text: "REF-"
+          },
+          classes: "govuk-!-width-one-half",
+          id: "reference-number",
+          name: "reference-number",
+          type: "text"
         }) }}
 
         {{ govukButton({
