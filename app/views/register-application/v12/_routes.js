@@ -110,7 +110,7 @@ router.post('/metric-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v12/metric-upload')
   } else {
-    res.redirect('/register-application/v12/metric-data')
+    res.redirect('/register-application/v12/metric-data-baseline')
   }
 })
 
@@ -207,7 +207,7 @@ router.post('/management-plan-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v12/management-plan-upload')
   } else {
-    res.redirect('/register-application/v12/management-plan-date-start')
+    res.redirect('/register-application/v12/management-plan-date-end')
   }
 })
 

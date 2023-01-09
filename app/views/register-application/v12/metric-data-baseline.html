@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <p>We've taken the baseline information from your metric.</p>
+      <p>We've taken this information from the baseline part of your metric.</p>
 
       <div class="app-table-responsive">
         <table class="govuk-table">
@@ -43,25 +43,21 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{ pageURL }}/metric-data">
 
-        <h2 class="govuk-heading-m">Biodiversity value declaration</h2>
-
-        <input type="hidden" name="habitat-checked-data" value="yes">
-
-          {{ govukCheckboxes({
+          {{ govukRadios({
             idPrefix: "declaration-degradation",
             name: "declaration-degradation",
             fieldset: {
               legend: {
-                text: pageHeading + "agreement",
-                classes: "govuk-visually-hidden"
+                text: "Baseline biodiversity value declaration",
+                classes: "govuk-fieldset__legend--m"
               }
             },
             items: [
               {
                 value: "accepted",
-                html: "I confirm that no activity on the land has reduced the biodiversity value of it since 30 Jan 2020"
+                html: "I confirm that no activity on the land has reduced the biodiversity value of it since 30 January 2020"
               },
               {
                 value: "accepted",
@@ -78,13 +74,13 @@
             </strong>
           </div>
 
-        {{ govukButton({ text: 'Continue' }) }}
+        {{ govukButton({ text: 'Confirm and continue' }) }}
         
       </form>
 
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/metric-upload" class="govuk-link--no-visited-state">Upload a different Biodiversity Metric (Secretary of State version)</a></p>
+      <p><a href="/register-application/{{ pageURL }}/metric-upload" class="govuk-link--no-visited-state">Upload a different Biodiversity Metric 4.0</a></p>
 
     </div>
   </div>

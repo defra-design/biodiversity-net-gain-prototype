@@ -209,32 +209,49 @@
         </div>
       </dl>
 
-      <h2 class="govuk-heading-l">Biodiversity Metric</h2>
+      <h2 class="govuk-heading-l">Biodiversity Metric 4.0 and habitat declarations</h2>
 
-      {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-7',
-        rows: [
-          {
-            key: {
-              text: "Biodiversity Metric file uploaded",
-              classes: "app-summary-list__key--narrow",
-              classes: "govuk-!-width-one-quarter"
-            },
-            value: {
-              text: data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm'
-            },
-            actions: {
-              items: [
-                {
-                  href: "/register-application/" + pageURL + "/metric-data",
-                  text: "Change",
-                  visuallyHiddenText: "Biodiversity Metric data"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity Metric 4.0 file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-check">
+              Change<span class="govuk-visually-hidden"> biodiversity metric 4.0 file</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Baseline biodiversity value declaration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data-baseline">
+              Change<span class="govuk-visually-hidden"> Baseline biodiversity value declaration</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat creation and enhancement declaration
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data">
+              Change<span class="govuk-visually-hidden"> Habitat creation and enhancement declaration</span>
+            </a>  
+          </dd> 
+        </div>
+      </dl>
 
       <h2 class="govuk-heading-l">Habitat management and monitoring</h2>
 
@@ -251,20 +268,6 @@
             <a class="govuk-link" href="/register-application/v12/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
               </a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Start date of habitat creation and enhancement works
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['management-plan-date-start-day'] or '15' }} {{ data['management-plan-date-start-month'] | monthToWordWithSpaces('March') }} {{ data['management-plan-date-start-year'] or '2022' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v12/management-plan-date-start">
-              Change<span class="govuk-visually-hidden"> start date of habitat works</span>
-            </a>
           </dd>
         </div>
 

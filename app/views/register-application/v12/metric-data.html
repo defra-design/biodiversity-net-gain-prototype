@@ -1,6 +1,6 @@
 {% extends "register-application/v12/layout-register-application.html" %}
 
-{% set pageHeading = "Check what habitat you have available for a developer to buy" %}
+{% set pageHeading = "Check the created and enhanced habitat information" %}
 
 {% block content %}
 
@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
 
-      <p>We've taken this information from the post-development (habitat enhancement and creation) part of your metric.</p>
+      <p>We've taken this information from the post-development part of your metric.</p>
 
       <div class="app-table-responsive">
         <table class="govuk-table">
@@ -96,11 +96,34 @@
     </div>
     <div class="govuk-grid-column-two-thirds">
 
-      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" action="/register-application/{{ pageURL }}/metric-confirm">
+    
+        {{ govukCheckboxes({
+          idPrefix: "habitat-declaration",
+          name: "habitat-declaration",
+          fieldset: {
+            legend: {
+              text: "Habitat creation and enhncement declaration",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "accepted",
+              html: "I confirm that any habitat creation and enhancement works on the biodiversity gain site happened on or after 30 January 2020"
+            }
+          ]
+        }) }}
 
-        <input type="hidden" name="habitat-checked-data" value="yes">
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You could be prosecuted or have to pay a fine if you deliberately give untrue or misleading information.
+          </strong>
+        </div>
 
-        {{ govukButton({ text: 'Continue' }) }}
+      {{ govukButton({ text: 'Confirm and continue' }) }}
         
       </form>
 
