@@ -1,0 +1,45 @@
+{% extends "register-application/v13/layout-register-application.html" %}
+
+{% set pageHeading = "Registration saved" %}
+
+{% set hideSignOut = true %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          {{ pageHeading }}
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference<br> <strong>REF-150 311 001</strong>
+        </div>
+      </div>
+
+      <p>We've saved your biodiversity gain site information. It has not been submitted.</p>
+
+      <p>We'll save your information for 28 days. After that time we'll delete it unless you continue with your registration.</p>
+
+      <p>To continue with a registration you'll need to enter your:</p> 
+      <ul class="govuk-list govuk-list--bullet">
+        <li>email address</li>
+        <li>reference number</li>
+      </ul>
+
+      <p>We've sent you an email with your reference number.</p>
+
+      <h2 id="return-to-application" class="govuk-heading-m">Saved registrations</h2>
+
+      <p><a href="/register-application/{{ pageURL }}/sign-in-return">Continue with a saved registration</a></p>
+
+      <p class="govuk-!-padding-top-8"><a href="/register-application/{{ pageURL }}/saved-email">View confirmation email (prototype only)</a></p>
+        
+    </div>
+</div>
+
+{% endblock %}

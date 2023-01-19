@@ -1,0 +1,37 @@
+{% extends "register-application/v13/layout-register-application.html" %}
+
+{% set pageHeading = "How many hectares is the land?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-confirm">
+
+        {{ govukInput({
+          id: "area-in-hectares",
+          name: "area-in-hectares",
+          label: {
+            text: pageHeading,
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          suffix: {
+            text: "ha"
+          },
+          classes: "govuk-input--width-5",
+          spellcheck: false,
+          value: data['area-in-hectares']
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

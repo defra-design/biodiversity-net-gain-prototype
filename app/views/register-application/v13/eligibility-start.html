@@ -1,0 +1,28 @@
+{% extends "register-application/v13/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check you have everything to register a biodiversity gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Check that you have all the documents, consent and calculations that you need.</p>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/register-application/" + pageURL + "/eligibility-england"
+      }) }}
+
+      <p><a href="/register-application/{{ pageURL }}/details-name">Skip to registering a biodiversity gain site</a> if you know you have everything you need.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

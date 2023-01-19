@@ -1,0 +1,88 @@
+{% extends "register-application/v13/layout-register-application.html" %}
+
+{% set pageHeading = "Check the habitat baseline information" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>We've taken this information from the baseline part of your metric.</p>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Habitat type and condition</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Area (ha)</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                  Poor condition
+                </span>
+              </td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/metric-data">
+
+          {{ govukRadios({
+            idPrefix: "declaration-degradation",
+            name: "declaration-degradation",
+            fieldset: {
+              legend: {
+                text: "Baseline biodiversity value declaration",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "accepted",
+                html: "I confirm that no activity on the land has reduced the biodiversity value of it since 30 January 2020"
+              },
+              {
+                value: "accepted",
+                html: "I confirm that if activities on the land have reduced the biodiversity value of it since 30 January 2020, the baseline data was recorded before this time"
+              }
+            ]
+          }) }}
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive">Warning</span>
+              You could be prosecuted or have to pay a fine if you deliberately give untrue or misleading information.
+            </strong>
+          </div>
+
+        {{ govukButton({ text: 'Confirm and continue' }) }}
+        
+      </form>
+
+      <p>Or</p>
+
+      <p><a href="/register-application/{{ pageURL }}/metric-upload" class="govuk-link--no-visited-state">Upload a different Biodiversity Metric 4.0</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}
