@@ -40,6 +40,9 @@ router.use('/register-application/v11', registerapplicationv11);
 const registerapplicationv12 = require('./views/register-application/v12/_routes');
 router.use('/register-application/v12', registerapplicationv12);
 
+const registerapplicationv13 = require('./views/register-application/v13/_routes');
+router.use('/register-application/v13', registerapplicationv13);
+
 const registerv1 = require('./views/register/v1/_routes');
 router.use('/register/v1', registerv1);
 
