@@ -1,13 +1,13 @@
 {% extends "register-application/v13/layout-register-application.html" %}
 
-{% set pageHeading = "Allocate habitat to the development" %}
+{% set pageHeading = "Allocate habitat" %}
 
 {% block content %}
 
-  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
       <form method="post" action="/register-application/{{ pageURL }}/allocation-confirm">
         <div class="app-table-responsive">
@@ -15,9 +15,8 @@
             <caption class="govuk-visually-hidden">Habitat</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header app-table__header--mobile">Habitat type</th>
-                <th scope="col" class="govuk-table__header">Area in hectares</th>
-                <th scope="col" class="govuk-table__header">Biodiversity units</th>
+                <th scope="col" class="govuk-table__header app-table__header--mobile">Habitat type and condition</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Area in hectares</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -31,19 +30,13 @@
                     Good condition
                   </span>
                 </td>
-                <td class="govuk-table__cell">
+                <td class="govuk-table__cell govuk-table__cell--numeric">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
                     Grassland units allocated
                   </label>
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">ha</div>
                   </div>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Woodland and forest units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -56,19 +49,13 @@
                     Good condition
                   </span>
                 </td>
-                <td class="govuk-table__cell">
+                <td class="govuk-table__cell govuk-table__cell--numeric">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
                     Grassland units allocated
                   </label>
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">ha</div>
                   </div>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Woodland and forest units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -81,19 +68,13 @@
                     Good condition
                   </span>
                 </td>
-                <td class="govuk-table__cell">
+                <td class="govuk-table__cell govuk-table__cell--numeric">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
                     Grassland units allocated
                   </label>
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">ha</div>
                   </div>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Woodland and forest units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
                 </td>
               </tr>
             </tbody>
@@ -105,9 +86,8 @@
             <caption class="govuk-visually-hidden">Hedgerow</caption>
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
-                <th scope="col" class="govuk-table__header app-table__header--mobile">Hedgerow type</th>
-                <th scope="col" class="govuk-table__header">Length in kilometes</th>
-                <th scope="col" class="govuk-table__header">Biodiversity units</th>
+                <th scope="col" class="govuk-table__header app-table__header--mobile">Hedgerow type and condition</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Length in kilometes</th>
               </tr>
             </thead>
             <tbody class="govuk-table__body">
@@ -118,19 +98,13 @@
                     Good condition
                   </span>
                 </td>
-                <td class="govuk-table__cell">
+                <td class="govuk-table__cell govuk-table__cell--numeric">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
                     Grassland units allocated
                   </label>
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">km</div>
                   </div>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Woodland and forest units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -140,19 +114,13 @@
                     Good condition
                   </span>
                 </td>
-                <td class="govuk-table__cell">
+                <td class="govuk-table__cell govuk-table__cell--numeric">
                   <label class="govuk-label govuk-visually-hidden" for="allocation-1">
                     Grassland units allocated
                   </label>
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">km</div>
                   </div>
-                </td>
-                <td class="govuk-table__cell">
-                  <label class="govuk-label govuk-visually-hidden" for="allocation-1">
-                    Woodland and forest units allocated
-                  </label>
-                  <input class="govuk-input govuk-input--width-3 govuk-!-margin-bottom-0" id="allocation-1" name="allocation-1" type="text">
                 </td>
               </tr>
             </tbody>

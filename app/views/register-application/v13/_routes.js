@@ -312,10 +312,10 @@ router.post('/allocation-answer', function (req, res) {
 
   var install = req.session.data['allocation']
 
-  if (install == "yes"){
-    res.redirect('/register-application/v13/allocation-yes')
+  if (install == "Yes"){
+    res.redirect('/register-application/v13/allocation-development')
   } else {
-    res.redirect('/register-application/v13/allocation-no')
+    res.redirect('/register-application/v13/allocation-confirm')
   }
 })
 

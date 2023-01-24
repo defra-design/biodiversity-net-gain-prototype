@@ -1,6 +1,6 @@
 {% extends "register-application/v13/layout-register-application.html" %}
 
-{% set pageHeading = "Check your answers before submitting your information" %}
+{% set pageHeading = "Check habitat allocation" %}
 
 {% block content %}
 
@@ -9,61 +9,158 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {% if data['allocation'] == 'No' %}
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Development
+            Sold units to a development
           </dt>
           <dd class="govuk-summary-list__value">
-            21/02367/FUL <br>
-            {{ data['input-autocomplete'] or 'City of York Council' }}
+            {{ data['allocation'] or 'No' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-              Change<span class="govuk-visually-hidden"> the development</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Legal agreement
-          </dt>
-          <dd class="govuk-summary-list__value">
-            meadow-croft-farm-legal-agreement.pdf
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/development-legal-agreement-upload">
-              Change<span class="govuk-visually-hidden"> Legal agreement</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Allocated habitat and units
-          </dt>
-          <dd class="govuk-summary-list__value">
-            Grassland = 1.53 ha, 2.1 units <br>
-            Heathland and scrub = 0.10 ha, 1.5 units <br>
-            Native species rich hedgerow = 0.45 km, 0.8 units
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-habitat">
-              Change<span class="govuk-visually-hidden"> allocated habitat</span>
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+              Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
             </a>
           </dd>
         </div>
       </dl>
 
-      <h2 class="govuk-heading-m">Submit your habitat allocation information</h2>
+      {{ govukInsetText({
+        text: "You can come back and allocate habitat to developments."
+      }) }}
 
-      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
+      {% else %}
 
-      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sold units to a development
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['allocation'] or 'Yes' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+              Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
 
-        <input type="hidden" name="answers-checked" value="true">
+      <div class="app-summary-list-wrapper">
+        <div class="app-summary-list-wrapper-heading">
+          <h2 class="govuk-body govuk-!-font-size-16 app-summary-list-wrapper-heading-text">Development 1</h2>
+        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Planning ref
+            </dt>
+            <dd class="govuk-summary-list__value">
+              21/02367/FUL
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+                Change<span class="govuk-visually-hidden"> development 1</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Planning authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['input-autocomplete'] or 'City of York Council' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+                Change<span class="govuk-visually-hidden"> development 1</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Allocated habitat
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list app-list--border">
+                <li>Grassland <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 1.53 ha</li>
+                <li>Heathland and scrub <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 0.10 ha</li>
+                <li>Native species rich hedgerow <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 0.45 km</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-habitat">
+                Change<span class="govuk-visually-hidden"> allocated habitat</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <p class="govuk-!-margin-bottom-2"><a href="#" class="app-link--red">Remove <span class="govuk-visually-hidden">development</span></a></p>
+      </div>
+
+      <div class="app-summary-list-wrapper">
+        <div class="app-summary-list-wrapper-heading">
+          <h2 class="govuk-body govuk-!-font-size-16 app-summary-list-wrapper-heading-text">Development 2</h2>
+        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Planning ref
+            </dt>
+            <dd class="govuk-summary-list__value">
+              21/02367/FUL
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+                Change<span class="govuk-visually-hidden"> development 1</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Planning authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Leeds City Council
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+                Change<span class="govuk-visually-hidden"> development 1</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Allocated habitat
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list app-list--border">
+                <li>Grassland <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 0.5 ha</li>
+                <li>Heathland and scrub <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 1.5 ha</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-habitat">
+                Change<span class="govuk-visually-hidden"> allocated habitat</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <p class="govuk-!-margin-bottom-2"><a href="#" class="app-link--red">Remove <span class="govuk-visually-hidden">development</span></a></p>
+      </div>
+
+      <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>
+
+      {% endif %}
+
+      <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+
+        <input type="hidden" name="linked-development" value="true">
 
         <button class="govuk-button" data-module="govuk-button">
-          Confirm and submit
+          Continue
         </button>
 
       </form>
