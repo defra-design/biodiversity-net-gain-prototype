@@ -319,5 +319,29 @@ router.post('/allocation-answer', function (req, res) {
   }
 })
 
+// Routing register
+router.post('/routing-register-answer', function (req, res) {
+
+  var install = req.session.data['routing-register']
+
+  if (install == "No"){
+    res.redirect('/register-application/v13/routing-record-only')
+  } else {
+    res.redirect('/register-application/v13/routing-sold')
+  }
+})
+
+// Routing sold
+router.post('/routing-sold-answer', function (req, res) {
+
+  var install = req.session.data['routing-sold']
+
+  if (install == "No"){
+    res.redirect('/register-application/v13/routing-results')
+  } else {
+    res.redirect('/register-application/v13/routing-record')
+  }
+})
+
 // Add your routes above the module.exports line
 module.exports = router

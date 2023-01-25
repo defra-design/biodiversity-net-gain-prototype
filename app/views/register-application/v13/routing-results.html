@@ -1,0 +1,43 @@
+{% extends "register-application/v13/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if 
+        data['routing-record'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'Yes' 
+      %}
+        {% set pageHeading = "You've told us you want to register a biodiversity gain site and record development details for it" %}
+      {% elif 
+        data['routing-record'] == 'Yes' and data['routing-sold'] == 'No' or 
+        data['routing-record'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'No' 
+      %}
+        {% set pageHeading = "You've told us you want to register a biodiversity gain site" %}
+      {% elif 
+        data['routing-register'] == 'No' and data['routing-record-only'] == 'Yes' 
+      %}
+        {% set pageHeading = "You've told us you want to record development details on a registered biodiversity gain site" %}
+      {% elif 
+        data['routing-register'] == 'No' and data['routing-record-only'] == 'No' 
+      %}
+        {% set pageHeading = "You can only use this service to register a biodiversity gain site and record development details, perhaps you want to look at the public register?" %}
+      {% else %}
+        {% set pageHeading = "You've told us you want to register a biodiversity gain site" %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/register-application/" + pageURL + "/eligibility-start"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
