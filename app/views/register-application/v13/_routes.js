@@ -343,5 +343,17 @@ router.post('/routing-sold-answer', function (req, res) {
   }
 })
 
+// Routing sold
+router.post('/routing-sold-answer', function (req, res) {
+
+  var install = req.session.data['routing-sold']
+
+  if (install == "No"){
+    res.redirect('/register-application/v13/routing-results')
+  } else {
+    res.redirect('/register-application/v13/routing-record')
+  }
+})
+
 // Add your routes above the module.exports line
 module.exports = router
