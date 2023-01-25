@@ -1,19 +1,19 @@
 {% extends "register-application/v13/layout-register-application.html" %}
 
-{% set pageHeading = "Check habitat allocation" %}
+{% set pageHeading = "Check development and habitat information" %}
 
 {% block content %}
 
-  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
       {% if data['allocation'] == 'No' %}
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Sold units to a development
+            Linking habitat to a development
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['allocation'] or 'No' }}
@@ -27,7 +27,7 @@
       </dl>
 
       {{ govukInsetText({
-        text: "You can come back and allocate habitat to developments."
+        text: "You can link habitat to a development after registering the biodiversity gain site."
       }) }}
 
       {% else %}
@@ -35,7 +35,7 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Sold units to a development
+            Linking habitat to a development
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['allocation'] or 'Yes' }}
@@ -55,33 +55,33 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-2">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Planning ref
+              Planning reference number
             </dt>
             <dd class="govuk-summary-list__value">
               21/02367/FUL
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-                Change<span class="govuk-visually-hidden"> development 1</span>
+                Change<span class="govuk-visually-hidden"> planning reference number</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Planning authority
+              Local Planning Authority
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['input-autocomplete'] or 'City of York Council' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-                Change<span class="govuk-visually-hidden"> development 1</span>
+                Change<span class="govuk-visually-hidden"> local planning authority</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Allocated habitat
+              Linked habitat
             </dt>
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list app-list--border">
@@ -114,6 +114,7 @@
         <p class="govuk-!-margin-bottom-2"><a href="#" class="app-link--red">Remove <span class="govuk-visually-hidden">development</span></a></p>
       </div>
 
+      <!--
       <div class="app-summary-list-wrapper">
         <div class="app-summary-list-wrapper-heading">
           <h2 class="govuk-body govuk-!-font-size-16 app-summary-list-wrapper-heading-text">Development 2</h2>
@@ -174,9 +175,10 @@
         </dl>
         <p class="govuk-!-margin-bottom-2"><a href="#" class="app-link--red">Remove <span class="govuk-visually-hidden">development</span></a></p>
       </div>
+      -->
 
       <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>
-
+      
       {% endif %}
 
       <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
