@@ -39,6 +39,9 @@
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">ha</div>
                   </div>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                    2.40 ha available
+                  </span>
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -58,6 +61,9 @@
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">ha</div>
                   </div>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                    1.25 ha available
+                  </span>
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -77,6 +83,9 @@
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">ha</div>
                   </div>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                    0.50 ha available
+                  </span>
                 </td>
               </tr>
             </tbody>
@@ -107,6 +116,9 @@
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">km</div>
                   </div>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                    0.18 km available
+                  </span>
                 </td>
               </tr>
               <tr class="govuk-table__row">
@@ -123,11 +135,18 @@
                   <div class="govuk-input__wrapper govuk-!-margin-bottom-0"><input class="govuk-input govuk-input--width-3" id="weight" name="weight" type="text" spellcheck="false">
                     <div class="govuk-input__suffix" aria-hidden="true">km</div>
                   </div>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-1 govuk-!-margin-bottom-0 app-secondary-text-colour">
+                    0.50 km available
+                  </span>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        {{ govukInsetText({
+          html: "If the habitat data isn't correct you can <a href='/register-application/v13/metric-check'>upload a different biodiversity metric file</a>."
+        }) }}
 
         {{ govukButton({
             text: "Continue"
