@@ -17,9 +17,9 @@
         <p class="govuk-body govuk-!-margin-bottom-4">You have completed 9 of 9 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration in progress</h2>
-        {% if data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['metric-correct'] == 'yes' and data['linked-development'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] %}
+        {% if data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['habitat-checked-data'] and data['linked-development'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 7 of 9 sections.</p>
-        {% elif data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['metric-correct'] == 'yes' and data['management-plan-confirm'] and data['linked-development'] %}
+        {% elif data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['habitat-checked-data'] and data['management-plan-confirm'] and data['linked-development'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 5 of 9 sections.</p>
         {% elif data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 3 of 9 sections.</p>
@@ -109,7 +109,7 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['metric-correct'] == 'yes' %}
+                {% if data['habitat-checked-data'] %}
                   <a href="/register-application/{{ pageURL }}/metric-confirm" aria-describedby="habitat-data-status">
                 {% else %}
                   <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="habitat-data-status">
@@ -117,7 +117,7 @@
                   Add habitat baseline, creation and enhancements
                 </a>
               </span>
-              {% if data['metric-correct'] == 'yes' %}
+              {% if data['habitat-checked-data'] %}
                 <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-data-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-data-status">Not started</strong>
@@ -125,7 +125,7 @@
             </li>
 
             <li class="app-task-list__item">
-              {% if data['metric-correct'] == 'yes' %}
+              {% if data['habitat-checked-data'] %}
                 <span class="app-task-list__task-name">
                   {% if data['linked-development'] %}
                     <a href="/register-application/{{ pageURL }}/allocation-confirm" aria-describedby="boundary-status">Link habitat to a development</a>
@@ -238,7 +238,7 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['metric-correct'] == 'yes' and data['linked-development'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] %}
+              {% if data['details-confirm'] and data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['habitat-checked-data'] and data['linked-development'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers and submit information
