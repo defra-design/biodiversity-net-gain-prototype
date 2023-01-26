@@ -8,14 +8,14 @@
     <div class="govuk-grid-column-two-thirds">
 
       {% if 
-        data['routing-record'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'Yes' 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'Yes' 
       %}
-        {% set pageHeading = "You've told us you want to register a biodiversity gain site and record development details for it" %}
+        {% set pageHeading = "Before you register a biodiversity gain site and record development details for it" %}
       {% elif 
-        data['routing-record'] == 'Yes' and data['routing-sold'] == 'No' or 
-        data['routing-record'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'No' 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'No' or 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'No' 
       %}
-        {% set pageHeading = "You've told us you want to register a biodiversity gain site" %}
+        {% set pageHeading = "Before you register a biodiversity gain site" %}
       {% elif 
         data['routing-register'] == 'No' and data['routing-record-only'] == 'Yes' 
       %}
@@ -32,10 +32,22 @@
         {{ pageHeading }}
       </h1>
 
+      {% if 
+        data['routing-record'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'Yes' or 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'No' or 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'No' 
+      %}
+
+      <p>We'll ask you a few questions to check you have everything you need to register.</p>
+
       {{ govukButton({
         text: "Continue",
-        href: "/register-application/" + pageURL + "/eligibility-start"
+        href: "/register-application/" + pageURL + "/eligibility-england"
       }) }}
+
+      <p><a href="/register-application/{{ pageURL }}/details-name">Skip to registering a biodiversity gain site</a> if you know you have everything you need.</p>
+        
+      {% endif %}
 
     </div>
   </div>
