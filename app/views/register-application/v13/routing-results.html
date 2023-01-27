@@ -33,10 +33,11 @@
       </h1>
 
       {% if 
-        data['routing-record'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'Yes' or 
-        data['routing-register'] == 'Yes' and data['routing-sold'] == 'No' or 
-        data['routing-register'] == 'Yes' and data['routing-sold'] == 'Yes' and data['routing-record'] == 'No' 
+        data['routing-register'] == 'No' and data['routing-record-only'] == 'Yes'  or 
+        data['routing-register'] == 'No' and data['routing-record-only'] == 'No'
       %}
+
+      {% else %}
 
       <p>We'll ask you a few questions to check you have everything you need to register.</p>
 
