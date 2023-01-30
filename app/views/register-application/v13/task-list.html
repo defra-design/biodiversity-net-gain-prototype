@@ -128,19 +128,19 @@
               {% if data['habitat-checked-data'] %}
                 <span class="app-task-list__task-name">
                   {% if data['linked-development'] %}
-                    <a href="/register-application/{{ pageURL }}/allocation-confirm" aria-describedby="boundary-status">Link habitat to a development</a>
+                    <a href="/register-application/{{ pageURL }}/allocation-confirm" aria-describedby="record-habitat-status">Record habitat used by developments</a>
                     {% else %}
-                    <a href="/register-application/{{ pageURL }}/allocation" aria-describedby="boundary-status">Link habitat to a development</a>
+                    <a href="/register-application/{{ pageURL }}/allocation" aria-describedby="record-habitat-status">Record habitat used by developments</a>
                   {% endif %} 
                 </span>
                 {% if data['linked-development'] %}
-                  <strong class="govuk-tag app-task-list__tag" id="submit-application-status">completed</strong>
+                  <strong class="govuk-tag app-task-list__tag" id="record-habitat-status">completed</strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">not started</strong>
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="record-habitat-status">not started</strong>
                 {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Link habitat to a development
+                  Record habitat used by developments
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Cannot start yet</strong>
               {% endif %} 
