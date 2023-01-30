@@ -1,6 +1,6 @@
 {% extends "register-application/v13/layout-register-application.html" %}
 
-{% set pageHeading = "Add a development" %}
+{% set pageHeading = "Add the development details" %}
 
 {% block content %}
 
@@ -13,7 +13,7 @@
 
         {{ govukInput({
           label: {
-              text: "Planning reference number",
+              text: "Planning application reference",
               classes: "govuk-label--s"
           },
           hint: {
@@ -26,7 +26,7 @@
         }}
 
         <label for="autocomplete-local-authorities" class="govuk-label govuk-label--s" for="example">
-          Local Planning Authority
+          Local planning authority
         </label>
         <div id="autocomplete-local-authorities" class="autocomplete-wrapper govuk-!-margin-bottom-7"></div>
 

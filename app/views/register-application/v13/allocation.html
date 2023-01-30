@@ -1,6 +1,6 @@
 {% extends "register-application/v13/layout-register-application.html" %}
 
-{% set pageHeading = "Have you sold any biodiversity units to a developer?" %}
+{% set pageHeading = "Do you want to record which habitats are being used for off-site gain by a development project?" %}
 
 {% block content %}
 
@@ -19,14 +19,23 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+            html: "<span class='govuk-!-display-block govuk-hint'>You'll need to know:</span>
+                    <ul class='govuk-list govuk-list--bullet app-secondary-text-colour'>
+                      <li>the planning application reference</li>
+                      <li>local planning authority</li>
+                      <li>area and length of the habitats being used as off-site gain</li>
+                    </ul>
+                    <span class='govuk-!-display-block govuk-hint'>The habitat area and length must match what's recorded in the development's biodiversity metric file. The metric file needs to be approved by a local planning authority.</span>"
+          },
           items: [
             {
               value: "Yes",
-              text: "Yes"
+              text: "Yes, I want to record the habitat being used"
             },
             {
               value: "No",
-              text: "No"
+              text: "No, I do not want to record the habitat being used"
             }
           ]
         }) }}

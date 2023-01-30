@@ -1,6 +1,6 @@
 {% extends "register-application/v13/layout-register-application.html" %}
 
-{% set pageHeading = "Add the area or length of habitat the development is using from the biodiversity gain site" %}
+{% set pageHeading = "Enter the area and length of habitat the development is using on the biodiversity gain site" %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      <p>This should match the off-site habitat data used in the developer's biodiversity metric.</p>
+      <p>This should match the off-site habitat data in the development's approved biodiversity metric.</p>
 
       <form method="post" action="/register-application/{{ pageURL }}/allocation-confirm">
         <div class="app-table-responsive">
@@ -145,7 +145,7 @@
         </div>
 
         {{ govukInsetText({
-          html: "If the habitat data isn't correct you can <a href='/register-application/v13/metric-check'>upload a different biodiversity metric file</a>."
+          html: "If the available habitat data is wrong you can <a href='/register-application/v13/metric-check'>upload a different biodiversity metric file</a>."
         }) }}
 
         {{ govukButton({

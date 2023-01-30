@@ -259,7 +259,7 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Linking habitat to a development
+            Record the habitat being used by a development project
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['allocation'] or 'No' }}
@@ -273,7 +273,7 @@
       </dl>
 
       {{ govukInsetText({
-        text: "You can link habitat to a development at a later date once the biodiversity gain site has been registered."
+        text: "You can record which habitats are being used for off-site gain by a development project once the biodiversity gain site has been registered."
       }) }}
 
       {% else %}
@@ -281,7 +281,7 @@
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Linking habitat to a development
+            Record the habitat being used by a development project
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['allocation'] or 'Yes' }}
@@ -301,27 +301,27 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-2">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Planning reference number
+              Planning application reference
             </dt>
             <dd class="govuk-summary-list__value">
               21/02367/FUL
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-                Change<span class="govuk-visually-hidden"> planning reference number</span>
+                Change<span class="govuk-visually-hidden"> Planning application reference</span>
               </a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Local Planning Authority
+              Local planning authority
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['input-autocomplete'] or 'City of York Council' }}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
-                Change<span class="govuk-visually-hidden"> local planning authority</span>
+                Change<span class="govuk-visually-hidden"> Local planning authority</span>
               </a>
             </dd>
           </div>
@@ -360,7 +360,7 @@
         <p class="govuk-!-margin-bottom-2"><a href="#" class="app-link--red">Remove <span class="govuk-visually-hidden">development</span></a></p>
       </div>
 
-      <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary govuk-!-margin-bottom-7">Add a development</a>
+      <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>
       
       {% endif %}
 

@@ -94,28 +94,8 @@
         </table>
 
       </div>
-      
-    </div>
-    <div class="govuk-grid-column-two-thirds">
 
       <form method="post" action="/register-application/{{ pageURL }}/metric-confirm">
-    
-        {{ govukCheckboxes({
-          idPrefix: "habitat-declaration",
-          name: "habitat-declaration",
-          fieldset: {
-            legend: {
-              text: "Habitat creation and enhancement declaration",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "accepted",
-              html: "I confirm that any habitat creation and enhancement works on the biodiversity gain site started on or after 30 January 2020"
-            }
-          ]
-        }) }}
 
       {{ govukButton({ text: 'Confirm and continue' }) }}
         
