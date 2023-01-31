@@ -12,7 +12,7 @@
     <div class="govuk-grid-column-full">
 
       <p>Dear {{ data['full-name'] or 'Jo Smith' }}</p>
-      <p>You've submitted your biodiversity gain site information.</p>
+      <p>You've submitted your biodiversity gain site information. {% if data['allocation'] == 'No' %}{% else %}You've also recorded the habitats that development projects are using as off-site gain.{% endif %}</p>
       <p>Your reference: REF-150 311 001</p>
 
       <p>Make a note of your reference number as we will use this if we get in touch with you.</p>

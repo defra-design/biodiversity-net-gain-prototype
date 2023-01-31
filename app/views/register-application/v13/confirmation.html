@@ -19,7 +19,7 @@
         </div>
       </div>
 
-      <p>You've submitted the biodiversity gain site details. You've also recorded the habitats that development projects are using as off-site gain. We've sent you a confirmation email.</p>
+      <p>You've submitted the biodiversity gain site details. {% if data['allocation'] == 'No' %}{% else %}You've also recorded the habitats that development projects are using as off-site gain.{% endif %} We've sent you a confirmation email.</p>
 
       <p>Make a note of your reference number as we will use this if we get in touch with you.</p>
 
