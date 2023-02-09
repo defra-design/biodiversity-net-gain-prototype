@@ -1,4 +1,4 @@
-{% extends "register-application/v13/layout-register-application.html" %}
+{% extends "register-application/v14/layout-register-application.html" %}
 
 {% set pageHeading = "Check the habitat management and monitoring details" %}
 
@@ -21,7 +21,7 @@
             {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v13/management-plan-check">
+            <a class="govuk-link" href="/register-application/v14/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
               </a>
           </dd>
@@ -35,7 +35,7 @@
             {{ data['management-plan-date-end-day'] or '15' }} {{ data['management-plan-date-end-month'] | monthToWordWithSpaces('March') }} {{ data['management-plan-date-end-year'] or '2023' }}
           </dd>
           <dd class="govuk-summary-list__actions">    
-            <a class="govuk-link" href="/register-application/v13/management-plan-date-end">
+            <a class="govuk-link" href="/register-application/v14/management-plan-date-end">
               Change<span class="govuk-visually-hidden"> Start date of the 30 year management and monitoring period</span>
             </a>
           </dd>
@@ -49,7 +49,7 @@
             {{ data['management-plan-works-name'] or 'Kevin Francis' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v13/management-plan-works-name">
+            <a class="govuk-link" href="/register-application/v14/management-plan-works-name">
             Change<span class="govuk-visually-hidden"> Person or organisation responsible for habitat enhancement works</span>
             </a>
           </dd> 
@@ -63,7 +63,7 @@
             {{ data['management-plan-maintaining-name'] or 'Kevin Francis' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v13/management-plan-maintaining-name">
+            <a class="govuk-link" href="/register-application/v14/management-plan-maintaining-name">
             Change<span class="govuk-visually-hidden"> Person or organisation responsible for managing the biodiversity gain site</span>
             </a>
           </dd>
@@ -77,7 +77,7 @@
             {{ data['management-plan-monitoring-name'] or 'Kevin Francis' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v13/management-plan-monitoring-name">
+            <a class="govuk-link" href="/register-application/v14/management-plan-monitoring-name">
               Change<span class="govuk-visually-hidden"> Person or organisation responsible for monitoring the biodiversity gain site</span>
             </a>
           </dd>
