@@ -1,0 +1,127 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set pageHeading = "Add all parties listed on the planning obligation (S106 agreement)" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+      
+        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-date-start">
+      
+          {% call govukFieldset({
+            classes: 'moj-add-another__item',
+            legend: {
+              text: 'Legal party',
+              classes: 'moj-add-another__title govuk-fieldset__legend--m',
+              isPageHeading: false
+            }
+          }) %}
+      
+          {{ govukInput({
+            id: 'person[0][parties_name]',
+            name: 'person[0][parties_name]',
+            label: {
+              html: 'Full name or organisation'
+            },
+            attributes: {
+              'data-name': 'person[%index%][parties_name]',
+              'data-id': 'person[%index%][parties_name]'
+            }
+          }) }}
+
+          {% set otherHtml %}
+          {{ govukInput({
+            id: "role-party-other[0][parties_role_other]",
+            name: "role-party-other[0][parties_role_other]",
+            type: "text",
+            classes: "govuk-!-width-one-third",
+            label: {
+              text: "Role"
+            },
+            attributes: {
+              'data-name': 'person[%index%][parties_role_other]',
+              'data-id': 'person[%index%][parties_role_other]'
+            }
+          }) }}
+          {% endset -%}
+
+          {{ govukRadios({
+            idPrefix: "person[0][parties_role]",
+            name: "person[0][parties_role]",
+            fieldset: {
+              legend: {
+                text: "Role"
+              }
+            },
+            hint: {
+              text: "Select one option."
+            },
+            items: [
+              {
+                value: "Local authority",
+                text: "Local authority",
+                attributes: {
+                  'data-name': 'person[%index%][parties_role',
+                  'data-id': 'person[%index%][parties_role]'
+                }
+              },
+              {
+                value: "Developer",
+                text: "Developer",
+                attributes: {
+                  'data-name': 'person[%index%][parties_role',
+                  'data-id': 'person[%index%][parties_role]'
+                }
+              },
+              {
+                value: "Landowner",
+                text: "Landowner",
+                attributes: {
+                  'data-name': 'person[%index%][parties_role',
+                  'data-id': 'person[%index%][parties_role]'
+                }
+              },
+              {
+                value: "Other",
+                text: "Other",
+                attributes: {
+                  'data-name': 'person[%index%][parties_role',
+                  'data-id': 'person[%index%][parties_role]'
+                },
+                conditional: {
+                  html: otherHtml
+                }
+              }
+            ]
+          }) }}
+      
+          {% endcall %}
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Add another legal party',
+              classes: 'govuk-button--secondary moj-add-another__add-button govuk-!-margin-bottom-4'
+            }) }}
+          </div>
+      
+          <div class="moj-button-action">
+            {{ govukButton({
+              text: 'Continue'
+            }) }}
+          </div>
+      
+        </form>
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

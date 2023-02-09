@@ -1,0 +1,59 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have a legal agreement securing the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-land-ownership">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-legal-agreement",
+            name: "eligibility-legal-agreement",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need to upload the legal agreement that secures your site for at least 30 years. It can be one of the following:</span>
+                      <ul class='govuk-list govuk-list--bullet app-secondary-text-colour'>
+                        <li>a <a href='https://www.gov.uk/guidance/planning-obligations'>planning obligation (S106 agreement)</a></li>
+                        <li>a <a href='#'>conservation covenant</a></li>
+                      </ul>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-legal-agreement", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-legal-agreement", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-legal-agreement", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

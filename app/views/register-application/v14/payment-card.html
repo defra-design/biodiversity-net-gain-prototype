@@ -1,0 +1,105 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set pageHeading = "Enter card details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third app-float-right-desktop">
+      <div style="border: 10px solid 	#b1b4b6; padding: 15px 15px 0 15px; background-color: #f3f2f1; margin-bottom: 30px;">
+        <h2 class="govuk-heading-m">Payment summary</h2>
+        <p class="govuk-!-font-weight-bold">Biodivery gain site registration fee</p>
+        <p class="govuk-!-margin-bottom-1">Total amount</p>
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-36">£630.00</p>
+      </div>
+    </div>
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/confirmation">
+
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: "govuk-fieldset__legend--l",
+            isPageHeading: true
+          }
+        }) %}
+
+          {{ govukInput({
+            label: {
+              text: "Card number",
+              classes: "govuk-label--m govuk-!-padding-top-3"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "card-number",
+            name: "card-number"
+          }) }}
+
+          {{ govukDateInput({
+            id: "dob",
+            namePrefix: "card-expiry-date",
+            fieldset: {
+              legend: {
+                text: "Expiry date",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m govuk-!-padding-top-3"
+              }
+            },
+            hint: {
+              text: "For example, 10/22"
+            },
+            items: [
+              {
+                name: "month",
+                classes: "govuk-input--width-2",
+                autocomplete: "expiry-month"
+              },
+              {
+                name: "year",
+                classes: "govuk-input--width-2",
+                autocomplete: "expiry-year"
+              }
+            ]
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Name on card",
+              classes: "govuk-label--m govuk-!-padding-top-3"
+            },
+            classes: "govuk-!-width-two-thirds",
+            id: "name-on-card",
+            name: "name-on-card"
+          }) }}
+
+          {{ govukInput({
+            label: {
+              text: "Card security code",
+              classes: "govuk-label--m govuk-!-padding-top-3"
+            },
+            hint: {
+              text: "The last 3 digits on the back of the card."
+            },
+            classes: "govuk-input--width-3",
+            id: "card-security-code",
+            name: "card-security-code"
+          }) }}
+
+          <input class="govuk-input" id="payment-success" name="payment-success" type="hidden" value="yes">
+
+        {% endcall %}
+
+        {{ govukButton({
+            text: "Pay",
+            classes: "govuk-!-margin-top-3"
+        }) }}
+
+      </form>
+
+    </div>
+
+  </div>
+
+{% endblock %}

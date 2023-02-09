@@ -1,0 +1,173 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Check the land boundary details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {% if data['location-options'] == 'Document or image' %}
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Land boundary file type"
+            },
+            value: {
+              text: data['location-options'] or 'xx'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-options",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary option"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Land boundary file uploaded"
+            },
+            value: {
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload-confirm",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary file uploaded"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+          
+      {% else %}
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Land boundary file type"
+              },
+              value: {
+                text: data['location-options'] or 'Geospatial data file'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-options",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary option"
+                  }
+                ]
+              }
+            },{
+              key: {
+                text: "Land boundary file uploaded"
+              },
+              value: {
+                text: data['location-import'] or 'meadow-croft-farm-land-boundary.geojson'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-import",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary file uploaded"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Land boundary on a map"
+              },
+              value: {
+                html: "<div id='offsite' class='map map--location' tabindex='0'></div>"
+              }
+            },
+            {
+              key: {
+                text: "Grid reference"
+              },
+              value: {
+                text: "SP41989814"
+              }
+            },
+            {
+              key: {
+                text: "Area in hectares"
+              },
+              value: {
+                text: "4.2 ha"
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %} 
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="location-confirm" value="true">
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

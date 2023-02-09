@@ -1,0 +1,53 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set pageHeading = "Add the parties listed on the conservation covenant" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+      
+        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-date-start">
+
+          {{ govukInput({
+            id: "concov-responsible-body",
+            name: "concov-responsible-body",
+            label: {
+              text: "Responsible body",
+              classes: "govuk-label--s"
+            },
+            autocomplete: "name",
+            spellcheck: false,
+            value: data['concov-responsible-body']
+          }) }}
+
+          {{ govukInput({
+            id: "concov-landowner",
+            name: "concov-landowner",
+            label: {
+              text: "Landowner",
+              classes: "govuk-label--s"
+            },
+            autocomplete: "name",
+            spellcheck: false,
+            value: data['concov-landowner']
+          }) }}
+  
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+          
+        </form>
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

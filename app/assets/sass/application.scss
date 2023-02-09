@@ -260,3 +260,40 @@ a:link.app-link--red {
     }
   }
 }
+
+// Accordion
+
+.app-accordion {
+
+  .govuk-accordion__controls {
+    display: none;
+  }
+
+  .govuk-accordion__section-button {
+    padding-bottom: 0;
+  }
+
+  .app-accordion__section--no-data {
+
+    .govuk-accordion__section-toggle {
+      display: none;
+    }
+
+  }
+
+  .govuk-accordion__section-button[aria-expanded="true"] {
+    padding-bottom: 0;
+  }
+
+  .govuk-accordion__section-content {
+    padding-bottom: 20px;
+    padding-top: 0;
+  }
+
+}
+
+.app-accordion__section-heading-sub {
+    display: block;
+    margin-bottom: 0;
+    margin-top: 2px;
+}

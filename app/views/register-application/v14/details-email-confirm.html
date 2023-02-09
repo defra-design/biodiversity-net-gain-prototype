@@ -1,0 +1,67 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Is this email address correct?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/details-confirm">
+
+        {% set emailHtml %}
+        {{ govukInput({
+          id: "email",
+          name: "email",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false,
+          label: {
+            text: "Email address"
+          },
+          value: data['email'] or 'jo.smith@gmail.com'
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "contact",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: data['email'] or 'jo.smith@gmail.com',
+            classes: "govuk-!-font-size-27 app-text-colour"
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, use this email address"
+            },
+            {
+              value: "no",
+              text: "No, I need to change it",
+              conditional: {
+                html: emailHtml
+              }
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

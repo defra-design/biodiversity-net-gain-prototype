@@ -1,4 +1,4 @@
-{% extends "register-application/v13/layout-register-application.html" %}
+{% extends "register-application/v14/layout-register-application.html" %}
 
 {% set pageHeading = "Check the created and enhanced habitat information" %}
 
@@ -13,9 +13,7 @@
 
       <p>We've taken this information from the metric file you uploaded.</p>
 
-      {% include "register-application/v13/includes/metric-creation-habitat-small.html" %}
-
-      {% include "register-application/v13/includes/metric-creation-hedgerow-small.html" %}
+      {% include "register-application/v14/includes/metric-creation-large-grouped-with-details.html" %}
 
       <form method="post" action="/register-application/{{ pageURL }}/metric-confirm">
 

@@ -1,0 +1,95 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+{% set hideSignOut = true %}
+{% set hideLogin = true %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: serviceName
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  <h1 class="govuk-heading-xl">{{ serviceName }}</h1>
+
+  <p>Use this service to record biodiversity gains in England. </p>
+
+  <p>You can:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>register a biodiversity gain site</li>
+    <li>record off-site biodiversity gains for a development project</li>
+  </ul>
+
+  <h2 class="govuk-heading-l">Register a biodiversity gain site</h2>
+
+  <p>Register biodiversity gain sites in England. The biodiversity units on the gain site can be used by development projects which need to meet at least 10% biodiversity net gain. </p>
+  <p>Anyone who owns or leases land can register a biodiversity gain site. Someone can do it on the landowner's behalf if they have their consent to register.  </p>
+
+  <h3 class="govuk-heading-m">What you'll need to register a biodiversity gain site</h3>
+
+  <p>You'll need:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>consent from the landowner or leaseholder - if needed</li>
+    <li>a planning obligation (S106 agreement) or conservation covenant securing the site for at least 30 years</li>
+    <li>proof of ownership of the land</li>
+    <li>a map showing the boundary of the biodiversity gain site</li>
+    <li>a completed Biodiversity Metric 4.0</li>
+    <li>a habitat management and monitoring plan</li>
+  </ul>
+
+  <p>To record biodiversity gains at the same time as registering a biodiversity gain site, you'll need the:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>planning references</li>
+    <li>local planning authority for the development projects</li>
+    <li>area and length of the habitats the development projects are using on the biodiversity gain sites</li>
+  </ul>
+
+  <p>Once we have checked the biodiversity gain site and development project details we will add them to the public register. </p>
+
+  <h2 class="govuk-heading-l">Record off-site biodiversity gains for a development project</h2>
+
+  <p>By law, development projects have to record any off-site biodiversity gains they plan to use. Development projects need to meet at least a 10% biodiversity net gain. Local planning authorities will set the exact percentage of net gain needed.</p>
+  <p>Local planning authorities will not discharge the BNG pre-commencement planning conditions until the off-site gains have been recorded.</p>
+
+  <h3 class="govuk-heading-m">What you'll need to record off-site biodiversity gains for a development project </h3>
+
+  <p>If you're using habitat on a registered biodiversity gain site. You'll need:</p>
+
+  <ul class="govuk-list govuk-list--bullet">
+    <li>the Biodiversity Metric 4.0 file that was approved by the local planning authoritys</li>
+    <li>the biodiversity gain site number for the off-site</li>
+    <li>to have consent from landowners for any gain sites you’re using</li>
+  </ul>
+
+  {{ govukButton({
+    text: "Start now",
+    href: "/register-application/v14/routing-register",
+    isStartButton: true
+  }) }}
+
+  <h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saved registrations and records</h2>
+  <p><a href="/register-application/v14/sign-in-return">Continue with a saved registration or record</a></p>
+
+  </div>
+</div>
+
+{% endblock %} 

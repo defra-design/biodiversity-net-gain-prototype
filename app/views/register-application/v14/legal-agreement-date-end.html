@@ -1,0 +1,34 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set pageHeading = "What is the end date of the legal agreement?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-confirm">
+
+        {{ govukDateInput({
+          id: "legal-agreement-date-end",
+          namePrefix: "legal-agreement-date-end",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 15 3 2052"
+          }
+        }) }}
+
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

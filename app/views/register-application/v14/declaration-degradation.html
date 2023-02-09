@@ -1,0 +1,57 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set pageHeading = "Biodiversity value declaration" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>By agreeing, you confirm that either:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>no activity on the land has reduced the biodiversity value of it since 30 Jan 2020</li>
+      <span class="govuk-!-display-block govuk-!-margin-top-4 govuk-!-margin-bottom-4">or</span>
+        <li>
+          if activities on the land have reduced the biodiversity value of it since 30 January 2020, the baseline data was recorded before this time</li>
+      </ul>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You could be prosecuted or have to pay a fine if you deliberately give untrue or misleading information.
+        </strong>
+      </div>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        {{ govukCheckboxes({
+          idPrefix: "declaration-degradation",
+          name: "declaration-degradation",
+          fieldset: {
+            legend: {
+              text: pageHeading + "agreement",
+              classes: "govuk-visually-hidden"
+            }
+          },
+          items: [
+            {
+              value: "accepted",
+              html: "I agree to the declaration"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

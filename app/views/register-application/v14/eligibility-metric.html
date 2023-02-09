@@ -1,0 +1,60 @@
+{% extends "register-application/v14/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have a completed Biodiversity metric 4.0 for the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-management-plan">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-metric",
+            name: "eligibility-metric",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You need to calculate the biodiversity value of the land using <a href='#'>Natural England's biodiversity metric</a>.</span>
+                     <span class='govuk-!-display-block govuk-hint'>You'll also need to confirm that:</span>
+                      <ul class='govuk-list govuk-list--bullet govuk-!-margin-bottom-3 app-secondary-text-colour'>
+                        <li>any activity on the land did not reduce the biodiversity value before the baseline metric was recorded</li>
+                        <li>habitat creation and enhancement works started on or after 30 January 2020</li>
+                      </ul>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-metric", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-metric", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-metric", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
