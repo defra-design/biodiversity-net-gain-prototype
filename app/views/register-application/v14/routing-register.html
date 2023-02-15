@@ -2,14 +2,14 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Do you want to register a biodiversity gain site?" %}
+{% set pageHeading = "What do you want to do?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/routing-register-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/routing-results">
 
           {{ govukRadios({
             idPrefix: "routing-register",
@@ -23,14 +23,14 @@
             },
             items: [
               {
-                value: "Yes",
-                text: "Yes",
-                checked: checked("routing-register", "Yes")
+                value: "Register a biodiversity gain site",
+                text: "Register a biodiversity gain site",
+                checked: checked("routing-register", "Register a biodiversity gain site")
               },
               {
-                value: "No",
-                text: "No, I only want to record off-site biodiversity gains for a development project",
-                checked: checked("routing-register", "No")
+                value: "Record off-site bodiversity gains for a development project",
+                text: "Record off-site bodiversity gains for a development project",
+                checked: checked("routing-register", "Record off-site bodiversity gains for a development project")
               }
             ]
           }) }}

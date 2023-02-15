@@ -12,6 +12,9 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+
+      <p>We'll use this when we contact you about your registration.</p>
+      <p>If you're filling this out on behalf of someone else you should still enter your name.</p>
       
       <form method="post" action="/register-application/{{ pageURL }}/details-email">
 
@@ -19,7 +22,8 @@
           id: "full-name",
           name: "full-name",
           label: {
-            text: "Full name"
+            text: "Full name",
+            classes: "govuk-label--s"
           },
           autocomplete: "name",
           spellcheck: false,

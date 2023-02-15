@@ -32,12 +32,15 @@
 
           <input class="govuk-file-upload" id="legal-agreement-upload" name="legal-agreement-upload" type="file" aria-describedby="legal-agreement-upload-hint">
         </div>
+        
 
         {{ govukButton({
           text: "Continue"
         }) }}
         
       </form>
+
+      <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a legal agreement</a></p>
 
     </div>
   </div>

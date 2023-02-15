@@ -12,11 +12,11 @@
       %}
         {% set pageHeading = "Before you register a biodiversity gain site and record the off-site biodiversity gains" %}
       {% elif 
-        data['routing-register'] == 'Yes' and data['routing-sold'] == 'No'
+        data['routing-register'] == 'Register a biodiversity gain site'
       %}
         {% set pageHeading = "Before you register a biodiversity gain site" %}
       {% elif 
-        data['routing-register'] == 'No'
+        data['routing-register'] == 'Record off-site bodiversity gains for a development project'
       %}
         {% set pageHeading = "You've told us you want to record the off-site biodiversity gains for a development project" %}
       {% else %}
@@ -28,14 +28,14 @@
       </h1>
 
       {% if 
-        data['routing-register'] == 'No'
+        data['routing-register'] == 'Record off-site bodiversity gains for a development project'
       %}
 
       <p>You'll need:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>the Biodiversity Metric 4.0 file that was approved by the local planning authority</li>
         <li>the biodiversity gain site number for the off-site</li>
-        <li>to have consent from landowners for any gain sites you’re using</li>
+        <li>to have consent from landowners for any gain sites you're using</li>
       </ul>
 
       {{ govukButton({
