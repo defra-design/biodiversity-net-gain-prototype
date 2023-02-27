@@ -1,0 +1,56 @@
+{% extends "register-application/v15/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check your details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Full name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] or 'Jo Smith' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] or 'jo.smith@gmail.com' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-email">
+              Change<span class="govuk-visually-hidden"> email</span>
+            </a>  
+          </dd> 
+        </div>
+      </dl>
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="details-confirm" value="true">
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% set serviceName = "Record biodiversity gains" %}
+{% set serviceUrl = "" %}
+{% set pageURL = "v15" %}
+
+{% extends "../../layout.html" %}
+
+{% block header %}
+
+  {% if hideSignOut === true %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: serviceUrl
+  }) }}
+
+  {% else %}
+
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName,
+    serviceUrl: serviceUrl
+  }) }}
+
+  {% endif %} 
+
+   <div class="govuk-width-container">
+
+    {% include "includes/phase-banner.html" %}
+    <!-- {% include "includes/login-nav.html" %} -->
+    
+  </div>
+
+{% endblock %}
+
+{% block beforeContent %}
+
+  <!--{% include "register-application/v9/includes/login-nav.html" %}-->
+
+  {% if hideSaveSection === true %}
+  {% else %}
+   <div class="app-save__wrapper">
+      {% if hideBackLink === true %}
+      {% else %}
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript: window.history.go(-1)"
+        }) }}
+      {% endif %} 
+      {% if hideSaveLink === true %}
+      {% else %}
+        <div class="app-save">
+          <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/saved?lastVisitedURL={{currentURL}}">Save and return later</a></p>
+        </div>
+      {% endif %} 
+    </div>
+  {% endif %} 
+{% endblock %}
+
+{% block footer %}
+  {% include "register-application/v15/includes/footer.html" %}
+{% endblock %}
