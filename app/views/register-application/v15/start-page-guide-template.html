@@ -7,8 +7,9 @@
 {% set govukcss = true %}
 
 {% set pageHeadingOne = "Overview" %}
-{% set pageHeadingTwo = "Register the land" %}
-{% set pageHeadingThree = "Allocate land to a development" %}
+{% set pageHeadingTwo = "Register a biodiversity gain site" %}
+{% set pageHeadingThree = "Record off-site biodiversity gains for a development project" %}
+{% set pageHeadingFour = "Biodiversity net gain public register" %}
 
 {% set mainClasses = "govuk-!-padding-top-0" %}
 
@@ -46,7 +47,7 @@
 
       <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
         <h1 class="gem-c-title__text govuk-heading-xl">
-          {{ serviceName }}
+          Record biodiversity gains
         </h1>
       </div>
 
@@ -55,7 +56,7 @@
       </div>
 
       <div class="govuk-grid-column-two-thirds" id="guide-contents">
-        <h1 class="part-title">
+        <h1 class="govuk-!-margin-bottom-5 govuk-!-margin-top-5 govuk-heading-l">
           {{ pageHeading }}
         </h1>
   
@@ -63,10 +64,12 @@
           {% block guideContent %}
           {% endblock %} 
 
-          <h2 class="govuk-heading-m">Contact Natural England if you need help</h2>
+          <div class="govuk-inset-text">
+            <h2 class="govuk-heading-m">Contact Natural England if you need help</h2>
           <p>Telephone: 0300 060 3900<br>
             Monday to Friday, 8:30am to 5pm (except public holidays)</p>
             <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
         
 
         {% include "register-application/v15/includes/pagination.html" %}
@@ -74,7 +77,7 @@
         
       </div>
 
-      {% include "register-application/v15/includes/related-content.html" %}
+      <!--{% include "register-application/v15/includes/related-content.html" %}-->
 
   </div>
 

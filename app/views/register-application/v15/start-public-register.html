@@ -1,0 +1,24 @@
+{% extends "register-application/v15/start-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v15" %}
+
+{% set previousPageName = "Record off-site biodiversity gains for a development project" %}
+{% set previousPageURL = "/register-application/" + pageURL + "/start-allocate" %}
+
+{% set pageHeading = "Biodiversity net gain public register" %}
+
+{% block guideContent %}
+
+  <p>Content about the public register goes here.</p>
+
+  {{ govukButton({
+    text: "Start now",
+    href: "#",
+    isStartButton: true
+  }) }}
+
+{% endblock %} 

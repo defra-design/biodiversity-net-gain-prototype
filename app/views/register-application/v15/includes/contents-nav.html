@@ -7,24 +7,55 @@
       Contents
     </h2>
     <ol class="gem-c-contents-list__list">
+
+      {% if pageHeading == pageHeadingOne %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingOne }}
+      </li>
+      {% else %}
         <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-          <a class="gem-c-contents-list__link govuk-link" href="#">
-            Overview
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start">
+            {{ pageHeadingOne }}
           </a>
         </li>
-        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
-          Register a biodiversity gain site
-        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingTwo %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingTwo }}
+      </li>
+      {% else %}
         <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-          <a class="gem-c-contents-list__link govuk-link" href="#">
-            Record off-site biodiversity gains for a development project
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start-gain-site">
+            {{ pageHeadingTwo }}
           </a>
         </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingThree %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingThree }}
+      </li>
+      {% else %}
         <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-          <a class="gem-c-contents-list__link govuk-link" href="#">
-            Biodiversity net gain public register
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start-allocate">
+            {{ pageHeadingThree }}
           </a>
         </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingFour %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingFour }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start-public-register">
+            {{ pageHeadingFour }}
+          </a>
+        </li>
+      {% endif %}
+
     </ol>
   </nav>
 </aside>
