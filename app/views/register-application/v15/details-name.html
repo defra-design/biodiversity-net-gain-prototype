@@ -18,15 +18,25 @@
       <form method="post" action="/register-application/{{ pageURL }}/details-email">
 
         {{ govukInput({
-          id: "full-name",
-          name: "full-name",
+          id: "first-name",
+          name: "first-name",
           label: {
-            text: "Full name",
-            classes: "govuk-label--s"
+            text: "First name"
           },
-          autocomplete: "name",
+          autocomplete: "given-name",
           spellcheck: false,
-          value: data['full-name']
+          value: data['first-name']
+        }) }}
+
+        {{ govukInput({
+          id: "last-name",
+          name: "last-name",
+          label: {
+            text: "Last name"
+          },
+          autocomplete: "family-name",
+          spellcheck: false,
+          value: data['last-name']
         }) }}
 
         {{ govukButton({
