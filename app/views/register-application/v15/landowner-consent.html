@@ -24,12 +24,12 @@
           items: [
             {
               value: "Yes, is landowner or leaseholder",
-              text: "I confirm that I, " + data['first-name'] + " " + data['last-name'] + ", am the landowner or leaseholder",
+              text: "I confirm that I, " + data['full-name']" + ", am the landowner or leaseholder",
               checked: checked("landowner-consent", "Yes, is landowner or leaseholder")
             },
             {
               value: "Yes, has consent",
-              text: "I, " + data['first-name'] + " " + data['last-name'] + ", have the consent of the landowner or leaseholder and I'm authorised to act on their behalf",
+              text: "I, " + data['full-name']" + ", have the consent of the landowner or leaseholder and I'm authorised to act on their behalf",
               checked: checked("landowner-consent", "Yes, has consent")
             }
           ]
