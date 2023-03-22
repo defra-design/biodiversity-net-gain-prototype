@@ -1,0 +1,62 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set pageHeading = "Biodiversity gain site registrations" %}
+
+{% set hideSaveSection = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl">
+        {{ pageHeading }}
+      </h1>
+
+      <form action="#" method="post" novalidate>
+        <input type="hidden" name="start-new-application" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Start a new registration
+        </button>
+      </form>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Reference</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header"><span class="govuk-visually-hidden">Actions</span></th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">BGS-150322001</td>
+            <td class="govuk-table__cell">
+              {% if data['payment-success'] == 'yes' %} 
+                <strong class="govuk-tag govuk-tag--blue">Submitted</strong></td>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--yellow">In progress</strong></td>
+              {% endif %}
+            <td class="govuk-table__cell">
+                {% if data['payment-success'] == 'yes' %} 
+                <a href="/register-application/v16/allocation">
+                  View
+                  <span class="govuk-visually-hidden">BGS-150322001</span>
+                </a>
+                {% else %}
+                <a href="/register-application/v16/task-list">
+                  Continue
+                  <span class="govuk-visually-hidden">BGS-150322001</span>
+                </a>
+                {% endif %}   
+                
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        
+    </div>
+</div>
+
+{% endblock %}

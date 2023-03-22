@@ -1,0 +1,54 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the legal agreement" %}
+
+{% block pageTitle %}
+    Error: {{ pageHeading }} - {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukErrorSummary({
+        titleText: "There is a problem",
+        errorList: [
+          {
+            text: "The selected file must not be larger than 50MB",
+            href: "#legal-agreement-upload"
+          }
+        ]
+      }) }}
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-check">
+
+        {{ govukFileUpload({
+          id: "legal-agreement-upload",
+          name: "legal-agreement-upload",
+          label: {
+            text: "Upload a file",
+            classes:"govuk-visually-hidden"
+          },
+          errorMessage: {
+            text: "The selected file must not be larger than 50MB"
+          },
+          hint: {
+            text: "DOC, DOCX or PDF, max size 50MB"
+          }
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

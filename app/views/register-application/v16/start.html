@@ -1,0 +1,29 @@
+{% extends "register-application/v16/start-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v16" %}
+
+{% set nextPageName = "Register a biodiversity gain site in England" %}
+{% set nextPageURL = "/register-application/" + pageURL + "/start-gain-site" %}
+
+{% set pageHeading = "How it works" %}
+
+{% block guideContent %}
+
+<p>Use this service to record biodiversity gains in England as part of <a href="https://www.gov.uk/government/collections/biodiversity-net-gain">biodiversity net gain (BNG)</a>.</p>
+<p>You can:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>register a biodiversity gain site</li>
+  <li>record off-site biodiversity gains for a development project</li>
+</ul>
+
+<p>If you're a land manager you can use your land and register a biodiversity gain site. You'll be able to <a href="https://www.gov.uk/guidance/sell-biodiversity-units-as-a-land-manager">sell the biodiversity units</a> on your biodiversity gain site. </p>
+
+<p>Development projects can buy the biodiversity units and use them as off-site gains to meet the minimum 10% biodiversity net gain. Development projects are legally required to record their off-site gains using this service.</p> 
+
+<p>We will add approved biodiversity gain sites and linked development projects to the biodiversity net gain public register. </p>
+
+{% endblock %} 

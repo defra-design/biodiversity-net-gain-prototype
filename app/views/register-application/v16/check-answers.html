@@ -1,0 +1,520 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Check your answers before submitting your information" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        {{ pageHeading }}
+      </h1>
+
+      <h2 class="govuk-heading-l">Your details</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['full-name'] or 'Jo' }} {{ data['last-name'] or 'Smith' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] or 'jo.smith@gmail.com' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-email">
+              Change<span class="govuk-visually-hidden"> email</span>
+            </a>  
+          </dd> 
+        </div>
+      </dl>
+
+
+      <h2 class="govuk-heading-l">Land boundary</h2>
+
+      {% if data['location-options'] == 'Document or image' %}
+
+      {{ govukSummaryList({
+        classes: 'govuk-!-margin-bottom-7',
+        rows: [
+          {
+            key: {
+              text: "Land boundary file type"
+            },
+            value: {
+              text: data['location-options'] or 'xx'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-options",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary option"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Land boundary file uploaded"
+            },
+            value: {
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload-confirm",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary file uploaded"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+          
+      {% else %}
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-7',
+          rows: [
+            {
+              key: {
+                text: "Land boundary file type"
+              },
+              value: {
+                text: data['location-options'] or 'Geospatial data file'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-options",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary option"
+                  }
+                ]
+              }
+            },{
+              key: {
+                text: "Land boundary file uploaded"
+              },
+              value: {
+                text: data['location-import'] or 'meadow-croft-farm-land-boundary.geojson'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-import",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary file uploaded"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Land boundary on a map"
+              },
+              value: {
+                html: "<div id='offsite' class='map map--location' tabindex='0'></div>"
+              }
+            },
+            {
+              key: {
+                text: "Grid reference"
+              },
+              value: {
+                text: "SP41989814"
+              }
+            },
+            {
+              key: {
+                text: "Area in hectares"
+              },
+              value: {
+                text: "4.2 ha"
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %} 
+
+      <h2 class="govuk-heading-l">Land ownership</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Proof of land ownership file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">Biodiversity Metric 4.0 and habitat declarations</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity Metric 4.0 file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-check">
+              Change<span class="govuk-visually-hidden"> biodiversity metric 4.0 file</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat baseline information is correct
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data-baseline">
+              Change<span class="govuk-visually-hidden"> Habitat baseline information is correct</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat creation and enhancement information is correct
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data">
+              Change<span class="govuk-visually-hidden"> Habitat creation and enhancement declaration</span>
+            </a>  
+          </dd> 
+        </div>
+      </dl>
+
+      <!--<h2 class="govuk-heading-l">Linked habitat to a development</h2>
+
+      {% if data['allocation'] == 'No' %}
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Record the habitat being used by a development project
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['allocation'] or 'No' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+              Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      {{ govukInsetText({
+        text: "You can record which habitats are being used for off-site gain by a development project once the biodiversity gain site has been registered."
+      }) }}
+
+      {% else %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Record the habitat being used by a development project
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['allocation'] or 'Yes' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+              Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <div class="app-summary-list-wrapper">
+        <div class="app-summary-list-wrapper-heading">
+          <h2 class="govuk-body govuk-!-font-size-16 app-summary-list-wrapper-heading-text">Development 1</h2>
+        </div>
+        <dl class="govuk-summary-list govuk-!-margin-bottom-2">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Planning application reference
+            </dt>
+            <dd class="govuk-summary-list__value">
+              21/02367/FUL
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+                Change<span class="govuk-visually-hidden"> Planning application reference</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Local planning authority
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['input-autocomplete'] or 'City of York Council' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-development">
+                Change<span class="govuk-visually-hidden"> Local planning authority</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Linked habitat
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list app-list--border">
+                <li>
+                  Grassland 
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Modified grassland</span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                  1.53 ha
+                </li>
+                <li>
+                  Heathland and scrub 
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Bramble scrub</span>
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                  0.10 ha
+                </li>
+                <li>
+                  Native species rich hedgerow 
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                  0.45 km
+                </li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-habitat">
+                Change<span class="govuk-visually-hidden"> allocated habitat</span>
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <p class="govuk-!-margin-bottom-2"><a href="#" class="app-link--red">Remove <span class="govuk-visually-hidden">development</span></a></p>
+      </div>
+
+      <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>
+      
+      {% endif %}-->
+
+      <h2 class="govuk-heading-l">Habitat management and monitoring</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat management and monitoring plan uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/v16/management-plan-check">
+              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
+              </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date of the 30 year management and monitoring period
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['management-plan-date-end-day'] or '15' }} {{ data['management-plan-date-end-month'] | monthToWordWithSpaces('March') }} {{ data['management-plan-date-end-year'] or '2023' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">    
+            <a class="govuk-link" href="/register-application/v16/management-plan-date-end">
+              Change<span class="govuk-visually-hidden"> Start date of the 30 year management and monitoring period</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">Legal information</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <!--<div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement'] or 'Conservation covenant' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement">
+              Change<span class="govuk-visually-hidden"> type of legal agreement</span>
+            </a>
+          </dd>
+        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+              Planning obligation (section 106 agreement) file uploaded
+            {% else %}
+              Conservation covenant file uploaded
+            {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-check">
+              Change<span class="govuk-visually-hidden"> legal agreement</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parties involved
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>Kevin Francis (Owner)</li>
+                <li>Bellway Plc (Developer)</li>
+                <li>Leeds City Council (Local Planning Authority)</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties">
+                Change<span class="govuk-visually-hidden"> parties involved</span>
+              </a>
+            </dd>
+          </div>
+        {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parties involved
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>{{ data['concov-responsible-body'] or 'Leeds City Council' }} (Responsible Body)</li>
+                <li>{{ data['concov-landowner'] or 'Kevin Francis' }} (Landowner)</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties-concov">
+                Change<span class="govuk-visually-hidden"> parties involved</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement-date-start-day'] or '15' }} {{ data['legal-agreement-date-start-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-start-year'] or '2022' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
+              Change<span class="govuk-visually-hidden"> start date</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">Submit your biodiversity gain site information</h2>
+
+      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct. </p>
+
+      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
+
+        <input type="hidden" name="answers-checked" value="true">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and submit
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

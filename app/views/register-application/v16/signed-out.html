@@ -1,0 +1,36 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set pageHeading = "You have signed out" %}
+
+{% set hideSignOut = true %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          {{ pageHeading }}
+        </h1>
+        <div class="govuk-panel__body">
+          We've saved the details you entered so far.
+        </div>
+      </div>
+
+      <h2 id="return-to-application" class="govuk-heading-m govuk-!-padding-top-4">Return to an existing application</h2>
+
+      <form action="/register-application/{{ pageURL }}/sign-in" method="post" novalidate>
+        <input type="hidden" name="signed-in" value="yes">
+        <button class="govuk-link app-button-link" data-module="govuk-button">
+          Sign in to continue your application
+        </button>
+      </form>
+        
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set pageHeading = "Check the geospatial file" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              text: data['location-import'] or 'meadow-croft-farm-land-boundary.geojson'
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm-answer">
+
+        {{ govukRadios({
+          idPrefix: "location-import-confirm",
+          name: "location-import-confirm",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no-again",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

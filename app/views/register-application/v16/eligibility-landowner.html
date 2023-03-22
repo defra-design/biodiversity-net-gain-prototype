@@ -1,0 +1,56 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Are you the landowner?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-landowner-consent">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-landowner",
+            name: "eligibility-landowner",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>We consider you the landowner if your name is on the title register. If you're a leaseholder, choose No.</span>
+                     <span>We're asking this because if you're not the landowner then you'll need their permission.</span>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-landowner", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-landowner", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-landowner", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

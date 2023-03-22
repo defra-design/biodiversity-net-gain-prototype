@@ -1,0 +1,56 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have a conservation covenant securing the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-land-ownership">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-legal-agreement",
+            name: "eligibility-legal-agreement",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need to upload the conservation covenant. It needs to secure the biodiversity gain site for at least 30 years.</span>
+              <span class='govuk-!-display-block govuk-hint'>We'll check that the area of land in the conservation covenant matches the biodiversity gain site boundary map you'll upload.</span>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-legal-agreement", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-legal-agreement", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-legal-agreement", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

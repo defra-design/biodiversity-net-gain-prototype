@@ -1,0 +1,41 @@
+{% extends "register-application/v16/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "What is your name?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p class="govuk-hint">If you're filling this out on behalf of someone else you should still enter your name.</p>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/details-email">
+
+        {{ govukInput({
+          id: "full-name",
+          name: "full-name",
+          label: {
+            text: "Full name",
+            classes: "govuk-label--s"
+          },
+          autocomplete: "name",
+          spellcheck: false,
+          value: data['full-name']
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
