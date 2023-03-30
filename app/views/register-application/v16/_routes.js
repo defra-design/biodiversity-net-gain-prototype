@@ -7,9 +7,9 @@ router.post('/eligibility-england-answer', function (req, res) {
   var install = req.session.data['eligibility-england']
 
   if (install == "Yes"){
-    res.redirect('/register-application/v15/eligibility-landowner-consent')
+    res.redirect('/register-application/v16/eligibility-landowner-consent')
   } else {
-    res.redirect('/register-application/v15/eligibility-england-no')
+    res.redirect('/register-application/v16/eligibility-england-no')
   }
 })
 
@@ -19,11 +19,11 @@ router.post('/location-options-answer', function (req, res) {
   var install = req.session.data['location-options']
 
   if (install == "none"){
-    res.redirect('/register-application/v15/location-no')
+    res.redirect('/register-application/v16/location-no')
   } else if (install == "Document or image"){
-    res.redirect('/register-application/v15/location-upload')
+    res.redirect('/register-application/v16/location-upload')
   } else {
-    res.redirect('/register-application/v15/location-import')
+    res.redirect('/register-application/v16/location-import')
   }
 })
 
@@ -33,9 +33,9 @@ router.post('/location-rpa-bespoke-answer', function (req, res) {
   var install = req.session.data['location-rpa-bespoke']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/location-rpa-select')
+    res.redirect('/register-application/v16/location-rpa-select')
   } else {
-    res.redirect('/register-application/v15/location-rpa-draw-boundary')
+    res.redirect('/register-application/v16/location-rpa-draw-boundary')
   }
 })
 
@@ -45,11 +45,11 @@ router.post('/location-confirm-answer', function (req, res) {
   var install = req.session.data['location-confirm']
 
   if (install == "no-again"){
-    res.redirect('/register-application/v15/location-import')
+    res.redirect('/register-application/v16/location-import')
   } else if (install == "no"){
-    res.redirect('/register-application/v15/location-upload')
+    res.redirect('/register-application/v16/location-upload')
   } else {
-    res.redirect('/register-application/v15/task-list')
+    res.redirect('/register-application/v16/task-list')
   }
 })
 
@@ -59,9 +59,9 @@ router.post('/location-confirm-answer-file', function (req, res) {
   var install = req.session.data['location-confirm']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/location-import')
+    res.redirect('/register-application/v16/location-import')
   } else {
-    res.redirect('/register-application/v15/task-list')
+    res.redirect('/register-application/v16/task-list')
   }
 })
 
@@ -71,9 +71,9 @@ router.post('/location-upload-confirm-answer', function (req, res) {
   var install = req.session.data['location-upload-confirm']
 
   if (install == "no-again"){
-    res.redirect('/register-application/v15/location-upload')
+    res.redirect('/register-application/v16/location-upload')
   } else {
-    res.redirect('/register-application/v15/location-grid-reference')
+    res.redirect('/register-application/v16/location-grid-reference')
   }
 })
 
@@ -83,9 +83,9 @@ router.post('/location-import-confirm-answer', function (req, res) {
   var install = req.session.data['location-import-confirm']
 
   if (install == "no-again"){
-    res.redirect('/register-application/v15/location-import')
+    res.redirect('/register-application/v16/location-import')
   } else {
-    res.redirect('/register-application/v15/location-confirm')
+    res.redirect('/register-application/v16/location-confirm')
   }
 })
 
@@ -95,9 +95,9 @@ router.post('/landowner-only-answer', function (req, res) {
   var install = req.session.data['landowner-only']
 
   if (install == "Yes"){
-    res.redirect('/register-application/v15/landowner-confirm')
+    res.redirect('/register-application/v16/landowner-confirm')
   } else {
-    res.redirect('/register-application/v15/landowner-name')
+    res.redirect('/register-application/v16/landowner-name')
   }
 })
 
@@ -108,9 +108,9 @@ router.post('/metric-correct-answer', function (req, res) {
   var install = req.session.data['metric-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/metric-upload')
+    res.redirect('/register-application/v16/metric-upload')
   } else {
-    res.redirect('/register-application/v15/metric-data-baseline')
+    res.redirect('/register-application/v16/metric-data-baseline')
   }
 })
 
@@ -121,9 +121,9 @@ router.post('/legal-agreement-answer', function (req, res) {
   var install = req.session.data['legal-agreement']
 
   if (install == "none"){
-    res.redirect('/register-application/v15/legal-agreement-no')
+    res.redirect('/register-application/v16/legal-agreement-no')
   } else {
-    res.redirect('/register-application/v15/legal-agreement-upload')
+    res.redirect('/register-application/v16/legal-agreement-upload')
   }
 })
 
@@ -133,9 +133,21 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   var install = req.session.data['legal-agreement-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/legal-agreement-upload')
+    res.redirect('/register-application/v16/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v15/legal-agreement-parties')
+    res.redirect('/register-application/v16/legal-agreement-parties')
+  }
+})
+
+// Local land charge check
+router.post('/local-land-charge-correct-answer', function (req, res) {
+
+  var install = req.session.data['local-land-charge-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v16/local-land-charge-upload')
+  } else {
+    res.redirect('/register-application/v16/task-list')
   }
 })
 
@@ -145,9 +157,9 @@ router.post('/legal-agreement-correct-answer-concov', function (req, res) {
   var install = req.session.data['legal-agreement-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/legal-agreement-upload')
+    res.redirect('/register-application/v16/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v15/legal-agreement-parties-concov')
+    res.redirect('/register-application/v16/legal-agreement-parties-concov')
   }
 })
 
@@ -157,9 +169,9 @@ router.post('/management-plan-answer', function (req, res) {
   var install = req.session.data['management-plan']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/management-plan-date-start')
+    res.redirect('/register-application/v16/management-plan-date-start')
   } else {
-    res.redirect('/register-application/v15/management-plan-no')
+    res.redirect('/register-application/v16/management-plan-no')
   }
 })
 
@@ -169,9 +181,9 @@ router.post('/management-plan-works-answer', function (req, res) {
   var install = req.session.data['management-plan-works']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/management-plan-maintaining')
+    res.redirect('/register-application/v16/management-plan-maintaining')
   } else {
-    res.redirect('/register-application/v15/management-plan-works-name')
+    res.redirect('/register-application/v16/management-plan-works-name')
   }
 })
 
@@ -181,9 +193,9 @@ router.post('/management-plan-maintaining-answer', function (req, res) {
   var install = req.session.data['management-plan-maintaining']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/management-plan-monitoring')
+    res.redirect('/register-application/v16/management-plan-monitoring')
   } else {
-    res.redirect('/register-application/v15/management-plan-maintaining-name')
+    res.redirect('/register-application/v16/management-plan-maintaining-name')
   }
 })
 
@@ -193,9 +205,9 @@ router.post('/management-plan-monitoring-answer', function (req, res) {
   var install = req.session.data['management-plan-monitoring']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/management-plan-monitoring')
+    res.redirect('/register-application/v16/management-plan-monitoring')
   } else {
-    res.redirect('/register-application/v15/management-plan-monitoring-name')
+    res.redirect('/register-application/v16/management-plan-monitoring-name')
   }
 })
 
@@ -205,9 +217,9 @@ router.post('/management-plan-correct-answer', function (req, res) {
   var install = req.session.data['management-plan-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/management-plan-upload')
+    res.redirect('/register-application/v16/management-plan-upload')
   } else {
-    res.redirect('/register-application/v15/management-plan-date-end')
+    res.redirect('/register-application/v16/management-plan-date-end')
   }
 })
 
@@ -217,9 +229,9 @@ router.post('/payment-answer', function (req, res) {
   var install = req.session.data['payment']
 
   if (install == "bacs"){
-    res.redirect('/register-application/v15/payment-bacs')
+    res.redirect('/register-application/v16/payment-bacs')
   } else {
-    res.redirect('/register-application/v15/payment-card')
+    res.redirect('/register-application/v16/payment-card')
   }
 })
 
@@ -229,9 +241,9 @@ router.post('/payment-bacs-answer', function (req, res) {
   var install = req.session.data['payment-bacs-paid']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/payment-bacs-no')
+    res.redirect('/register-application/v16/payment-bacs-no')
   } else {
-    res.redirect('/register-application/v15/payment-status')
+    res.redirect('/register-application/v16/payment-status')
   }
 })
 
@@ -241,9 +253,9 @@ router.post('/sign-in-answer', function (req, res) {
   var install = req.session.data['signed-in']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/applications')
+    res.redirect('/register-application/v16/applications')
   } else {
-    res.redirect('/register-application/v15/task-list')
+    res.redirect('/register-application/v16/task-list')
   }
 })
 
@@ -253,9 +265,9 @@ router.post('/landowner-certificate-answer', function (req, res) {
   var install = req.session.data['landowner-certificate']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/landowner-certificate-no')
+    res.redirect('/register-application/v16/landowner-certificate-no')
   } else {
-    res.redirect('/register-application/v15/landowner-certificate-upload')
+    res.redirect('/register-application/v16/landowner-certificate-upload')
   }
 })
 
@@ -265,9 +277,9 @@ router.post('/landowner-certificate-correct-answer', function (req, res) {
   var install = req.session.data['landowner-certificate-correct']
 
   if (install == "no"){
-    res.redirect('/register-application/v15/landowner-certificate-upload')
+    res.redirect('/register-application/v16/landowner-certificate-upload')
   } else {
-    res.redirect('/register-application/v15/task-list')
+    res.redirect('/register-application/v16/task-list')
   }
 })
 
@@ -277,9 +289,9 @@ router.post('/landowner-answer', function (req, res) {
   var install = req.session.data['landowner']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/landowner-others')
+    res.redirect('/register-application/v16/landowner-others')
   } else {
-    res.redirect('/register-application/v15/landowner-name')
+    res.redirect('/register-application/v16/landowner-name')
   }
 })
 
@@ -289,9 +301,9 @@ router.post('/landowner-others-answer', function (req, res) {
   var install = req.session.data['landowner-others']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/landowner-name')
+    res.redirect('/register-application/v16/landowner-name')
   } else {
-    res.redirect('/register-application/v15/landowner-confirm')
+    res.redirect('/register-application/v16/landowner-confirm')
   }
 })
 
@@ -301,9 +313,9 @@ router.post('/address-confirm-answer', function (req, res) {
   var install = req.session.data['address-confirm']
 
   if (install == "yes"){
-    res.redirect('/register-application/v15/address-search')
+    res.redirect('/register-application/v16/address-search')
   } else {
-    res.redirect('/register-application/v15/task-list')
+    res.redirect('/register-application/v16/task-list')
   }
 })
 
@@ -313,9 +325,9 @@ router.post('/allocation-answer', function (req, res) {
   var install = req.session.data['allocation']
 
   if (install == "Yes"){
-    res.redirect('/register-application/v15/allocation-development')
+    res.redirect('/register-application/v16/allocation-development')
   } else {
-    res.redirect('/register-application/v15/allocation-confirm')
+    res.redirect('/register-application/v16/allocation-confirm')
   }
 })
 
@@ -325,9 +337,9 @@ router.post('/routing-register-answer', function (req, res) {
   var install = req.session.data['routing-register']
 
   if (install == "No"){
-    res.redirect('/register-application/v15/routing-results')
+    res.redirect('/register-application/v16/routing-results')
   } else {
-    res.redirect('/register-application/v15/routing-sold')
+    res.redirect('/register-application/v16/routing-sold')
   }
 })
 

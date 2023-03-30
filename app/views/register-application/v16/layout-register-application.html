@@ -1,5 +1,5 @@
 {% set serviceName = "Register a biodiversity gain site" %}
-{% set serviceUrl = "" %}
+{% set serviceUrl = "/register-application/v16/applications" %}
 {% set pageURL = "v16" %}
 
 {% extends "../../layout.html" %}
@@ -27,7 +27,7 @@
    <div class="govuk-width-container">
 
     {% include "includes/phase-banner.html" %}
-    <!-- {% include "includes/login-nav.html" %} -->
+    {% include "register-application/v16/includes/login-nav.html" %}
     
   </div>
 
@@ -50,7 +50,7 @@
       {% if hideSaveLink === true %}
       {% else %}
         <div class="app-save">
-          <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/saved?lastVisitedURL={{currentURL}}">Save and return later</a></p>
+          <p><a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/signed-out">Save and return later</a></p>
         </div>
       {% endif %} 
     </div>

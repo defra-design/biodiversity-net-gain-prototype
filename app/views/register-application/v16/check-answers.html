@@ -13,38 +13,6 @@
         {{ pageHeading }}
       </h1>
 
-      <h2 class="govuk-heading-l">Your details</h2>
-
-      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your name
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['full-name'] or 'Jo' }} {{ data['last-name'] or 'Smith' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
-              Change<span class="govuk-visually-hidden"> full name</span>
-            </a>  
-          </dd> 
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Email address
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['email'] or 'jo.smith@gmail.com' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-email">
-              Change<span class="govuk-visually-hidden"> email</span>
-            </a>  
-          </dd> 
-        </div>
-      </dl>
-
-
       <h2 class="govuk-heading-l">Land boundary</h2>
 
       {% if data['location-options'] == 'Document or image' %}
@@ -253,7 +221,7 @@
         </div>
       </dl>
 
-      <!--<h2 class="govuk-heading-l">Linked habitat to a development</h2>
+      <h2 class="govuk-heading-l">Linked habitat to a development</h2>
 
       {% if data['allocation'] == 'No' %}
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
@@ -362,7 +330,7 @@
 
       <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>
       
-      {% endif %}-->
+      {% endif %}
 
       <h2 class="govuk-heading-l">Habitat management and monitoring</h2>
 
@@ -481,6 +449,21 @@
             </a>
           </dd>
         </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+              Local land charge search certificate file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['local-land-charge-upload'] or 'local-land-charge-search-certificate.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/local-land-charge-check">
+              Change<span class="govuk-visually-hidden"> local land charge search certificate</span>
+            </a>
+          </dd>
+        </div>
+        
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Landowner consent
