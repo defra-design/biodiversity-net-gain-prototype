@@ -3,6 +3,7 @@
 {% set pageHeading = serviceName %}
 
 {% set hideBackLink = true %}
+{% set hideSaveSection = true %}
 
 {% block content %}
 
@@ -14,14 +15,15 @@
       
       {% if data['answers-checked'] == 'true' %}
         <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration complete</h2>
-        <p class="govuk-body govuk-!-margin-bottom-4">You have completed 9 of 9 sections.</p>
+        <p class="govuk-body app-!-secondary-text-colour govuk-!-margin-bottom-4">You have completed 9 of 9 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration in progress</h2>
-        {% if data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct']%}
+        <p class="govuk-body govuk-!-margin-bottom-2 app-secondary-text-colour">Reference: BGS-150322001</p>
+        {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct']%}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 9 sections.</p>
-        {% elif data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['habitat-checked-data'] and data['management-plan-confirm'] %}
+        {% elif data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['management-plan-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 5 of 9 sections.</p>
-        {% elif data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] %}
+        {% elif data['landowner-certificate-correct'] and  data['location-confirm'] %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 9 sections.</p>
         {% else %}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 9 sections.</p>
@@ -148,7 +150,7 @@
                 {% if data['legal-agreement-confirm'] %} 
                   <a href="/register-application/{{ pageURL }}/legal-agreement-confirm" aria-describedby="legal-agreement-status">
                 {% else %}
-                  <a href="/register-application/{{ pageURL }}/legal-agreement-upload" aria-describedby="legal-agreement-status">
+                  <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
                 {% endif %} 
                   Add legal agreement details
                 </a>
@@ -200,7 +202,7 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['landowner-certificate-correct'] and  data['landowner-certificate-correct'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct'] %}
+              {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct'] %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers and submit information

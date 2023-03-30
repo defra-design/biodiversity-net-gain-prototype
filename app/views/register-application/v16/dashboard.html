@@ -3,6 +3,7 @@
 {% set pageHeading = "Your registrations" %}
 
 {% set hideSaveSection = true %}
+{% set showAccount = true %}
 
 {% block content %}
 
@@ -25,7 +26,7 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Registration reference</th>
-            <th scope="col" class="govuk-table__header">Submitted date</th>
+            <th scope="col" class="govuk-table__header">Created on</th>
             <th scope="col" class="govuk-table__header">Status</th>
             <th scope="col" class="govuk-table__header">
               <span class="govuk-visually-hidden">Actions</span>
@@ -39,11 +40,7 @@
               <a href="/register-application/v16/task-list">BGS-150322001</a>
             </td>
             <td class="govuk-table__cell">
-              {% if data['answers-checked'] == 'true' %}
-                30 March 2023
-              {% else %}
-                <span class="govuk-visually-hidden">Not submitted yet</span>
-              {% endif %} 
+              30 March 2023
             </td>
             <td class="govuk-table__cell">
               {% if data['answers-checked'] == 'true' %}
