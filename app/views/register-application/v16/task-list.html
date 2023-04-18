@@ -164,19 +164,29 @@
 
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
-                {% if data['local-land-charge-correct'] %} 
-                  <a href="/register-application/{{ pageURL }}/local-land-charge-check" aria-describedby="local-land-charge-status">
-                {% else %}
-                  <a href="/register-application/{{ pageURL }}/local-land-charge-upload" aria-describedby="local-land-charge-status">
-                {% endif %} 
-                  Add local land charge search certificate
-                </a>
-              </span>
-              {% if data['local-land-charge-correct'] %} 
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="local-land-charge-status">Completed</strong>
+                {% if data['legal-agreement'] == "Conservation covenant" and data['legal-agreement-confirm'] %}
+                  {% if data['local-land-charge-correct'] %} 
+                      <a href="/register-application/{{ pageURL }}/local-land-charge-check" aria-describedby="local-land-charge-status">
+                    {% else %}
+                      <a href="/register-application/{{ pageURL }}/local-land-charge-upload" aria-describedby="local-land-charge-status">
+                    {% endif %} 
+                      Add local land charge search certificate
+                    </a>
+                  </span>
+                  {% if data['local-land-charge-correct'] %} 
+                    <strong class="govuk-tag govuk-tag app-task-list__tag" id="local-land-charge-status">Completed</strong>
+                  {% else %}
+                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="local-land-charge-status">Not started</strong>
+                  {% endif %}
               {% else %}
-                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="local-land-charge-status">Not started</strong>
-              {% endif %} 
+                  Add local land charge search certificate
+                </span>
+                {% if data['legal-agreement'] != "Conservation covenant" and data['legal-agreement-confirm'] %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="local-land-charge-status">not needed</strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="local-land-charge-status">cannot start yet</strong>
+                {% endif %}
+              {% endif %}
             </li>
 
             <li class="app-task-list__item">
@@ -202,7 +212,8 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct'] %}
+              {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct'] or 
+                    data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['legal-agreement'] != "Conservation covenant" %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers and submit information
