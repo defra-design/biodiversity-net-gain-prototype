@@ -18,7 +18,6 @@
         <p class="govuk-body app-!-secondary-text-colour govuk-!-margin-bottom-4">You have completed 9 of 9 sections.</p>
       {% else %}
       <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration in progress</h2>
-        <p class="govuk-body govuk-!-margin-bottom-2 app-secondary-text-colour">Reference: BGS-150322001</p>
         {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct']%}
           <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 9 sections.</p>
         {% elif data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['management-plan-confirm'] %}
