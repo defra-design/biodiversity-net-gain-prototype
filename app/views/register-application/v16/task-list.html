@@ -101,9 +101,9 @@
               {% if data['habitat-checked-data'] %}
                 <span class="app-task-list__task-name">
                   {% if data['linked-development'] %}
-                    <a href="/register-application/{{ pageURL }}/allocation-confirm" aria-describedby="record-habitat-status">Record habitat used by developments</a>
+                    <a href="/register-application/{{ pageURL }}/allocation-confirm" aria-describedby="record-habitat-status">Record habitat used by a development</a>
                     {% else %}
-                    <a href="/register-application/{{ pageURL }}/allocation" aria-describedby="record-habitat-status">Record habitat used by developments</a>
+                    <a href="/register-application/{{ pageURL }}/allocation" aria-describedby="record-habitat-status">Record habitat used by a development</a>
                   {% endif %} 
                 </span>
                 {% if data['linked-development'] %}
@@ -113,7 +113,7 @@
                 {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Record habitat used by developments
+                  Record habitat used by a development
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Cannot start yet</strong>
               {% endif %} 

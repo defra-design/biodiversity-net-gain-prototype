@@ -114,6 +114,42 @@ router.post('/metric-correct-answer', function (req, res) {
   }
 })
 
+// Allocation metric
+router.post('/allocation-metric-correct-answer', function (req, res) {
+
+  var install = req.session.data['allocation-metric-correct']
+
+  if (install == "no"){
+    res.redirect('/register-application/v16/allocation-metric-upload')
+  } else {
+    res.redirect('/register-application/v16/allocation-metric-development')
+  }
+})
+
+// Allocation development
+router.post('/allocation-development-answer', function (req, res) {
+
+  var install = req.session.data['allocation-development']
+
+  if (install == "no"){
+    res.redirect('/register-application/v16/allocation-metric-upload')
+  } else {
+    res.redirect('/register-application/v16/allocation-metric-habitat')
+  }
+})
+
+// Allocation habitat
+router.post('/allocation-habitat-answer', function (req, res) {
+
+  var install = req.session.data['allocation-habitat']
+
+  if (install == "no"){
+    res.redirect('/register-application/v16/allocation-metric-upload')
+  } else {
+    res.redirect('/register-application/v16/allocation-confirm')
+  }
+})
+
 
 // Legal agreement
 router.post('/legal-agreement-answer', function (req, res) {
@@ -319,13 +355,13 @@ router.post('/address-confirm-answer', function (req, res) {
   }
 })
 
-// Address confirm
+// Allocation
 router.post('/allocation-answer', function (req, res) {
 
   var install = req.session.data['allocation']
 
   if (install == "Yes"){
-    res.redirect('/register-application/v16/allocation-development')
+    res.redirect('/register-application/v16/allocation-metric-upload')
   } else {
     res.redirect('/register-application/v16/allocation-confirm')
   }
