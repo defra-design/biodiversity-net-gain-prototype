@@ -1,13 +1,13 @@
 {% extends "register-application/v16/layout-register-application.html" %}
 
-{% set pageHeading = "Add all parties listed on the planning obligation (S106 agreement)" %}
+{% set pageHeading = "Add a party listed on the planning obligation (S106 agreement)" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-part-list">
+      <form method="post" action="/register-application/{{ pageURL }}/legal-party-list">
         
         {% call govukFieldset({
           legend: {

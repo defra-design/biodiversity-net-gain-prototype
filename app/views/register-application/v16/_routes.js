@@ -171,7 +171,19 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v16/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v16/legal-agreement-parties')
+    res.redirect('/register-application/v16/legal-party-add')
+  }
+})
+
+// Legal party add
+router.post('/legal-party-more-answer', function (req, res) {
+
+  var install = req.session.data['legal-party-more']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v16/legal-party-add')
+  } else {
+    res.redirect('/register-application/v16/legal-agreement-date-start')
   }
 })
 
