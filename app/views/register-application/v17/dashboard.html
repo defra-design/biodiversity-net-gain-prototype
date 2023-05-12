@@ -1,0 +1,83 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Your registrations" %}
+
+{% set hideSaveSection = true %}
+{% set showAccount = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <form action="/register-application/v17/task-list" method="post" novalidate>
+        <input type="hidden" name="start-new-application" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Start a new registration
+        </button>
+      </form>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Registration reference</th>
+            <th scope="col" class="govuk-table__header">Created on</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">
+              <span class="govuk-visually-hidden">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          {% if data['start-new-application'] == 'true' %} 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="/register-application/v17/task-list">BGS-150322001</a>
+            </td>
+            <td class="govuk-table__cell">
+              30 March 2023
+            </td>
+            <td class="govuk-table__cell">
+              {% if data['answers-checked'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey">Draft</strong>
+              {% endif %}
+            </td>
+          </tr>
+          {% else %}
+          {% endif %} 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">BGS-200423987</a>
+            </td>
+            <td class="govuk-table__cell">
+              15 March 2023
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">BGS-260523087</a>
+            </td>
+            <td class="govuk-table__cell">
+              5 November 2022
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--green">Approved</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+        
+    </div>
+</div>
+
+{% endblock %}

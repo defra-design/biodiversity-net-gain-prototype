@@ -1,0 +1,47 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "What do you want to do?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/routing-results">
+
+          {{ govukRadios({
+            idPrefix: "routing-register",
+            name: "routing-register",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+              {
+                value: "Register a biodiversity gain site",
+                text: "Register a biodiversity gain site",
+                checked: checked("routing-register", "Register a biodiversity gain site")
+              },
+              {
+                value: "Record off-site bodiversity gains for a development project",
+                text: "Record off-site bodiversity gains for a development project",
+                checked: checked("routing-register", "Record off-site bodiversity gains for a development project")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

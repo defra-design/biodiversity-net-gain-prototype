@@ -1,0 +1,63 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Check your file" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: '<a download href="#">landowner-consent-evidence.pdf</a>, 1.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      {% if data['land-registry'] == 'yes' %}
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
+      {% endif %}
+
+        {{ govukRadios({
+          idPrefix: "landowner-permission-correct",
+          name: "landowner-permission-correct",
+          fieldset: {
+            legend: {
+              text: "Is this file correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, choose a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

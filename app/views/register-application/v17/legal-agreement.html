@@ -1,0 +1,50 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Which legal agreement do you have?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-answer">
+
+        {{ govukRadios({
+          idPrefix: "legal-agreement",
+          name: "legal-agreement",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "You need a legal agreement to secure the habitat works and management of the biodiversity gain site for at least 30 years."
+          },
+          items: [
+            {
+              value: "Conservation covenant",
+              text: "Conservation covenant",
+              checked: checked("legal-agreement", "Conservation covenant")
+            },
+            {
+              value: "Planning obligation (S106 agreement)",
+              text: "Planning obligation (S106 agreement)",
+              checked: checked("legal-agreement", "Planning obligation (S106 agreement)")
+            }
+          ]
+        }) }}
+
+        <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a legal agreement</a></p>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

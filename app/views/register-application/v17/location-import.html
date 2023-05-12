@@ -1,0 +1,45 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Upload a geospatial file showing the land boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-import-confirm">
+
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="location-import">
+            Upload a file
+          </label>
+
+          <div id="location-import-hint">
+            <p>The file should:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>be a GeoJSON, GeoPackage or shapefile</li>
+              <li>be no larger than 50MB</li>
+              <li>only contain one layer</li>
+            </ul>
+            <p>You should use either the Ordnance Survey Great Britain 1936 (OSGB36) or World Geodetic System 1984 (WGS84) coordinate reference systems when mapping the land boundary.</p>
+          </div>
+
+          <input class="govuk-file-upload" id="location-import" name="location-import" type="file" aria-describedby="location-import-hint">
+        </div>
+
+        <input class="govuk-input" id="location-import-confirm" name="location-import-confirm" type="hidden" value="no">
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

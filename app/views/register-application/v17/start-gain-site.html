@@ -1,0 +1,49 @@
+{% extends "register-application/v17/start-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v17" %}
+
+{% set previousPageName = "How it works" %}
+{% set previousPageURL = "/register-application/" + pageURL + "/start" %}
+
+{% set nextPageName = "Record off-site biodiversity gains for a development project" %}
+{% set nextPageURL = "/register-application/" + pageURL + "/start-allocate" %}
+
+{% set pageHeading = "Register a biodiversity gain site in England" %}
+
+{% block guideContent %}
+
+<p>A registered biodiversity gain site is land that development projects can use for off-site gain. These off-site gains contribute to the minimum 10% biodiversity net gain (BNG) that development projects need.</p>
+<p>Anyone who owns or leases land can register a biodiversity gain site. Someone can do it on the landowner's behalf if they have their consent. </p>
+
+<h3 class="govuk-heading-m">What you need to register a biodiversity gain site</h3>
+
+<p>You need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>consent from the landowner or leaseholder</li>
+  <li>a legal agreement that secures the site for at least 30 years</li>
+  <li>a local land charge search certificate if using a conservation covenant</li>
+  <li>proof of ownership of the land</li>
+  <li>a map showing the boundary of the biodiversity gain site</li>
+  <li>a completed <a href="#">Biodiversity Metric 4.0</a></li>
+  <li>a habitat management and monitoring plan</li>
+</ul>
+
+<div class="govuk-inset-text">You can record habitat used by a development at the same time as registering a biodiversity gain site. To do this you'll need the Biodiversity Metric 4.0 file a local planning authority reviewed with the development's Biodiversity Net Gain Statement.</div>
+
+<p>We will check that the biodiversity gain site details submitted are all correct. If everything is correct we will add it to the <a href="/register-application/{{ pageURL }}/start-public-register">BNG public register</a>.</p>
+
+{{ govukButton({
+  text: "Start now",
+  href: "/register-application/v17/sign-in",
+  isStartButton: true
+}) }}
+
+<h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saved registrations</h2>
+<p><a href="/register-application/v17/sign-in">Continue with a saved registration</a></p>
+
+{% endblock %} 

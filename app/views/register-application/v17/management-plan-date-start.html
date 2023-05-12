@@ -1,0 +1,45 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Habitat creation and enhancement declaration" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-date-end">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                {{ pageHeading }}
+              </h1>
+            </legend>
+            <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="habitat-declaration" name="habitat-declaration" type="checkbox" value="accepted">
+                <label class="govuk-label govuk-checkboxes__label" for="habitat-declaration">
+                  I <strong>{{ data['full-name'] or 'Jo Smith' }}</strong>, confirm that any habitat creation and enhancement works on the biodiversity gain site happened on or after 30 January 2020.
+                </label>
+                </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You could be prosecuted or have to pay a fine if you give false or misleading information.
+          </strong>
+        </div>
+
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if 
+        data['routing-register'] == 'Yes' and data['routing-sold'] == 'Yes'
+      %}
+        {% set pageHeading = "Before you register a biodiversity gain site and record the off-site biodiversity gains" %}
+      {% elif 
+        data['routing-register'] == 'Register a biodiversity gain site'
+      %}
+        {% set pageHeading = "Before you register a biodiversity gain site" %}
+      {% elif 
+        data['routing-register'] == 'Record off-site bodiversity gains for a development project'
+      %}
+        {% set pageHeading = "You've told us you want to record the off-site biodiversity gains for a development project" %}
+      {% else %}
+        {% set pageHeading = "Before you register a biodiversity gain site" %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {% if 
+        data['routing-register'] == 'Record off-site bodiversity gains for a development project'
+      %}
+
+      <p>You'll need:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>the Biodiversity Metric 4.0 file that was approved by the local planning authority</li>
+        <li>the biodiversity gain site number for the off-site</li>
+        <li>to have consent from landowners for any gain sites you're using</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "#"
+      }) }}
+
+      <p>If you've made a mistake, you can <a href="/register-application/{{ pageURL }}/routing-register">go back and change your answer</a>.</p>
+
+      {% else %}
+
+      <p>We'll ask you a few questions to check you have everything you need.</p>
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/register-application/" + pageURL + "/eligibility-england"
+      }) }}
+
+      <p><a href="/register-application/{{ pageURL }}/details-name">Skip to register a biodiversity gain site</a> if you know you have everything you need.</p>
+        
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock %}

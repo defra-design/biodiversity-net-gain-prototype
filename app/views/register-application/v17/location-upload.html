@@ -1,0 +1,41 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Upload a document or image showing the land boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/location-upload-confirm">
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="location-upload">
+            Upload a file
+          </label>
+
+          <div id="location-upload-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX, JPG, PNG or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="location-upload" name="location-upload" type="file" aria-describedby="location-upload-hint">
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Check the legal agreement details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+       <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Type of legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement'] or 'Conservation covenant' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement">
+              Change<span class="govuk-visually-hidden"> type of legal agreement</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            {% if data['legal-agreement'] == "Planning obligation (S106 agreement)" %}
+              Planning obligation (S106 agreement) file uploaded
+            {% else %}
+              Conservation covenant file uploaded
+            {% endif %}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-check">
+              Change<span class="govuk-visually-hidden"> legal agreement</span>
+            </a>
+          </dd>
+        </div>
+
+        {% if data['legal-agreement'] == "Planning obligation (S106 agreement)" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parties involved
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>Kevin Francis (Owner)</li>
+                <li>Bellway Plc (Developer)</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-party-list">
+                Change<span class="govuk-visually-hidden"> parties involved</span>
+              </a>
+            </dd>
+          </div>
+        {% else %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Parties involved
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <ul class="govuk-list">
+                <li>{{ data['concov-responsible-body'] or 'Leeds City Council' }} (Responsible Body)</li>
+                <li>{{ data['concov-landowner'] or 'Kevin Francis' }} (Landowner)</li>
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties-concov">
+                Change<span class="govuk-visually-hidden"> parties involved</span>
+              </a>
+            </dd>
+          </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['legal-agreement-date-start-day'] or '15' }} {{ data['legal-agreement-date-start-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-start-year'] or '2022' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
+              Change<span class="govuk-visually-hidden"> start date</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="legal-agreement-confirm" value="yes">
+
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

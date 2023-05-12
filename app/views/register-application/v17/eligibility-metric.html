@@ -1,0 +1,55 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have a completed Biodiversity Metric 4.0 for the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-management-plan">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-metric",
+            name: "eligibility-metric",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "You need to calculate the biodiversity value of the land using <a href='#'>Natural England's biodiversity metric</a>."
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-metric", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-metric", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-metric", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

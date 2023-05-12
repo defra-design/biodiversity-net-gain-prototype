@@ -1,0 +1,38 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Registration submitted" %}
+
+{% set hideSaveSection = true %}
+{% set hideLogin = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title govuk-!-margin-bottom-4">
+          {{ pageHeading }}
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference<br> <strong>REF-150 311 001</strong>
+        </div>
+      </div>
+
+      <p>You've submitted the biodiversity gain site details. We've sent you a confirmation email.</p>
+
+      <p>Make a note of your reference number as we will use this if we get in touch with you.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We will check the information you submitted is correct. We will email you to let you know if your biodiversity gain site has been successfully registered or not. This can take up to six weeks.</p>
+
+      <h2 class="govuk-heading-m">Contact us</h2>
+      <p>If you have questions or need help, you can phone 0300 060 3900, Monday to Friday, 8:30am to 5pm (except public holidays).</p>
+      <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+      <p class="govuk-!-padding-top-8"><a href="/register-application/{{ pageURL }}/confirmation-email">View confirmation email (prototype only)</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

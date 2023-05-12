@@ -1,0 +1,62 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Do you have proof of ownership for the land?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/eligibility-boundary">
+
+          {{ govukRadios({
+            idPrefix: "eligibility-land-ownership",
+            name: "eligibility-land-ownership",
+            fieldset: {
+              legend: {
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: "<span class='govuk-!-display-block govuk-hint'>You'll need to upload a proof of ownership document. We'll use this to check who owns the land where the biodiversity gain site is.</span>
+              <span class='govuk-!-display-block govuk-hint'>Documents we'll accept as proof are, a copy of the:</span>
+               <ul class='govuk-list govuk-list--bullet app-secondary-text-colour'>
+                 <li>title deeds - the title register and the title plan</li>
+                 <li>lease agreement</li>
+                 <li>agricultural tenancy agreement</li>
+               </ul>
+               <span class='govuk-!-display-block govuk-hint'>The agreements need to cover the duration of the conservation covenant that secures the biodiversity gain site.</span>"
+            },
+            items: [
+              {
+                value: "Yes",
+                text: "Yes",
+                checked: checked("eligibility-land-ownership", "Yes")
+              },
+              {
+                value: "No",
+                text: "No",
+                checked: checked("eligibility-land-ownership", "No")
+              },
+              {
+                value: "Not sure",
+                text: "I'm not sure",
+                checked: checked("eligibility-land-ownership", "Not sure")
+              }
+            ]
+          }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

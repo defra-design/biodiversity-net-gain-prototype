@@ -1,0 +1,119 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if 
+        data['eligibility-boundary'] == 'Yes' and 
+        data['eligibility-landowner-consent'] == 'Yes' and 
+        data['eligibility-land-ownership'] == 'Yes' and 
+        data['eligibility-metric'] == 'Yes' and
+        data['eligibility-management-plan'] == 'Yes' and
+        data['eligibility-legal-agreement'] == 'Yes'
+      %}
+
+      {% set pageHeading = "You have everything you need to register" %}
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Continue to add the biodiversity gain site information and submit your registration.</p>
+
+      {% else %}
+
+      {% set pageHeading = "You do not have everything you need to register" %}
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+        {% if 
+          data['eligibility-boundary'] == 'Yes' or 
+          data['eligibility-landowner-consent'] == 'Yes' or 
+          data['eligibility-land-ownership'] == 'Yes' or 
+          data['eligibility-metric'] == 'Yes' or
+          data['eligibility-management-plan'] == 'Yes' or
+          data['eligibility-legal-agreement'] == 'Yes'
+        %}
+
+        <p>You have:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          {% if data['eligibility-boundary'] != 'Yes' %}{% else %}<li>the boundary of the land</li>{% endif %}
+          {% if data['eligibility-landowner-consent'] != 'Yes' %}{% else %}<li>consent from the landowner</li>{% endif %}
+          {% if data['eligibility-land-ownership'] != 'Yes' %}{% else %}<li>proof of ownership of the land</li>{% endif %}
+          {% if data['eligibility-metric'] != 'Yes' %}{% else %}<li>a completed Biodiversity Metric 4.0 for the site</li>{% endif %}
+          {% if data['eligibility-management-plan'] != 'Yes' %}{% else %}<li>a habitat management and monitoring plan</li>{% endif %}
+          {% if data['eligibility-legal-agreement'] != 'Yes' %}{% else %}<li>a conservation covenant securing the habitat enhancements for 30 years</li>{% endif %}
+        </ul>
+
+        {% else %}
+
+        {% endif %}
+
+        {% if 
+          data['eligibility-boundary'] == 'No' or 
+          data['eligibility-landowner-consent'] == 'No' or 
+          data['eligibility-land-ownership'] == 'No' or 
+          data['eligibility-metric'] == 'No' or
+          data['eligibility-management-plan'] == 'No' or
+          data['eligibility-legal-agreement'] == 'No'
+        %}
+
+        <p>You do not have:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          {% if data['eligibility-boundary'] == 'No' %}<li>the boundary of the land</li>{% else %}{% endif %}
+          {% if data['eligibility-landowner-consent'] == 'No' %}<li>consent from the landowner</li>{% else %}{% endif %}
+          {% if data['eligibility-land-ownership'] == 'No' %}<li>proof of ownership of the land</li>{% else %}{% endif %}
+          {% if data['eligibility-metric'] == 'No' %}<li>a completed Biodiversity Metric 4.0 for the site</li>{% else %}{% endif %}
+          {% if data['eligibility-management-plan'] == 'No' %}<li>a habitat management and monitoring plan</li>{% else %}{% endif %}
+          {% if data['eligibility-legal-agreement'] == 'No' %}<li>a conservation covenant securing the habitat enhancements for 30 years</li>{% else %}{% endif %}
+        </ul>
+
+        {% else %}
+
+        {% endif %}
+
+        {% if 
+          data['eligibility-boundary'] == 'Not sure' or 
+          data['eligibility-landowner-consent'] == 'Not sure' or 
+          data['eligibility-land-ownership'] == 'Not sure' or 
+          data['eligibility-metric'] == 'Not sure' or
+          data['eligibility-management-plan'] == 'Not sure' or
+          data['eligibility-legal-agreement'] == 'Not sure'
+        %}
+
+        <p>You're not sure if you have:</p>
+
+        <ul class="govuk-list govuk-list--bullet">
+          {% if data['eligibility-boundary'] == 'Not sure' %}<li>the boundary of the land</li>{% else %}{% endif %}
+          {% if data['eligibility-landowner-consent'] == 'Not sure' %}<li>consent from the landowner</li>{% else %}{% endif %}
+          {% if data['eligibility-land-ownership'] == 'Not sure' %}<li>proof of ownership of the land</li>{% else %}{% endif %}
+          {% if data['eligibility-metric'] == 'Not sure' %}<li>a completed Biodiversity Metric 4.0 for the site</li>{% else %}{% endif %}
+          {% if data['eligibility-management-plan'] == 'Not sure' %}<li>a habitat management and monitoring plan</li>{% else %}{% endif %}
+          {% if data['eligibility-legal-agreement'] == 'Not sure' %}<li>a conservation covenant securing the habitat enhancements for 30 years</li>{% else %}{% endif %}
+        </ul>
+
+        {% else %}
+
+        {% endif %}
+
+      <div class="govuk-inset-text">You can continue to register a biodiversity gain site but you will not be able to submit it until you have everything.</div>
+
+      {% endif %}
+
+      {{ govukButton({
+        text: "Continue",
+        href: "/register-application/" + pageURL + "/details-name"
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}
