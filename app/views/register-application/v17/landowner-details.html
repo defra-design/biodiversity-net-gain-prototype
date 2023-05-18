@@ -1,0 +1,45 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "Add landowner or leaseholder details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/task-list">
+
+        {{ govukInput({
+          label: {
+            text: "Full name"
+          },
+          id: "landowner-name",
+          name: "landowner-name"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We'll only use this to notify the landowner of the registration."
+          },
+          id: "landowner-email",
+          name: "landowner-email",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
