@@ -56,7 +56,7 @@
       <form action="/register-application/v17/task-list" method="post" novalidate>
         <input type="hidden" name="start-new-application" value="true">
         <button class="govuk-button" data-module="govuk-button">
-          Register a new biodiversity gain site
+          Register a biodiversity gain site
         </button>
       </form>
 
@@ -115,7 +115,50 @@
           </tr>
         </tbody>
       </table>
-      
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-4">Development projects</h2>
+
+      <form action="/register-application/v17/task-list" method="post" novalidate>
+        <input type="hidden" name="start-new-application" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Add a development project
+        </button>
+      </form>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Project name</th>
+            <th scope="col" class="govuk-table__header">Planning authority</th>
+            <th scope="col" class="govuk-table__header">Planning reference</th>
+            <th scope="col" class="govuk-table__header">Created on</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">
+              <span class="govuk-visually-hidden">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <a href="#">Emmer Green Golf Course</a>
+            </td>
+            <td class="govuk-table__cell">
+              Reading Borough Council
+            </td>
+            <td class="govuk-table__cell">
+              22/01976/RJL
+            </td>
+            <td class="govuk-table__cell">
+              7 May 2023
+            </td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
         
     </div>
 </div>
