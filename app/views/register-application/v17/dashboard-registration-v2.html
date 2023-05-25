@@ -1,0 +1,382 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "BGS-200423987" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
+        <span class="govuk-caption-xl">Registration reference</span>
+         {{ pageHeading }}
+      </h1>
+      <p class="govuk-!-margin-bottom-2">
+        <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
+      </p>
+      <p class="govuk-!-margin-bottom-9"><strong>Created on: </strong>15 March 2023</p>
+
+      {% set gainSiteHtml %}
+      <h2 class="govuk-heading-l">Biodiversity gain site information</h2>
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Land ownership</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Proof of land ownership file uploaded
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="#">{{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      {% if data['location-options'] == 'Document or image' %}
+
+      {{ govukSummaryList({
+        card: {
+          title: {
+            text: "Land boundary"
+          }
+        },
+        rows: [
+          {
+            key: {
+              text: "Land boundary file uploaded"
+            },
+            value: {
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            }
+          }
+        ]
+      }) }}
+          
+      {% else %}
+
+        {{ govukSummaryList({
+
+          card: {
+            title: {
+              text: "Land boundary"
+            }
+          },
+          rows: [{
+              key: {
+                text: "Land boundary file uploaded"
+              },
+              value: {
+                text: data['location-import'] or 'meadow-croft-farm-land-boundary.geojson'
+              }
+            },
+            {
+              key: {
+                text: "Land boundary on a map"
+              },
+              value: {
+                html: "<div id='offsite' class='map map--location' tabindex='0'></div>"
+              }
+            },
+            {
+              key: {
+                text: "Grid reference"
+              },
+              value: {
+                text: "SP41989814"
+              }
+            },
+            {
+              key: {
+                text: "Area in hectares"
+              },
+              value: {
+                text: "4.2 ha"
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %} 
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Habitat baseline, creation and enhancements</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Biodiversity Metric 4.0 file uploaded
+              </dt>
+              <dd class="govuk-summary-list__value">
+              <a href="#"> {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}</a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Habitat baseline information is correct
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Habitat creation and enhancement information is correct
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Habitat management and monitoring</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Habitat management and monitoring plan uploaded
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="#">{{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}</a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Start date of the 30 year management and monitoring period
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['management-plan-date-end-day'] or '15' }} {{ data['management-plan-date-end-month'] | monthToWordWithSpaces('March') }} {{ data['management-plan-date-end-year'] or '2023' }}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Legal information</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Type of legal agreement
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['legal-agreement'] or 'Conservation covenant' }}
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+                  Planning obligation (section 106 agreement) file uploaded
+                {% else %}
+                  Conservation covenant file uploaded
+                {% endif %}
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="#">{{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}</a>
+              </dd>
+            </div>
+
+            {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Parties involved
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list">
+                    <li>Kevin Francis (Owner)</li>
+                    <li>Bellway Plc (Developer)</li>
+                  </ul>
+                </dd>
+              </div>
+            {% else %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Parties involved
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  <ul class="govuk-list">
+                    <li>{{ data['concov-responsible-body'] or 'Leeds City Council' }} (Responsible Body)</li>
+                    <li>{{ data['concov-landowner'] or 'Kevin Francis' }} (Landowner)</li>
+                  </ul>
+                </dd>
+              </div>
+            {% endif %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Start date
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['legal-agreement-date-start-day'] or '15' }} {{ data['legal-agreement-date-start-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-start-year'] or '2022' }}
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                  Local land charge search certificate file uploaded
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="#">{{ data['local-land-charge-upload'] or 'local-land-charge-search-certificate.pdf' }}</a>
+              </dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Landowner consent
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Yes
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      {% endset -%}
+
+      {% set developmentHtml %}
+      <h2 class="govuk-heading-l">Development projects</h2>
+      {% if data['allocation'] == 'No' %}
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">Habitat used by a development project</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Record the habitat being used by a development project
+              </dt>
+              <dd class="govuk-summary-list__value">
+                {{ data['allocation'] or 'No' }}
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      {% else %}
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">	Farifax Housing Project</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Metric file added
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <a href="#">metric_4.0_fairfax_housing_project.xlsm</a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Local planning authority
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Bradford City Council
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Planning application reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                22/01976/RJL
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Habitat being used
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list app-list--border">
+                  <li>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Grassland </span>
+                    <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                    12.76 ha
+                  </li>
+                  <li>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Heathland and scrub</span>
+                    <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Mixed scrub</span>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                    10.50 ha
+                  </li>
+                  <li>
+                    Native species rich hedgerow 
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                    0.18 km
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+      {% endif %}
+      {% endset -%}
+
+      {{ govukTabs({
+        items: [
+          {
+            label: "Biodiversity gain site information",
+            id: "gain-site",
+            panel: {
+              html: gainSiteHtml
+            }
+          },
+          {
+            label: "Development projects",
+            id: "development",
+            panel: {
+              html: developmentHtml
+            }
+          }
+        ]
+      }) }}
+
+      
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

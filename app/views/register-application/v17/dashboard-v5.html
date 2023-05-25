@@ -50,23 +50,27 @@
         </div>
       {% else %}
       {% endif %}
+      
+      <div class="govuk-button-group govuk-!-margin-top-4">
 
-      <div class="dashboard-panel">
+        {{ govukButton({
+          text: "Register a biodiversity gain site",
+          href: "#"
+        }) }}
 
-      <h2 class="govuk-heading-l govuk-!-padding-top-4">Biodiversity gain sites</h2>
+        {{ govukButton({
+          text: "Add a development project",
+          href: "#"
+        }) }}
 
-      <form action="/register-application/v17/task-list" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="true">
-        <button class="govuk-button" data-module="govuk-button">
-          Register a biodiversity gain site
-        </button>
-      </form>
+      </div>
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Registration reference</th>
+            <th scope="col" class="govuk-table__header">Type</th>
             <th scope="col" class="govuk-table__header">Created on</th>
             <th scope="col" class="govuk-table__header">Status</th>
             <th scope="col" class="govuk-table__header">
@@ -85,7 +89,29 @@
               {% endif %}
             </td>
             <td class="govuk-table__cell">
-              30 March 2023
+              Biodiversity gain site
+            </td>
+            <td class="govuk-table__cell">
+              <script>
+                //Get today's date using the JavaScript Date object.
+                var ourDate = new Date();
+
+                //Change it so that it is 7 days in the past.
+                var pastDate = ourDate.getDate();
+                ourDate.setDate(pastDate);
+
+                var dd = String(ourDate.getDate()).padStart(2, '0');
+                var mm = String(ourDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = ourDate.getFullYear();
+
+                var mnth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+                var mmm = mnth[ourDate.getMonth()];
+
+                nextWeek = dd + ' ' + mmm + ' ' + yyyy;
+                document.write(nextWeek);
+
+              </script>
             </td>
             <td class="govuk-table__cell">
               {% if data['answers-checked'] == 'true' %}
@@ -102,6 +128,9 @@
               <a href="/register-application/v17/dashboard-registration">BGS-200423987</a>
             </td>
             <td class="govuk-table__cell">
+              Biodiversity gain site
+            </td>
+            <td class="govuk-table__cell">
               15 March 2023
             </td>
             <td class="govuk-table__cell">
@@ -113,6 +142,9 @@
               <a href="#">BGS-260523087</a>
             </td>
             <td class="govuk-table__cell">
+              Development project
+            </td>
+            <td class="govuk-table__cell">
               5 November 2022
             </td>
             <td class="govuk-table__cell">
@@ -121,55 +153,7 @@
           </tr>
         </tbody>
       </table>
-
-    </div>
-
-    <div class="dashboard-panel">
-
-      <h2 class="govuk-heading-l govuk-!-padding-top-4">Development projects</h2>
-
-      <form action="/register-application/v17/task-list" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="true">
-        <button class="govuk-button" data-module="govuk-button">
-          Add a development project
-        </button>
-      </form>
-
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Project name</th>
-            <th scope="col" class="govuk-table__header">Planning authority</th>
-            <th scope="col" class="govuk-table__header">Planning reference</th>
-            <th scope="col" class="govuk-table__header">Created on</th>
-            <th scope="col" class="govuk-table__header">Status</th>
-            <th scope="col" class="govuk-table__header">
-              <span class="govuk-visually-hidden">Actions</span>
-            </th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">
-              <a href="#">Emmer Green Golf Course</a>
-            </td>
-            <td class="govuk-table__cell">
-              Reading Borough Council
-            </td>
-            <td class="govuk-table__cell">
-              22/01976/RJL
-            </td>
-            <td class="govuk-table__cell">
-              7 May 2023
-            </td>
-            <td class="govuk-table__cell">
-              <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      
         
     </div>
 </div>
