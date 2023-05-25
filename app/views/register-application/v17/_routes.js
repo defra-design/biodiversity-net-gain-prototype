@@ -278,8 +278,10 @@ router.post('/payment-answer', function (req, res) {
 
   if (install == "bacs"){
     res.redirect('/register-application/v17/payment-bacs')
-  } else {
+  } if  (install == "card"){
     res.redirect('/register-application/v17/payment-card')
+  } else {
+    res.redirect('/register-application/v17/payment-no')
   }
 })
 
@@ -289,9 +291,9 @@ router.post('/payment-bacs-answer', function (req, res) {
   var install = req.session.data['payment-bacs-paid']
 
   if (install == "no"){
-    res.redirect('/register-application/v17/payment-bacs-no')
+    res.redirect('/register-application/v17/payment-no')
   } else {
-    res.redirect('/register-application/v17/payment-status')
+    res.redirect('/register-application/v17/confirmation')
   }
 })
 
