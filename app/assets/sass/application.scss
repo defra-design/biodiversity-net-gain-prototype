@@ -125,13 +125,8 @@ $govuk-assets-path: '/govuk/assets/';
   background-color: $govuk-border-colour;
   border: 0;
   height: 1px;
-  margin-bottom: 40px;
-  margin-top: 40px;
-
-  @media (max-width: 40.0625em) {
-    margin-bottom: 30px;
-    margin-top: 30px;
-  }
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .app-divider--blue {
@@ -313,6 +308,10 @@ a:link.app-link--red {
 
 .dashboard-panel {
   background: #f3f2f1;
-  padding: 15px 25px;
-  margin: 15px 0 30px;
+  padding: 10px 25px 15px;
+  margin: 15px 0 15px;
+
+  @media (max-width: 40.0625em) {
+    padding: 10px 15px;
+  }
 }

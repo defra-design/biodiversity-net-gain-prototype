@@ -8,13 +8,11 @@
 {% block content %}
 
 <div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-xl">
+    <h1 class="govuk-heading-l">
       {{ pageHeading }}
     </h1>
-    </div>
-    <div class="govuk-grid-column-one-third govuk-!-padding-bottom-1">
       <ul class="govuk-list">
         <li><b>Jo Smith</b></li>
         <li>Imaginary Farm Ltd</li>
@@ -25,10 +23,6 @@
       <p class="govuk-body-s">
         <a href="#">Edit these details</a>
       </p>
-    </div>
-
-
-      <div class="govuk-grid-column-full">
 
       {% if data['answers-checked'] == 'true' %}
         <div class="govuk-inset-text inset-dashboard dashpanel">
@@ -52,26 +46,25 @@
       {% else %}
       {% endif %}
 
-      </div>
+      <hr class="app-divider">
 
-      <div class="govuk-grid-column-one-half">
+    </div>
+
+    <div class="govuk-grid-column-one-half">
 
       <div class="dashboard-panel">
 
-      <h2 class="govuk-heading-m govuk-!-padding-top-4">Biodiversity gain sites</h2>
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">
+          <a href="/register-application/v17/dashboard-gain-sites">Biodiversity gain sites</a>
+        </h2>
 
-      <!--<form action="/register-application/v17/task-list" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="true">
-        <button class="govuk-button" data-module="govuk-button">
-          Register a biodiversity gain site
-        </button>
-      </form>-->
+        <p class="govuk-body-s">You can:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+          <li>Register a new biodiversity gain site</li>
+          <li>Continue with a saved registration</li>
+        </ul>
 
-      <p><a href="/register-application/v17/task-list">Register a new biodiversity gain site</a></p>
-
-      <p><a href="#"><strong>View all biodiversity gain site registrations</strong></a></p>
-
-    </div>
+      </div>
 
   </div>
 
@@ -79,18 +72,15 @@
 
     <div class="dashboard-panel">
 
-      <h2 class="govuk-heading-m govuk-!-padding-top-4">Development projects</h2>
+      <h2 class="govuk-heading-m govuk-!-padding-top-4">
+        <a href="/register-application/v17/dashboard-development-projects">Development projects</a>
+      </h2>
 
-      <!--<form action="/register-application/v17/task-list" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="true">
-        <button class="govuk-button" data-module="govuk-button">
-          Add a development project
-        </button>
-      </form>-->
-
-      <p><a href="#">Record off-site biodiversity gains for a development project</a></p>
-
-      <p><a href="#"><strong>View all development projects</strong></a></p>
+      <p class="govuk-body-s">You can:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-body-s">
+        <li>Record off-site gains for a development project</li>
+        <li>Add a development project to a biodiversity gain site</li>
+      </ul>
         
     </div>
 </div>
