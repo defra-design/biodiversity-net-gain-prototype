@@ -1,0 +1,70 @@
+{% extends "register-application/v17/layout-register-application.html" %}
+
+{% set pageHeading = "You have added 2 additional email addresses" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+        <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+            <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+              {% if data['additional-email-remove'] == 'yes' %}
+              {% else %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                  Kevin Francis (kevin.francis@mail.com)
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-add"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change Sydney Russell</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-remove"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Sydney Russell from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              {% endif %}
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                  Bob MacAdoo (bmac@yahoo.co.uk)
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-add"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change Michael Cain</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-remove"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Michael Cain from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+            </dl>
+
+            <form method="post" action="/register-application/{{ pageURL }}/additional-email-more-answer">
+
+              {{ govukRadios({
+                idPrefix: "additional-email-more",
+                name: "additional-email-more",
+                fieldset: {
+                  legend: {
+                    text: "Do you need to add another email address?",
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no",
+                    text: "No"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}

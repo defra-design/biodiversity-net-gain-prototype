@@ -405,5 +405,17 @@ router.post('/routing-register-answer', function (req, res) {
   }
 })
 
+// Additonal email addresses
+router.post('/additional-email-more-answer', function (req, res) {
+
+  var install = req.session.data['additional-email-more']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v17/additional-email-add')
+  } else {
+    res.redirect('/register-application/v17/check-answers')
+  }
+})
+
 // Add your routes above the module.exports line
 module.exports = router
