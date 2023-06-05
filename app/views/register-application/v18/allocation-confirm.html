@@ -9,14 +9,15 @@
 
       <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-      {% if data['allocation'] == 'No' %}
+      {% if data['start-new-application'] == 'true' %}
+
       <dl class="govuk-summary-list govuk-!-margin-bottom-7">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Record the habitat being used by a development project
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['allocation'] or 'No' }}
+            {{ data['allocation'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
@@ -25,37 +26,25 @@
           </dd>
         </div>
       </dl>
-
-      {{ govukInsetText({
-        text: "You can record which habitats are being used for off-site gain by a development project once the biodiversity gain site has been registered."
-      }) }}
 
       {% else %}
+      {% endif %}
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Record the habitat being used by a development project
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['allocation'] or 'Yes' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
-              Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
+      {% if data['allocation'] == 'No' and data['start-new-application'] != 'false' %}
+      {% else %}
 
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">Farifax Housing Project</h2>
           <ul class="govuk-summary-card__actions">
             <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
-                Delete development<span class="govuk-visually-hidden"> Farifax Housing Project</span>
+                Delete <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
               </a>
             </li>
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="/register-application/{{ pageURL }}/allocation-development">
+              Change <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
+            </a>
+          </li>
           </ul>
         </div>
         <div class="govuk-summary-card__content">
@@ -108,10 +97,14 @@
 
       <a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>
   
-      
       {% endif %}
 
-      <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+
+      {% if data['start-new-application'] == 'true' %}
+        <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+        {% else %}
+        <form action="/register-application/{{ pageURL }}/additional-email-add" method="post" novalidate>
+      {% endif %}
 
         <input type="hidden" name="linked-development" value="true">
 

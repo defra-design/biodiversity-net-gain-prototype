@@ -144,9 +144,12 @@
           </table>
         </div>
 
-        {{ govukInsetText({
-          html: "If the available habitat data is wrong you can <a href='/register-application/v18/metric-check'>upload a different biodiversity metric file</a>."
-        }) }}
+        {% if data['start-new-application'] == 'true' %}
+          {{ govukInsetText({
+            html: "If the available habitat data is wrong you can <a href='/register-application/v18/metric-check'>upload a different biodiversity metric file</a>."
+          }) }}
+        {% else %}
+        {% endif %}
 
         {{ govukButton({
             text: "Save and continue"

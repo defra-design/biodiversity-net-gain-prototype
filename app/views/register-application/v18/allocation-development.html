@@ -1,6 +1,6 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
-{% set pageHeading = "Add the development details" %}
+{% set pageHeading = "Add development project details" %}
 
 {% block content %}
 
@@ -11,6 +11,16 @@
 
       <form method="post" action="/register-application/{{ pageURL }}/allocation-habitat">
 
+        {{ govukInput({
+          label: {
+              text: "Project name",
+              classes: "govuk-label--s"
+          },
+            id: "planningref",
+            name: "planningref"
+          })  
+        }}
+        
         {{ govukInput({
           label: {
               text: "Planning application reference",

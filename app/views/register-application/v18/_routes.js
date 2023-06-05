@@ -297,6 +297,18 @@ router.post('/payment-bacs-answer', function (req, res) {
   }
 })
 
+// Payment
+router.post('/payment-bacs-answer-allocation', function (req, res) {
+
+  var install = req.session.data['payment-bacs-paid']
+
+  if (install == "no"){
+    res.redirect('/register-application/v18/payment-no')
+  } else {
+    res.redirect('/register-application/v18/allocation-confirmation')
+  }
+})
+
 // Sign in 
 router.post('/sign-in-answer', function (req, res) {
 
@@ -375,7 +387,7 @@ router.post('/allocation-answer', function (req, res) {
   var install = req.session.data['allocation']
 
   if (install == "Yes"){
-    res.redirect('/register-application/v18/allocation-metric-upload')
+    res.redirect('/register-application/v18/allocation-development')
   } else {
     res.redirect('/register-application/v18/allocation-confirm')
   }
@@ -414,6 +426,18 @@ router.post('/additional-email-more-answer', function (req, res) {
     res.redirect('/register-application/v18/additional-email-add')
   } else {
     res.redirect('/register-application/v18/check-answers')
+  }
+})
+
+// Additonal email addresses allocation
+router.post('/additional-email-more-answer-allocation', function (req, res) {
+
+  var install = req.session.data['additional-email-more']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v18/additional-email-add')
+  } else {
+    res.redirect('/register-application/v18/allocation-check-answers')
   }
 })
 

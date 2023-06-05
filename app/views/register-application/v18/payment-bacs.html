@@ -11,7 +11,11 @@
 
       <h2 class="govuk-heading-m">Registration fee</h2>
 
-      <p class="govuk-body-l">£658.70</p>
+      {% if data['start-new-application'] == 'true' %}
+        <p class="govuk-body-l">£658.70</p>
+      {% else %}
+        <p class="govuk-body-l">£36.35</p>
+      {% endif %}
 
       <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
 
@@ -63,7 +67,11 @@
       <p><a href="#">Download invoice</a> (PDF, 124kb)</p>
 
 
-      <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer" class="govuk-!-padding-top-5">
+      {% if data['start-new-application'] == 'true' %}
+        <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer" class="govuk-!-padding-top-5">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer-allocation" class="govuk-!-padding-top-5">
+      {% endif %}
 
         {{ govukRadios({
           idPrefix: "payment-bacs-paid",

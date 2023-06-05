@@ -47,7 +47,11 @@
           text: "Save and continue"
         }) }}
 
-        <p><a href="/register-application/{{ pageURL }}/check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+        {% if data['start-new-application'] == 'true' %}
+          <p><a href="/register-application/{{ pageURL }}/check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+        {% else %}
+          <p><a href="/register-application/{{ pageURL }}/allocation-check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+        {% endif %}
         
       </form>
 
