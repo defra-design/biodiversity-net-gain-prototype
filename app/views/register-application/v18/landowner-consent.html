@@ -1,0 +1,53 @@
+{% extends "register-application/v18/layout-register-application.html" %}
+
+{% set pageHeading = "Consent to register the biodiversity gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-consent-answer">
+
+        {{ govukRadios({
+          idPrefix: "landowner-consent",
+          name: "landowner-consent",
+          fieldset: {
+            legend: {
+              text: "Confirm which of the two statements applies to you:"
+            }
+          },
+          items: [
+            {
+              value: "Yes, is landowner or leaseholder",
+              text: "I confirm that I am the landowner or leaseholder",
+              checked: checked("landowner-consent", "Yes, is landowner or leaseholder")
+            },
+            {
+              value: "Yes, has consent",
+              text: "I have the consent of the landowner or leaseholder and I'm authorised to act on their behalf",
+              checked: checked("landowner-consent", "Yes, has consent")
+            }
+          ]
+        }) }}
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive">Warning</span>
+            You could be prosecuted or have to pay a fine if you are not authorised to act on behalf of the landowner.
+          </strong>
+        </div>
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

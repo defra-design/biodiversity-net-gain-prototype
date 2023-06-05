@@ -1,0 +1,69 @@
+{% extends "register-application/v18/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check Biodiversity Metric 4.0" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity Metric 4.0 file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-check">
+              Change<span class="govuk-visually-hidden"> biodiversity metric 4.0 file</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat baseline information is correct
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data-baseline">
+              Change<span class="govuk-visually-hidden"> Habitat baseline information is correct</span>
+            </a>  
+          </dd> 
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat creation and enhancement information is correct
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data">
+              Change<span class="govuk-visually-hidden"> Habitat creation and enhancement declaration</span>
+            </a>  
+          </dd> 
+        </div>
+      </dl>
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+
+        <input type="hidden" name="habitat-checked-data" value="yes">
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

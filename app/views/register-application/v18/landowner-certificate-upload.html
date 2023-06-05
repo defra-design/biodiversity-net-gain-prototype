@@ -1,0 +1,42 @@
+{% extends "register-application/v18/layout-register-application.html" %}
+
+{% set pageHeading = "Upload proof of land ownership" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-check">
+
+        <label class="govuk-label govuk-visually-hidden" for="landowner-certificate-upload">
+          Upload a file
+        </label>
+
+        <div id="landowner-certificate-upload-hint">
+          <p>For example, the title deeds or lease agreement.</p>
+          <p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a DOC, DOCX or PDF</li>
+            <li>no larger than 50MB</li>
+          </ul>
+        </div>  
+
+        <input class="govuk-file-upload" id="landowner-certificate-upload" name="landowner-certificate-upload" type="file" aria-describedby="landowner-certificate-upload-hint">
+
+        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/landowner-certificate-no">I do not have proof of land ownership</a></p>
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
