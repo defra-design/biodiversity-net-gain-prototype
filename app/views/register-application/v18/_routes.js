@@ -387,7 +387,7 @@ router.post('/allocation-answer', function (req, res) {
   var install = req.session.data['allocation']
 
   if (install == "Yes"){
-    res.redirect('/register-application/v18/allocation-development')
+    res.redirect('/register-application/v18/allocation-metric-upload')
   } else {
     res.redirect('/register-application/v18/allocation-confirm')
   }
