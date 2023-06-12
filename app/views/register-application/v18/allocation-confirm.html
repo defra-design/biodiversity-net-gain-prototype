@@ -33,22 +33,15 @@
       {% if data['allocation'] == 'No' and data['start-new-application'] != 'false' %}
       {% else %}
 
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h2 class="govuk-summary-card__title">Farifax Housing Project</h2>
-          <ul class="govuk-summary-card__actions">
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="#">
-                Delete <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
-              </a>
-            </li>
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="/register-application/{{ pageURL }}/allocation-development">
-              Change <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
-            </a>
-          </li>
-          </ul>
-        </div>
-        <div class="govuk-summary-card__content">
           <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Project name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Farifax Housing Project
+              </dd>
+            </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
                 Local planning authority
@@ -92,8 +85,6 @@
               </dd>
             </div>
           </dl>
-        </div>
-      </div>
 
       <!--<a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>-->
   

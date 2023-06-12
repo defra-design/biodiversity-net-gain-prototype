@@ -150,6 +150,18 @@ router.post('/allocation-habitat-answer', function (req, res) {
   }
 })
 
+// Allocation habitat
+router.post('/allocation-habitat-answer-record', function (req, res) {
+
+  var install = req.session.data['allocation-habitat']
+
+  if (install == "no"){
+    res.redirect('/register-application/v18/allocation-metric-upload')
+  } else {
+    res.redirect('/register-application/v18/additional-email-add')
+  }
+})
+
 
 // Legal agreement
 router.post('/legal-agreement-answer', function (req, res) {
