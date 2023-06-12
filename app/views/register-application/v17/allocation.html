@@ -1,6 +1,6 @@
 {% extends "register-application/v17/layout-register-application.html" %}
 
-{% set pageHeading = "Do you want to record which habitats are being used for off-site gain by a development project?" %}
+{% set pageHeading = "Do you want to record off-site biodiversity gains for a development project?" %}
 
 {% block content %}
 
@@ -20,16 +20,16 @@
             }
           },
           hint: {
-            html: "<p>You will need the development project's Biodiversity Metric 4.0 file. It must be the Metric file that a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>"
+            html: "<p>You will need the Biodiversity Metric 4.0 file for the development project. It must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>"
           },
           items: [
             {
               value: "Yes",
-              text: "Yes, I want to record the habitats being used"
+              text: "Yes, I want to record off-site biodiversity gains"
             },
             {
               value: "No",
-              text: "No, the habitats being used will be recorded later"
+              text: "No, the off-site biodiversity gains will be recorded later"
             }
           ]
         }) }}
