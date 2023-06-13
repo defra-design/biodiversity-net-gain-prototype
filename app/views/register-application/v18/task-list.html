@@ -215,7 +215,7 @@
                     data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['legal-agreement'] != "Conservation covenant" %}
                 <span class="app-task-list__task-name">
                   <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
-                    Check your answers and submit information
+                    Check your answers, pay and submit
                   </a>
                 </span>
                 {% if data['answers-checked'] == 'true' %}
@@ -225,7 +225,7 @@
                 {% endif %} 
               {% else %}
                 <span class="app-task-list__task-name">
-                  Check your answers and submit information
+                  Check your answers, pay and submit
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Cannot start yet</strong>
               {% endif %} 
