@@ -20,7 +20,12 @@
         </p>
         <ul class="govuk-list govuk-body-s">
           <li><strong>Registration reference: </strong>BGS-200423987</li>
-          <li><strong>Created on: </strong>15 March 2023</li>
+          <li><strong>Created on: </strong>
+            {% include "register-application/v18/includes/todays-date.html" %}
+          </li>
+          <li><strong>Last updated on: </strong>
+            {% include "register-application/v18/includes/todays-date.html" %}
+          </li>
         </ul>
       </div>
 

@@ -24,12 +24,14 @@
       <a href="#">Edit these details</a>
     </p>
 
-    {% if data['development-added'] == 'true' %}
+    {% if data['development-added'] == 'true' and data['allocation-approved'] != 'true' %}
       <div class="govuk-inset-text inset-dashboard dashpanel">
         <h3 class="govuk-heading-m">Tasks:</h3>
         <ul class="govuk-list govuk-list--spaced">
           <li>
-            <span class="govuk-body-s">01 Jun 2023</span> 
+            <span class="govuk-body-s">
+              {% include "register-application/v18/includes/todays-date.html" %}
+            </span> 
             <span class="govuk-caption-m">Action</span> 
             <a href="/register-application/v18/allocation-approval">Approve development project habitat allocation</a>
           </li>
