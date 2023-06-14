@@ -1,0 +1,41 @@
+{% extends "register-application/v18/start2-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v18" %}
+
+{% block guideContent %}
+
+<p>You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the title deeds or lease agreement to prove ownership</li>
+  <li>consent from the landowner or leaseholder if you do not have proof of ownership</li>
+  <li>a map showing the land boundary</li>
+  <li>a completed <a href="#">Biodiversity Metric 4.0</a></li>
+  <li>a habitat management and monitoring plan</li>
+  <li>a planning obligation (Section 106) or conservation covenant that secures the site for at least 30 years</li>
+  <li>a local land charge certificate</li>
+</ul>
+
+<h3 class="govuk-heading-m">Registration fees</h3>
+
+<p>It costs £658.70 to register a biodiversity gain site. You can pay when you register or within 28 days.</p>
+
+<h3 class="govuk-heading-m">How to register a biodiversity gain site and record a development project at the same time</h3>
+
+<p>As well as everything you need to register a biodiversity gain site, you'll need the Biodiversity Metric 4.0 file for the development project. It must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>
+
+{{ govukButton({
+  text: "Start now",
+  href: "/register-application/v18/sign-in",
+  isStartButton: true
+}) }}
+
+<h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
+<p>You can save your information and come back to it at any time.</p>
+<p><a href="/register-application/v18/sign-in">Continue with a saved registration</a></p>
+
+{% endblock %} 
