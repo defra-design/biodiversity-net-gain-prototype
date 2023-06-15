@@ -1,0 +1,50 @@
+{% extends "register-application/v18/start2-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v18" %}
+
+{% block guideContent %}
+
+<div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+  <span class="govuk-caption-xl">Guidance</span>
+  <h1 class="gem-c-title__text govuk-heading-xl">
+    Record off-site gains for a development project
+  </h1>
+  </br>
+  <p class="govuk-body-l">Find out what documents you need and how much it costs to record habitats as off-site gains for a development project.</p>
+</div>
+
+<p>You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>written consent from the landowner or leaseholder</li>
+  <li>a completed <a href="#">Biodiversity Metric 4.0</a> file – it must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement</li>
+</ul>
+
+<h3 class="govuk-heading-m">Registration fees</h3>
+
+<p>It costs £36 to record off-site gains for a development project. You can pay when you register or within 28 days.</p>
+
+<h3 class="govuk-heading-m">What happens after you send us your information</h3>
+
+<p>We will let you know within 6 weeks if:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the development project's off-site gains have been recorded or rejected</li>
+  <li>we need more information from you</li>
+</ul>
+
+{{ govukButton({
+  text: "Start now",
+  href: "/register-application/v18/sign-in",
+  isStartButton: true
+}) }}
+
+<h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
+<p>You can save your information and come back to it at any time.</p>
+<p><a href="/register-application/v18/sign-in">Continue with a saved record</a></p>
+
+{% endblock %} 
