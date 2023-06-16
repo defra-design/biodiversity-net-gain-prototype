@@ -289,12 +289,10 @@ router.post('/payment-answer', function (req, res) {
   var install = req.session.data['payment']
 
   if (install == "bacs"){
-    res.redirect('/register-application/v18/payment-bacs')
-  } if  (install == "card"){
-    res.redirect('/register-application/v18/payment-card')
+    res.redirect('/register-application/v18/confirmation')
   } else {
-    res.redirect('/register-application/v18/payment-no')
-  }
+    res.redirect('/register-application/v18/payment-card')
+  } 
 })
 
 // Payment

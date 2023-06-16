@@ -23,6 +23,9 @@
       <p>Make a note of your reference number as we will use this when we contact you.</p>
 
       <h2 class="govuk-heading-m">What happens next</h2>
+      {% if data['payment'] == 'bacs' %}
+      <p>[PAY BY BACS INTSRUCTIONS]</p>
+      {% endif %}
       <p>We will check the information you submitted is correct. We will email you to let you know if your registration has been successful or not. This can take up to 6 weeks.</p>
 
       <h2 class="govuk-heading-m">Contact us</h2>
