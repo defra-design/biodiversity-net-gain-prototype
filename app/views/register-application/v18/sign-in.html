@@ -30,7 +30,14 @@
         Sign in using Government Gateway
       </h1>
 
-      <form action="/register-application/{{ pageURL }}/dashboard" method="post">
+      {% if data['new-user'] == 'true' %}
+      <form action="/register-application/v18/task-list" method="post" novalidate>
+        <input type="hidden" name="start-new-application" value="true">
+        <input type="hidden" name="start-new-application-register" value="true">
+        <input type="hidden" name="new-user" value="false">
+      {% else %}
+        <form action="/register-application/{{ pageURL }}/dashboard" method="post">
+      {% endif %}
       
       <div class="govuk-form-group">
         <label class="govuk-label" for="govGateUserId">

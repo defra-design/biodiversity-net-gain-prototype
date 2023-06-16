@@ -40,11 +40,13 @@
   <li>we need more information from you</li>
 </ul>
 
-{{ govukButton({
-  text: "Start now",
-  href: "/register-application/v18/sign-in",
-  isStartButton: true
-}) }}
+<form action="/register-application/v18/sign-in" method="post" novalidate>
+  <input type="hidden" name="new-user" value="true">
+  {{ govukButton({
+    text: "Start now",
+    isStartButton: true
+  }) }}
+</form>
 
 <h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
 <p>You can save your information and come back to it at any time.</p>
