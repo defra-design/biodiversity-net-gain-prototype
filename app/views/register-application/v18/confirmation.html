@@ -25,13 +25,15 @@
       {% if data['payment'] == 'bacs' %}
       
       <h2 class="govuk-heading-m">Paying the registration fee</h2>
-      <p>You need to pay the following registration fee within 28 days:</p>
+      <p>You need to pay:</p>
 
       {% if data['start-new-application'] == 'true' %}
         <p class="govuk-body-l">£658.70</p>
       {% else %}
         <p class="govuk-body-l">£36.35</p>
       {% endif %}
+
+      <p>You must pay the registration fee within 28 days.</p>
 
       <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
 
