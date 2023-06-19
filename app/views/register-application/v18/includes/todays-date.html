@@ -3,7 +3,7 @@
   var ourDate = new Date();
 
   //Change it so that it is 7 days in the past.
-  var pastDate = ourDate.getDate() - 30;
+  var pastDate = ourDate.getDate();
   ourDate.setDate(pastDate);
 
   var dd = String(ourDate.getDate()).padStart(2, '0');

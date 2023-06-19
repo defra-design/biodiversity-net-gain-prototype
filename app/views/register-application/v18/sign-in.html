@@ -31,9 +31,13 @@
       </h1>
 
       {% if data['new-user'] == 'true' %}
-      <form action="/register-application/v18/task-list" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="true">
-        <input type="hidden" name="start-new-application-register" value="true">
+        {% if data['start-new-application-register'] == 'false' %}
+          <form action="/register-application/v18/allocation-gain-site" method="post" novalidate>
+          <input type="hidden" name="start-new-application" value="false">
+        {% else %}
+          <form action="/register-application/v18/task-list" method="post" novalidate>
+          <input type="hidden" name="start-new-application" value="true">
+        {% endif %}
         <input type="hidden" name="new-user" value="false">
       {% else %}
         <form action="/register-application/{{ pageURL }}/dashboard" method="post">
