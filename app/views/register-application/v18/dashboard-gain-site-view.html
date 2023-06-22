@@ -2,7 +2,7 @@
 
 {% set map = true %}
 
-{% set pageHeading = "Meadow farm" %}
+{% set pageHeading = "BGS-200423987" %}
 
 {% block content %}
 
@@ -10,7 +10,7 @@
     <div class="govuk-grid-column-full">
 
       <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
-        <span class="govuk-caption-xl">Biodiversity gain site</span>
+        <span class="govuk-caption-xl">Registration reference</span>
          {{ pageHeading }}
       </h1>
 
@@ -19,7 +19,6 @@
           <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
         </p>
         <ul class="govuk-list govuk-body-s">
-          <li><strong>Registration reference: </strong>BGS-200423987</li>
           <li><strong>Created on: </strong>
             {% include "register-application/v18/includes/todays-date.html" %}
           </li>
@@ -28,12 +27,9 @@
           </li>
         </ul>
       </div>
-
-      {% set gainSiteHtml %}
-      <h2 class="govuk-heading-l ">Biodiversity gain site information</h2>
           
-      <h3 class="govuk-heading-m">Land ownership</h3>
-      <dl class="govuk-summary-list ">
+      <h2 class="govuk-heading-l">Land ownership</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Proof of land ownership file uploaded
@@ -46,7 +42,7 @@
 
       {% if data['location-options'] == 'Document or image' %}
 
-      <h3 class="govuk-heading-m">Land boundary</h3>
+      <h2 class="govuk-heading-l">Land boundary</h2>
 
       {{ govukSummaryList({
         rows: [
@@ -79,10 +75,10 @@
           
       {% else %}
 
-      <h3 class="govuk-heading-m">Land boundary</h3>
+      <h2 class="govuk-heading-l">Land boundary</h2>
 
         {{ govukSummaryList({
-          classes: "",
+          classes: "govuk-!-margin-bottom-9",
           rows: [{
               key: {
                 text: "Land boundary file uploaded"
@@ -120,8 +116,8 @@
 
       {% endif %} 
       
-      <h3 class="govuk-heading-m">Habitat baseline, creation and enhancements</h3>
-      <dl class="govuk-summary-list ">
+      <h2 class="govuk-heading-l">Habitat baseline, creation and enhancements</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Biodiversity Metric 4.0 file uploaded
@@ -148,8 +144,8 @@
         </div>
       </dl>
 
-      <h3 class="govuk-heading-m">Habitat management and monitoring</h3>
-      <dl class="govuk-summary-list ">
+      <h2 class="govuk-heading-l">Habitat management and monitoring</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Habitat management and monitoring plan uploaded
@@ -169,8 +165,8 @@
         </div>
       </dl>
 
-      <h3 class="govuk-heading-m">Legal information</h3>
-      <dl class="govuk-summary-list ">
+      <h2 class="govuk-heading-l">Legal information</h2>
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Type of legal agreement
@@ -245,92 +241,6 @@
           </dd>
         </div>
       </dl>
-      {% endset -%}
-
-      {% set developmentHtml %}
-      <h2 class="govuk-heading-l">Development projects</h2>
-
-      <form action="/register-application/v18/allocation-metric-upload" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="false">
-        <button class="govuk-button" data-module="govuk-button">
-          Add a development project
-        </button>
-      </form>
-
-      <div class="govuk-summary-card">
-        <div class="govuk-summary-card__title-wrapper">
-          <h3 class="govuk-summary-card__title">Farifax Housing Project</h3>
-        </div>
-        <div class="govuk-summary-card__content">
-          <dl class="govuk-summary-list">
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Local planning authority
-              </dt>
-              <dd class="govuk-summary-list__value">
-                Bradford City Council
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Planning application reference
-              </dt>
-              <dd class="govuk-summary-list__value">
-                22/01976/RJL
-              </dd>
-            </div>
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Habitat being used
-              </dt>
-              <dd class="govuk-summary-list__value">
-                <ul class="govuk-list app-list--border">
-                  <li>
-                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Grassland </span>
-                    <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
-                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
-                    12.76 ha
-                  </li>
-                  <li>
-                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Heathland and scrub</span>
-                    <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Mixed scrub</span>
-                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
-                    10.50 ha
-                  </li>
-                  <li>
-                    Native species rich hedgerow 
-                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
-                    0.18 km
-                  </li>
-                </ul>
-              </dd>
-            </div>
-          </dl>
-        </div>
-      </div>
-
-      {% endset -%}
-
-      {{ govukTabs({
-        items: [
-          {
-            label: "Biodiversity gain site information",
-            id: "gain-site",
-            panel: {
-              html: gainSiteHtml
-            }
-          },
-          {
-            label: "Development projects",
-            id: "development",
-            panel: {
-              html: developmentHtml
-            }
-          }
-        ]
-      }) }}
-
-      
 
     </div>
   </div>
