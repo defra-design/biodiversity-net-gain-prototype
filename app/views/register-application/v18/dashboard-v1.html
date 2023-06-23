@@ -50,7 +50,7 @@
       <h2 class="govuk-heading-l govuk-!-padding-top-4">Biodiversity gain sites</h2>
 
       <form action="/register-application/v18/task-list" method="post" novalidate>
-        <input type="hidden" name="start-new-application" value="true">
+        <input type="hidden" name="register-journey" value="true">
         <button class="govuk-button" data-module="govuk-button">
           Register a new biodiversity gain site
         </button>
@@ -70,7 +70,7 @@
           </tr>
         </thead>
         <tbody class="govuk-table__body">
-          {% if data['start-new-application'] == 'true' %} 
+          {% if data['register-journey'] == 'true' %} 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">
               {% if data['answers-checked'] == 'true' %}

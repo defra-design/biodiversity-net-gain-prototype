@@ -30,18 +30,21 @@
         Sign in using Government Gateway
       </h1>
 
-      {% if data['new-user'] == 'true' %}
-        {% if data['start-new-application-register'] == 'false' %}
+      {% if data['register-journey'] == 'false' %}
+        {% if data['allocation-metric-correct'] == 'yes' %}
+          <form action="/register-application/v18/dashboard-record" method="post" novalidate>
+        {% else %}
           <form action="/register-application/v18/allocation-gain-site" method="post" novalidate>
-          <input type="hidden" name="start-new-application" value="false">
+        {% endif %}
+          <input type="hidden" name="register-journey" value="false">
+      {% else %}
+        {% if data['new-register-journey'] == 'true' %}
+          <form action="/register-application/v18/dashboard-register" method="post" novalidate>
         {% else %}
           <form action="/register-application/v18/task-list" method="post" novalidate>
-          <input type="hidden" name="start-new-application" value="true">
-          <input type="hidden" name="start-new-application-register" value="true">
+          <input type="hidden" name="new-register-journey" value="true">
         {% endif %}
-        <input type="hidden" name="new-user" value="false">
-      {% else %}
-        <form action="/register-application/{{ pageURL }}/dashboard" method="post">
+          <input type="hidden" name="register-journey" value="true">
       {% endif %}
       
       <div class="govuk-form-group">
