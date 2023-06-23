@@ -32,10 +32,6 @@
 </ul>
 
 <form action="/register-application/v18/sign-in" method="post" novalidate>
-  {% if data['new-user'] == 'false' %}
-  {% else %}
-  <input type="hidden" name="new-user" value="true">
-  {% endif %}
   <input type="hidden" name="register-journey" value="false">
   {{ govukButton({
     text: "Start now",
