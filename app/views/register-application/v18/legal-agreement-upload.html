@@ -1,7 +1,7 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
-{% if data['legal-agreement'] == "Planning obligation (S106 agreement)" %}
-  {% set pageHeading = "Upload the planning obligation (S106 agreement)" %}
+{% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "Upload the planning obligation (Section 106 agreement)" %}
 {% else %}
   {% set pageHeading = "Upload the conservation covenant" %}
 {% endif %}
@@ -40,7 +40,7 @@
         
       </form>
 
-      <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a conservation covenant</a></p>
+      <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a legal agreement</a></p>
 
     </div>
   </div>

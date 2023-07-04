@@ -1,7 +1,7 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
-{% if data['legal-agreement'] == "Planning obligation (S106 agreement)" %}
-  {% set pageHeading = "Check the planning obligation (S106 agreement) file" %}
+{% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "Check the planning obligation (Section 106 agreement) file" %}
 {% else %}
   {% set pageHeading = "Check the conservation covenant file" %}
 {% endif %}
@@ -30,7 +30,7 @@
         ]
       }) }}
 
-      {% if data['legal-agreement'] == "Planning obligation (S106 agreement)" %}
+      {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
         <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer">
       {% else %}
         <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer-concov">
