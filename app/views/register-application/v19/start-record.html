@@ -31,13 +31,15 @@
   <li>we need more information from you</li>
 </ul>
 
-<form action="/register-application/v19/sign-in" method="post" novalidate>
-  <input type="hidden" name="register-journey" value="false">
+
+  {% set action = data.redirect or './sign-in' %}
+
   {{ govukButton({
     text: "Start now",
+    href: action+"?register-journey=false",
     isStartButton: true
   }) }}
-</form>
+
 
 <h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
 <p>You can save your information and come back to it at any time.</p>

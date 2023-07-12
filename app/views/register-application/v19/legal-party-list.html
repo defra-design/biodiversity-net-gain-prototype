@@ -1,6 +1,8 @@
 {% extends "register-application/v19/layout-register-application.html" %}
 
-{% set pageHeading = "You have added 2 legal parties" %}
+{% set count = data.legalParties | length %}
+{% set item = " legal party" | plural(" legal parties", count) %}
+{% set pageHeading = "You have added "+ count + item %}
 
 {% block content %}
 
@@ -9,33 +11,22 @@
         
         <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-            <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
-              {% if data['legal-party-remove'] == 'yes' %}
-              {% else %}
-              <div class="govuk-summary-list__row">
+          <!-- Check if legalParties has been added to -->
+          <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+            {% for lp in data.legalParties %}
+            <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-                  Kevin Francis (Landowner)
+                  {{lp['legal-party-name']}} ({{lp['legal-party-role']}})
                 </dt>
                 <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-add"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change Sydney Russell</span></a></li>
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-remove"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Sydney Russell from the list</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-add?change=yes&id={{loop.index0}}"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{lp['legal-party-name']}}</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{lp['legal-party-name']}} from the list</span></a></li>
                   </ul>
                 </dd>
               </div>
-              {% endif %}
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-                  Bellway Plc (Developer)
-                </dt>
-                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
-                  <ul class="govuk-summary-list__actions-list">
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-add"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change Michael Cain</span></a></li>
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-remove"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove Michael Cain from the list</span></a></li>
-                  </ul>
-                </dd>
-              </div>
-            </dl>
+              {% endfor %}
+           </dl>
 
             <form method="post" action="/register-application/{{ pageURL }}/legal-party-more-answer">
 

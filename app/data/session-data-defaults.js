@@ -21,7 +21,8 @@ Example usage:
 module.exports = {
 
   // Insert values here
-
-  'site-postcode': 'LS29 6JE'
+  'legalParties': [],
+  'site-postcode': 'LS29 6JE',
+  'latestVersion': 'v19'
 
 }

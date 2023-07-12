@@ -7,7 +7,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-party-list">
+      <!-- action controled in ./_routes.js -->
+      <form method="post">
         
         {% call govukFieldset({
           legend: {
@@ -73,7 +74,7 @@
         {% endcall %}
 
         {{ govukButton({
-          text: "Save and continue"
+          text: "Add legal party"
         }) }}
         
       </form>

@@ -200,6 +200,23 @@ router.post('/legal-party-more-answer', function (req, res) {
 })
 
 // Local land charge check
+router.post('/legal-party-add', function (req, res) {
+  req.session.data.legalParties.push(req.body);
+  res.redirect('/register-application/v19/legal-party-list')
+})
+
+
+router.post('/legal-party-remove', function (req, res) {
+
+  var install = req.session.data['legal-party-remove']
+
+  if (install == "yes"){
+    req.session.data.legalParties.splice(req.query.id, 1);
+  }
+  res.redirect('/register-application/v19/legal-party-list')
+})
+ 
+// Local land charge check
 router.post('/local-land-charge-correct-answer', function (req, res) {
 
   var install = req.session.data['local-land-charge-correct']

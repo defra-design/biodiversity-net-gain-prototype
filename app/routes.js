@@ -98,7 +98,7 @@ router.post('/email-address-page', function (req, res) {
 });
 
 
-
+module.exports = router
 //global function to clear all data before redirecting to another page
 // use <a href="/clear-data?url=/folder/page">
 router.get('/clear-data', function(req, res) {
@@ -106,9 +106,16 @@ router.get('/clear-data', function(req, res) {
   return res.redirect(301, req.query.url);
 })
 
+// Adding the ablity to link to the latest version of the prototype page.
+// latestVersion should be set in /data/session-data-defaults
+router.get('/register-application/latest/*', function(req, res) {
+  let path = req.originalUrl
+  let newpath = path.replace("latest", req.session.data.latestVersion);
+  res.redirect(301, newpath);
+})
+
 // Adding "query" to every page. There could be a better implementaion using middleware. 
 // in nunjkucks you can call {{query[key]}}
-
 router.get('*', function(req, res) {
   let path = req.params[0]
   let pathEnd = path.slice(-1)
@@ -128,5 +135,5 @@ router.get('*', function(req, res) {
 })
 
 // Add your routes above the module.exports line
-module.exports = router
+
 
