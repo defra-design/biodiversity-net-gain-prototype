@@ -1,0 +1,84 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Add a party listed on the planning obligation (S106 agreement)" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-party-list">
+        
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+    
+        {{ govukInput({
+          id: 'legal-party-name',
+          name: 'legal-party-name',
+          label: {
+            html: 'Full name or organisation'
+          }
+        }) }}
+
+        {% set otherHtml %}
+        {{ govukInput({
+          id: "legal-party-role-other",
+          name: "legal-party-role-other",
+          type: "text",
+          classes: "govuk-!-width-one-third",
+          label: {
+            text: "Role"
+          }
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "legal-party-role",
+          fieldset: {
+            legend: {
+              text: "Role"
+            }
+          },
+          hint: {
+            text: "Select one option."
+          },
+          items: [
+            {
+              value: "Local authority",
+              text: "Local authority"
+            },
+            {
+              value: "Developer",
+              text: "Developer"
+            },
+            {
+              value: "Landowner",
+              text: "Landowner"
+            },
+            {
+              value: "Other",
+              text: "Other",
+              conditional: {
+                html: otherHtml
+              }
+            }
+          ]
+        }) }}
+    
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

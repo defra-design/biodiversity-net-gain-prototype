@@ -58,6 +58,11 @@ router.use('/register-application/v17', registerapplicationv17);
 const registerapplicationv18 = require('./views/register-application/v18/_routes');
 router.use('/register-application/v18', registerapplicationv18);
 
+const registerapplicationv19 = require('./views/register-application/v19/_routes');
+router.use('/register-application/v19', registerapplicationv19);
+
+
+
 const registerv1 = require('./views/register/v1/_routes');
 router.use('/register/v1', registerv1);
 
@@ -92,8 +97,7 @@ router.post('/email-address-page', function (req, res) {
   res.redirect('/notify-email-confirmation');
 });
 
-// Add your routes above the module.exports line
-module.exports = router
+
 
 //global function to clear all data before redirecting to another page
 // use <a href="/clear-data?url=/folder/page">
@@ -122,4 +126,7 @@ router.get('*', function(req, res) {
     "query": req.query,
   });
 })
+
+// Add your routes above the module.exports line
+module.exports = router
 

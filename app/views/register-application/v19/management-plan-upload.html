@@ -1,0 +1,45 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the habitat management and monitoring plan" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-check">
+
+        <div class="govuk-form-group">
+          
+          <label class="govuk-label govuk-visually-hidden" for="management-plan-upload">
+            Upload a file
+          </label>
+
+          <div id="management-plan-upload-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="management-plan-upload" name="management-plan-upload" type="file" aria-describedby="management-plan-upload-hint">
+
+        </div>
+
+        <p><a href="/register-application/{{ pageURL }}/management-plan-no">I do not have the habitat management and monitoring plan</a></p>
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

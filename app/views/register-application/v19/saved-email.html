@@ -1,0 +1,40 @@
+{% extends "layout-email.html" %}
+
+{% set pageURL = "v19" %}
+
+{% block pageTitle %}
+  Your saved biodiversity gain site registration
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <p>Dear {{ data['full-name'] or 'Jo Smith' }}</p>
+      <p>We've saved your biodiversity gain site information, it has not been submitted.</p>
+      <p>Your reference: REF-150 311 001</p>
+
+      <p>We'll save your information for 28 days. After that time, we'll delete all the information you added.</p>
+      
+      <p>To continue with a registration you'll need to enter your:</p> 
+      <ul class="govuk-list govuk-list--bullet">
+        <li>email address</li>
+        <li>reference number</li>
+      </ul>
+
+      <p>Continue with a saved registration: <a href="/register-application/{{ pageURL }}/sign-in-return">https://bng.gov.uk/saved-regsitration</a></p>
+
+      <p>Regards</p>
+      <p>Register land as a biodiversity gain site service</p>
+      <p>Natural England</p>
+      <p>This is an automated message - do not reply.</p>
+      <hr class="app-divider">
+      <div class="govuk-!-margin-top-9">
+        <p class="govuk-body-s">This email and any attachments is intended for the named recipient only. If you have received it in error you have no authority to use, disclose, store or copy any of its contents and you should destroy it and inform the sender. Whilst this email and associated attachments will have been checked for known viruses whilst within Defra systems we can accept no responsibility once it has left our systems. Communications on Defra's computer systems may be monitored and/or recorded to secure the effective operation of the system and for other lawful purposes.</p>
+      </div>
+        
+    </div>
+</div>
+
+{% endblock %}

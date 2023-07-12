@@ -1,0 +1,43 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Do you have a habitat management and monitoring plan for the biodiversity gain site?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-answer">
+
+        {{ govukRadios({
+          idPrefix: "management-plan",
+          name: "management-plan",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

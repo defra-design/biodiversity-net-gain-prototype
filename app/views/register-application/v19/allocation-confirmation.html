@@ -1,0 +1,31 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Information submitted" %}
+
+{% set hideSaveSection = true %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title govuk-!-margin-bottom-4">
+          {{ pageHeading }}
+        </h1>
+        <div class="govuk-panel__body">
+          Your reference<br> <strong>REF-150 311 001</strong>
+        </div>
+      </div>
+
+      <p>You've submitted the project development and habitat information. We've sent you a confirmation email.</p>
+
+      <p>Make a note of your reference number as we will use this if we get in touch with you.</p>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>We will check the information you submitted is correct. We will email you if the development has been successfully recorded or not. This can take up to 6 weeks.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

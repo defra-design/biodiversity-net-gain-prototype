@@ -1,0 +1,41 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Are you sure you want to remove Kevin Francis as a legal party?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="/register-application/{{ pageURL }}/legal-party-list">
+
+        {{ govukRadios({
+          idPrefix: "legal-party-remove",
+          name: "legal-party-remove",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              classes: "govuk-fieldset__legend--l",
+              pageHeading: true
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
