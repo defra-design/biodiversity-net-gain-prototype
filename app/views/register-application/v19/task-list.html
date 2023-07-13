@@ -12,22 +12,11 @@
       <h1 class="govuk-heading-xl">
         Register a biodiversity gain site
       </h1>
-      
-      {% if data['answers-checked'] == 'true' %}
-        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration complete</h2>
-        <p class="govuk-body app-!-secondary-text-colour govuk-!-margin-bottom-4">You have completed 9 of 9 sections.</p>
-      {% else %}
-      <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Registration in progress</h2>
-        {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct']%}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 8 of 9 sections.</p>
-        {% elif data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['management-plan-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 5 of 9 sections.</p>
-        {% elif data['landowner-certificate-correct'] and  data['location-confirm'] %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 2 of 9 sections.</p>
-        {% else %}
-          <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 9 sections.</p>
-        {% endif %} 
-      {% endif %} 
+
+      <!-- UPDATED in 19: Task progress status is controlled by jquery at the bottom of the page -->
+      <h2 class="govuk-heading-s govuk-!-margin-bottom-2"><span class="task-progress-status-text">Registration in progress</span></h2>
+      <p class="govuk-body app-!-secondary-text-colour govuk-!-margin-bottom-4">You have completed <span class="task-progress-completed">0</span> of <span class="task-progress-to-complete-total">7</span> sections.</p>
+
 
       <ol class="app-task-list govuk-!-padding-top-3">
         <li>
@@ -36,7 +25,7 @@
           </h2>
           <ul class="app-task-list__items">
 
-            <li class="app-task-list__item">
+            <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 {% if data['landowner-certificate-correct'] %}
                   <a href="/register-application/{{ pageURL }}/landowner-certificate-check" aria-describedby="landowner-status">
@@ -47,13 +36,13 @@
                   </a>
               </span>
               {% if data['landowner-certificate-correct'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-information-status">Completed</strong>
+                <strong class="govuk-tag completed app-task-list__tag" id="habitat-information-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
               {% endif %} 
             </li>
 
-            <li class="app-task-list__item">
+            <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 {% if data['location-confirm'] %}
                   <a href="/register-application/{{ pageURL }}/location-confirm" aria-describedby="boundary-status">
@@ -64,7 +53,7 @@
                 </a>
               </span>
               {% if data['location-confirm'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="boundary-status">Completed</strong>
+                <strong class="govuk-tag completed app-task-list__tag" id="boundary-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="boundary-status">Not started</strong>
               {% endif %} 
@@ -74,7 +63,7 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section">
+          <h2 class="app-task-list__section task-list-required">
             Habitat information
           </h2>
           <ul class="app-task-list__items">
@@ -90,7 +79,7 @@
                 </a>
               </span>
               {% if data['habitat-checked-data'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="habitat-data-status">Completed</strong>
+                <strong class="govuk-tag completed app-task-list__tag" id="habitat-data-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-data-status">Not started</strong>
               {% endif %} 
@@ -118,7 +107,7 @@
               {% endif %} 
             </li>-->
 
-            <li class="app-task-list__item">
+            <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 {% if data['management-plan-confirm'] %}
                   <a href="/register-application/{{ pageURL }}/management-plan-confirm" aria-describedby="management-plan-status">
@@ -129,7 +118,7 @@
                 </a>
               </span>
               {% if data['management-plan-confirm'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="management-plan-status">Completed</strong>
+                <strong class="govuk-tag completed app-task-list__tag" id="management-plan-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="management-plan-status">Not started</strong>
               {% endif %} 
@@ -139,7 +128,7 @@
         </li>
 
         <li>
-          <h2 class="app-task-list__section">
+          <h2 class="app-task-list__section task-list-required">
             Legal information
           </h2>
           <ul class="app-task-list__items">
@@ -155,13 +144,13 @@
                 </a>
               </span>
               {% if data['legal-agreement-confirm'] %} 
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="legal-agreement-status">Completed</strong>
+                <strong class="govuk-tag completed app-task-list__tag" id="legal-agreement-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="legal-agreement-status">Not started</strong>
               {% endif %} 
             </li>
 
-            <li class="app-task-list__item">
+            <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                   {% if data['local-land-charge-correct'] %} 
                       <a href="/register-application/{{ pageURL }}/local-land-charge-check" aria-describedby="local-land-charge-status">
@@ -172,20 +161,20 @@
                     </a>
                   </span>
                   {% if data['local-land-charge-correct'] %} 
-                    <strong class="govuk-tag govuk-tag app-task-list__tag" id="local-land-charge-status">Completed</strong>
+                    <strong class="govuk-tag completed app-task-list__tag" id="local-land-charge-status">Completed</strong>
                   {% else %}
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="local-land-charge-status">Not started</strong>
                   {% endif %}
             </li>
 
-            <li class="app-task-list__item">
+            <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 <a href="/register-application/{{ pageURL }}/landowner-consent" aria-describedby="landowner-consent-status">
                   Consent to register the biodiversity gain site
                 </a>
               </span>
               {% if data['landowner-consent'] %}
-                <strong class="govuk-tag govuk-tag app-task-list__tag" id="landowner-consent-status">Completed</strong>
+                <strong class="govuk-tag completed app-task-list__tag" id="landowner-consent-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="landowner-consent-status">Not started</strong>
               {% endif %} 
@@ -229,4 +218,20 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+window.addEventListener('load', function() {
+  
+  let tasks = $('.task-list-required').length;
+  let tasksCompleted = $('.completed').length;
+  $('.task-progress-to-complete-total').text(tasks);
+  $('.task-progress-completed').text(tasksCompleted);
+  if (tasks == tasksCompleted){
+    $('.task-progress-status-text').text("Registration complete")
+  }
+
+});
+</script>
 {% endblock %}
