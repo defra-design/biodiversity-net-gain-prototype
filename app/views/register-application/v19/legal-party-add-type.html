@@ -1,5 +1,5 @@
 {% extends "register-application/v19/layout-register-application.html" %}
-{% set pageHeading = "Is the legal party an individual or organisiaiton?" %}
+{% set pageHeading = "Is the legal party an individual or organisation?" %}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -16,12 +16,12 @@
       },
       items: [
       {
-      value: "organisation~./legal-party-add-organisation",
-      text: "An organsiation"
-      },
-      {
       value: "individual~./legal-party-add-individual",
       text: "An individual"
+      },
+      {
+      value: "organisation~./legal-party-add-organisation",
+      text: "An organisation"
       }
       ]
       }) }}
