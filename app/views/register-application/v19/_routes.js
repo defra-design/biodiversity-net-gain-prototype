@@ -193,10 +193,11 @@ router.post('/legal-party-more-answer', function (req, res) {
   var install = req.session.data['legal-party-more']
 
   if (install == "yes"){
-    res.redirect('/register-application/v19/legal-party-add-type')
-  } else {
     // Changed in V19 to remove start date and add end date
     res.redirect('/register-application/v19/legal-agreement-date-end')
+  } else {
+    
+    res.redirect('/register-application/v19/legal-party-add-type')
   }
 })
 
