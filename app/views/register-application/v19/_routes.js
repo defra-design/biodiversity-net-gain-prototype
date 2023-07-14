@@ -183,7 +183,7 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v19/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v19/legal-party-add')
+    res.redirect('/register-application/v19/legal-party-add-start')
   }
 })
 
@@ -193,7 +193,7 @@ router.post('/legal-party-more-answer', function (req, res) {
   var install = req.session.data['legal-party-more']
 
   if (install == "yes"){
-    res.redirect('/register-application/v19/legal-party-add')
+    res.redirect('/register-application/v19/legal-party-add-type')
   } else {
     res.redirect('/register-application/v19/legal-agreement-date-start')
   }
@@ -204,6 +204,25 @@ router.post('/legal-party-add', function (req, res) {
   req.session.data.legalParties.push(req.body);
   res.redirect('/register-application/v19/legal-party-list')
 })
+// Local land charge check
+router.post('/legal-party-add-organisation', function (req, res) {
+  if(req.query.change=="yes"){
+      req.session.data.legalParties[req.query.id] = req.body
+  }else{
+     req.session.data.legalParties.push(req.body);
+  }
+ 
+  res.redirect('/register-application/v19/legal-party-list')
+})
+// Local land charge check
+router.post('/legal-party-add-individual', function (req, res) {
+  if(req.query.change=="yes"){
+      req.session.data.legalParties[req.query.id] = req.body
+  }else{
+     req.session.data.legalParties.push(req.body);
+  }
+  res.redirect('/register-application/v19/legal-party-list')
+})
 
 
 router.post('/legal-party-remove', function (req, res) {
@@ -212,6 +231,9 @@ router.post('/legal-party-remove', function (req, res) {
 
   if (install == "yes"){
     req.session.data.legalParties.splice(req.query.id, 1);
+  }
+  if(req.session.data.legalParties.length == 0 ){
+     res.redirect('/register-application/v19/legal-party-add-start')
   }
   res.redirect('/register-application/v19/legal-party-list')
 })

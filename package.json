@@ -51,6 +51,7 @@
     "ol-hashed": "^2.1.0",
     "ol-mapbox-style": "^6.4.2",
     "portscanner": "^2.1.1",
+    "radio-button-redirect": "^1.2.0",
     "require-dir": "^1.0.0",
     "sync-request": "^6.0.0",
     "universal-analytics": "^0.4.16",

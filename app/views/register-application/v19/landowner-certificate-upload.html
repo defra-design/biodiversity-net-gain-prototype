@@ -31,7 +31,9 @@
         <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/landowner-certificate-no">I do not have proof of land ownership</a></p>
 
         {{ govukButton({
-          text: "Upload"
+          text: "Upload",
+          classes: "js-updload-button",
+          attributes: {"aria-live":"polite"}
         }) }}
         
       </form>
@@ -39,4 +41,33 @@
     </div>
   </div>
 
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+window.addEventListener('load', function() {
+  var timer;
+  timeTaken=0;
+  maxUploadTime = 3
+  let uploadButton = $(".js-updload-button")
+  function uploading (){
+        timeTaken+=1
+        console.log("uploading");
+        if(timeTaken == 3){
+          timeTaken=0
+          clearInterval(timer);
+          $("form").submit()
+        }
+  }
+
+  uploadButton.on("click", function(e){
+    e.preventDefault()
+    $(this).attr("disabled","disabled").addClass("govuk-button--disabled").attr("aria-disabled","true").text("Uploading")
+    timer = setInterval(uploading, 1000);
+  })
+
+
+
+});
+</script>
 {% endblock %}

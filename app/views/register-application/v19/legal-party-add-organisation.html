@@ -1,6 +1,11 @@
-{% extends "register-application/v19/layout-register-application.html" %}
+{% extends "register-application/v18/layout-register-application.html" %}
 
-{% set pageHeading = "Add a party listed on the planning obligation (S106 agreement)" %}
+{% set addChangeText = "Add" %}
+{% if query.change=="yes" %}
+{% set addChangeText = "Update" %}
+{% endif %}
+
+{% set pageHeading = addChangeText + " a party listed on the planning obligation (S106 agreement)" %}
 
 {% block content %}
 
@@ -8,8 +13,8 @@
     <div class="govuk-grid-column-two-thirds">
       
       <!-- action controled in ./_routes.js -->
-      <form method="post">
-        
+      <form method="post" >
+         <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">
         {% call govukFieldset({
           legend: {
             text: pageHeading,
@@ -17,12 +22,19 @@
             isPageHeading: true
           }
         }) %}
+
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fullname = data.legalParties[query.id or 0]["legal-party-name"] %}
+       
+        {% endif %}
     
         {{ govukInput({
           id: 'legal-party-name',
           name: 'legal-party-name',
+          value: fullname,
           label: {
-            html: 'Full name or organisation'
+            html: 'Organisation name'
           }
         }) }}
 
@@ -38,6 +50,11 @@
         }) }}
         {% endset -%}
 
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set radioValue = data.legalParties[query.id or 0]["legal-party-role"] %}
+        {% endif %}
+
         {{ govukRadios({
           name: "legal-party-role",
           fieldset: {
@@ -45,6 +62,7 @@
               text: "Role"
             }
           },
+          value: radioValue,
           hint: {
             text: "Select one option."
           },
@@ -74,7 +92,7 @@
         {% endcall %}
 
         {{ govukButton({
-          text: "Add legal party"
+          text: addChangeText +" legal party"
         }) }}
         
       </form>

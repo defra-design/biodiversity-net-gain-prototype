@@ -1,0 +1,103 @@
+
+{% extends "layout.html" %}
+
+{% set pageURL = "v18" %}
+{% set pageHeading = "Beta sprint 34" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">{{ serviceName }}</span>
+         {{ pageHeading }}
+      </h1>
+    </div>
+
+    <div class="govuk-grid-column-full">
+
+      
+
+
+      
+      <table class="govuk-table" >
+        <caption class="govuk-visually-hidden">Designs and features</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col"> Area </th>
+            <th class="govuk-table__header" scope="col"> Details </th>
+            <th class="govuk-table__header" scope="col"> Jira stories </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              1. Add legal parties
+            </td>
+            <td class="govuk-table__cell">
+              <ol class="govuk-list govuk-list--number">
+                <li><a href="/register-application/v19/legal-party-add-start">Added a starting page</a> to ground user into an add to list</li>
+                <li>Added an <a href="/register-application/v19/legal-party-add-individual?change=yes&id=0">update state</a> to the add legal party page</li>
+                <li>Protoype now Dynamically adds names to the prototype</li>
+                <li>Linked with (2)</li>
+              </ol>
+           
+            </td>
+            <td class="govuk-table__cell" width="10%">
+              Not added
+            </td>
+          
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" width="30%">
+              2. Legal parties name split into 3 seperate fields <br>
+              
+            </td>
+            <td class="govuk-table__cell">
+
+              <ol class="govuk-list govuk-list--number">
+                <li>  Added new page to <a href="/register-application/v19/legal-party-add-type">route between an individual and an organisation</a></li>
+                <li>Added an new version of legal party page to add an indiviual with 3 seperate name fields <a href="/register-application/v19/legal-party-add-individual">update state</a> to the add legal party page</li>
+              </ol>
+           
+            </td>
+            <td class="govuk-table__cell">
+              <a href="https://eaflood.atlassian.net/browse/BNGP-3104">BNGP-3104</a>
+            </td>
+          
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" width="30%">
+              2. Legal parties name split into 3 seperate fields <br>
+              
+            </td>
+            <td class="govuk-table__cell">
+
+              <p>Accessiblity:  uploading can take more than 10seconds, users are not aware that the file is uploading and can reclick the upload button. Simple fix to disable button and add "uploading" text, which is anounced to screen readers Example. <a href="/register-application/v19/landowner-certificate-upload">Upload proof of land ownership</a></p>
+              <p>Might want to look at a version similar to uploding passport images</p>
+                
+           
+            </td>
+            <td class="govuk-table__cell">
+              <a href="https://eaflood.atlassian.net/browse/BNGP-3104">BNGP-3104</a>
+            </td>
+          
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="govuk-heading-m govuk-!-padding-top-4">Design history</h2>
+      <p class="govuk-body">We capture <a href="https://trello.com/invite/b/lquntzdH/ATTI3dc200155fe0cfa50636f85035d83a01A1A55EEB/bng-landowner-journey-research-and-design" class="govuk-link">our design thinking and research findings in Trello</a>.</p>
+
+    </div>
+
+  </div>
+
+{% endblock %}

@@ -413,15 +413,32 @@
           </dd>
         </div>
 
-        {% if data['legal-agreement'] == "Planning obligation (section 106 agreement)" %}
+        {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Parties involved
             </dt>
             <dd class="govuk-summary-list__value">
-              <ul class="govuk-list">
-                <li>Kevin Francis (Owner)</li>
-                <li>Bellway Plc (Developer)</li>
+              <ul class="govuk-list"> 
+              {% for lp in data.legalParties %}
+              <li>
+              {% set name = lp['legal-party-name'] %}
+                  {% if lp["legal-party-type"] == "individual" %}
+
+                    {% set name = lp['legal-party-f-name']+" "%}
+
+                    {% if lp["legal-party-m-name"]+" " %}
+                      {% set name = name+lp['legal-party-m-name']+" "%}
+
+                    {% endif %}
+
+                    {% set name = name+lp['legal-party-l-name']%}
+
+
+                  {% endif %}
+                  {{name}} ({{lp['legal-party-role']}})
+                  </li>
+                  {% endfor%}
               </ul>
             </dd>
             <dd class="govuk-summary-list__actions">

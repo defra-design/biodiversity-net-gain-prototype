@@ -9,6 +9,8 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
         
+      
+        
         <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
           <!-- Check if legalParties has been added to -->
@@ -16,12 +18,28 @@
             {% for lp in data.legalParties %}
             <div class="govuk-summary-list__row">
                 <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
-                  {{lp['legal-party-name']}} ({{lp['legal-party-role']}})
+                  <!-- set name based on the type of legal party, defualt is organistion name -->
+
+                  {% set name = lp['legal-party-name'] %}
+                  {% if lp["legal-party-type"] == "individual" %}
+
+                    {% set name = lp['legal-party-f-name']+" "%}
+
+                    {% if lp["legal-party-m-name"]+" " %}
+                      {% set name = name+lp['legal-party-m-name']+" "%}
+
+                    {% endif %}
+
+                    {% set name = name+lp['legal-party-l-name']%}
+
+
+                  {% endif %}
+                  {{name}} ({{lp['legal-party-role']}})
                 </dt>
                 <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-add?change=yes&id={{loop.index0}}"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{lp['legal-party-name']}}</span></a></li>
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{lp['legal-party-name']}} from the list</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-add-{{lp['legal-party-type']}}?change=yes&id={{loop.index0}}"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{name}}</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{name}} from the list</span></a></li>
                   </ul>
                 </dd>
               </div>
