@@ -467,19 +467,7 @@
         {% endif %}
 
         <!-- Start date removed in version 19 -->
-        <!-- <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Start date
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['legal-agreement-date-start-day'] or '15' }} {{ data['legal-agreement-date-start-month'] | monthToWordWithSpaces('March') }} {{ data['legal-agreement-date-start-year'] or '2022' }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-start">
-              Change<span class="govuk-visually-hidden"> start date</span>
-            </a>
-          </dd>
-        </div> -->
+        
 
         <!-- End date added in v19 -->
         <div class="govuk-summary-list__row">
@@ -491,7 +479,7 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-date-end">
-              Change<span class="govuk-visually-hidden"> start date</span>
+              Change<span class="govuk-visually-hidden"> end date</span>
             </a>
           </dd>
         </div>
