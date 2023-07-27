@@ -1,6 +1,6 @@
 {% extends "register-application/v19/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your signed consent from the landowner to register their land" %}
+{% set pageHeading = "Upload written consent from the landowner to register their land" %}
 
 {% block content %}
 
@@ -13,16 +13,29 @@
       
       <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-check">
 
+        <div id="landowner-certificate-upload-hint">
+          <p>This needs to include:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a written statement confirming the landowner's consent for you to act on their behalf</li>
+            <li>the landowner's name and signature</li>
+            <li>the date consent was given</li>
+          </ul>
+
+          <p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a DOC, DOCX or PDF</li>
+            <li>no larger than 50MB</li>
+          </ul>
+        </div>  
+
         {{ govukFileUpload({
           id: "landowner-permission-upload",
           name: "landowner-permission-upload",
           label: {
             text: "Upload a file",
             classes:"govuk-visually-hidden"
-          },
-          hint: {
-            text: "PDF, max size 50MB"
           }
+          
         }) }}
 
         {{ govukButton({
@@ -30,10 +43,6 @@
         }) }}
         
       </form>
-
-      <p>Or</p> 
-      
-      <p>If you are the landowner of the off-site, you can <a href="/register-application/{{ pageURL }}/land-registry-search">skip this task</a>.</p>
 
     </div>
   </div>
