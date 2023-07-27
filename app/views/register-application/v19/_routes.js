@@ -452,9 +452,23 @@ router.post('/landowner-consent-answer', function (req, res) {
   if (install == "Yes, is landowner or leaseholder"){
     res.redirect('/register-application/v19/task-list')
   } else {
-    res.redirect('/register-application/v19/landowner-details')
+    res.redirect('/register-application/v19/landowner-permission-upload')
   }
 })
+
+// Landowner consent KP 27/07
+router.post('/landowner-permission-check-answer', function (req, res) {
+
+  var install = req.session.data['landowner-permission-correct']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v19/task-list')
+  } else {
+    res.redirect('/register-application/v19/landowner-permission-upload') 
+  }
+})
+
+
 
 // Routing register
 router.post('/routing-register-answer', function (req, res) {

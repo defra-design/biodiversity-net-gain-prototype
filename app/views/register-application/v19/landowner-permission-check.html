@@ -26,11 +26,14 @@
         ]
       }) }}
 
-      {% if data['land-registry'] == 'yes' %}
+      <!-- {% if data['land-registry'] == 'yes' %}
         <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
       {% else %}
         <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
-      {% endif %}
+      {% endif %} -->
+
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-check-answer">
+      
 
         {{ govukRadios({
           idPrefix: "landowner-permission-correct",
