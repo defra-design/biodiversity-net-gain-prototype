@@ -384,7 +384,7 @@ router.post('/landowner-certificate-answer', function (req, res) {
   }
 })
 
-// Landowner certificate check
+// Landowner certificate check KP
 router.post('/landowner-certificate-correct-answer', function (req, res) {
 
   var install = req.session.data['landowner-certificate-correct']
@@ -392,7 +392,32 @@ router.post('/landowner-certificate-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v19/landowner-certificate-upload')
   } else {
+    res.redirect('/register-application/v19/land-ownership-list')
+    
+  }
+})
+
+// Landowner certificate add more
+router.post('/land-ownership-more-answer', function (req, res) {
+
+  var install = req.session.data['land-ownership-more']
+
+  if (install == "yes"){
     res.redirect('/register-application/v19/task-list')
+  } else {
+    res.redirect('/register-application/v19/landowner-certificate-upload')
+  }
+})
+
+// Landowner certificate remove
+router.post('/land-ownership-remove-answer', function (req, res) {
+
+  var install = req.session.data['land-ownership-remove']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v19/land-ownership-list')
+  } else {
+    res.redirect('/register-application/v19/land-ownership-list')
   }
 })
 
