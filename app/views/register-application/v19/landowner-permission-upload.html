@@ -1,6 +1,6 @@
 {% extends "register-application/v19/layout-register-application.html" %}
 
-{% set pageHeading = "Upload written consent from the landowner to register their land" %}
+{% set pageHeading = "Upload written consent to register a biodiversity gain site" %}
 
 {% block content %}
 
@@ -16,8 +16,8 @@
         <div id="landowner-certificate-upload-hint">
           <p>This needs to include:</p>
           <ul class="govuk-list govuk-list--bullet">
-            <li>a written statement confirming the landowner's consent for you to act on their behalf</li>
-            <li>the landowner's name and signature</li>
+            <li>a written statement confirming the landowner or leaseholder's consent for you to act on their behalf</li>
+            <li>the landowner or leaseholder's name and signature</li>
             <li>the date consent was given</li>
           </ul>
 
@@ -37,7 +37,7 @@
           }
           
         }) }}
-        <p class="govuk-!-padding-top-3"><a href="#">I do not have proof of land ownership</a></p>
+        <p class="govuk-!-padding-top-3"><a href="#">I do not have written consent</a></p>
 
         {{ govukButton({
           text: "Upload"
