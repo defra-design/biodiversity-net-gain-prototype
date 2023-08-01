@@ -18,23 +18,7 @@
       {{ govukSummaryList({
         rows: [
           {
-            key: {
-              text: "File type"
-            },
-            value: {
-              text: data['location-options'] or 'xx'
-            },
-            actions: {
-              items: [
-                {
-                  href: "/register-application/" + pageURL + "/location-options",
-                  text: "Change",
-                  visuallyHiddenText: "Land boundary option"
-                }
-              ]
-            }
-          },
-          {
+            
             key: {
               text: "File uploaded"
             },
