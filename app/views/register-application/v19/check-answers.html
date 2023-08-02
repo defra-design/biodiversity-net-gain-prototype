@@ -142,23 +142,7 @@
         {{ govukSummaryList({
           classes: 'govuk-!-margin-bottom-7',
           rows: [
-            {
-              key: {
-                text: "File type"
-              },
-              value: {
-                text: data['location-options'] or 'Geospatial data file'
-              },
-              actions: {
-                items: [
-                  {
-                    href: "/register-application/" + pageURL + "/location-options",
-                    text: "Change",
-                    visuallyHiddenText: "Land boundary option"
-                  }
-                ]
-              }
-            },{
+          {
               key: {
                 text: "File uploaded"
               },
@@ -599,3 +583,22 @@
 {% block pageScripts %}
   <script type="module" src="/public/javascripts/map.min.js"></script>
 {% endblock %}
+
+
+            <!-- {
+              key: {
+                text: "File type"
+              },
+              value: {
+                text: data['location-options'] or 'Geospatial data file'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-options",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary option"
+                  }
+                ]
+              }
+            }, -->
