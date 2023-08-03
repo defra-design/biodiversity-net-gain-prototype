@@ -16,11 +16,11 @@
 <ul class="govuk-list govuk-list--bullet">
   <li>the title deeds or lease agreement to prove ownership</li>
   <li>consent from the landowner or leaseholder if you do not have proof of ownership</li>
-  <li>a map showing the land boundary</li>
+  <li>a document showing the land boundary</li>
   <li>a completed <a href="#">Biodiversity Metric 4.0</a></li>
   <li>a habitat management and monitoring plan</li>
-  <li>a planning obligation (Section 106) or conservation covenant that secures the site for at least 30 years</li>
-  <li>a local land charge certificate</li>
+  <li>a <a href="https://www.gov.uk/guidance/planning-obligations">planning obligation (Section 106)</a> or <a href="https://www.gov.uk/guidance/getting-and-using-a-conservation-covenant-agreement">conservation covenant</a> that secures the site for at least 30 years</li>
+  <li>a <a href="https://www.gov.uk/search-local-land-chargeslocal">local land charge search certificate</a></li>
 </ul>
 
 <h3 class="govuk-heading-m">Registration fees</h3>
@@ -39,6 +39,7 @@
   <li>the land you told us about has been registered or rejected as a biodiversity gain site</li>
   <li>we need more information from you</li>
 </ul>
+
 {% set action = data.redirect or './sign-in' %}
 <!-- <form action="{{action}}" method="post" novalidate>
   <input type="hidden" name="register-journey" value="true"> -->
@@ -48,6 +49,16 @@
     isStartButton: true
   }) }}
 <!-- </form> -->
+
+<h3 class="govuk-heading-m">Why your application could be rejected</h3>
+
+<p>The land you tell us about could be rejected as a biodiversity gain site if:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>it's already registered under the same legal agreement</li>
+  <li>you do not pay the fee within 28 days of making an application</li>
+  <li>you do not provide any additional information we ask for after making an application</li>
+</ul>
 
 <h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
 <p>You can save your information and come back to it at any time.</p>
