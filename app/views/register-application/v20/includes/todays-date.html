@@ -1,0 +1,20 @@
+<script>
+  //Get today's date using the JavaScript Date object.
+  var ourDate = new Date();
+
+  //Change it so that it is 7 days in the past.
+  var pastDate = ourDate.getDate();
+  ourDate.setDate(pastDate);
+
+  var dd = String(ourDate.getDate()).padStart(2, '0');
+  var mm = String(ourDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = ourDate.getFullYear();
+
+  var mnth = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  var mmm = mnth[ourDate.getMonth()];
+
+  nextWeek = dd + ' ' + mmm + ' ' + yyyy;
+  document.write(nextWeek);
+
+</script>

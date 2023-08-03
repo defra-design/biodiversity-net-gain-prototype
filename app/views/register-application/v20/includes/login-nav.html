@@ -1,0 +1,23 @@
+{% if hideLogin %}
+{% else %}
+
+  <div id="profile" class="login-nav">
+    <!--<span class="login-nav__org-name"><strong>Imaginary Farm Ltd</strong></span>-->
+    <ul class="login-nav__list">
+      <li class="login-nav__list-item">Jo Smith |</li>
+      {% if showAccount %}
+        <li class="login-nav__list-item"><a id="link-manage-account" href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Manage account</a> |</li>
+      {% else %}
+        <li class="login-nav__list-item">
+          {% if data['register-journey'] == 'true' %}
+          <a id="link-manage-account" href="/register-application/{{ pageURL }}/dashboard-register" class="govuk-link login-nav__link govuk-link--no-visited-state">Dashboard</a>
+          {% else %}
+          <a id="link-manage-account" href="/register-application/{{ pageURL }}/dashboard-record" class="govuk-link login-nav__link govuk-link--no-visited-state">Dashboard</a>
+          {% endif %}
+           |</li>
+      {% endif %}
+      <li class="login-nav__list-item"><a id="link-sign-out" href="/register-application/{{ pageURL }}/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+    </ul>
+  </div>
+
+{% endif %}

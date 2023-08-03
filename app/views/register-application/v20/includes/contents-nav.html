@@ -1,0 +1,61 @@
+
+
+<a class="gem-c-skip-link govuk-skip-link govuk-!-display-none-print" data-module="govuk-skip-link" href="#guide-contents">Skip to contents of guide</a>
+<aside class="part-navigation-container" role="complementary">
+  <nav class="gem-c-contents-list govuk-!-padding-top-0" aria-label="Pages in this guide" role="navigation" data-module="gem-track-click">
+    <h2 class="gem-c-contents-list__title">
+      Contents
+    </h2>
+    <ol class="gem-c-contents-list__list">
+
+      {% if pageHeading == pageHeadingOne %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingOne }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start">
+            {{ pageHeadingOne }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingTwo %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingTwo }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start-gain-site">
+            {{ pageHeadingTwo }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingThree %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingThree }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start-allocate">
+            {{ pageHeadingThree }}
+          </a>
+        </li>
+      {% endif %}
+
+      {% if pageHeading == pageHeadingFour %}
+      <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed gem-c-contents-list__list-item--active" aria-current="true">
+        {{ pageHeadingFour }}
+      </li>
+      {% else %}
+        <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
+          <a class="gem-c-contents-list__link govuk-link" href="/register-application/{{ pageURL }}/start-public-register">
+            {{ pageHeadingFour }}
+          </a>
+        </li>
+      {% endif %}
+
+    </ol>
+  </nav>
+</aside>

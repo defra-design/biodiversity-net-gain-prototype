@@ -1,0 +1,74 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Development projects" %}
+
+{% set hideSaveSection = true %}
+{% set showAccount = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      {{ pageHeading }}
+    </h1>
+
+      <form action="/register-application/v19/allocation-gain-site" method="post" novalidate>
+        <input type="hidden" name="register-journey" value="false">
+        <button class="govuk-button" data-module="govuk-button">
+          Add a development project
+        </button>
+      </form>
+
+      {% if data['allocation-metric-correct'] == 'yes' %} 
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Project name</th>
+            <th scope="col" class="govuk-table__header">Planning authority</th>
+            <th scope="col" class="govuk-table__header">Planning reference</th>
+            <th scope="col" class="govuk-table__header">Last updated</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">
+              <span class="govuk-visually-hidden">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {% if data['development-added'] == 'true' %}
+              <a href="/register-application/v19/dashboard-record-view">Farifax Housing Project</a>
+              {% else %}
+                <a href="/register-application/v19/allocation-check-answers">Farifax Housing Project</a>
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">
+              Bradford City Council
+            </td>
+            <td class="govuk-table__cell">
+              22/01976/RJL
+            </td>
+            <td class="govuk-table__cell">
+              {% include "register-application/v19/includes/todays-date.html" %}
+            </td>
+            <td class="govuk-table__cell">
+              {% if data['development-added'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey">IN PROGRESS</strong>
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {% else %}
+      {% endif %}
+      
+        
+    </div>
+</div>
+
+{% endblock %}

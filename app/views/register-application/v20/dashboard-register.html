@@ -1,0 +1,92 @@
+{% extends "register-application/v19/layout-register-application.html" %}
+
+{% set pageHeading = "Your registrations" %}
+
+{% set hideSaveSection = true %}
+{% set showAccount = true %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      {{ pageHeading }}
+    </h1>
+
+    {% if data['development-added'] == 'true' and data['allocation-approved'] != 'true' %}
+    <div class="govuk-inset-text inset-dashboard dashpanel">
+      <h3 class="govuk-heading-m">Tasks:</h3>
+      <ul class="govuk-list govuk-list--spaced">
+        <li>
+          <span class="govuk-body-s">
+            {% include "register-application/v19/includes/todays-date.html" %}
+          </span> 
+          <span class="govuk-caption-m">Action</span> 
+          <a href="/register-application/v19/allocation-approval">Approve development project habitat allocation</a>
+        </li>
+        <!--<li>
+          <span class="govuk-body-s">04 Jun 2023</span> 
+          <span class="govuk-caption-m">Action</span> 
+          <a href="#">Add monitoring report for gain site BGS-260523087</a>
+        </li>
+        <li class="govuk-!-margin-top-6">
+            <a href="#"><strong>View all tasks</strong></a>
+        </li>-->
+      </ul>
+    </div>
+  {% else %}
+  {% endif %}
+
+      <form action="/register-application/v19/task-list" method="post" novalidate>
+        <input type="hidden" name="new-register-journey" value="true">
+        <input type="hidden" name="register-journey" value="true">
+        <button class="govuk-button" data-module="govuk-button">
+          Register a new biodiversity gain site
+        </button>
+      </form>
+
+
+      {% if data['new-register-journey'] == 'true' %} 
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Registration reference</th>
+            <th scope="col" class="govuk-table__header">Last updated on</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">
+              <span class="govuk-visually-hidden">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              {% if data['answers-checked'] == 'true' %}
+                <a href="/register-application/v19/dashboard-register-view">BGS-150322001</a>
+              {% else %}
+                <a href="/register-application/v19/task-list">BGS-150322001</a>
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">
+              {% include "register-application/v19/includes/todays-date.html" %}
+            </td>
+            <td class="govuk-table__cell">
+              {% if data['answers-checked'] == 'true' %}
+                <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
+              {% else %}
+                <strong class="govuk-tag govuk-tag--grey">IN PROGRESS</strong>
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      {% else %}
+      {% endif %} 
+      
+        
+    </div>
+</div>
+
+{% endblock %}
