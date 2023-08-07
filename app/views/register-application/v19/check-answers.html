@@ -22,7 +22,7 @@
             Proof of land ownership file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['landowner-certificate-upload'] or 'ownership-certificate.pdf' }}
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate-00.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
@@ -30,6 +30,33 @@
             </a>
           </dd>
         </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Proof of land ownership file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate-01.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Proof of land ownership file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate-02.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
+            </a>
+          </dd>
+        </div>
+
       </dl>
 
       <h2 class="govuk-heading-l">Biodiversity gain site boundary</h2>
@@ -115,23 +142,7 @@
         {{ govukSummaryList({
           classes: 'govuk-!-margin-bottom-7',
           rows: [
-            {
-              key: {
-                text: "File type"
-              },
-              value: {
-                text: data['location-options'] or 'Geospatial data file'
-              },
-              actions: {
-                items: [
-                  {
-                    href: "/register-application/" + pageURL + "/location-options",
-                    text: "Change",
-                    visuallyHiddenText: "Land boundary option"
-                  }
-                ]
-              }
-            },{
+          {
               key: {
                 text: "File uploaded"
               },
@@ -511,11 +522,36 @@
             </a>
           </dd>
         </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner written consent file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            landowner-consent.pdf
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-permission-upload">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
+            </a>
+          </dd>
+        </div>
       </dl>
 
       <h2 class="govuk-heading-l">Submit your biodiversity gain site information</h2>
 
-      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
+      <p class="govuk-body">By submitting your information you confirm that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>it is true, to the best of your knowledge and belief</li>
+        <li>you have got, or will get, all consents, licences or other permissions needed to carry out the enhancement works</li>
+      </ul>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You may have to pay a fine if you have given false information.
+        </strong>
+      </div>
 
       <form action="/register-application/{{ pageURL }}/payment" method="post" novalidate>
 
@@ -535,3 +571,22 @@
 {% block pageScripts %}
   <script type="module" src="/public/javascripts/map.min.js"></script>
 {% endblock %}
+
+
+            <!-- {
+              key: {
+                text: "File type"
+              },
+              value: {
+                text: data['location-options'] or 'Geospatial data file'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-options",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary option"
+                  }
+                ]
+              }
+            }, -->

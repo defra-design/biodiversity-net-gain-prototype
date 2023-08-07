@@ -1,6 +1,6 @@
 {% extends "register-application/v19/layout-register-application.html" %}
 
-{% set pageHeading = "Check your file" %}
+{% set pageHeading = "Check the written consent file" %}
 
 {% block content %}
 
@@ -26,18 +26,21 @@
         ]
       }) }}
 
-      {% if data['land-registry'] == 'yes' %}
+      <!-- {% if data['land-registry'] == 'yes' %}
         <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
       {% else %}
         <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
-      {% endif %}
+      {% endif %} -->
+
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-check-answer">
+      
 
         {{ govukRadios({
           idPrefix: "landowner-permission-correct",
           name: "landowner-permission-correct",
           fieldset: {
             legend: {
-              text: "Is this file correct?",
+              text: "Is this the correct file?",
               classes: "govuk-fieldset__legend--m"
             }
           },

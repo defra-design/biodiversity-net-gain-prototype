@@ -384,7 +384,7 @@ router.post('/landowner-certificate-answer', function (req, res) {
   }
 })
 
-// Landowner certificate check
+// Landowner certificate check KP
 router.post('/landowner-certificate-correct-answer', function (req, res) {
 
   var install = req.session.data['landowner-certificate-correct']
@@ -392,7 +392,32 @@ router.post('/landowner-certificate-correct-answer', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v19/landowner-certificate-upload')
   } else {
+    res.redirect('/register-application/v19/land-ownership-list')
+    
+  }
+})
+
+// Landowner certificate add more
+router.post('/land-ownership-more-answer', function (req, res) {
+
+  var install = req.session.data['land-ownership-more']
+
+  if (install == "yes"){
     res.redirect('/register-application/v19/task-list')
+  } else {
+    res.redirect('/register-application/v19/landowner-certificate-upload')
+  }
+})
+
+// Landowner certificate remove
+router.post('/land-ownership-remove-answer', function (req, res) {
+
+  var install = req.session.data['land-ownership-remove']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v19/land-ownership-list')
+  } else {
+    res.redirect('/register-application/v19/land-ownership-list')
   }
 })
 
@@ -452,9 +477,23 @@ router.post('/landowner-consent-answer', function (req, res) {
   if (install == "Yes, is landowner or leaseholder"){
     res.redirect('/register-application/v19/task-list')
   } else {
-    res.redirect('/register-application/v19/landowner-details')
+    res.redirect('/register-application/v19/landowner-permission-upload')
   }
 })
+
+// Landowner consent KP 27/07
+router.post('/landowner-permission-check-answer', function (req, res) {
+
+  var install = req.session.data['landowner-permission-correct']
+
+  if (install == "yes"){
+    res.redirect('/register-application/v19/task-list')
+  } else {
+    res.redirect('/register-application/v19/landowner-permission-upload') 
+  }
+})
+
+
 
 // Routing register
 router.post('/routing-register-answer', function (req, res) {
