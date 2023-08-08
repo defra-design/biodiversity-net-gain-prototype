@@ -1,0 +1,42 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the Biodiversity Metric 4.0 file for the development project" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/allocation-metric-check">
+
+        <label class="govuk-label govuk-visually-hidden" for="allocation-metric-upload">
+          Upload a file
+        </label>
+
+        <div id="allocation-metric-upload-hint">
+          <p>This must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>
+          <p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>an XLSM or XLSX</li>
+            <li>no larger than 50MB</li>
+          </ul>
+        </div>
+
+        <input class="govuk-file-upload" id="allocation-metric-upload" name="allocation-metric-upload" type="file" aria-describedby="allocation-metric-upload-hint">
+
+        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/allocation-metric-no">I do not have the Biodiversity Metric 4.0 file</a></p>
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

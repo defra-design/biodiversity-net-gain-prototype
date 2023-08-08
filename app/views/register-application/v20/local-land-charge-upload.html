@@ -1,0 +1,47 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the local land charge search certificate" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/local-land-charge-check">
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="local-land-charge-upload">
+            Upload a file
+          </label>
+
+          <p>This is a certificate that shows the legal agreement has been registered with the local planning authority.</p>
+
+          <div id="local-land-charge-upload-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="local-land-charge-upload" name="local-land-charge-upload" type="file" aria-describedby="local-land-charge-upload-hint">
+        </div>
+        
+        <p><a href="/register-application/{{ pageURL }}/local-land-charge-no">I do not have a local land charge search certificate</a></p>
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+
+
+    </div>
+  </div>
+
+{% endblock %}

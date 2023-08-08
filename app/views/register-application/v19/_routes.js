@@ -387,16 +387,11 @@ router.post('/landowner-certificate-answer', function (req, res) {
 // Landowner certificate check KP
 router.post('/landowner-certificate-correct-answer', function (req, res) {
 
-
-
   var install = req.session.data['landowner-certificate-correct']
 
   if (install == "no"){
     res.redirect('/register-application/v19/landowner-certificate-upload')
   } else {
-    // add the current upload to the 
-    let file = req.session.data["landowner-certificate-upload"] || "my-landownershipfile.pdf";
-    req.session.data.landownershipFiles.push(file)
     res.redirect('/register-application/v19/land-ownership-list')
     
   }
@@ -420,15 +415,7 @@ router.post('/land-ownership-remove-answer', function (req, res) {
   var install = req.session.data['land-ownership-remove']
 
   if (install == "yes"){
-    // remove the file from the array
-    req.session.data.landownershipFiles.splice(req.query.id, 1);
-    // check if there are any files left if not return to the file upload page.
-    if(req.session.data.landownershipFiles.length == 0 ){
-      res.redirect('/register-application/v19/landowner-certificate-upload')
-    }else{
-      res.redirect('/register-application/v19/land-ownership-list')
-    }
-    
+    res.redirect('/register-application/v19/land-ownership-list')
   } else {
     res.redirect('/register-application/v19/land-ownership-list')
   }

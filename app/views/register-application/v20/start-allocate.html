@@ -1,0 +1,43 @@
+{% extends "register-application/v20/start-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v20" %}
+
+{% set previousPageName = "Register a biodiversity gain site in England" %}
+{% set previousPageURL = "/register-application/" + pageURL + "/start-gain-site" %}
+
+{% set nextPageName = "Get information about a biodiversity gain site" %}
+{% set nextPageURL = "/register-application/" + pageURL + "/start-public-register" %}
+
+{% set pageHeading = "Record off-site biodiversity gains for a development project" %}
+
+{% block guideContent %}
+
+<p>Development projects are legally required to use this service to record off-site gains. Any new development will need to meet at least a 10% biodiversity net gain.</p>
+
+<p>We will check the information you record. This is to avoid allocating the same habitat on a biodiversity gain site to multiple developers. You'll need to have written consent from the biodiversity gain site owners.</p>
+  
+<p>Local planning authorities will not discharge a BNG pre-commencement planning condition until the off-site gains have been recorded.</p>
+
+<h3 class="govuk-heading-m">What you need to record off-site biodiversity gains for a development project</h3>
+
+<p>If you're using habitat on a registered biodiversity gain site. You need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the Biodiversity Metric 4.0 file that your local planning authority reviewed with your Biodiversity Net Gain Statement</li>
+  <li>to have written consent from the biodiversity gain site owners</li>
+</ul>
+
+{{ govukButton({
+  text: "Start now",
+  href: "#",
+  isStartButton: true
+}) }}
+
+<h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saved records</h2>
+<p><a href="#">Continue with a saved record</a></p>
+
+{% endblock %} 

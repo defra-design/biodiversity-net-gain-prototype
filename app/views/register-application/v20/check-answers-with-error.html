@@ -1,4 +1,4 @@
-{% extends "register-application/v19/layout-register-application.html" %}
+{% extends "register-application/v20/layout-register-application.html" %}
 
 {% set map = true %}
 
@@ -61,7 +61,7 @@
 
       <h2 class="govuk-heading-l">Biodiversity gain site boundary</h2>
 
-      <!-- updated to remove geospacial option in v19 -->
+      <!-- updated to remove geospacial option in v20 -->
 
         {{ govukSummaryList({
           classes: 'govuk-!-margin-bottom-7',
@@ -292,7 +292,7 @@
             {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/v19/management-plan-check">
+            <a class="govuk-link" href="/register-application/v20/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
               </a>
           </dd>
@@ -306,7 +306,7 @@
             {{ data['management-plan-date-end-day'] or '15' }} {{ data['management-plan-date-end-month'] | monthToWordWithSpaces('March') }} {{ data['management-plan-date-end-year'] or '2023' }}
           </dd>
           <dd class="govuk-summary-list__actions">    
-            <a class="govuk-link" href="/register-application/v19/management-plan-date-end">
+            <a class="govuk-link" href="/register-application/v20/management-plan-date-end">
               Change<span class="govuk-visually-hidden"> Start date of the 30 year management and monitoring period</span>
             </a>
           </dd>
@@ -403,7 +403,7 @@
         <!-- Start date removed in version 19 -->
         
 
-        <!-- End date added in v19 -->
+        <!-- End date added in v20 -->
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             End date

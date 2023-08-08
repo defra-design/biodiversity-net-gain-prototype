@@ -19,34 +19,70 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Proof of land ownership
+            Proof of land ownership file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
-            <ul class="govuk-list">
-            {% for file in data.landownershipFiles %} 
-              <li>{{file}}</li>
-            {% endfor %}
-            
-          </ul>
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate-00.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/{% if data.landownershipFiles | length == 0 %}landowner-certificate-upload{% else %}land-ownership-list{% endif %}">
-              Change<span class="govuk-visually-hidden"> Proof of land ownership</span>
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
             </a>
           </dd>
         </div>
-        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Proof of land ownership file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate-01.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Proof of land ownership file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-certificate-upload'] or 'ownership-certificate-02.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-certificate-check">
+              Change<span class="govuk-visually-hidden"> Proof of land ownership file uploaded</span>
+            </a>
+          </dd>
+        </div>
 
       </dl>
 
       <h2 class="govuk-heading-l">Biodiversity gain site boundary</h2>
 
-
+      {% if data['location-options'] == 'Document or image' %}
 
       {{ govukSummaryList({
         classes: 'govuk-!-margin-bottom-7',
         rows: [
-          
+          {
+            key: {
+              text: "File type"
+            },
+            value: {
+              text: data['location-options'] or 'xx'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-options",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary option"
+                }
+              ]
+            }
+          },
           {
             key: {
               text: "File uploaded"
@@ -101,7 +137,56 @@
         ]
       }) }}
           
-      
+      {% else %}
+
+        {{ govukSummaryList({
+          classes: 'govuk-!-margin-bottom-7',
+          rows: [
+          {
+              key: {
+                text: "File uploaded"
+              },
+              value: {
+                text: data['location-import'] or 'meadow-croft-farm-land-boundary.geojson'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-import",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary file uploaded"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Boundary on a map"
+              },
+              value: {
+                html: "<div id='offsite' class='map map--location' tabindex='0'></div>"
+              }
+            },
+            {
+              key: {
+                text: "Grid reference"
+              },
+              value: {
+                text: "SP41989814"
+              }
+            },
+            {
+              key: {
+                text: "Area in hectares"
+              },
+              value: {
+                text: "4.2 ha"
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %} 
 
       <h2 class="govuk-heading-l">Biodiversity Metric 4.0 and habitat declarations</h2>
 
@@ -468,13 +553,12 @@
         </strong>
       </div>
 
-      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
-        <input type="hidden" name="payment" value="bacs">
+      <form action="/register-application/{{ pageURL }}/payment" method="post" novalidate>
+
         <input type="hidden" name="answers-checked" value="true">
-        <input type="hidden" name="register-journey" value="true">
-        <!-- // removed the option for payment in version 19 -->
+
         <button class="govuk-button" data-module="govuk-button">
-          Confirm and submit
+          Confirm and pay
         </button>
 
       </form>

@@ -1,0 +1,111 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Check development project and habitat information" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      {% if data['register-journey'] == 'true' %}
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-7">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Record the habitat being used by a development project
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['allocation'] }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+              Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
+      {% else %}
+      {% endif %}
+
+      {% if data['allocation'] == 'No' and data['register-journey'] != 'false' %}
+      {% else %}
+
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Project name
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Farifax Housing Project
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Local planning authority
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Bradford City Council
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Planning application reference
+              </dt>
+              <dd class="govuk-summary-list__value">
+                22/01976/RJL
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Habitat being used
+              </dt>
+              <dd class="govuk-summary-list__value">
+                <ul class="govuk-list app-list--border">
+                  <li>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Grassland </span>
+                    <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                    12.76 ha
+                  </li>
+                  <li>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Heathland and scrub</span>
+                    <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Mixed scrub</span>
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                    10.50 ha
+                  </li>
+                  <li>
+                    Native species rich hedgerow 
+                    <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                    0.18 km
+                  </li>
+                </ul>
+              </dd>
+            </div>
+          </dl>
+
+      <!--<a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>-->
+  
+      {% endif %}
+
+
+      {% if data['register-journey'] == 'true' %}
+        <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+        {% else %}
+        <form action="/register-application/{{ pageURL }}/additional-email-add" method="post" novalidate>
+      {% endif %}
+
+        <input type="hidden" name="linked-development" value="true">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save and continue
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

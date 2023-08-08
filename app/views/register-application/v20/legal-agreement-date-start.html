@@ -1,0 +1,38 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "What is the start date of the planning obligation (Section 106 agreement)?" %}
+{% else %}
+  {% set pageHeading = "What is the start date of the conservation covenant?" %}
+{% endif %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-date-end">
+
+        {{ govukDateInput({
+          id: "legal-agreement-date-start",
+          namePrefix: "legal-agreement-date-start",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "For example, 15 3 2022"
+          }
+        }) }}
+
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

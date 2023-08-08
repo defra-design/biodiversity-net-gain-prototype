@@ -27,16 +27,15 @@
 
             <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
-                {% if data.landownershipFiles | length == 0 %}
-                <a href="/register-application/{{ pageURL }}/landowner-certificate-upload" aria-describedby="landowner-status">
+                {% if data['landowner-certificate-correct'] %}
+                  <a href="/register-application/{{ pageURL }}/landowner-certificate-check" aria-describedby="landowner-status">
                 {% else %}
-                <a href="/register-application/{{ pageURL }}/land-ownership-list" aria-describedby="landowner-status">
-               
+                  <a href="/register-application/{{ pageURL }}/landowner-certificate-upload" aria-describedby="landowner-status">
                 {% endif %} 
                     Add land ownership details
                   </a>
               </span>
-              {% if data.landownershipFiles | length > 0 %}
+              {% if data['landowner-certificate-correct'] %}
                 <strong class="govuk-tag completed app-task-list__tag" id="habitat-information-status">Completed</strong>
               {% else %}
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="habitat-information-status">Not started</strong>
@@ -48,7 +47,7 @@
                 {% if data['location-confirm'] %}
                   <a href="/register-application/{{ pageURL }}/location-confirm" aria-describedby="boundary-status">
                   {% else %}
-                  <a href="/register-application/{{ pageURL }}/location-upload" aria-describedby="boundary-status">
+                  <a href="/register-application/{{ pageURL }}/location-options" aria-describedby="boundary-status">
                 {% endif %} 
                   Add biodiversity gain site boundary details
                 </a>

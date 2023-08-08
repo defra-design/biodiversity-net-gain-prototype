@@ -1,0 +1,54 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm habitats being used by the development project for off-site gain" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>Confirm if these details match what the development project has agreed with the landowner.</p>
+
+      {% include "register-application/v20/includes/metric-creation-habitat-large-grouped-allocation.html" %}
+
+      {% include "register-application/v20/includes/metric-creation-hedgerow-small.html" %}
+
+        {% if data['register-journey'] == 'true' %}
+          <form method="post" action="/register-application/{{ pageURL }}/allocation-habitat-answer">
+        {% else %}
+          <form method="post" action="/register-application/{{ pageURL }}/allocation-habitat-answer-record">
+        {% endif %}
+
+        {{ govukRadios({
+          idPrefix: "allocation-habitat",
+          name: "allocation-habitat",
+          fieldset: {
+            legend: {
+              text: "Are these habitat details correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

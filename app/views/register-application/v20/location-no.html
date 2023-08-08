@@ -1,0 +1,23 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "You need a file showing the boundary of the biodiversity gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You need to upload a file showing the boundary of the land that you want to register as a biodiversity gain site.</p>
+
+      <p>Your file can be a document or an image. It must not be larger than 50MB.</p>
+          
+      {% include "register-application/v20/includes/get-help.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "../../layout.html" %}
+
+{% set serviceUrl = "" %}
+{% set pageURL = "v20" %}
+{% set hideSaveSection = true %}
+{% set govukcss = true %}
+
+{% set pageHeadingOne = "How it works" %}
+{% set pageHeadingTwo = "Register a biodiversity gain site in England" %}
+{% set pageHeadingThree = "Record off-site biodiversity gains for a development project" %}
+{% set pageHeadingFour = "Get information about a biodiversity gain site" %}
+
+{% set mainClasses = "govuk-!-padding-top-0" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %} 
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: serviceName
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="guide">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+
+      <div class="gem-c-title govuk-!-margin-top-8 govuk-!-margin-bottom-8">
+        <span class="govuk-caption-xl">Guidance</span>
+        <h1 class="gem-c-title__text govuk-heading-xl">
+          {{ serviceName }}
+        </h1>
+        </br>
+        <p class="govuk-body-l">{{ serviceDescription }}</p>
+      </div>
+
+      </div>
+
+      <div class="govuk-grid-column-two-thirds" id="guide-contents">
+        <h1 class="govuk-!-margin-bottom-5 govuk-!-margin-top-5 govuk-heading-l">
+          {{ pageHeading }}
+        </h1>
+  
+
+          {% block guideContent %}
+          {% endblock %} 
+
+          <h2 class="govuk-heading-m">Contact the Biodiversity Net Gain team if you need help</h2>
+          <p>Telephone: 0190 050 8628<br>
+          Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+          <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+        
+
+        {% include "register-application/v20/includes/pagination.html" %}
+        {% include "register-application/v20/includes/print.html" %}
+        
+      </div>
+
+      {% include "register-application/v20/includes/related-content.html" %}
+
+  </div>
+
+  {% include "register-application/v20/includes/contextual-footer.html" %}
+
+</div>
+
+{% endblock %}
+
+{% block footer %}
+  {% include "includes/footer.html" %}
+{% endblock %}

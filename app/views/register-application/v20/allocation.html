@@ -1,0 +1,46 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Do you want to record off-site biodiversity gains for a development project?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/allocation-answer">
+
+        {{ govukRadios({
+          idPrefix: "allocation",
+          name: "allocation",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: "<p>You will need the Biodiversity Metric 4.0 file for the development project. It must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>"
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes, I want to record off-site biodiversity gains"
+            },
+            {
+              value: "No",
+              text: "No, the off-site biodiversity gains will be recorded later"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
