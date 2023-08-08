@@ -13,7 +13,6 @@
         {{ pageHeading }}
       </h1>
 
-      {% if data['location-options'] == 'Document or image' %}
 
       {{ govukSummaryList({
         rows: [
@@ -72,55 +71,7 @@
         ]
       }) }}
           
-      {% else %}
-
-        {{ govukSummaryList({
-          rows: [
-          {
-              key: {
-                text: "File uploaded"
-              },
-              value: {
-                text: data['location-import'] or 'meadow-croft-farm-land-boundary.geojson'
-              },
-              actions: {
-                items: [
-                  {
-                    href: "/register-application/" + pageURL + "/location-import",
-                    text: "Change",
-                    visuallyHiddenText: "Land boundary file uploaded"
-                  }
-                ]
-              }
-            },
-            {
-              key: {
-                text: "Boundary on a map"
-              },
-              value: {
-                html: "<div id='offsite' class='map map--location' tabindex='0'></div>"
-              }
-            },
-            {
-              key: {
-                text: "Grid reference"
-              },
-              value: {
-                text: "SP41989814"
-              }
-            },
-            {
-              key: {
-                text: "Area in hectares"
-              },
-              value: {
-                text: "4.2 ha"
-              }
-            }
-          ]
-        }) }}
-
-      {% endif %} 
+      
 
       <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
 
