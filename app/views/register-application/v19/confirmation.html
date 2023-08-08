@@ -28,7 +28,7 @@
       <p>You need to pay:</p>
 
       {% if data['register-journey'] == 'true' %}
-        <p class="govuk-body-l">£658.70</p>
+        <p class="govuk-body-l">£{{data.registrationPaymentAmount or '658.70' }}</p>
       {% else %}
         <p class="govuk-body-l">£36.35</p>
       {% endif %}

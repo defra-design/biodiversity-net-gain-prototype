@@ -1,14 +1,6 @@
 {% extends "register-application/v19/layout-register-application.html" %}
 <!-- // get name from legalParties list, or defualt to static name -->
-{% set lp = data.legalParties[query.id] %}
-{% set name = lp['legal-party-name'] or "ownership-certificate-01.pdf" %}
-  {% if lp["legal-party-type"] == "individual" %}
-    {% set name = lp['legal-party-f-name']+" "%}
-    {% if lp["legal-party-m-name"]+" " %}
-      {% set name = name+lp['legal-party-m-name']+" "%}
-    {% endif %}
-    {% set name = name+lp['legal-party-l-name']%}
-  {% endif %}
+{% set name = data.landownershipFiles[query.id] or "ownership-certificate-01.pdf" %}
 
 
 {% set pageHeading = "Are you sure you want to remove "+name+" as proof of land ownership?" %}

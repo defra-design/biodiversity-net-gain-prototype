@@ -22,7 +22,9 @@ module.exports = {
 
   // Insert values here
   'legalParties': [],
+  'landownershipFiles':[],
   'site-postcode': 'LS29 6JE',
+  'registrationPaymentAmount': '658.70',
   'latestVersion': 'v19'
 
 }

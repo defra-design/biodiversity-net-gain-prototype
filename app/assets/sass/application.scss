@@ -30,6 +30,14 @@ $govuk-assets-path: '/govuk/assets/';
 @import "patterns/govuk-search";
 @import "govuk";
 
+// error design for check your answers page
+.govuk-summary-list__row-error {
+    border-left: 5px solid #d4351c;
+}
+.govuk-summary-list__row-error .govuk-summary-list__key {
+    padding-left: 10px;
+}
+
 // MOJ side nav
 .moj-side-navigation {
   padding-top: 0;
