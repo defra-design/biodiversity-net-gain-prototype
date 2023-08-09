@@ -226,6 +226,15 @@ router.post('/legal-party-add-individual', function (req, res) {
   res.redirect('/register-application/v20/legal-party-list')
 })
 
+router.get('/land-ownership-list', function(req, res) {
+  if(req.query.addSampleFiles == "yes"){
+    req.session.data.landownershipFiles.push("landownership-example.pdf")
+    req.session.data.landownershipFiles.push("my-landownership-sample.pdf")
+  }
+  res.render('register-application/v20/land-ownership-list', {
+    "query": req.query,
+  });
+})
 
 router.post('/legal-party-remove', function (req, res) {
 
