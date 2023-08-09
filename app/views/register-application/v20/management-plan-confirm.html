@@ -12,6 +12,19 @@
       </h1>
 
       <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+           Habitat management and monitoring plan is referenced in the legal agreement
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/v20/management-plan-question">
+              Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan is referenced in the legal agreement</span>
+              </a>
+          </dd>
+        </div>
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -23,6 +36,23 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/v20/management-plan-check">
               Change<span class="govuk-visually-hidden"> Habitat management and monitoring plan uploaded</span>
+              </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat enhancement works start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data['has-management-plan-habitat-date-start'] == "yes" %}
+            {{ data['management-plan-habitat-date-start'] or '15' }} {{ data['management-plan-habitat-date-start'] | monthToWordWithSpaces('March') }} {{ data['management-plan-habitat-date-start'] or '2023' }}
+            {% else %}
+            No habitat enhancement works start date
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/v20/management-plan-habitat-start-date?change=yes">
+              Change<span class="govuk-visually-hidden"> Start date of the habitat enhancement works</span>
               </a>
           </dd>
         </div>
