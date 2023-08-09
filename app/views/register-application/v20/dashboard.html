@@ -4,6 +4,8 @@
 
 {% set hideSaveSection = true %}
 {% set showAccount = true %}
+{% set disableAccount = true %}
+
 
 {% block content %}
 
@@ -20,8 +22,8 @@
       <li>01234 567890</li>
       <li>07123 456789</li>
     </ul>
-    <p class="govuk-body-s">
-      <a href="#">Edit these details</a>
+    <p class="govuk-body">
+      <a href="https://cust-id-prototype.herokuapp.com/account/update-details">Manage your Defra account</a>
     </p>
 
     {% if data['development-added'] == 'true' and data['allocation-approved'] != 'true' %}

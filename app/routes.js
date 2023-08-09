@@ -107,9 +107,9 @@ router.post('/email-address-page', function (req, res) {
 module.exports = router
 //global function to clear all data before redirecting to another page
 // use <a href="/clear-data?url=/folder/page">
-router.get('/clear-data', function(req, res) {
+router.get('*clear-data', function(req, res) {
   req.session.data = {}
-  return res.redirect(301, req.query.url);
+  return res.redirect(301, req.params[0]+req.query.url);
 })
 
 // Adding the ablity to link to the latest version of the prototype page.

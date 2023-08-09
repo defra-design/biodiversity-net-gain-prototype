@@ -29,23 +29,9 @@
       <h1 class="govuk-heading-xl">
         Sign in using Government Gateway
       </h1>
-
-      {% if data['register-journey'] == 'false' %}
-        {% if data['allocation-metric-correct'] == 'yes' %}
-          <form action="/register-application/v20/dashboard-record" method="post" novalidate>
-        {% else %}
-          <form action="/register-application/v20/allocation-gain-site" method="post" novalidate>
-        {% endif %}
-          <input type="hidden" name="register-journey" value="false">
-      {% else %}
-        {% if data['new-register-journey'] != 'yes' %}
-          <form action="/register-application/v20/dashboard-register" method="post" novalidate>
-        {% else %}
-          <form action="/register-application/v20/task-list" method="post" novalidate>
-          <input type="hidden" name="new-register-journey" value="no">
-        {% endif %}
+       <form action="/register-application/v20/dashboard" method="post" novalidate>
+      
           <input type="hidden" name="register-journey" value="true">
-      {% endif %}
       
       <div class="govuk-form-group">
         <label class="govuk-label" for="govGateUserId">

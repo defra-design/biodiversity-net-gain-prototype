@@ -1,0 +1,63 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "V20 content pages" %}
+
+
+
+{% block beforeContent %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="govuk-grid-row"> 
+  <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+Register a biodiversity gain site v20 content </h1>
+  <h2 class="govuk-heading-m">Start</h2>
+  <ul class="govuk-list govuk-list--bullet ">
+    <li><strong class="govuk-!-font-size-24"><a href="./clear-data?url=start-register">Start page (new journey)</a></strong></li>
+  </ul>
+   <h2 class="govuk-heading-m">Sign in</h2>
+   <ul class="govuk-list govuk-list--bullet ">
+    <li><a href="./sign-in?register-journey=yes&new-register-journey=yes">Sign in (new journey)</a></li>
+    <li><a href="./sign-in?register-journey=yes&new-register-journey=no&showReceivedItem=yes">Sign in (continue journey)</a></li>
+    <li><a href="./sign-in-no-start?register-journey=yes&new-register-journey=no">Sign in (existing user no known journey)</a></li>
+  </ul>
+  <h2 class="govuk-heading-m">Dashboard</h2>
+   <ul class="govuk-list govuk-list--bullet ">
+    <li><a href="./dashboard-register?register-journey=true&new-register-journey=yes">Dashboard with in progress only</a></li>
+    <li><a href="./dashboard-register?register-journey=true&new-register-journey=yes&showReceivedItem=yes">Dashboard with in progress and received</a></li>
+   </ul>
+   <h2 class="govuk-heading-m">Task list</h2>
+   <ul class="govuk-list govuk-list--bullet ">
+    <li><a href="./task-list?register-journey=yes&new-register-journey=yes">Task list</a></li>
+   </ul>
+   <h2 class="govuk-heading-m">Land information</h2>
+   <h3 class="govuk-heading-s">Add land ownership details</h3>
+   <ul class="govuk-list govuk-list--bullet ">
+    <li><a href="./landowner-certificate-upload?register-journey=yes&new-register-journey=yes">Upload proof of land ownership</a></li>
+    <li><a href="./landowner-certificate-check?register-journey=yes&new-register-journey=yes">Check the proof of land ownership file</a></li>
+    <li><a href="./land-ownership-list-add?returnURL=land-ownership-list&register-journey=yes&new-register-journey=yes">You have added {X} proof of land ownership files</a></li>
+    <li><a href="./land-ownership-list-add?returnURL=land-ownership-remove?id=0">Are you sure you want to remove {{filename}} as proof of land ownership?</a></li>
+  </ul>
+    <h3 class="govuk-heading-s">Add biodiversity gain site boundary details</h3>
+   <ul class="govuk-list govuk-list--bullet ">
+    <li><a href="./location-upload">Upload a document or image showing the biodiversity gain site boundary</a></li>
+     <li><a href="./location-upload-confirm">Check the boundary file
+</a></li>
+     <li><a href="./location-grid-reference">What is the grid reference?</a></li>
+    <li><a href="./location-grid-reference">What is the grid reference?</a></li>
+    <li><a href="./location-area">How many hectares is the land?</a></li>
+    <li><a href="./location-confirm">Check the biodiversity gain site boundary details
+?</a></li>
+
+   </ul>
+   
+
+  </div>
+
+</div>
+
+{% endblock %}

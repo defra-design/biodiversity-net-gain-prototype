@@ -5,6 +5,12 @@
     <!--<span class="login-nav__org-name"><strong>Imaginary Farm Ltd</strong></span>-->
     <ul class="login-nav__list">
       <li class="login-nav__list-item">Jo Smith |</li>
+
+        <li class="login-nav__list-item">
+          {% if not disableAccount %}
+          <a id="link-manage-account" href="dashboard" class="govuk-link login-nav__link govuk-link--no-visited-state">Manage account</a>
+          {% else %}<strong> Manage account</strong>{% endif %} |</li>
+<!-- 
       {% if showAccount %}
         <li class="login-nav__list-item"><a id="link-manage-account" href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Manage account</a> |</li>
       {% else %}
@@ -16,6 +22,7 @@
           {% endif %}
            |</li>
       {% endif %}
+       -->
       <li class="login-nav__list-item"><a id="link-sign-out" href="/register-application/{{ pageURL }}/signed-out" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
     </ul>
   </div>
