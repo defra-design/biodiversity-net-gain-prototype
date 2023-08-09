@@ -1,0 +1,47 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Is a habitat management and monitoring plan referenced in the legal agreement?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-upload">
+        {% set returnURL = query.returnURL or 'task-list' %}
+
+        {{data[has-management-plan]}}
+        {{ govukRadios({
+          idPrefix: "management-plan",
+          name: "has-management-plan",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              checked: (data['has-management-plan']=='yes'),
+              text: "Yes"
+            },
+            {
+              value: "no~./"+returnURL,
+              checked: (data['has-management-plan']=='no'),
+              text: "No"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -26,7 +26,7 @@
         ]
       }) }}
 
-      <form method="post" action="/register-application/{{ pageURL }}/management-plan-correct-answer">
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-habitat-start-date">
 
         {{ govukRadios({
           idPrefix: "management-plan-correct",
@@ -43,7 +43,7 @@
               text: "Yes"
             },
             {
-              value: "no",
+              value: "no~./management-plan-upload",
               text: "No, upload a different file"
             }
           ]

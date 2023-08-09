@@ -1,36 +1,33 @@
-
-
-
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Is there an end date on the legal agreement?" %}
+{% set pageHeading = "Has the habitat enhancement works started yet?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-confirm">
+      <form method="post" action="/register-application/{{ pageURL }}/management-plan-date-start">
 
         {% set datefield %}
-        {{ govukDateInput({
-          id: "legal-agreement-date-end",
-          namePrefix: "legal-agreement-date-end",
+{{ govukDateInput({
+          id: "management-plan-habitat-date-start",
+          namePrefix: "management-plan-habitat-date-start",
           fieldset: {
             legend: {
-              text: 'What is the end date of the legal agreement?',
+              text: 'What is the start date of the habitat enhancement works?',
               isPageHeading: true
             }
           },
           hint: {
-            text: "For example, 15 3 2052"
+            text: "For example, 15 3 2024"
           }
         }) }}
-        {% endset -%}
+{% endset -%}
 
 
 {{ govukRadios({
-  name: "has-management-plan-habitat-date-end",
+  name: "has-management-plan-habitat-date-start",
   fieldset: {
     legend: {
       text: pageHeading,
@@ -67,4 +64,3 @@
   </div>
 
 {% endblock %}
-
