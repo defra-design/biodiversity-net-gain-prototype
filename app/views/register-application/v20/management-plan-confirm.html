@@ -47,7 +47,7 @@
             {% if data['has-management-plan-habitat-date-start'] == "yes" %}
             {{ data['management-plan-habitat-date-start'] or '15' }} {{ data['management-plan-habitat-date-start'] | monthToWordWithSpaces('March') }} {{ data['management-plan-habitat-date-start'] or '2023' }}
             {% else %}
-            No habitat enhancement works start date
+            No start date
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
