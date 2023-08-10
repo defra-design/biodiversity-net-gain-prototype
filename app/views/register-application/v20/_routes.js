@@ -230,7 +230,7 @@ router.get('/land-ownership-list-add', function(req, res) {
     var page = req.query.returnURL || "land-ownership-list"
     req.session.data.landownershipFiles.push("landownership-example.pdf")
     req.session.data.landownershipFiles.push("my-landownership-sample.pdf")
-    res.redirect(page)
+    res.redirect("/"+page)
 })
 
 router.post('/legal-party-remove', function (req, res) {
