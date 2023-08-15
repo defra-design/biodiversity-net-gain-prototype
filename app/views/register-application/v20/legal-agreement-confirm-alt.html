@@ -79,54 +79,12 @@
         {% else %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Responsible body
+              Parties involved
             </dt>
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list">
-                {% for lp in data.responsibleBodies %}
-
-            <li>
-                  <!-- set name based on the type of legal party, defualt is organistion name -->
-
-                  {{lp['concov-responsible-body']}}
-                  </li>
-                  {% endfor %}
-              </ul>
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/legal-agreement-parties-concov">
-                Change<span class="govuk-visually-hidden"> parties involved</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Landowner
-            </dt>
-            <dd class="govuk-summary-list__value">
-              <ul class="govuk-list">
-                {% for lp in data.landowners %}
-
-            <li>
-                  <!-- set name based on the type of legal party, defualt is organistion name -->
-
-                  {% set name = lp['landowners-org-name'] %}
-                  {% if lp["landowner-type"] == "individual" %}
-
-                    {% set name = lp['landowner-f-name']+" "%}
-
-                    {% if lp["legal-party-m-name"]+" " %}
-                      {% set name = name+lp['landowner-m-name']+" "%}
-
-                    {% endif %}
-
-                    {% set name = name+lp['landowner-l-name']%}
-
-
-                  {% endif %}
-                  {{name}}
-                  </li>
-                  {% endfor %}
+                <li>{{ data['concov-responsible-body'] or 'Leeds City Council' }} (Responsible Body)</li>
+                <li>{{ data['concov-landowner'] or 'Kevin Francis' }} (Landowner)</li>
               </ul>
             </dd>
             <dd class="govuk-summary-list__actions">

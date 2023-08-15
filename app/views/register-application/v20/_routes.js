@@ -187,6 +187,20 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
   }
 })
 
+// Legal agreement check
+router.post('/covenent-landowner-more-answer', function (req, res) {
+
+  var install = req.session.data['covenent-landowner-more']
+
+  if (install == "no"){
+    res.redirect('/register-application/v20/legal-agreement-concov-landowner-type')
+    
+  } else {
+    res.redirect('/register-application/v20/legal-agreement-date-start')
+  }
+})
+
+
 // Legal party add
 router.post('/legal-party-more-answer', function (req, res) {
 
@@ -200,6 +214,20 @@ router.post('/legal-party-more-answer', function (req, res) {
     res.redirect('/register-application/v20/legal-party-add-type')
   }
 })
+router.post('/responsible-body-more-answer', function (req, res) {
+
+  var install = req.session.data['responsible-body-more']
+
+  if (install == "yes"){
+    // Changed in v20 to remove start date and add end date
+    res.redirect('/register-application/v20/legal-agreement-concov-landowner-start')
+  } else {
+    
+    res.redirect('/register-application/v20/legal-agreement-concov-reponsible-add')
+  }
+})
+
+
 
 // Local land charge check
 router.post('/legal-party-add', function (req, res) {
@@ -231,6 +259,64 @@ router.get('/land-ownership-list-add', function(req, res) {
     req.session.data.landownershipFiles.push("landownership-example.pdf")
     req.session.data.landownershipFiles.push("my-landownership-sample.pdf")
     res.redirect("/"+page)
+})
+
+// legal aggrement covernent add responsible body
+router.post('/legal-agreement-concov-reponsible-add', function (req, res) {
+  if(req.query.change){
+    req.session.data.responsibleBodies[req.query.id] = req.body
+  }else{
+    req.session.data.responsibleBodies.push(req.body);
+  }
+  
+  res.redirect('/register-application/v20/legal-agreement-concov-reponsible-list')
+})
+// Local land charge check
+router.post('/legal-agreement-concov-landowner-org', function (req, res) {
+  if(req.query.change=="yes"){
+      req.session.data.landowners[req.query.id] = req.body
+  }else{
+     req.session.data.landowners.push(req.body);
+  }
+ 
+  res.redirect('/register-application/v20/legal-agreement-concov-landowner-list')
+})
+// Local land charge check
+router.post('/legal-agreement-concov-landowner-individual', function (req, res) {
+  if(req.query.change=="yes"){
+      req.session.data.landowners[req.query.id] = req.body
+  }else{
+     req.session.data.landowners.push(req.body);
+  }
+  res.redirect('/register-application/v20/legal-agreement-concov-landowner-list')
+})
+router.post('/legal-agreement-concov-reponsible-remove', function (req, res) {
+
+  var install = req.session.data['reponsible-body-remove']
+
+  if (install == "yes"){
+    req.session.data.responsibleBodies.splice(req.query.id, 1);
+  }
+  if(req.session.data.responsibleBodies.length == 0 ){
+     res.redirect('/register-application/v20/legal-agreement-concov-reponsible-start')
+  }
+  res.redirect('/register-application/v20/legal-agreement-concov-reponsible-list')
+})
+
+router.post('/legal-agreement-concov-landowner-remove', function (req, res) {
+  console.log("before")
+  console.log(req.session.data.landowners)
+  var install = req.session.data['landowner-remove']
+  {{ req.session.data.landowners}}
+  if (install == "yes"){
+    req.session.data.landowners.splice(req.query.id, 1);
+  }
+  console.log("after")
+  console.log(req.session.data.landowners)
+  if(req.session.data.landowners.length == 0 ){
+     res.redirect('/register-application/v20/legal-agreement-concov-landowner-start')
+  }
+  res.redirect('/register-application/v20/legal-agreement-concov-landowner-list')
 })
 
 router.post('/legal-party-remove', function (req, res) {
@@ -266,7 +352,8 @@ router.post('/legal-agreement-correct-answer-concov', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v20/legal-agreement-upload')
   } else {
-    res.redirect('/register-application/v20/legal-agreement-parties-concov')
+    res.redirect('/register-application/v20/legal-agreement-concov-reponsible-start')
+    // res.redirect('/register-application/v20/legal-agreement-parties-concov')
   }
 })
 

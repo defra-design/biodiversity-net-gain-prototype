@@ -13,6 +13,7 @@
     </ul>
     <h2 class="govuk-heading-m">Sign in</h2>
     <ul class="govuk-list govuk-list--bullet ">
+      <li><a href="./sign-in?register-journey=yes&new-register-journey=yes&hasDefraID=no">Sign in (no Defra ID)</a></li>
       <li><a href="./sign-in?register-journey=yes&new-register-journey=yes">Sign in (new journey)</a></li>
       <li><a href="./sign-in?register-journey=yes&new-register-journey=no&showReceivedItem=yes">Sign in (continue journey)</a></li>
       <li><a href="./sign-in-no-start?register-journey=yes&new-register-journey=no">Sign in (existing user no known journey)</a></li>
@@ -24,7 +25,7 @@
     </ul>
     <h2 class="govuk-heading-m">Task list</h2>
     <ul class="govuk-list govuk-list--bullet ">
-      <li><a href="./task-list?register-journey=yes&new-register-journey=yes">Task list</a></li>
+      <li><strong class="govuk-!-font-size-24"><a href="./task-list?register-journey=yes&new-register-journey=yes">Task list</a></strong></li>
     </ul>
     <h2 class="govuk-heading-m">Land information</h2>
     <h3 class="govuk-heading-s">Add land ownership details</h3>
@@ -51,7 +52,7 @@
     <ul class="govuk-list govuk-list--bullet ">
       <li><a href="./metric-upload">Upload a document or image showing the biodiversity gain site boundary</a>
         <ul class="govuk-list govuk-list--bullet ">
-          <li><a href="./metric-no">You need a completed Biodiversity Metric 4.0</a> <span class="govuk-tag govuk-tag--yellow">Help page </span></li>
+          <li><span class="govuk-tag govuk-tag--yellow">Help page </span> <a href="./metric-no">You need a completed Biodiversity Metric 4.0</a> </li>
         </ul>
       </li>
       <li><a href="./metric-check">Check the Biodiversity Metric 4.0 file</a></li>
@@ -66,7 +67,7 @@
       <li><a href="./management-plan-upload">Upload the habitat management and monitoring plan
         </a>
         <ul class="govuk-list govuk-list--bullet ">
-          <li><a href="./management-plan-no">You need a habitat management and monitoring plan</a> <span class="govuk-tag govuk-tag--yellow">Help page </span>
+          <li><span class="govuk-tag govuk-tag--yellow">Help page </span> <a href="./management-plan-no">You need a habitat management and monitoring plan</a> 
           </li>
         </ul>
       </li>
@@ -81,11 +82,15 @@
     <h3 class="govuk-heading-s">Add legal agreement details</h3>
     <ul class="govuk-list govuk-list--bullet ">
       <li><a href="./legal-agreement">Which legal agreement do you have?</a></li>
-      <li><a href="./legal-agreement-no">You need a legal agreemen　<span class="govuk-tag govuk-tag--yellow">Help page </span></a></li>
-      <p>Conservation covenant</p>
+      <li><span class="govuk-tag govuk-tag--yellow">Help page </span> <a href="./legal-agreement-no">You need a legal agreement </a> </li>
+      <h4 class="govuk-heading">Conservation covenant</h4>
       <li><a href="./legal-agreement">Upload the conservation covenant</a></li>
       <li><a href="./legal-agreement-check">Check the conservation covenant file</a></li>
-      <li><a href="./legal-agreement-parties-concov">Add the parties listed on the conservation covenant</a></li>
+      <li><span class="govuk-tag govuk-tag--red">Removed page </span> <a href="./legal-agreement-parties-concov">Add the parties listed on the conservation covenant</a></li>
+      <li><span class="govuk-tag govuk-tag--blue">New</span> <a href="./legal-agreement-concov-reponsible-start">Add a responsible body listed on the covernent? </a></li>
+      <li><span class="govuk-tag govuk-tag--blue">New</span> <a href="./legal-agreement-concov-reponsible-list">You have added {x} responsible body(ies)</a>  </li>
+      <li><span class="govuk-tag govuk-tag--blue">New</span> <a href="/legal-agreement-concov-reponsible-remove?id=0">Are you sure you want to remove {responsible body name} as a responsible body?</a></li>
+      
       <li><a href="./legal-agreement-date-start">What is the start date of the conservation covenant?</a></li>
       <li><a href="./legal-agreement-date-end">Does the legal agreement have an end date?</a></li>
       <li><a href="./legal-agreement-confirm">Check the legal agreement details
@@ -97,6 +102,10 @@
 
 
     </ul>
+
+    <h2 class="govuk-heading-m">Submitting and payment</h2>
+
+
   </div>
 </div>
 {% endblock %}

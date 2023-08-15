@@ -29,8 +29,9 @@
       <h1 class="govuk-heading-xl">
         Sign in using Government Gateway
       </h1>
-
-      {% if data['register-journey'] == 'false' %}
+      {% if data.hasDefraID== "no" %}
+           <form action="https://cust-id-prototype.herokuapp.com/register/" method="post" novalidate>
+      {% elseif data['register-journey'] == 'false' %}
         {% if data['allocation-metric-correct'] == 'yes' %}
           <form action="/register-application/v20/dashboard-record" method="post" novalidate>
         {% else %}

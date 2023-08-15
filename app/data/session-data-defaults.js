@@ -23,6 +23,9 @@ module.exports = {
   // Insert values here
   'legalParties': [],
   'landownershipFiles':[],
+  'responsibleBodies':[],
+  'landowners':[],
+  'hasDefraID': 'yes', // use this to switch the login to re-route to the defra id prototype
   'site-postcode': 'LS29 6JE',
   'registrationPaymentAmount': '658.70',
   'latestVersion': 'v19'

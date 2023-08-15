@@ -1,17 +1,11 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 <!-- // get name from legalParties list, or defualt to static name -->
-{% set lp = data.landowners[query.id] %}
-{% set name = lp['legal-party-name'] or "Kevin Phillips" %}
-  {% if lp["legal-party-type"] == "individual" %}
-    {% set name = lp['legal-party-f-name']+" "%}
-    {% if lp["legal-party-m-name"]+" " %}
-      {% set name = name+lp['legal-party-m-name']+" "%}
-    {% endif %}
-    {% set name = name+lp['legal-party-l-name']%}
-  {% endif %}
+{% set lp = data.responsibleBodies[query.id] %}
+{% set name = lp['concov-responsible-body'] or "Shropshire council" %}
 
 
-{% set pageHeading = "Are you sure you want to remove "+name+" as a legal party?" %}
+
+{% set pageHeading = "Are you sure you want to remove "+name+" as a responsible body?" %}
 
 {% block content %}
 
@@ -22,7 +16,7 @@
       <input type="hidden" name="removePartyMember" value="{{query.id}}">
       {{ govukRadios({
       idPrefix: "legal-party-remove",
-      name: "legal-party-remove",
+      name: "reponsible-body-remove",
       fieldset: {
       legend: {
       text: pageHeading,

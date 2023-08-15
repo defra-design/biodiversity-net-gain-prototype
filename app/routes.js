@@ -108,15 +108,14 @@ module.exports = router
 // global function to clear all data before redirecting to another page
 // use <a href="/clear-data?url=/folder/page">
 // this can be called from any directory
-router.get('*clear-data', function(req, res) {
+router.get('/clear-data', function(req, res) {
   req.session.data = {}
-  let path = req.query.url
-  if(path.startsWith('/')){
-    path = req.query.url.substr(1)
-  }
-  let url = req.params[0]+path
-  
+  console.log(req.query.url)
+  let url = req.query.url
   return res.redirect(301, url);
+
+  
+  
 })
 
 // Adding the ablity to link to the latest version of the prototype page.

@@ -1,17 +1,17 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 <!-- // get name from legalParties list, or defualt to static name -->
 {% set lp = data.landowners[query.id] %}
-{% set name = lp['legal-party-name'] or "Kevin Phillips" %}
-  {% if lp["legal-party-type"] == "individual" %}
-    {% set name = lp['legal-party-f-name']+" "%}
-    {% if lp["legal-party-m-name"]+" " %}
-      {% set name = name+lp['legal-party-m-name']+" "%}
+{% set name = lp['landowners-org-name'] or "Kevin Phillips" %}
+  {% if lp["landowner-type"] == "individual" %}
+    {% set name = lp['landowner-f-name']+" "%}
+    {% if lp["landowner-m-name"]+" " %}
+      {% set name = name+lp['landowner-m-name']+" "%}
     {% endif %}
-    {% set name = name+lp['legal-party-l-name']%}
+    {% set name = name+lp['landowner-l-name']%}
   {% endif %}
 
 
-{% set pageHeading = "Are you sure you want to remove "+name+" as a legal party?" %}
+{% set pageHeading = "Are you sure you want to remove "+name+" as a landowner on the covernent?" %}
 
 {% block content %}
 
@@ -21,8 +21,8 @@
     <form method="post">
       <input type="hidden" name="removePartyMember" value="{{query.id}}">
       {{ govukRadios({
-      idPrefix: "legal-party-remove",
-      name: "legal-party-remove",
+      idPrefix: "landowner-remove",
+      name: "landowner-remove",
       fieldset: {
       legend: {
       text: pageHeading,
