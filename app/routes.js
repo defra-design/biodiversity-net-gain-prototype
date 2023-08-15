@@ -110,10 +110,17 @@ module.exports = router
 // this can be called from any directory
 router.get('/clear-data', function(req, res) {
   req.session.data = {}
-  console.log(req.query.url)
-  let url = req.query.url
-  return res.redirect(301, url);
-
+  // so we can still use the original clear-data path
+  let path = "clear-data"
+   // only if we set a URl should we use redirct
+  path = req.query.url
+  if(req.query.url && path.startsWith('/')){
+    path = req.query.url.substr(1)
+  
+   
+  }
+  let url = path
+   return res.redirect(301, "/"+url);
   
   
 })
