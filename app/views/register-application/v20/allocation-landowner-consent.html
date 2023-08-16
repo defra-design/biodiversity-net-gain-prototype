@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Consent to register the biodiversity gain site" %}
+{% set pageHeading = "Consent to register an off-site gains for a development project" %}
 
 {% block content %}
 
@@ -18,7 +18,7 @@
           name: "landowner-consent",
           fieldset: {
             legend: {
-              text: "Confirm which of the 2 statements applies to you:"
+              text: "Confirm which of the 4 statements applies to you:"
             }
           },
           items: [
@@ -31,6 +31,16 @@
               value: "Yes, has consent~./allocation-landowner-permission-upload",
               text: "I have the written consent of the landowner or leaseholder to act on their behalf",
               checked: checked("landowner-consent", "Yes, has consent")
+            },
+            {
+              value: "Yes, is no relivant person~./allocation-landowner-permission-upload",
+              text: "I confirm that I am a non relevant person",
+              checked: checked("landowner-consent", "Yes, is no relivant person")
+            },
+            {
+              value: "Yes, I am an authorised agent for non relevant person~./allocation-landowner-permission-upload",
+              text: "I confirm that I am an authorised agent for non relevant person",
+              checked: checked("landowner-consent", "Yes, I am an authorised agent for non relevant person")
             }
           ]
         }) }}
