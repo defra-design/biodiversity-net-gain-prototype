@@ -1,18 +1,26 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Is a habitat management and monitoring plan referenced in the legal agreement?" %}
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Which contact details should we use?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+
+
+    
       
-      <form method="post" action="/register-application/{{ pageURL }}/management-plan-upload">
+
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+
         {% set returnURL = query.returnURL or 'task-list' %}
 
         {{ govukRadios({
           idPrefix: "management-plan",
-          name: "has-management-plan",
+          name: "use-defra-id",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -20,16 +28,20 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+    text: "We will only use your email address if we need to contact you about your application."
+  },
+        
           items: [
             {
               value: "yes",
-              checked: (data['has-management-plan']=='yes'),
-              text: "Yes"
+              checked: (data['use-defra-id']=='yes'),
+              text: "Jo Smith, joe@imaginaryfarm.co.uk (defra ID)"
             },
             {
-              value: "no~./"+returnURL,
-              checked: (data['has-management-plan']=='no'),
-              text: "No"
+              value: "no~./details-name",
+              checked: (data['use-defra-id']=='no'),
+              text: "different contact details"
             }
           ]
         }) }}

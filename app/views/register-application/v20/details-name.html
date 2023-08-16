@@ -9,25 +9,48 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l">
-        {{ pageHeading }}
-      </h1>
-
-      <p class="govuk-hint">If you're filling this out on behalf of someone else you should still enter your name.</p>
       
       <form method="post" action="/register-application/{{ pageURL }}/details-email">
-
+        
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fname = data.legalParties[query.id or 0]["landowner-f-name"] %}
+        {% set mname = data.legalParties[query.id or 0]["landowner-m-name"] %}
+        {% set lname = data.legalParties[query.id or 0]["landowner-l-name"] %}
+        {% endif %}
         {{ govukInput({
-          id: "full-name",
-          name: "full-name",
+          name: 'landowner-f-name',
+          value: fname,
           label: {
-            text: "Full name",
-            classes: "govuk-label--s"
-          },
-          autocomplete: "name",
-          spellcheck: false,
-          value: data['full-name']
+            html: 'First name'
+          }
         }) }}
+        {{ govukInput({
+          name: 'landowner-m-name',
+          value: mname,
+          label: {
+            html: 'Middle names'
+          }
+        }) }}
+        {{ govukInput({
+          name: 'landowner-l-name',
+          value: lname,
+
+          label: {
+            html: 'Last name'
+          }
+        }) }}
+
+        
+    
+        {% endcall %}
 
         {{ govukButton({
           text: "Save and continue"

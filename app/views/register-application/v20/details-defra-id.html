@@ -2,24 +2,31 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Check your details" %}
+{% set pageHeading = "Check your contact details for this application" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+
+    
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
+      <p>We use your Defra ID details. Changes on this application will not update your Defra ID.</p>
 
+      <p>We'll only use this to contact you about your registration.</p>
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['full-name'] or 'Jo' }}
+            {% if data.contact-f-name %}
+            {% else %}
+            {{data['defraName']}}
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">

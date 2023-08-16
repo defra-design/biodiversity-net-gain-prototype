@@ -158,7 +158,9 @@ router.post('/allocation-habitat-answer-record', function (req, res) {
   if (install == "no"){
     res.redirect('/register-application/v20/allocation-metric-upload')
   } else {
-    res.redirect('/register-application/v20/additional-email-add')
+    // Changed in v20
+    // res.redirect('/register-application/v20/additional-email-add')
+    res.redirect('/register-application/v20/allocation-landowner-consent')
   }
 })
 

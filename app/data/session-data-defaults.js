@@ -27,6 +27,8 @@ module.exports = {
   'landowners':[],
   'hasDefraID': 'yes', // use this to switch the login to re-route to the defra id prototype
   'site-postcode': 'LS29 6JE',
+  'defraName': "Jo Smith",
+  'defraEmail': "joe@imaginaryfarm.co.uk",
   'registrationPaymentAmount': '658.70',
   'latestVersion': 'v19'
 
