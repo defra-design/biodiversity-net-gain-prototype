@@ -198,7 +198,7 @@ router.post('/covenent-landowner-more-answer', function (req, res) {
     res.redirect('/register-application/v20/legal-agreement-concov-landowner-type')
     
   } else {
-    res.redirect('/register-application/v20/legal-agreement-date-start')
+    res.redirect('/register-application/v20/legal-agreement-date-end')
   }
 })
 
