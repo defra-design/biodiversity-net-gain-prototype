@@ -1,0 +1,34 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+{% set pageHeading = "Is the legal party an individual or organisation?" %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action controled in ./_routes.js -->
+    <form method="post">
+      {{ govukRadios({
+      name: "legal-party-type",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      items: [
+      {
+      value: "individual~./legal-party-add-individual",
+      text: "An individual"
+      },
+      {
+      value: "organisation~./legal-party-add-organisation",
+      text: "An organisation"
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

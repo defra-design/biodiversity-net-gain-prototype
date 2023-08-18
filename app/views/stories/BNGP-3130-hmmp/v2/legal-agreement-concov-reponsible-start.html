@@ -1,0 +1,33 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Add a responsible body listed on the covernent?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+        <p>You will need to add all the responsible bodies that are listed on the covernent.</p>
+        <p>A responsible body can be:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>a local authority</li>
+          <li>a public body or charity, where at least some of its main purposes or functions relate to conservation</li>
+          <li>a private sector organisation, where at least some of its main activities relate to conservation</li>
+        </ul>
+           
+
+        <a href="./legal-agreement-concov-reponsible-add" class="govuk-button">Add responsible body</a>      
+      
+     
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

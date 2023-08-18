@@ -1,0 +1,70 @@
+
+
+
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Does the legal agreement have an end date?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="./legal-agreement-confirm">
+
+        {% set datefield %}
+        {{ govukDateInput({
+          id: "legal-agreement-date-end",
+          namePrefix: "legal-agreement-date-end",
+          fieldset: {
+            legend: {
+              text: 'Enter end date',
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "For example, 15 3 2052"
+          }
+        }) }}
+        {% endset -%}
+
+
+{{ govukRadios({
+  name: "has-legal-agreement-date-end",
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ''
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: datefield
+      }
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+    
+  ]
+}) }}
+
+  
+
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+

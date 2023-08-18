@@ -84,6 +84,12 @@ router.use('/register/v4', registerv4);
 const registerv5 = require('./views/register/v5/_routes');
 router.use('/register/v5', registerv5);
 
+
+// for features and stories
+const stories = require('./views/stories/_routes.js');
+router.use('/stories', stories);
+
+
 router.post('/email-address-page', function (req, res) {
   // uses GOV.UK notify
   // uses GOV.UK notify

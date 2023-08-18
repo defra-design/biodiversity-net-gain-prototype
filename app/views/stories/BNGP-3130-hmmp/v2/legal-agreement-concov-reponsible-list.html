@@ -1,0 +1,90 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set count = data.responsibleBodies | length %}
+{% set item = " responsible body" | plural(" responsible bodies", count) %}
+{% set pageHeading = "You have added "+ count + item %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+        <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+          {% if data.responsibleBodies | length != 0%}
+
+          <!-- Check if legalParties has been added to -->
+          <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+            {% for lp in data.responsibleBodies %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                  <!-- set name based on the type of legal party, defualt is organistion name -->
+
+                  
+                  {{lp['concov-responsible-body']}}
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./legal-agreement-concov-reponsible-add?change=yes&id={{loop.index0}}"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{name}}</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./legal-agreement-concov-reponsible-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{name}} from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              {% endfor %}
+           </dl>
+           {% else %}
+           <!-- Show this if nothing is added, for linking to page withought dynamicaly adding content -->
+           <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+            
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                  <!-- set name based on the type of legal party, defualt is organistion name -->
+
+                  
+                  Shropshire council
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/v20/legal-agreement-concov-reponsible-add?change=yes&amp;id=0"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change </span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/v20/legal-agreement-concov-reponsible-remove?id=0"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove  from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              
+           </dl>
+           {% endif %}
+
+            <form method="post" action="./legal-agreement-concov-reponsible-list">
+
+              {{ govukRadios({
+                idPrefix: "legal-party-more",
+                name: "responsible-body-more",
+                fieldset: {
+                  legend: {
+                    text: "Have you added all responsible bodies?",
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "You must tell us about all responsible bodies listed on the covernent."
+                },
+                items: [
+                  {
+                    value: "yes~./legal-agreement-concov-landowner-start",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no~./legal-agreement-concov-reponsible-add",
+                    text: "No, add another responsible body"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}
