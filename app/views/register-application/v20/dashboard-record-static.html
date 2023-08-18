@@ -1,27 +1,26 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Development projects" %}
+{% set map = true %}
 
-{% set hideSaveSection = true %}
-{% set showAccount = true %}
+{% set pageHeading = "Development projects" %}
 
 {% block content %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
 
-    <h1 class="govuk-heading-l">
-      Biodiversity gain sites
-    </h1>
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-7">
+        <!-- <span class="govuk-caption-xl">Development project</span> -->
+         {{ pageHeading }}
+      </h1>
 
     
   
 
-      <form action="/register-application/v20/task-list" method="post" novalidate="">
-        <input type="hidden" name="new-register-journey" value="true">
-        <input type="hidden" name="register-journey" value="true">
+      <form action="/register-application/v20/allocation-gain-site" method="post" novalidate>
+        <input type="hidden" name="register-journey" value="false">
         <button class="govuk-button" data-module="govuk-button">
-          Register a new biodiversity gain site
+          Record off-site gains for a new development
         </button>
       </form>
 
