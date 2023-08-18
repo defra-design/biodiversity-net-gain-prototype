@@ -14,12 +14,44 @@
       </h1>
 
       <dl class="govuk-summary-list">
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Consent to register site
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-consent'] or 'Yes, is landowner or leaseholder' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-consent?change=yes">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>  
+          </dd> 
+        </div>
+        {% if data["landowner-consent"] == 'Yes, has consent'%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Consent form
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['landowner-permission-upload'] or 'landowner-consent-evidence.pdf' }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-permission-check?change=yes">
+              Change<span class="govuk-visually-hidden"> full name</span>
+            </a>  
+          </dd> 
+        </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['full-name'] or 'Jo' }}
+            {% if data['landowner-f-name']  %}
+          {{data['landowner-f-name']}} {{data['landowner-m-name'] or ""}}
+            {% else %}
+            Jo Smith
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
@@ -29,7 +61,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Email address
+            Contact email address
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['email'] or 'jo.smith@gmail.com' }}

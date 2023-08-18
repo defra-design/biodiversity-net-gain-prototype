@@ -23,12 +23,17 @@
           },
           items: [
             {
-              value: "Yes, is landowner or leaseholder",
+              value: "Yes, is landowner or leaseholder~./landowner-your-details",
               text: "I confirm that I am the landowner or leaseholder",
               checked: checked("landowner-consent", "Yes, is landowner or leaseholder")
             },
             {
-              value: "Yes, has consent",
+              value: "Yes, is landowner or leaseholder rep~./landowner-your-details",
+              text: "I am a representative for a Landowner/Leaseholder (Where landowner/ leaseholder is an organisation)",
+              checked: checked("landowner-consent", "YYes, is landowner or leaseholder rep")
+            },
+            {
+              value: "Yes, has consent~./landowner-permission-upload",
               text: "I have the written consent of the landowner or leaseholder to act on their behalf",
               checked: checked("landowner-consent", "Yes, has consent")
             }
