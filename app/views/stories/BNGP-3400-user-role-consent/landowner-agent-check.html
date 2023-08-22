@@ -1,0 +1,66 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Check agent authority file" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: 'landowner-agent-evidence.pdf, 1.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      <!-- {% if data['land-registry'] == 'yes' %}
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
+      {% endif %} -->
+
+      <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-check-answer">
+      
+
+        {{ govukRadios({
+          idPrefix: "landowner-agent-correct",
+          name: "landowner-agent-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes~./landowner-permission-upload",
+              text: "Yes"
+            },
+            {
+              value: "no~./landowner-agent-upload",
+              text: "No, choose a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
