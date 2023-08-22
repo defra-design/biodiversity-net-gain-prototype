@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Add a landowner listed on the covernent" %}
+{% set pageHeading = "Add all landowners listed on the conservation covenant" %}
 
 {% block content %}
 
@@ -12,12 +12,11 @@
         <h1 class="govuk-heading-l" tabindex="-1">
           {{ pageHeading }}
         </h1>
-        <p>You will need to add all the landowners that are listed on the covernent.</p>
-        <p>This is a landowner who holds freehold title of the land or a leaseholder – if you’re a leaseholder, you must have a lease of more than 7 years with time remaining on it</p>
-              
+
+        <p>You'll be given the option to add as many landowners as you need to.</p>      
         <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-concov-landowner-type">
           {{ govukButton({
-            text: "Add responsible body"
+            text: "Add landowners"
           }) }}
         </form>
      
