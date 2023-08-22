@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Your details" %}
+{% set pageHeading = "Check your details" %}
 
 {% block content %}
 
@@ -14,14 +14,54 @@
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
-      <p>We will use the Defra ID details for this account</p>
-      <ul class="govuk-list">
-        <li><strong>Jo Smith</strong></li>
-        <li>Imaginary Farm Ltd</li>
-        <li>joe@imaginaryfarm.co.uk</li>
-        <li>01234 567890</li>
-        <li>07123 456789</li>
-      </ul>
+      <p>These are your Defra ID details as <strong>the landowner or leaseholder</strong>. We will use these details on this application. </p>
+      <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Jo Smith
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          sam.woods@bigcompany.co.uk
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          07711 223344
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+            12a Phoebos Street<br>
+            Channington<br>
+            Sheffield<br>
+            S11 2PP
+        </dd>
+      </div>
+      <!-- <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">07711 223344</p>
+          <p class="govuk-body">sam.woods@bigcompany.co.uk</p>
+        </dd>
+      </div> -->
+    </dl>
+    <p>We will only use your email address or phone number if we need to contact you about the registration.</p>
        <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
 
         {% set returnURL = query.returnURL or 'task-list' %}
@@ -31,24 +71,21 @@
           name: "use-defra-id",
           fieldset: {
             legend: {
-              text: "Which contact email address should we use?",
+              text: "Do you want to use these details?",
               classes: "govuk-fieldset__legend--m"
             }
-          },
-          hint: {
-            text: "We will only use your email address if we need to contact you about the registration."
           },
         
           items: [
             {
               value: "yes~./details-confirm",
               checked: (data['use-defra-id']=='yes'),
-              text: "joe@imaginaryfarm.co.uk"
+              text: "Yes"
             },
             {
               value: "no~./details-name",
               checked: (data['use-defra-id']=='no'),
-              text: "different contact details"
+              text: "No, different contact details"
             }
           ]
         }) }}
