@@ -1,0 +1,27 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+{% set pageHeading = "BNGP-3400 update to user role / consent" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+    <p><a href="https://eaflood.atlassian.net/browse/BNGP-3400">View jira ticket BNGP-3400</a></p>
+
+    <h2 class="govuk-heading-m">Regisration journey</h2>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/task-list">From task list</a></li>
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/landowner-consent">Consent to register the biodiversity gain site</a> (updated)</li>
+    </ul>
+    <h2 class="govuk-heading-m">Allocation journey</h2>
+    <p>Added to page for the user to select their role in this application. This contains 5 options.</p>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/task-list-allocation">From task list</a> (updated)</li>
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/landowner-consent-allocation">Consent to register the biodiversity gain site</a> (new)</li>
+      <p class="govuk-!-margin-top-4">Not sure we need the the agent authorisaoint form too, so these pages might not be needed.</p>
+      <li><a href="./landowner-agent-upload">Upload evidence of authority to act for the non relevant person</a> (new)</li>
+      <li><a href="./landowner-agent-check">Check agent authority file</a> (new)</li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
