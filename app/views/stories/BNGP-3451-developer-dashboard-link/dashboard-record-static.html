@@ -1,0 +1,80 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Development projects" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-7">
+        <!-- <span class="govuk-caption-xl">Development project</span> -->
+         {{ pageHeading }}
+      </h1>
+
+    
+  
+
+      <form action="/register-application/v20/allocation-gain-site" method="post" novalidate>
+        <input type="hidden" name="register-journey" value="false">
+        <button class="govuk-button" data-module="govuk-button">
+          Record off-site gains for a new development
+        </button>
+      </form>
+
+
+       
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-visually-hidden">Applications</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Registration reference</th>
+            <th scope="col" class="govuk-table__header">Last updated</th>
+            <th scope="col" class="govuk-table__header">Status</th>
+            <th scope="col" class="govuk-table__header">
+              <span class="govuk-visually-hidden">Actions</span>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">
+              
+                <a href="./task-list-allocation" class="govuk-link--no-visited-state">BNGREG-3040W-GHERS</a>
+              
+            </th>
+            <td class="govuk-table__cell">
+              18 Aug 2023
+            </td>
+            <td class="govuk-table__cell">
+              
+                <strong class="govuk-tag govuk-tag--grey">IN PROGRESS</strong>
+              
+            </td>
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell">
+                BNGREG-9820B-YREWS
+            </th>
+            <td class="govuk-table__cell">
+              23 June 2023
+            </td>
+            <td class="govuk-table__cell">
+
+                <strong class="govuk-tag govuk-tag--blue">Submitted</strong>
+
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+       
+      
+        
+    </div>
+</div>
+
+{% endblock %}
