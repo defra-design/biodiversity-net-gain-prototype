@@ -14,13 +14,13 @@
           {{ pageHeading }}
         </h1>
         <div class="govuk-panel__body">
-          Your reference<br> <strong>BNGREG-6040S-AVPJW</strong>
+          Biodiversity net gain (BNG) application reference number<br> <strong>BNGREG-6040S-AVPJW</strong>
         </div>
       </div>
 
-      <p>We've sent you a confirmation email.</p>
+      <p>We will send you a confirmation email.</p>
 
-      <p>We will use your reference number when we contact you.</p>
+      <p>Make a note of your BNG application reference number. We will use it when we contact you.</p>
 
       {% if data['payment'] == 'bacs' %}
       
@@ -33,7 +33,9 @@
         <p class="govuk-body-l">£36.35</p>
       {% endif %}
 
-      <p>You must pay the fee within 28 days.</p>
+      <div class="govuk-inset-text">
+        You must pay the fee within 28 days. We cannot refund any payments made after the 28-day deadline.
+      </div>
 
       <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
 
@@ -85,7 +87,7 @@
 
       {% endif %}
 
-      <h2 class="govuk-heading-m">What happens after paying the fee</h2>
+      <h2 class="govuk-heading-m">What happens after you pay the fee</h2>
       <p>We will let you know within 6 weeks if:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>your application has been successful or not</li>
