@@ -1,0 +1,71 @@
+
+{% extends "register-application/v18/layout-register-application.html" %}
+
+{% set addChangeText = "Add" %}
+{% if query.change=="yes" %}
+{% set addChangeText = "Update" %}
+{% endif %}
+
+{% set pageHeading = "What is your client’s name?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- <form method="post" action="./applicant-check-answers"> -->
+      <form method="post" action="./task-list">
+        <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">
+
+
+        
+        {% call govukFieldset({
+          legend: {
+            text: p
+            ageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+        <p>This must be a landowner or leaseholder that appears on the legal agreement. </p><p>You will only have to add one of the landowner or leaseholder's if there is more than one.</p>
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fname = data.legalParties[query.id or 0]["legal-party-f-name"] %}
+        {% set mname = data.legalParties[query.id or 0]["legal-party-m-name"] %}
+        {% set lname = data.legalParties[query.id or 0]["legal-party-l-name"] %}
+        {% endif %}
+        {{ govukInput({
+          name: 'legal-party-f-name',
+          value: fname,
+          label: {
+            html: 'First name'
+          }
+        }) }}
+        {{ govukInput({
+          name: 'legal-party-m-name',
+          value: mname,
+          label: {
+            html: 'Middle names'
+          }
+        }) }}
+        {{ govukInput({
+          name: 'legal-party-l-name',
+          value: lname,
+
+          label: {
+            html: 'Last name'
+          }
+        }) }}
+    
+        {% endcall %}
+        <input type="hidden" name="details-confirm" value="yes">
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

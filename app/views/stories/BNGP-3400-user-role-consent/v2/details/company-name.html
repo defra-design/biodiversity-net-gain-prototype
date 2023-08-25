@@ -1,0 +1,50 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "What is the name of your organisation?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <form action="../{{data.returnURL or 'applicant-details-confirm-landowner' }}" method="POST">
+        
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+         <!-- Set the value if this is changing/updating an LP. -->
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fullname = data.legalParties[query.id or 0]["legal-party-name"] %}
+       
+        {% endif %}
+    
+        {{ govukInput({
+          id: 'legal-party-name',
+          name: 'legal-party-name',
+          value: fullname,
+          label: {
+            html: 'Organisation name'
+          }
+        }) }}
+
+       
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
