@@ -1,0 +1,36 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Is your client the landowner or leaseholder?" %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action controled in ./_routes.js -->
+    <form method="post">
+
+      {{ govukRadios({
+      name: "client-is-landowner",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      items: [
+      {
+      value: "yes~./applicant-as-individual",
+      text: "Yes"
+      },
+      {
+      value: "no~./applicant-as-organisation",
+      text: "No"
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

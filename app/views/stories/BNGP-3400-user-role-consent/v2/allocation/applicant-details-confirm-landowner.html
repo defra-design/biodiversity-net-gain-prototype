@@ -1,0 +1,164 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check your details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+      
+      <p>These are your Defra ID details. 
+        {% if data["landowner-type"] == "organisation" %}
+        The landowner or leashholder you represent must be on the legal agreement to apply.
+      {% else %}
+      You must be a landowner or leashholder named on the legal agreement to apply.
+      {% endif %}
+    </p>
+
+
+
+      <form method="post" class="govuk-!-padding-top-5" action="./task-list">
+
+        
+
+
+        
+
+
+  
+
+  
+
+  
+
+  
+
+  <dl class="govuk-summary-list">
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jo Smith
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+        {% if data["landowner-type"] == "organisation" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Biglandowner LTF
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/company-name?type=business&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+        {% endif %}
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street<br>London<br>SE23 6FH
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+                
+                <a class="govuk-link" href="./details/address-in-uk?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            joe@imaginaryfarm.co.uk
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            01234 567890
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/phone?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+  </dl>
+
+
+        <p>We will only use your email address or alternatively your phone number if we need to contact you about the registration</p>
+
+        <p><strong>Changes made will only appear on this application. No changes will be made to your Defra ID.</strong></p>
+
+
+        
+
+  
+    <input type="hidden" name="details-confirm" value="yes">
+  
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm and continue
+</button>
+
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
