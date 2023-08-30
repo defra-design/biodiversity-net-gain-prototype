@@ -6,7 +6,13 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-    <p>This covers the following tickets:</p>
+    <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      This covers the 5 Jira tickets
+    </span>
+  </summary>
+  <div class="govuk-details__text">
     <ul class="govuk-list govuk-list--bullet">
       <li>
       <a href="https://eaflood.atlassian.net/browse/BNGP-3400">BNGP-3400 Conditional display of screens based on user role</a>
@@ -27,12 +33,16 @@
 </li>
 
   </ul>
+  </div>
+</details>
+
+    
 
 
     <h2 class="govuk-heading-m">Regisration journey</h2>
     <ul class="govuk-list govuk-list--bullet ">
-      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list">From task list (current)</a></li>
-      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list-2">From task list (updated based on BNGP-3130)</a></li>
+      <li><strong><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list">From task list</a></strong> (current design)</li>
+      <li><strong><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list-2">From new task list </a></strong> (updated based on <a href="https://eaflood.atlassian.net/browse/BNGP-3130">BNGP-3130</a>)</li>
      
     </ul>
     <ul class="govuk-list govuk-list--bullet">
@@ -79,13 +89,13 @@
 
 
     <h2 class="govuk-heading-m">Allocation journey</h2>
-    <p>Added to page for the user to select their role in this application. This contains 5 options.</p>
+    <p>This is itterating from current dev version which still has the task list. We need a story to cover the move to a linear flow.</p>
     <ul class="govuk-list govuk-list--bullet ">
-      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/task-list-allocation">From task list</a> (updated)</li>
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list-allocation">From task list</a> (updated)</li>
       <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-is-agent">Are you an agent acting on behalf of a client?</a> (new)</li>
       <p class="govuk-!-margin-top-4">Not sure we need the the agent authorisaoint form too, so these pages might not be needed.</p>
-      <li><a href="./landowner-agent-upload">Upload evidence of authority to act for the non relevant person</a> (new)</li>e
-      <li><a href="./landowner-agent-check">Check agent authority file</a> (new)</li>
+      <li><a href="/stories/BNGP-3400-user-role-consent/v2//landowner-agent-upload">Upload evidence of authority to act for the non relevant person</a> (new)</li>e
+      <li><a href="/stories/BNGP-3400-user-role-consent/v2//landowner-agent-check">Check agent authority file</a> (new)</li>
     </ul>
   </div>
 </div>
