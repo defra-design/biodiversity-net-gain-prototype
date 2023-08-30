@@ -4,8 +4,23 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <!-- action controled in ./_routes.js -->
-    <form method="post">
+
+    <form method="post" action="./applicant-landowner-type">
+      {% set roleHtml %}
+{{ govukInput({
+  id: "non-relevant-party",
+  name: "non-relevant-party",
+  type: "text",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "What is your client's role?"
+  },
+  hint: {
+    text: "For example, property developer"
+  }
+}) }}
+{% endset -%}
 
       {{ govukRadios({
       name: "client-is-landowner",
@@ -18,12 +33,15 @@
       },
       items: [
       {
-      value: "yes~./applicant-as-individual",
+      value: "yes",
       text: "Yes"
       },
       {
-      value: "no~./applicant-as-organisation",
-      text: "No"
+      value: "no~./applicant-client-type",
+      text: "No",
+      conditional: {
+        html: roleHtml
+      }
       }
       ]
       }) }}
