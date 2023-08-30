@@ -1,25 +1,90 @@
 {% extends "register-application/v20/layout-register-application.html" %}
-{% set pageHeading = "BNGP-3400 update to user role / consent" %}
+{% set pageHeading = "BNGP-3400 update to user role / consent v2" %}
 {% block beforeContent %}
 {% endblock %}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-    <p><a href="https://eaflood.atlassian.net/browse/BNGP-3400">View jira ticket BNGP-3400</a></p>
+    <p>This covers the following tickets:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>
+      <a href="https://eaflood.atlassian.net/browse/BNGP-3400">BNGP-3400 Conditional display of screens based on user role</a>
+    </li>
+
+ <li>
+      <a href="https://eaflood.atlassian.net/browse/BNGP-2641">BNGP-2641 - Upload agent authorisation- Allocation</a>
+    </li>
+    <li>
+      <a href="https://eaflood.atlassian.net/browse/BNGP-3137">BNGP-3137 - Capture contact record details</a>
+      
+    </li>
+    <li>
+      <a href="https://eaflood.atlassian.net/browse/BNGP-3137">BNGP-2641 - Upload agent authorisation- Allocation</a>
+
+    </li>
+    <li>and <br><a href="https://eaflood.atlassian.net/browse/BNGP-3104">BNGP-3104 - Update all Full name fields to First/Middle/Surname </a> 
+</li>
+
+  </ul>
+
 
     <h2 class="govuk-heading-m">Regisration journey</h2>
     <ul class="govuk-list govuk-list--bullet ">
-      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/task-list">From task list</a></li>
-      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/landowner-consent">Consent to register the biodiversity gain site</a> (updated)</li>
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list">From task list (current)</a></li>
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/task-list-2">From task list (updated based on BNGP-3130)</a></li>
+     
     </ul>
+    <ul class="govuk-list govuk-list--bullet">
+       <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/landowner-consent">Are you an agent acting on behalf of a client? (new)</a></li>
+       <p class="govuk-!-margin-top-4 govuk-!-margin-top-2">Agent journey</p>
+
+       <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-upload-authorisation">Upload your letter of authority (updated)</a></li>
+       <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-upload-check">Check your letter of authority file</a>
+</li>
+<li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-confirm-agent">Check your details as an agent</a>
+</li>
+<li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-landowner-type">Is your client an individual or organisation?</a>
+</li>
+<li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-as-individual">What is your client’s name?</a>
+
+</li>
+<li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-as-organisation">What is your client's business name?
+</a>
+
+</li>
+<p class="govuk-!-margin-top-4 govuk-!-margin-top-2">Landowner journey</p>
+<li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-role-as-landowner">Are you applying as an organisation or an individual landowner or leaseholder?
+</a>
+
+</li>
+<li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-confirm-landowner">Individual landowner or leasholder details
+</a>
+
+</li>
+<li><a href="/clear-data?landowner-type=individual&url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-confirm-landowner">Individual landowner or leasholder details
+</a>
+
+</li>
+<li><a href="/clear-data?landowner-type=organisation&url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-confirm-landowner">Representative of landowner or leasholder details
+</a>
+
+</li>
+
+
+
+    </ul>
+
+
+
+
     <h2 class="govuk-heading-m">Allocation journey</h2>
     <p>Added to page for the user to select their role in this application. This contains 5 options.</p>
     <ul class="govuk-list govuk-list--bullet ">
       <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/task-list-allocation">From task list</a> (updated)</li>
-      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/landowner-consent-allocation">Consent to register the biodiversity gain site</a> (new)</li>
+      <li><a href="/clear-data?url=/stories/BNGP-3400-user-role-consent/v2/applicant-details-is-agent">Are you an agent acting on behalf of a client?</a> (new)</li>
       <p class="govuk-!-margin-top-4">Not sure we need the the agent authorisaoint form too, so these pages might not be needed.</p>
-      <li><a href="./landowner-agent-upload">Upload evidence of authority to act for the non relevant person</a> (new)</li>
+      <li><a href="./landowner-agent-upload">Upload evidence of authority to act for the non relevant person</a> (new)</li>e
       <li><a href="./landowner-agent-check">Check agent authority file</a> (new)</li>
     </ul>
   </div>
