@@ -28,9 +28,9 @@
             <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 {% if data.landownershipFiles | length == 0 %}
-                <a href="./landowner-certificate-upload" aria-describedby="landowner-status">
+                <a href="/register-application/{{ pageURL }}/landowner-certificate-upload" aria-describedby="landowner-status">
                 {% else %}
-                <a href="./land-ownership-list" aria-describedby="landowner-status">
+                <a href="/register-application/{{ pageURL }}/land-ownership-list" aria-describedby="landowner-status">
                
                 {% endif %} 
                     Add land ownership details
@@ -46,9 +46,9 @@
             <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 {% if data['location-confirm'] %}
-                  <a href="./location-confirm" aria-describedby="boundary-status">
+                  <a href="/register-application/{{ pageURL }}/location-confirm" aria-describedby="boundary-status">
                   {% else %}
-                  <a href="./location-upload" aria-describedby="boundary-status">
+                  <a href="/register-application/{{ pageURL }}/location-upload" aria-describedby="boundary-status">
                 {% endif %} 
                   Add biodiversity gain site boundary details
                 </a>
@@ -62,9 +62,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['habitat-checked-data'] %}
-                  <a href="./metric-confirm" aria-describedby="habitat-data-status">
+                  <a href="/register-application/{{ pageURL }}/metric-confirm" aria-describedby="habitat-data-status">
                 {% else %}
-                  <a href="./metric-upload" aria-describedby="habitat-data-status">
+                  <a href="/register-application/{{ pageURL }}/metric-upload" aria-describedby="habitat-data-status">
                 {% endif %} 
                   Add habitat baseline, creation and enhancements
                 </a>
@@ -90,9 +90,9 @@
             <li class="app-task-list__item">
               <span class="app-task-list__task-name">
                 {% if data['legal-agreement-confirm'] %} 
-                  <a href="./legal-agreement-confirm" aria-describedby="legal-agreement-status">
+                  <a href="/register-application/{{ pageURL }}/legal-agreement-confirm" aria-describedby="legal-agreement-status">
                 {% else %}
-                  <a href="./legal-agreement" aria-describedby="legal-agreement-status">
+                  <a href="/register-application/{{ pageURL }}/legal-agreement" aria-describedby="legal-agreement-status">
                 {% endif %} 
                   Add legal agreement details
                 </a>
@@ -107,9 +107,9 @@
             <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                   {% if data['local-land-charge-correct'] %} 
-                      <a href="./local-land-charge-check" aria-describedby="local-land-charge-status">
+                      <a href="/register-application/{{ pageURL }}/local-land-charge-check" aria-describedby="local-land-charge-status">
                     {% else %}
-                      <a href="./local-land-charge-upload" aria-describedby="local-land-charge-status">
+                      <a href="/register-application/{{ pageURL }}/local-land-charge-upload" aria-describedby="local-land-charge-status">
                     {% endif %} 
                       Add local land charge search certificate
                     </a>
@@ -123,7 +123,7 @@
 
             <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
-                <a href="./landowner-consent" aria-describedby="landowner-consent-status">
+                <a href="/register-application/{{ pageURL }}/landowner-consent" aria-describedby="landowner-consent-status">
                   Consent to register the biodiversity gain site
                 </a>
               </span>
@@ -178,7 +178,7 @@
               {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct'] or 
                     data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['legal-agreement'] != "Conservation covenant" %}
                 <span class="app-task-list__task-name">
-                  <a href="./check-answers" aria-describedby="submit-application-status">
+                  <a href="/register-application/{{ pageURL }}/check-answers" aria-describedby="submit-application-status">
                     Check your answers, pay and submit
                   </a>
                 </span>
