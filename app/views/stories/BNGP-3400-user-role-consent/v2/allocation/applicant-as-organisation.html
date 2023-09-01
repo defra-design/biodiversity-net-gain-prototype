@@ -1,6 +1,8 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
 {% set addChangeText = "Add" %}
+{% set nextPage = "applicant-landowner-type" %}
+
 {% if query.change=="yes" %}
 {% set addChangeText = "Update" %}
 {% endif %}
@@ -12,8 +14,11 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
-
-      <form method="post" action="./task-list">
+      {% set url = "task-list-allocation" %}
+      {% if data["client-is-landowner"] == "no" %}
+      {% set url = "applicant-authorisation-as-nrp" %}
+      {% endif %}
+      <form method="post" action="./{{url}}">
          <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">
         {% call govukFieldset({
           legend: {
@@ -43,7 +48,7 @@
 
        
         {% endcall %}
-        <input type="hidden" name="details-confirm" value="yes">
+        <input type="hidden" name="applicant-details-added" value="yes">
         {{ govukButton({
            text: "Save and continue"
         }) }}

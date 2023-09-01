@@ -1,6 +1,15 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Is your client the landowner or leaseholder?" %}
+
+{% set userTypeText = "Is your client" %}
+{% set roleText = "What is your client's role?" %}
+
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Are you" %}
+{% set roleText = "What is your role?" %}
+{% endif %}
+
+{% set pageHeading = userTypeText+" the landowner or leaseholder?" %}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -14,7 +23,7 @@
   spellcheck: false,
   classes: "govuk-!-width-one-third",
   label: {
-    text: "What is your client's role?"
+    text: roleText
   },
   hint: {
     text: "For example, property developer"
@@ -33,7 +42,7 @@
       },
       items: [
       {
-      value: "yes",
+      value: "yes~./applicant-role-as-landowner",
       text: "Yes"
       },
       {

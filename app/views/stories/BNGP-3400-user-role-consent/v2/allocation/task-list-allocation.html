@@ -25,9 +25,16 @@
                                           Add details about the person applying
                                         </a>
                                       </span>
-                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="add-your-details-status">
-                                        NOT STARTED
+                                      {% if data["applicant-details-added"] %}
+                                      <strong class="govuk-tag app-task-list__tag" id="add-your-details-status">
+                                        Completed
                                       </strong>
+                                      {% else %}
+                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="add-your-details-status">
+                                        Not started
+                                      </strong>
+                                      
+                                      {% endif %}
                                     </li>
                                      
                             

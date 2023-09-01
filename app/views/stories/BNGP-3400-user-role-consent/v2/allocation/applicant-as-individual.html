@@ -12,9 +12,12 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
+      {% set url = "task-list-allocation" %}
+      {% if data["client-is-landowner"] == "no" %}
+      {% set url = "applicant-authorisation-as-nrp" %}
+      {% endif %}
       <!-- <form method="post" action="./applicant-check-answers"> -->
-      <form method="post" action="./task-list">
+      <form method="post" action="./{{url}}">
         <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">
 
 
@@ -57,7 +60,7 @@
         }) }}
     
         {% endcall %}
-        <input type="hidden" name="details-confirm" value="yes">
+        <input type="hidden" name="applicant-details-added" value="yes">
         {{ govukButton({
           text: "Save and continue"
         }) }}
