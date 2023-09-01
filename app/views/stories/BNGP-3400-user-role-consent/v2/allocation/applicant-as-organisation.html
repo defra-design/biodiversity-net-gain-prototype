@@ -1,10 +1,12 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
 {% set addChangeText = "Add" %}
-{% set nextPage = "applicant-landowner-type" %}
+
 
 {% if query.change=="yes" %}
 {% set addChangeText = "Update" %}
+
+
 {% endif %}
 
 {% set pageHeading = "What is your client's business name?" %}

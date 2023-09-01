@@ -46,7 +46,8 @@
               {% endfor %}
            </dl>
 
-            <form method="post" action="/register-application/{{ pageURL }}/legal-party-more-answer">
+            <!-- Routing handled by radio-button-redirect (look at the value of the radio button). For more info see https://github.com/abbott567/radio-button-redirect/ -->
+            <form method="post" action="">
 
               {{ govukRadios({
                 idPrefix: "legal-party-more",
@@ -62,11 +63,11 @@
                 },
                 items: [
                   {
-                    value: "yes",
+                    value: "yes~./management-plan-question",
                     text: "Yes"
                   },
                   {
-                    value: "no",
+                    value: "no~./legal-party-type",
                     text: "No, add another legal party"
                   }
                 ]
