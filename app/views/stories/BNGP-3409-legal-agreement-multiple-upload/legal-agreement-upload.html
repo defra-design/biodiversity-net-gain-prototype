@@ -15,7 +15,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-check">
+      <form method="get" action="./legal-agreement-check">
   
         <div class="govuk-form-group">
           <label class="govuk-label govuk-visually-hidden" for="legal-agreement-upload">
@@ -40,7 +40,7 @@
         
       </form>
 
-      <p><a href="/register-application/{{ pageURL }}/legal-agreement-no">I do not have a legal agreement</a></p>
+      <p><a href="./legal-agreement-no">I do not have a legal agreement</a></p>
 
     </div>
   </div>

@@ -1,0 +1,25 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+{% set documentType = data["legal-agreement"] or "Planning obligation (Section 106 agreement)" %}
+{% set pageHeading = "You need to upload your "+documentType+" documents" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+      <form method="post" action="./legal-agreement-upload">
+
+
+        <p>This includes original versions if this legal agreement has been amended.</p>
+   
+
+        {{ govukButton({
+          text: "Upload a legal agreement"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -115,6 +115,32 @@ router.post('/legal-party-remove', function (req, res) {
   res.redirect('/register-application/v20/legal-party-list')
 })
  
+router.post('*/legal-agreement-check', function (req, res) {
+
+  if (req.body['legal-agreement-correct'] == "yes"){
+    if(req.query.change){
+      req.session.data.legalAgreementFiles[req.query.id] = req.body
+    }else{
+      req.session.data.legalAgreementFiles.push(req.body);
+    }
+    res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-list')
+  }
+  // if "no"
+  res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-upload');
+})
+router.post('*/legal-agreement-remove', function (req, res) {
+
+  var install = req.session.data['agreement-remove']
+
+  if (install == "yes"){
+    req.session.data.legalAgreementFiles.splice(req.query.id, 1);
+  }
+  if(req.session.data.legalAgreementFiles.length == 0 ){
+     res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-upload-start')
+  }
+  res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-list')
+})
+ 
 
 
 

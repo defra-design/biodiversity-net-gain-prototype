@@ -24,18 +24,23 @@
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              text: data['legal-agreement-upload'] or 'legal-agreement.pdf'
+              text: data['legal-agreement-upload'] or ('legal-agreement-' + data['legalAgreementFiles'] | length + '.pdf')
             }
           }
         ]
       }) }}
 
-      {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
-        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer">
-      {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/legal-agreement-correct-answer-concov">
-      {% endif %}
 
+
+    <!--   {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+        <form method="post" action="./legal-agreement-correct-answer">
+      {% else %}
+        <form method="post" action="./legal-agreement-correct-answer-concov">
+      {% endif %} -->
+      
+      <!-- updated in v20 for multiple file upload -->
+      <!-- routing handled in ./app/stories/_routes.js -->
+      <form method="post" >
         {{ govukRadios({
           idPrefix: "legal-agreement-correct",
           name: "legal-agreement-correct",
@@ -56,7 +61,7 @@
             }
           ]
         }) }}
-        
+        <input type="hidden" name="file" value="{{data['legal-agreement-upload'] or ('legal-agreement-' + data['legalAgreementFiles'] | length + '.pdf')}}">
         {{ govukButton({ text: 'Save and continue' }) }}
         
       </form>

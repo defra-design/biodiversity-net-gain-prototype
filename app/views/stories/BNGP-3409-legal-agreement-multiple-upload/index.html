@@ -1,0 +1,30 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+{% set pageHeading = "BNGP-3409 Multiple document upload- Legal agreement" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+    
+   <p><a href="https://eaflood.atlassian.net/browse/BNGP-3409">Jira Ticket BNGP-3409</a></p> 
+   <p>Flow diagram</p>
+
+
+    <h2 class="govuk-heading-m">Pages</h2>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><strong><a href="/clear-data?url=/stories/BNGP-3409-legal-agreement-multiple-upload/task-list">From task list</a></strong></li>
+      
+     
+    </ul>
+    <ul class="govuk-list govuk-list--bullet">
+       <li><a href="/clear-data?url=/stories/BNGP-3409-legal-agreement-multiple-upload/legal-agreement">Which legal agreement do you have?</a></li>
+       <li><a href="/clear-data?url=/stories/BNGP-3409-legal-agreement-multiple-upload/legal-agreement-upload-start">Legal agreement start page</a> <span class="govuk-tag govuk-tag--blue">new</span></li>
+       <li><a href="./legal-agreement-upload">Upload the legal agreement</a></li>
+        <li><a href="./legal-agreement-check">Check the legal agreement</a></li>
+        <li><a href="./legal-agreement-list">You have added 1 legal agreement document</a> <span class="govuk-tag govuk-tag--blue">new</span></li>
+<li><a href="./legal-agreement-remove">Remove legal agreement document
+</a> <span class="govuk-tag govuk-tag--blue">new</span></li>
+  </div>
+</div>
+{% endblock %}

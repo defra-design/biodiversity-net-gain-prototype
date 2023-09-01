@@ -30,7 +30,7 @@
           </ul>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/{% if data.landownershipFiles | length == 0 %}landowner-certificate-upload{% else %}land-ownership-list{% endif %}">
+            <a class="govuk-link govuk-link--no-visited-state" href="./{% if data.landownershipFiles | length == 0 %}landowner-certificate-upload{% else %}land-ownership-list{% endif %}">
               Change<span class="govuk-visually-hidden"> Proof of land ownership</span>
             </a>
           </dd>
@@ -114,7 +114,7 @@
             {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-check">
+            <a class="govuk-link" href="./metric-check">
               Change<span class="govuk-visually-hidden"> biodiversity metric 4.0 file</span>
             </a>  
           </dd> 
@@ -127,7 +127,7 @@
             Yes
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data-baseline">
+            <a class="govuk-link" href="./metric-data-baseline">
               Change<span class="govuk-visually-hidden"> Habitat baseline information is correct</span>
             </a>  
           </dd> 
@@ -140,7 +140,7 @@
             Yes
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data">
+            <a class="govuk-link" href="./metric-data">
               Change<span class="govuk-visually-hidden"> Habitat creation and enhancement declaration</span>
             </a>  
           </dd> 
@@ -159,7 +159,7 @@
             {{ data['allocation'] or 'No' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation">
               Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
             </a>
           </dd>
@@ -181,7 +181,7 @@
             {{ data['allocation'] or 'Yes' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation">
               Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
             </a>
           </dd>
@@ -194,7 +194,7 @@
             metric_4.0_fairfax_housing_project.xlsm
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-metric-check">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-metric-check">
               Change<span class="govuk-visually-hidden"> Metric file added</span>
             </a>
           </dd>
@@ -207,7 +207,7 @@
             Farifax Housing Project
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-metric-development">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-metric-development">
               Change<span class="govuk-visually-hidden"> Project name</span>
             </a>
           </dd>
@@ -220,7 +220,7 @@
             Bradford City Council
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-metric-development">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-metric-development">
               Change<span class="govuk-visually-hidden"> Local planning authority</span>
             </a>
           </dd>
@@ -233,7 +233,7 @@
             22/01976/RJL
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-metric-development">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-metric-development">
               Change<span class="govuk-visually-hidden"> Planning application reference</span>
             </a>
           </dd>
@@ -264,7 +264,7 @@
             </ul>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-metric-habitat">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-metric-habitat">
               Change<span class="govuk-visually-hidden"> allocated habitat</span>
             </a>
           </dd>
@@ -477,7 +477,7 @@
             {{ data['local-land-charge-upload'] or 'local-land-charge-search-certificate.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/local-land-charge-check">
+            <a class="govuk-link govuk-link--no-visited-state" href="./local-land-charge-check">
               Change<span class="govuk-visually-hidden"> local land charge search certificate</span>
             </a>
           </dd>
@@ -491,7 +491,7 @@
             Yes
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+            <a class="govuk-link govuk-link--no-visited-state" href="./landowner-consent">
               Change<span class="govuk-visually-hidden"> landowner consent</span>
             </a>
           </dd>
@@ -504,7 +504,7 @@
             landowner-consent.pdf
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-permission-upload">
+            <a class="govuk-link govuk-link--no-visited-state" href="./landowner-permission-upload">
               Change<span class="govuk-visually-hidden"> landowner consent</span>
             </a>
           </dd>
@@ -527,7 +527,7 @@
         </strong>
       </div>
 
-      <form action="/register-application/{{ pageURL }}/confirmation" method="post" novalidate>
+      <form action="./confirmation" method="post" novalidate>
         <input type="hidden" name="payment" value="bacs">
         <input type="hidden" name="answers-checked" value="true">
         <input type="hidden" name="register-journey" value="true">

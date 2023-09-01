@@ -1,0 +1,66 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+
+{% set count = data.legalAgreementFiles | length %}
+{% set item = " legal agreement document" | plural("  legal agreement documents", count) %}
+{% set pageHeading = "You have added "+ count + item %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+        
+        <!-- <h1 class="govuk-heading-l">{{ pageHeading }}</h1> -->
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+          
+          <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+            {% for file in data.legalAgreementFiles %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                    {{file.file}}
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./legal-agreement-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{file}} from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              {% endfor %}
+           </dl>
+
+            <form method="post" action="">
+
+              {{ govukRadios({
+                idPrefix: "land-ownership-more",
+                name: "land-ownership-more",
+                fieldset: {
+                  legend: {
+                    text: "Have you added all your legal agreement documents?",
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "You must upload all your legal agreement documents. This includes original versions if the legal agreement has been ammednded."
+                },
+                items: [
+                  {
+                    value: "yes~./legal-party-add-start",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no~./legal-agreement-upload",
+                    text: "No, upload another legal document"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}
