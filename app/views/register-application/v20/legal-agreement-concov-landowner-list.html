@@ -47,6 +47,10 @@
               {% endfor %}
            </dl>
 
+           {% set nextpage ="management-plan-question" %}
+           {% if data.change == "yes" and data.returnURL %}
+           {% set nextpage = data.returnURL+"?change=no&returnURL=" %}
+           {% endif %}
            <!-- Routing handled by radio-button-redirect (look at the value of the radio button). For more info see https://github.com/abbott567/radio-button-redirect/ -->
             <form method="post" action="">
 
@@ -64,7 +68,7 @@
                 },
                 items: [
                   {
-                    value: "yes~./management-plan-question",
+                    value: "yes~./"+nextpage,
                     text: "Yes"
                   },
                   {

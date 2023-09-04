@@ -1,0 +1,39 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Are you an agent acting on behalf of a client?" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- hint: {
+        text: "Your client must be a landowner or leasholder named on the legal agreement."
+      }, -->
+    <form method="post">
+      {{ govukRadios({
+      name: "is-agent",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+
+      items: [
+      {
+      value: "yes~./applicant-details-confirm-agent",
+      text: "Yes"
+      },
+      {
+      value: "no~./applicant-is-landowner",
+      text: "No"
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

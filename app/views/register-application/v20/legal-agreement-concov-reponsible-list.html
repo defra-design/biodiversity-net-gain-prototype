@@ -54,8 +54,12 @@
            </dl>
            {% endif %}
 
-           
-            <form method="post" action="/register-application/{{ pageURL }}/responsible-body-more-answer">
+           {% set nextpage ="legal-agreement-concov-landowner-start" %}
+           {% if data.change == "yes" and data.returnURL %}
+           {% set nextpage = data.returnURL+"?change=no&returnURL=" %}
+           {% endif %}
+           <!-- action handled by radio button redirect -->
+            <form method="post" action="">
 
               {{ govukRadios({
                 idPrefix: "legal-party-more",
@@ -71,15 +75,17 @@
                 },
                 items: [
                   {
-                    value: "yes",
+                    value: "yes~./"+nextpage,
                     text: "Yes"
                   },
                   {
-                    value: "no",
+                    value: "no~./legal-agreement-concov-reponsible-add",
                     text: "No, add another responsible body"
                   }
                 ]
               }) }}
+
+              
               
               {{ govukButton({ text: 'Save and continue' }) }}
               
