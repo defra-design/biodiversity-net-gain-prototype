@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Is a habitat management and monitoring plan a separate document?" %}
+{% set pageHeading = "Is the habitat management and monitoring plan a separate document?" %}
 
 {% block content %}
 
@@ -29,7 +29,7 @@
             {
               value: "no~./management-plan-habitat-start-date",
               checked: (data['has-management-plan']=='no'),
-              text: "No"
+              text: "No, it's included in the legal agreement"
             }
           ]
         }) }}
