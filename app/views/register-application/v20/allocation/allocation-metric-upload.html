@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/allocation-metric-check">
+      <form method="post" action="./allocation-metric-check">
 
         <label class="govuk-label govuk-visually-hidden" for="allocation-metric-upload">
           Upload a file
@@ -28,7 +28,7 @@
 
         <input class="govuk-file-upload" id="allocation-metric-upload" name="allocation-metric-upload" type="file" aria-describedby="allocation-metric-upload-hint">
 
-        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/allocation-metric-no">I do not have the Biodiversity Metric 4.0 file</a></p>
+        <p class="govuk-!-padding-top-3"><a href="./allocation-metric-no">I do not have the Biodiversity Metric 4.0 file</a></p>
 
         {{ govukButton({
           text: "Upload"

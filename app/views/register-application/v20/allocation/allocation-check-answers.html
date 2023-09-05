@@ -78,7 +78,7 @@
             Yes
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-landowner-consent">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-landowner-consent">
               Change<span class="govuk-visually-hidden"> landowner consent</span>
             </a>
           </dd>
@@ -91,7 +91,7 @@
             landowner-consent.pdf
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation-landowner-permission-upload">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation-landowner-permission-upload">
               Change<span class="govuk-visually-hidden"> landowner consent</span>
             </a>
           </dd>
@@ -111,7 +111,7 @@
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
+            <a class="govuk-link" href="./details-name">
               Change<span class="govuk-visually-hidden"> full name</span>
             </a>  
           </dd> 
@@ -124,7 +124,7 @@
             {{ data['email'] or 'jo.smith@gmail.com' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-email">
+            <a class="govuk-link" href="./details-email">
               Change<span class="govuk-visually-hidden"> email</span>
             </a>  
           </dd> 
@@ -135,7 +135,7 @@
 
       <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
 
-      <form action="/register-application/{{ pageURL }}/payment" method="post" novalidate>
+      <form action="./payment" method="post" novalidate>
 
         <input type="hidden" name="development-added" value="true">
 

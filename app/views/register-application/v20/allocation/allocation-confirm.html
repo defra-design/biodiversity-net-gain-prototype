@@ -20,7 +20,7 @@
             {{ data['allocation'] }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/allocation">
+            <a class="govuk-link govuk-link--no-visited-state" href="./allocation">
               Change<span class="govuk-visually-hidden"> the answer to sold units to a development</span>
             </a>
           </dd>
@@ -86,15 +86,15 @@
             </div>
           </dl>
 
-      <!--<a href="/register-application/{{ pageURL }}/allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>-->
+      <!--<a href="./allocation-development" class="govuk-button govuk-button--secondary">Add a development</a>-->
   
       {% endif %}
 
 
       {% if data['register-journey'] == 'true' %}
-        <form action="/register-application/{{ pageURL }}/task-list" method="post" novalidate>
+        <form action="./task-list" method="post" novalidate>
         {% else %}
-        <form action="/register-application/{{ pageURL }}/additional-email-add" method="post" novalidate>
+        <form action="./additional-email-add" method="post" novalidate>
       {% endif %}
 
         <input type="hidden" name="linked-development" value="true">

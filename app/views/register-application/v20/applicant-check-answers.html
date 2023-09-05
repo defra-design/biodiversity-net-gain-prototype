@@ -36,12 +36,13 @@
             Jo Smith<br>
             {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
             Acme ltd<br>
+            {% endif%}
+
             72 Guild Street, London, SE23 6FH<br><br>
             <span class="govuk-visually-hidden">email: </span> joe@imaginaryfarm.co.uk<br>
             <span class="govuk-visually-hidden">telephone: </span> 078209840922<br>
 
-            {% endif%}
-
+           
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -57,7 +58,7 @@
           
         </div>
         
-      
+        {% if data["is-agent"]=="yes"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Client is an individual or organisation
@@ -135,6 +136,8 @@
             </dd>
          
         </div>
+        {% endif %}
+        <!-- END - Agent questions -->
       </dl>
 
       <input type="hidden" name="details-confirm" value="yes">

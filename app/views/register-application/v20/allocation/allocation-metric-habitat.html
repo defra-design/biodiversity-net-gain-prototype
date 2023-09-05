@@ -18,9 +18,9 @@
       {% include "register-application/v20/includes/metric-creation-hedgerow-small.html" %}
 
         {% if data['register-journey'] == 'true' %}
-          <form method="post" action="/register-application/{{ pageURL }}/allocation-habitat-answer">
+          <form method="post" action="./allocation-habitat-answer">
         {% else %}
-          <form method="post" action="/register-application/{{ pageURL }}/allocation-habitat-answer-record">
+          <form method="post" action="./allocation-habitat-answer-record">
         {% endif %}
 
         {{ govukRadios({

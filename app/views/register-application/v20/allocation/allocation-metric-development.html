@@ -42,7 +42,7 @@
         ]
       }) }}
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocation-development-answer">
+      <form method="post" action="./allocation-development-answer">
 
         {{ govukRadios({
           idPrefix: "allocation-development",
@@ -55,11 +55,11 @@
           },
           items: [
             {
-              value: "yes",
+              value: "yes~./allocation-metric-habitat",
               text: "Yes"
             },
             {
-              value: "no",
+              value: "no~./allocation-metric-upload",
               text: "No, upload a different file"
             }
           ]

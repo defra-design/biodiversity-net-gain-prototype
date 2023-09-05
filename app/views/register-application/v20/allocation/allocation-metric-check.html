@@ -26,7 +26,8 @@
         ]
       }) }}
 
-      <form method="post" action="/register-application/{{ pageURL }}/allocation-metric-correct-answer">
+      <!-- Routing handled by "radio button redirect" -->
+      <form method="post" action="">
 
         {{ govukRadios({
           idPrefix: "allocation-metric-correct",
@@ -39,11 +40,11 @@
           },
           items: [
             {
-              value: "yes",
+              value: "yes~./allocation-metric-development",
               text: "Yes, this is the file the local planning authority reviewed with the development project's Biodiversity Net Gain Statement"
             },
             {
-              value: "no",
+              value: "no~./allocation-metric-upload",
               text: "No, upload a different file"
             }
           ]
