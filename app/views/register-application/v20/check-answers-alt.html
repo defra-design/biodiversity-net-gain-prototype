@@ -35,40 +35,105 @@
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your details
+            Your name
           </dt>
           <dd class="govuk-summary-list__value">
-            Jo Smith<br>
-            {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
-            Acme ltd<br>
-            72 Guild Street, London, SE23 6FH<br><br>
-            <span class="govuk-visually-hidden">email: </span> joe@imaginaryfarm.co.uk<br>
-            <span class="govuk-visually-hidden">telephone: </span> 078209840922<br>
-
-            {% endif%}
-
+            Jo Smith
           </dd>
           
             <dd class="govuk-summary-list__actions">
-                {% set detailsURL = "applicant-details-confirm-agent" %}
-                {% if data["is-agent"] == "no" %}
-                {% set detailsURL = "applicant-details-confirm-landowner" %}
-                {% endif %}
-                <a class="govuk-link" href="./{{detailsURL}}?type=business&amp;returnURL=check-answers">
+              
+                <a class="govuk-link" href="./details/name?type=business&amp;returnURL=check-answers">
                 Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               
             </dd>
           
         </div>
-        
+        {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Biglandowner LTF
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/company-name?type=business&amp;returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+        {% endif %}
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            72 Guild Street<br>London<br>SE23 6FH
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+                
+                <a class="govuk-link" href="./details/address-in-uk?type=individual&amp;returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            joe@imaginaryfarm.co.uk
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type=individual&amp;returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            01234 567890
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/phone?type=individual&amp;returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+          
+        </div>
       
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Client is an individual or organisation
           </dt>
           <dd class="govuk-summary-list__value">
-            {{(data["applicant-type"] | capitalize) or "Individual"}}
+            {{data["applicant-type"] | capitalize or Individual}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -86,12 +151,12 @@
             Your client's organisation name
           </dt>
           <dd class="govuk-summary-list__value">
-            {{(data["applicant-org-name"] | capitalize) or "Biglandowner LTF"}}
+            {{data["applicant-org-name"] | capitalize or Individual}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
               
-                <a class="govuk-link" href="./applicant-as-organisation?change=yes&returnURL=check-answers">
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
                 </a>
               
@@ -104,17 +169,12 @@
             Your client's name
           </dt>
           <dd class="govuk-summary-list__value">
-            {% set  applicantName = data["applicant-f-name"]or "Jo"%}
-            {% if data["applicant-m-name"] %}
-            {% set  applicantName = applicantName+" "+data["applicant-m-name"]%}
-            {% endif %}
-            {% set  applicantName = applicantName+" "+data["applicant-l-name"] | capitalize or "Smith"%}
-            {{applicantName}}
+           {{(data["applicant-f-name"]or "Jo" )+" "+data["applicant-m-name"]+" "+(data["applicant-f-name"] or "Smith")}} 
           </dd>
           
             <dd class="govuk-summary-list__actions">
               
-                <a class="govuk-link" href="./applicant-as-individual?change=yes&returnURL=check-answers">
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
                 </a>
               
@@ -155,9 +215,6 @@
             {% for file in data.landownershipFiles %} 
               <li>{{file}}</li>
             {% endfor %}
-            {% if data.landownershipFiles | length == 0 %}
-              ownership-certificate.pdf
-            {% endif %}
             
           </ul>
           </dd>
@@ -486,10 +543,6 @@
                   {{lp['concov-responsible-body']}}
                   </li>
                   {% endfor %}
-                  <!-- Defualt entry if there are non added -->
-                  {% if data.responsibleBodies | length == 0 %}
-                  Essex county council
-                  {% endif %}
               </ul>
             </dd>
 
@@ -527,10 +580,6 @@
                   {{name}}
                   </li>
                   {% endfor %}
-
-                  {% if data.landowners | length == 0 %}
-                  Biglandowner LTF   
-                  {% endif %}
               </ul>
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -619,6 +668,33 @@
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/local-land-charge-check">
               Change<span class="govuk-visually-hidden"> local land charge search certificate</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Yes
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-consent">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner written consent file uploaded
+          </dt>
+          <dd class="govuk-summary-list__value">
+            landowner-consent.pdf
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="/register-application/{{ pageURL }}/landowner-permission-upload">
+              Change<span class="govuk-visually-hidden"> landowner consent</span>
             </a>
           </dd>
         </div>
