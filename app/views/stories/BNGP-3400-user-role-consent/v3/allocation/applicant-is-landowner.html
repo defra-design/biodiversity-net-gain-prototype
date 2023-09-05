@@ -31,9 +31,9 @@
 }) }}
 {% endset -%}
 <!-- If client -->
-{% set landownerRoleURL = "applicant-landowner-type" %}
+{% set landownerRoleURLyes= "applicant-landowner-type" %}
 {% if data["is-agent"] == "no" %}
-{% set landownerRoleURL = "applicant-role-as-landowner" %}
+{% set landownerRoleURLyes = "applicant-role-as-landowner" %}
 {% endif %}
 
       {{ govukRadios({
@@ -47,11 +47,11 @@
       },
       items: [
       {
-      value: "yes~./"+landownerRoleURL,
+      value: "yes~./"+landownerRoleURLyes,
       text: "Yes"
       },
       {
-      value: "no~./"+landownerRoleURL,
+      value: "no~./applicant-landowner-type",
       text: "No",
       conditional: {
         html: roleHtml

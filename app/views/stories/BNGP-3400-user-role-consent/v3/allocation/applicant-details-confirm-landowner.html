@@ -20,9 +20,12 @@
       {% endif %}
     </p>
 
+      {% set nextpage = "task-list-allocation" %}
+      {% if data["client-is-landowner"] == "no" %}
+      {% set nextpage = "applicant-authorisation-as-nrp" %}
+      {% endif %}
 
-
-      <form method="post" class="govuk-!-padding-top-5" action="./task-list-allocation">
+      <form method="post" class="govuk-!-padding-top-5" action="./{{nextpage}}">
 
         
 

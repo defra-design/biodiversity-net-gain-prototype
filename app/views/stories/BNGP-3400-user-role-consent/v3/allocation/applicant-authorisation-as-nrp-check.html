@@ -6,7 +6,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
+      <span  class="govuk-caption-l">Letter of authority 2 of 2</span>
+      {% endif %}
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>

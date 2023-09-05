@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Upload your letter of authority" %}
+{% set pageHeading = "Upload your letter of authority to act on behalf of your client" %}
 
 {% block content %}
 
@@ -16,12 +16,12 @@
       <form method="post" action="./applicant-details-upload-check">
        
         <div id="landowner-certificate-upload-hint">
-          <p>We need a document signed by <strong>Acme farming inc</strong> (your client) that confirms you have authority to apply on their behalf. </p>
+          <p>We need a document signed by <strong>Acme farming inc</strong> that confirms you have authority to apply on their behalf. </p>
           <p>The letter must have:</p>
           <ul class="govuk-list govuk-list--bullet">
             <li>a written statement confirming you to act on their behalf</li>
             <li>the name and signature of your client</li>
-            <li>the date consent was given</li>
+            <li>the date it was signed</li>
 
           </ul>
 
@@ -38,6 +38,9 @@
           label: {
             text: "Upload a file",
             classes:"govuk-visually-hidden"
+          },
+          hint: {
+            id: "landowner-certificate-upload-hint"
           }
           
         }) }}
