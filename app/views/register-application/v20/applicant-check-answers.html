@@ -8,13 +8,13 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-l" >Check the details for the person applying</h1>
+    <h1 class="govuk-heading-l" >Check applicant information</h1>
     <form method="post" action="{{data.startURL or 'task-list'}}">
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you an agent?
+            Acting on behalf of a client
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["is-agent"]|capitalize or "No"}}
@@ -79,7 +79,7 @@
         {% if data["applicant-type"] == "organisation"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your client's organisation name
+            Client's organisation name
           </dt>
           <dd class="govuk-summary-list__value">
             {{(data["applicant-org-name"] | capitalize) or "Biglandowner LTF"}}
@@ -121,7 +121,7 @@
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Letter of authorisation
+            Written authorisation file
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["landowner-agent-upload"] or "landowner-agent-evidence.pdf"}}

@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Check your details" %}
+{% set pageHeading = "Check your Defra account details" %}
 
 {% block content %}
 
@@ -12,11 +12,11 @@
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
       
-      <p>These are your Defra ID details. 
+      <p>
         {% if data["applicant-type"] == "organisation" %}
-        The landowner or leashholder you represent must be on the legal agreement to apply.
+        The landowner or leaseholder you represent must be named on the legal agreement to apply.
       {% else %}
-      You must be a landowner or leashholder named on the legal agreement to apply.
+      You must be named as a landowner or leaseholder on the legal agreement to apply.
       {% endif %}
     </p>
 
@@ -140,9 +140,9 @@
   </dl>
 
 
-        <p>We will only use your email address or alternatively your phone number if we need to contact you about the registration</p>
+  <p>We will only use your email address or your phone number if we need to contact you about your registration.</p>
 
-        <p><strong>Changes made will only appear on this application. No changes will be made to your Defra ID.</strong></p>
+        <p><strong>Any changes you make to these details will only be used in this application. No changes will be made to your Defra account.</strong></p>
 
 
         
