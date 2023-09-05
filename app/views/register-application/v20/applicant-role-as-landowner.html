@@ -1,5 +1,5 @@
 {% extends "register-application/v20/layout-register-application.html" %}
-{% set pageHeading = "Are you applying as an individual landowner or leaseholder or an organisation?" %}
+{% set pageHeading = "Are you applying as an individual or as part of an organisation?" %}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -20,11 +20,11 @@
       items: [
       {
       value: "individual~./applicant-details-confirm-landowner",
-      text: "an individual landowner or leaseholder"
+      text: "An individual landowner or leaseholder"
       },
       {
       value: "organisation~./applicant-details-confirm-landowner",
-      text: "an organisation - I am an employee or representative"
+      text: "An organisation - I am an employee or representative"
       }
       ]
       }) }}
