@@ -19,7 +19,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Are you an agent?
+            Acting on behalf of a client
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["is-agent"]|capitalize or "No"}}
@@ -31,8 +31,28 @@
           </dd>
         </div>
 
-    
-      
+        {% if data["is-agent"]=="no"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applying as
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data["applicant-type"] == "individual" %}
+            an individual landowner or leaseholder
+            {% else %}
+            an organisation - I am an employee or representative
+            {% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-role-as-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+          </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Your details
@@ -41,12 +61,13 @@
             Jo Smith<br>
             {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
             Acme ltd<br>
+            {% endif%}
+
             72 Guild Street, London, SE23 6FH<br><br>
             <span class="govuk-visually-hidden">email: </span> joe@imaginaryfarm.co.uk<br>
             <span class="govuk-visually-hidden">telephone: </span> 078209840922<br>
 
-            {% endif%}
-
+           
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -62,7 +83,7 @@
           
         </div>
         
-      
+        {% if data["is-agent"]=="yes"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Client is an individual or organisation
@@ -83,7 +104,7 @@
         {% if data["applicant-type"] == "organisation"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your client's organisation name
+            Client's organisation name
           </dt>
           <dd class="govuk-summary-list__value">
             {{(data["applicant-org-name"] | capitalize) or "Biglandowner LTF"}}
@@ -125,7 +146,7 @@
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Letter of authorisation
+            Written authorisation file
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["landowner-agent-upload"] or "landowner-agent-evidence.pdf"}}
@@ -140,7 +161,12 @@
             </dd>
          
         </div>
+
+         
+        {% endif %}
+        <!-- END - Agent questions -->
       </dl>
+
 
       <h2 class="govuk-heading-m">Land ownership</h2>
 

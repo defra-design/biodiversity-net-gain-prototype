@@ -26,8 +26,28 @@
           </dd>
         </div>
 
-    
-      
+        {% if data["is-agent"]=="no"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applying as
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data["applicant-type"] == "individual" %}
+            an individual landowner or leaseholder
+            {% else %}
+            an organisation - I am an employee or representative
+            {% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-role-as-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+          </div>
+        {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Your details
@@ -136,6 +156,8 @@
             </dd>
          
         </div>
+
+         
         {% endif %}
         <!-- END - Agent questions -->
       </dl>
