@@ -117,7 +117,7 @@
         {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your client's name
+            Client's name
           </dt>
           <dd class="govuk-summary-list__value">
             {% set  applicantName = data["applicant-f-name"]or "Jo"%}
@@ -141,7 +141,7 @@
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Written authorisation file
+            Written authorisation
           </dt>
           <dd class="govuk-summary-list__value">
             {{data["landowner-agent-upload"] or "landowner-agent-evidence.pdf"}}
