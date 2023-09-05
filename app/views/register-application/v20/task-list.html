@@ -20,6 +20,35 @@
 
       <ol class="app-task-list govuk-!-padding-top-3">
         <li>
+                        <h2 class="app-task-list__section">Details the applicant </h2>
+                        <ul class="app-task-list__items">
+                            
+                                
+                                    <li class="app-task-list__item task-list-required">
+                                     
+                                      {% if data['details-confirm'] or data['use-defra-id'] == "yes" %}
+                                       <span class="app-task-list__task-name">
+                                        <a href="./applicant-details-is-agent" aria-describedby="your-details-status" id="add-your-details">
+                                          Add details about the person applying
+                                        </a>
+                                      </span>
+                <strong class="govuk-tag completed app-task-list__tag" id="landowner-consent-status">Completed</strong>
+              {% else %}
+               <span class="app-task-list__task-name">
+                                        <a href="./applicant-details-is-agent" aria-describedby="your-details-status" id="add-your-details">
+                                         Add details about the person applying
+                                        </a>
+                                      </span>
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="landowner-consent-status">Not started</strong>
+              {% endif %} 
+                                    </li>
+                                
+                            
+                        </ul>
+                    </li>
+
+        <li>
+        <li>
           <h2 class="app-task-list__section">
             Land information
           </h2>
@@ -120,8 +149,8 @@
                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="local-land-charge-status">Not started</strong>
                   {% endif %}
             </li>
-
-            <li class="app-task-list__item task-list-required">
+            <!-- Replaced with new version of conent and asking for applicant details (see top of task)  -->
+            <!-- <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 <a href="./landowner-consent" aria-describedby="landowner-consent-status">
                   Consent to register the biodiversity gain site
@@ -133,7 +162,7 @@
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="landowner-consent-status">Not started</strong>
               {% endif %} 
             </li>
-
+ -->
           </ul>
         </li>
         {% if data.showYourDetails == "yes" %}

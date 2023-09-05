@@ -1,0 +1,38 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+{% set pageHeading = "Are you applying as an organisation  or an individual landowner or leaseholder?" %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- hint: {
+        text: "Your client must be a landowner or leasholder named on the legal agreement."
+      }, -->
+    <form method="post">
+      {{ govukRadios({
+      name: "applicant-type",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+
+      items: [
+      {
+      value: "individual~./applicant-details-confirm-landowner",
+      text: "an individual landowner of leaseholder"
+      },
+      {
+      value: "organisation~./applicant-details-confirm-landowner",
+      text: "an organisation, I am a representative of the landowner or leaseholder"
+      }
+      ]
+      }) }}
+
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
