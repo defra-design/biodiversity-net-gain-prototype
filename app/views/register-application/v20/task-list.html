@@ -28,7 +28,7 @@
                                      
                                       {% if data['details-confirm'] or data['use-defra-id'] == "yes" %}
                                        <span class="app-task-list__task-name">
-                                        <a href="./applicant-details-is-agent" aria-describedby="your-details-status" id="add-your-details">
+                                        <a href="./applicant-check-answers" aria-describedby="your-details-status" id="add-your-details">
                                           Add details about the person applying
                                         </a>
                                       </span>
@@ -88,7 +88,7 @@
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="boundary-status">Not started</strong>
               {% endif %} 
             </li>
-            <li class="app-task-list__item">
+            <li class="app-task-list__item task-list-required">
               <span class="app-task-list__task-name">
                 {% if data['habitat-checked-data'] %}
                   <a href="./metric-confirm" aria-describedby="habitat-data-status">

@@ -9,63 +9,139 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l" >Check the details for the person applying</h1>
-    <!-- action controled in ./_routes.js -->
-    <form method="post">
-      <dl class="govuk-summary-list">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Agent acting on behalf of a client
-    </dt>
-    <dd class="govuk-summary-list__value">
-      {{data["is-agent"] | capitalize or "Yes"}}
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change<span class="govuk-visually-hidden"> name</span>
-      </a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Details
-    </dt>
-    <dd class="govuk-summary-list__value">
-      5 January 1978
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change<span class="govuk-visually-hidden"> date of birth</span>
-      </a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Address
-    </dt>
-    <dd class="govuk-summary-list__value">
-      72 Guild Street<br>London<br>SE23 6FH
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change<span class="govuk-visually-hidden"> address</span>
-      </a>
-    </dd>
-  </div>
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key">
-      Contact details
-    </dt>
-    <dd class="govuk-summary-list__value">
-      <p class="govuk-body">07700 900457</p>
-      <p class="govuk-body">sarah.phillips@example.com</p>
-    </dd>
-    <dd class="govuk-summary-list__actions">
-      <a class="govuk-link" href="#">
-        Change<span class="govuk-visually-hidden"> contact details</span>
-      </a>
-    </dd>
-  </div>
-</dl>
+    <form method="post" action="{{data.startURL or 'task-list'}}">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you an agent?
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["is-agent"]|capitalize or "No"}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./applicant-details-is-agent?change=yes&returnURL=check-answers">
+              Change<span class="govuk-visually-hidden"> if you are an agent</span>
+            </a>
+          </dd>
+        </div>
+
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Jo Smith<br>
+            {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+            Acme ltd<br>
+            72 Guild Street, London, SE23 6FH<br><br>
+            <span class="govuk-visually-hidden">email: </span> joe@imaginaryfarm.co.uk<br>
+            <span class="govuk-visually-hidden">telephone: </span> 078209840922<br>
+
+            {% endif%}
+
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+                {% set detailsURL = "applicant-details-confirm-agent" %}
+                {% if data["is-agent"] == "no" %}
+                {% set detailsURL = "applicant-details-confirm-landowner" %}
+                {% endif %}
+                <a class="govuk-link" href="./{{detailsURL}}?type=business&amp;returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+        
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client is an individual or organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["applicant-type"] | capitalize) or "Individual"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% if data["applicant-type"] == "organisation"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your client's organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["applicant-org-name"] | capitalize) or "Biglandowner LTF"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-as-organisation?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your client's name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set  applicantName = data["applicant-f-name"]or "Jo"%}
+            {% if data["applicant-m-name"] %}
+            {% set  applicantName = applicantName+" "+data["applicant-m-name"]%}
+            {% endif %}
+            {% set  applicantName = applicantName+" "+data["applicant-l-name"] | capitalize or "Smith"%}
+            {{applicantName}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-as-individual?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Letter of authorisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["landowner-agent-upload"] or "landowner-agent-evidence.pdf"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-details-upload-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+      </dl>
+
+      <input type="hidden" name="details-confirm" value="yes">
+        {{ govukButton({
+           text: "Save and continue"
+        }) }}
+        
       
     </form>
   </div>
