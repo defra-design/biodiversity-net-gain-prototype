@@ -11,11 +11,9 @@
   
       <form action="../{{data.returnURL or 'applicant-details-confirm-landowner' }}" method="POST">
 
-        {% set phone = "" %}
-        {% if query.change == "yes" %}
-        {% set phone = data['phone'] %}
+     
+        {% set phone = data['telephone-number'] %}
         
-        {% endif %}
 
 
                 {{ govukInput({

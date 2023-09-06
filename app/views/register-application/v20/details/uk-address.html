@@ -25,21 +25,21 @@
                 <label class="govuk-label" for="address-line-1">
                   Building and street <span class="govuk-visually-hidden">line 1 of 2</span>
                 </label>
-                <input class="govuk-input" id="address-line-1" name="line1" type="text" autocomplete="address-line1"></div>
+                <input class="govuk-input" id="address-line-1" name="address-line1" type="text" autocomplete="address-line1" value="{{data['address-line1']}}"></div>
 
               <div class="govuk-form-group">
                 <label class="govuk-label" for="address-line-2">
                   <span class="govuk-visually-hidden">Building and street line 2 of 2</span>
                 </label>
-                <input class="govuk-input" id="address-line-2" name="line2" type="text" autocomplete="address-line2">
-                <input t" id="address-line-3" name="line3" type="hidden" value="">
+                <input class="govuk-input" id="address-line-2" name="address-line2" type="text" autocomplete="address-line2">
+                <input t" id="address-line-3" name="line3" type="hidden" value="{{data['address-line2']}}">
               </div>
 
               <div class="govuk-form-group">
                 <label class="govuk-label" for="address-town">
                   Town or city
                 </label>
-                <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="town" type="text" autocomplete="address-level2"></div>
+                <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" value="{{data['address-town']}}" autocomplete="address-level2"></div>
 
               <div class="govuk-form-group">
                 <label class="govuk-label" for="address-county">
@@ -50,7 +50,7 @@
                 <label class="govuk-label" for="address-postcode">
                   Postcode
                 </label>
-                <input class="govuk-input govuk-input--width-10" id="address-postcode" name="postcode" type="text" autocomplete="postal-code">
+                <input class="govuk-input govuk-input--width-10" id="address-postcode" name="postcode" type="text" autocomplete="postal-code" value="{{data['address-postcode']}}">
             </div>
             <input type="hidden" name="countryCode" value="" >
             </fieldset>

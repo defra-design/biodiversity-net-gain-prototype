@@ -46,7 +46,7 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            Jo Smith
+            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -64,7 +64,7 @@
             Company name
           </dt>
           <dd class="govuk-summary-list__value">
-            Biglandowner LTF
+            {{data["companyName"]}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -83,7 +83,7 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            72 Guild Street<br>London<br>SE23 6FH
+            {{data["address-line1"]}} <br>{{data["address-town"]}} <br>{{data["address-postcode"]}}{%if data['address-country']%} <br>{{data['address-country']}}{% endif %}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -103,15 +103,13 @@
             Contact email address
           </dt>
           <dd class="govuk-summary-list__value">
-            joe@imaginaryfarm.co.uk
+            {{ data['email'] }}
           </dd>
           
             <dd class="govuk-summary-list__actions">
-              
                 <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
+                Change<span class="govuk-visually-hidden"> contact email address</span>
                 </a>
-              
             </dd>
           
         </div>
@@ -123,13 +121,13 @@
             Contact phone number
           </dt>
           <dd class="govuk-summary-list__value">
-            01234 567890
+            {{ data['telephone-number'] }}
           </dd>
           
             <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./details/phone?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
+                Change<span class="govuk-visually-hidden"> Contact phone number</span>
                 </a>
               
             </dd>

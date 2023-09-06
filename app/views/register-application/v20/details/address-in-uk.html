@@ -23,13 +23,13 @@
           </legend>
           <div class="govuk-radio govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~uk-address" {% if data.change == 'yes' and data.address_in_uk == 'yes'%}selected{% endif%}>
+              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~uk-address" {% if data.address_in_uk == 'yes'%}checked{% endif%}>
               <label class="govuk-label govuk-radios__label" for="requirementAnswer1-Yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="requirementAnswer1-No" name="address_in_uk" type="radio" value="no~international-address" {% if data.change == 'yes' and data.address_in_uk == 'no'%}selected{% endif%}>
+              <input class="govuk-radios__input" id="requirementAnswer1-No" name="address_in_uk" type="radio" value="no~international-address" {% if data.address_in_uk == 'no'%}checked{% endif%}>
               <label class="govuk-label govuk-radios__label" for="requirementAnswer1-No">
                 No
               </label>

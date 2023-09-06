@@ -25,7 +25,7 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            Jo Smith
+            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -42,7 +42,7 @@
             Company name
           </dt>
           <dd class="govuk-summary-list__value">
-            Biglandowner LTF
+            {{data["companyName"]}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -60,7 +60,7 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            72 Guild Street<br>London<br>SE23 6FH
+            {{data["address-line1"]}} <br>{{data["address-town"]}} <br>{{data["address-postcode"]}}{%if data['address-country']%} <br>{{data['address-country']}}{% endif %}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -80,7 +80,7 @@
             Contact email address
           </dt>
           <dd class="govuk-summary-list__value">
-            joe@imaginaryfarm.co.uk
+            {{ data['email'] }}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -100,7 +100,7 @@
             Contact phone number
           </dt>
           <dd class="govuk-summary-list__value">
-            01234 567890
+           {{ data['telephone-number'] }}
           </dd>
           
             <dd class="govuk-summary-list__actions">

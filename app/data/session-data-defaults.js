@@ -31,6 +31,16 @@ module.exports = {
   'defraName': "Jo Smith",
   'defraEmail': "joe@imaginaryfarm.co.uk",
   'registrationPaymentAmount': '658.70',
-  'latestVersion': 'v19'
+  'latestVersion': 'v19',
+  // defraID 
+  'applicant-f-name': 'Jo',
+  'applicant-l-name': 'Smith',
+  'companyName': 'Biglandowner LTF',
+  'address_in_uk':"yes",
+  'address-line1': '72 Guild Street',
+  'address-town': 'London',
+  'address-postcode': 'SE23 6FH',
+  'email': 'joe@imaginaryfarm.co.uk',
+  'telephone-number': '01234 567890'
 
 }
