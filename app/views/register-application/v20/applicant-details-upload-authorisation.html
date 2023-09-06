@@ -13,7 +13,7 @@
       
       <form method="post" action="./applicant-details-upload-check">
         {% if data["applicant-type"] == "individual" %}
-        {% set landowner = (data["applicant-f-name"]or "Jo" )+" "+data["applicant-m-name"]+" "+(data["applicant-f-name"] or "Johnson") %}
+        {% set landowner = (data["applicant-f-name"]or "Jo" )+" "+data["applicant-m-name"]+" "+(data["applicant-l-name"] or "Johnson") %}
         {% else %}
          {% set landowner = data["applicant-org-name"] or "Acme farming inc" %}
         {% endif %}
