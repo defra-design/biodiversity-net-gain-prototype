@@ -204,24 +204,23 @@
           <ul class="app-task-list__items">
 
             <li class="app-task-list__item">
-              {% if data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['local-land-charge-correct'] or 
-                    data['landowner-certificate-correct'] and  data['location-confirm'] and data['habitat-checked-data'] and data['legal-agreement-confirm'] and data['management-plan-confirm'] and data['landowner-consent'] and data['legal-agreement'] != "Conservation covenant" %}
-                <span class="app-task-list__task-name">
+        
+                <span id="can-submit" style="display:none;">
+                <span class="app-task-list__task-name" >
                   <a href="./check-answers" aria-describedby="submit-application-status">
-                    Check your answers, pay and submit
+                    Check your answers and submit
                   </a>
                 </span>
-                {% if data['answers-checked'] == 'true' %}
-                  <strong class="govuk-tag app-task-list__tag" id="submit-application-status">completed</strong>
-                {% else %}
-                  <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">not started</strong>
-                {% endif %} 
-              {% else %}
-                <span class="app-task-list__task-name">
+
+                <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Not started</strong>
+                 </span>
+              <span id="cannot-submit" >
+               <span class="app-task-list__task-name"  >
                   Check your answers and submit
                 </span>
                 <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="submit-application-status">Cannot start yet</strong>
-              {% endif %} 
+                </span>
+
             </li>
 
           </ul>
@@ -246,6 +245,8 @@ window.addEventListener('load', function() {
   $('.task-progress-completed').text(tasksCompleted);
   if (tasks == tasksCompleted){
     $('.task-progress-status-text').text("Registration complete")
+    $('#can-submit').show()
+    $('#cannot-submit').hide()
   }
 
 });
