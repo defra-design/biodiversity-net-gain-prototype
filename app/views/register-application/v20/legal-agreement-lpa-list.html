@@ -1,0 +1,83 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set count = data.legalParties | length %}
+{% set item = " legal party" | plural(" legal parties", count) %}
+{% set pageHeading = "You have added "+ count + item %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+        
+        <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+          <!-- Check if legalParties has been added to -->
+          <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+            {% for lp in data.legalParties %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                  <!-- set name based on the type of legal party, defualt is organistion name -->
+
+                  {% set name = lp['legal-party-name'] %}
+                  {% if lp["legal-party-type"] == "individual" %}
+
+                    {% set name = lp['legal-party-f-name']+" "%}
+
+                    {% if lp["legal-party-m-name"]+" " %}
+                      {% set name = name+lp['legal-party-m-name']+" "%}
+
+                    {% endif %}
+
+                    {% set name = name+lp['legal-party-l-name']%}
+
+
+                  {% endif %}
+                  {{name}} ({{lp['legal-party-role']}})
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-add-{{lp['legal-party-type']}}?change=yes&id={{loop.index0}}"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{name}}</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/legal-party-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{name}} from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              {% endfor %}
+           </dl>
+
+            <!-- Routing handled by radio-button-redirect (look at the value of the radio button). For more info see https://github.com/abbott567/radio-button-redirect/ -->
+            <form method="post" action="">
+
+              {{ govukRadios({
+                idPrefix: "legal-party-more",
+                name: "legal-party-more",
+                fieldset: {
+                  legend: {
+                    text: "Have you added all legal parties?",
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "You must tell us about all parties listed on the planning obligation (Section 106 agreement)."
+                },
+                items: [
+                  {
+                    value: "yes~./legal-agreement-concov-landowner-start",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no~./legal-party-add-type",
+                    text: "No, add another legal party"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}

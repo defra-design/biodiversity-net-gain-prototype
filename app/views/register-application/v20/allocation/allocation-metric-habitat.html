@@ -17,11 +17,9 @@
 
       {% include "register-application/v20/includes/metric-creation-hedgerow-small.html" %}
 
-        {% if data['register-journey'] == 'true' %}
-          <form method="post" action="./allocation-habitat-answer">
-        {% else %}
-          <form method="post" action="./allocation-habitat-answer-record">
-        {% endif %}
+      
+          <form method="post" action="">
+
 
         {{ govukRadios({
           idPrefix: "allocation-habitat",
@@ -34,11 +32,11 @@
           },
           items: [
             {
-              value: "yes",
+              value: "yes~./allocation-check-answers",
               text: "Yes"
             },
             {
-              value: "no",
+              value: "no~./allocation-metric-upload",
               text: "No, upload a different file"
             }
           ]

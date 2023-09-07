@@ -32,6 +32,28 @@ router.post('*/legal-party-add-individual', function (req, res) {
   }
   res.redirect('/'+baseURL+req.params[0]+'/legal-party-list')
 })
+router.post('*/legal-agreement-lpa-add', function (req, res) {
+  if(req.query.change=="yes"){
+      req.session.data.legalParties[req.query.id] = req.body
+  }else{
+     req.session.data.legalParties.push(req.body.lpa);
+  }
+  res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-lpa-list')
+})
+router.post('*/legal-agreement-lpa-remove', function (req, res) {
+
+  var install = req.session.data['legal-party-remove']
+
+  if (install == "yes"){
+    req.session.data.legalParties.splice(req.query.id, 1);
+  }
+  if(req.session.data.legalParties.length == 0 ){
+     res.redirect('/register-application/v20/legal-agreement-lpa-start')
+  }
+  res.redirect('/register-application/v20/legal-agreement-lpa-list')
+})
+
+
 
 router.get('/land-ownership-list-add', function(req, res) {
     var page = req.query.returnURL || "land-ownership-list"

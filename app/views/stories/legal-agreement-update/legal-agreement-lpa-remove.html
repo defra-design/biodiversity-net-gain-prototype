@@ -1,0 +1,41 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+<!-- // get name from legalParties list, or defualt to static name -->
+{% set lpa = data.legalParties[query.id] or "Shropshire council"%}
+{{data.legalParties | dump}}
+
+
+{% set pageHeading = "Are you sure you want to remove "+lpa[0]+"?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action for this form in ./_routes.js -->
+    <form method="post">
+      <input type="hidden" name="removePartyMember" value="{{query.id}}">
+      {{ govukRadios({
+      idPrefix: "legal-party-remove",
+      name: "legal-party-remove",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l",
+      pageHeading: true
+      }
+      },
+      items: [
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
+      ]
+      }) }}
+      {{ govukButton({ text: 'Save and continue' }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

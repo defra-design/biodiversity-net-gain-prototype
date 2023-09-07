@@ -1,0 +1,23 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+
+
+{% set pageHeading = "You will need to upload 2 letters of authority "%}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action controled in ./_routes.js -->
+    <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+    <p>You will need to upload two documents that confirms you have authority to apply on  behalf of the following: </p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Acme inc (your client)</li>
+      <li>The landowner or leasholder</li>
+    </ul>
+    <form method="post" action="applicant-details-upload-authorisation">
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

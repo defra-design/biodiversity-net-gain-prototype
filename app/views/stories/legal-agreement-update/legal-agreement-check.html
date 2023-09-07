@@ -1,0 +1,68 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "Check the planning obligation (Section 106 agreement) file" %}
+{% else %}
+  {% set pageHeading = "Check the conservation covenant file" %}
+{% endif %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              text: data['legal-agreement-upload'] or 'legal-agreement.pdf'
+            }
+          }
+        ]
+      }) }}
+
+       <!-- Need to add conditional routing to covenant if we use this design -->
+       {% set nextpage = "legal-agreement-lpa-start" %}
+       {% if data["legal-agreement"] == "Conservation covenant" %}
+       {% set nextpage = "legal-agreement-concov-reponsible-start" %}
+       {% endif %}
+        <form method="post" action="">
+
+        {{ govukRadios({
+          idPrefix: "legal-agreement-correct",
+          name: "legal-agreement-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes~./"+nextpage,
+              text: "Yes"
+            },
+            {
+              value: "no~./legal-agreement-upload",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
