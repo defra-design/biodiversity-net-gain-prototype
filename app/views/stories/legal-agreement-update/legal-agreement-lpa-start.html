@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "You need to add all the Local Planning Authorities (LPA) listed on the planning obligation" %}
+{% set pageHeading = "You need to add all the planning authorities listed on the planning obligation (Section 106 agreement)" %}
 
 {% block content %}
 
@@ -9,13 +9,13 @@
       
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
      
-      <p>You can add as many LPA's as you need to.</p>
+      <p>You can add as many planning authorities as you need to.</p>
       <form method="get" action="legal-agreement-lpa-add">
        
 
 
         {{ govukButton({
-          text: "Add a Local Planning Authority"
+          text: "Add planning authorities"
         }) }}
         
       </form>
