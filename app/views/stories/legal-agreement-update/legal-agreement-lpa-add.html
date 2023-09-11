@@ -3,7 +3,7 @@
 {% if query.change %}
 {% set AddorChangeText = "Update" %}
 {% endif %}
-{% set pageHeading = AddorChangeText+" a planning authority listed on the planning obligation (Section 106 agreement)" %}
+{% set pageHeading = AddorChangeText+" a local planning authority listed on the planning obligation (Section 106 agreement)" %}
 
 {% block content %}
 
@@ -27,10 +27,10 @@
         <form method="post" >
           <div class="govuk-form-group">
 
-          <label class="govuk-label" for="operator-search-country"> Planning authority </label>
-          <p class="govuk-hint">Start typing, then select a planning authority.</p>
+          <label class="govuk-label" for="operator-search-country"> Local planning authority </label>
+          <p class="govuk-hint">Start typing, then select a local planning authority.</p>
           <select class="govuk-select gouvk-!-width-two-thirds" id="lpa-autocomplete" name="lpa">
-            <option value="">Select a planning authority</option>
+            <option value="">Select a local planning authority</option>
             <option value='Bath and North East Somerset'>Bath and North East Somerset</option>
             <option value='Council'>Council</option>
             <option value='Bedford Borough Council'>Bedford Borough Council</option>
@@ -206,7 +206,7 @@
           </select> 
         </div>
           {{ govukButton({
-            text: "Add planning authority"
+            text: "Add local planning authority"
           }) }}
         </form>
 

@@ -1,7 +1,7 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
 {% set count = data.legalParties | length %}
-{% set item = " planning authorities" | plural(" planning authorities", count) %}
+{% set item = " local planning authority" | plural(" local planning authorities", count) %}
 {% set pageHeading = "You have added "+ count + item %}
 
 {% block content %}
@@ -40,12 +40,12 @@
                 name: "legal-party-more",
                 fieldset: {
                   legend: {
-                    text: "Have you added all planning authorities?",
+                    text: "Have you added all local planning authorities?",
                     classes: "govuk-fieldset__legend--m"
                   }
                 },
                 hint: {
-                  text: "You must tell us about all planning authorities on the planning obligation (Section 106 agreement)."
+                  text: "You must tell us about all local planning authorities on the planning obligation (Section 106 agreement)."
                 },
                 items: [
                   {
@@ -54,7 +54,7 @@
                   },
                   {
                     value: "no~./legal-agreement-lpa-add",
-                    text: "No, add another planning authority"
+                    text: "No, add another local planning authority"
                   }
                 ]
               }) }}
