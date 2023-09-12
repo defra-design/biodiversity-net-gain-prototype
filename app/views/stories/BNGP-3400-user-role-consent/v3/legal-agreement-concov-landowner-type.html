@@ -1,14 +1,12 @@
 {% extends "register-application/v20/layout-register-application.html" %}
-{% set pageHeading = "Are you applying as an individual or as part of an organisation?" %}
+{% set pageHeading = "Is the landowner listed on the "+data['legal-agreement']+" an individual or organisation?" %}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <!-- hint: {
-        text: "Your client must be a landowner or leasholder named on the legal agreement."
-      }, -->
+    <!-- action controled in ./_routes.js -->
     <form method="post">
       {{ govukRadios({
-      name: "applicant-type",
+      name: "landowner-type",
       fieldset: {
       legend: {
       text: pageHeading,
@@ -16,19 +14,17 @@
       classes: "govuk-fieldset__legend--l"
       }
       },
-
       items: [
       {
-      value: "individual~./applicant-details-confirm-landowner",
-      text: "An individual landowner or leaseholder"
+      value: "individual~./legal-agreement-concov-landowner-individual",
+      text: "An individual"
       },
       {
-      value: "organisation~./applicant-details-confirm-landowner",
-      text: "An organisation - I am an employee or representative"
+      value: "organisation~./legal-agreement-concov-landowner-org",
+      text: "An organisation"
       }
       ]
       }) }}
-
       {{ govukButton({
       text: "Save and continue"
       }) }}

@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Check your details as an agent" %}
+{% set pageHeading = "Check your Defra account details" %}
 
 {% block content %}
 
@@ -11,10 +11,8 @@
 
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-      
-      <p>These are your Defra ID details</p>
 
-      <form method="post" class="govuk-!-padding-top-5" action="./applicant-landowner-type">
+      <form method="post" class="govuk-!-padding-top-5" action="./applicant-who-is-applicant">
 
         {% set returnURL = query.returnURL or 'task-list' %}
 
@@ -27,7 +25,7 @@
             Name
           </dt>
           <dd class="govuk-summary-list__value">
-            Jo Smith
+            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -44,7 +42,7 @@
             Company name
           </dt>
           <dd class="govuk-summary-list__value">
-            Biglandowner LTF
+            {{data["companyName"]}}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -62,7 +60,7 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            72 Guild Street<br>London<br>SE23 6FH
+            {{data["address-line1"]}} <br>{{data["address-town"]}} <br>{{data["address-postcode"]}}{%if data['address-country']%} <br>{{data['address-country']}}{% endif %}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -82,7 +80,7 @@
             Contact email address
           </dt>
           <dd class="govuk-summary-list__value">
-            joe@imaginaryfarm.co.uk
+            {{ data['email'] }}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -102,7 +100,7 @@
             Contact phone number
           </dt>
           <dd class="govuk-summary-list__value">
-            01234 567890
+           {{ data['telephone-number'] }}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -119,9 +117,9 @@
   </dl>
 
         <input type="hidden" name="details-confirm" value="yes">
-        <p>We will only use your email address or alternatively your phone number if we need to contact you about the registration</p>
+        <p>We will only use your email address or your phone number if we need to contact you about your registration.</p>
 
-        <p><strong>Changes made will only appear on this application. No changes will be made to your Defra ID.</strong></p>
+        <p><strong>Any changes you make to these details will only be used in this application. No changes will be made to your Defra account.</strong></p>
 
         {{ govukButton({
           text: "Confirm and continue"

@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Check your written authorisation file" %}
+{% set pageHeading = "Check the habitat management and monitoring plan file" %}
 
 {% block content %}
 
@@ -20,24 +20,17 @@
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              html: 'landowner-agent-evidence.pdf, 1.1MB'
+              text: data['management-plan-upload'] or 'habitat-management-plan.pdf'
             }
           }
         ]
       }) }}
 
-      <!-- {% if data['land-registry'] == 'yes' %}
-        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
-      {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
-      {% endif %} -->
-
-      <form method="post" action="">
-      
+      <form method="post" action="./management-plan-habitat-start-date">
 
         {{ govukRadios({
-          idPrefix: "landowner-agent-correct",
-          name: "landowner-agent-correct",
+          idPrefix: "management-plan-correct",
+          name: "management-plan-correct",
           fieldset: {
             legend: {
               text: "Is this the correct file?",
@@ -46,12 +39,12 @@
           },
           items: [
             {
-              value: "yes~./applicant-check-answers",
+              value: "yes",
               text: "Yes"
             },
             {
-              value: "no~./applicant-details-upload-authorisation",
-              text: "No, choose a different file"
+              value: "no~./management-plan-upload",
+              text: "No, upload a different file"
             }
           ]
         }) }}

@@ -1,6 +1,10 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Check your written authorisation file" %}
+{% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "Check the planning obligation (Section 106 agreement) file" %}
+{% else %}
+  {% set pageHeading = "Check the conservation covenant file" %}
+{% endif %}
 
 {% block content %}
 
@@ -20,24 +24,22 @@
               classes: "govuk-!-width-one-quarter"
             },
             value: {
-              html: 'landowner-agent-evidence.pdf, 1.1MB'
+              text: data['legal-agreement-upload'] or 'legal-agreement.pdf'
             }
           }
         ]
       }) }}
 
-      <!-- {% if data['land-registry'] == 'yes' %}
-        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-yes">
-      {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-correct-answer-land-registry-no">
-      {% endif %} -->
-
-      <form method="post" action="">
-      
+       <!-- Need to add conditional routing to covenant if we use this design -->
+       {% set nextpage = "legal-agreement-lpa-start" %}
+       {% if data["legal-agreement"] == "Conservation covenant" %}
+       {% set nextpage = "legal-agreement-concov-reponsible-start" %}
+       {% endif %}
+        <form method="post" action="">
 
         {{ govukRadios({
-          idPrefix: "landowner-agent-correct",
-          name: "landowner-agent-correct",
+          idPrefix: "legal-agreement-correct",
+          name: "legal-agreement-correct",
           fieldset: {
             legend: {
               text: "Is this the correct file?",
@@ -46,12 +48,12 @@
           },
           items: [
             {
-              value: "yes~./applicant-check-answers",
+              value: "yes~./"+nextpage,
               text: "Yes"
             },
             {
-              value: "no~./applicant-details-upload-authorisation",
-              text: "No, choose a different file"
+              value: "no~./legal-agreement-upload",
+              text: "No, upload a different file"
             }
           ]
         }) }}

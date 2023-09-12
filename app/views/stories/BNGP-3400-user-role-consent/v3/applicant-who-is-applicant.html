@@ -1,0 +1,102 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Select a landowner or leaseholder as the main applicant?" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- hint: {
+        text: "Your client must be a landowner or leasholder named on the legal agreement."
+      }, -->
+    <form method="post" action="applicant-details-upload-authorisation" >
+      {% if data.landowners | length >= 1 %}
+            <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="is-agent-hint">
+  
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+  
+    <h1 class="govuk-fieldset__heading">
+      Which landowner or leaseholder is the main applicant?
+    </h1>
+  
+  </legend>
+  
+
+  <div id="is-agent-hint" class="govuk-hint">
+    This must be your client and match a landowner or leaseholder named on the legal agreement. You only need to choose 1 landowner as the applicant.
+  </div>
+
+
+        <div class="govuk-radios" data-module="govuk-radios">
+    
+      
+          
+          {% for lo in data.landowners %}
+
+
+        
+        
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="is-agent" name="is-agent" type="radio" value="{{lo}}">
+          <label class="govuk-label govuk-radios__label" for="is-agent">
+            {% set name = lo['landowners-org-name'] %}
+                  {% if lo["landowner-type"] == "individual" %}
+
+                    {% set name = lo['landowner-f-name']+" "%}
+
+                    {% if lo["legal-party-m-name"]+" " %}
+                      {% set name = name+lo['landowner-m-name']+" "%}
+
+                    {% endif %}
+
+                    {% set name = name+lo['landowner-l-name']%}
+
+
+                  {% endif %}
+                  {{name}}
+      </label>
+          
+        </div>
+         {% endfor %}
+        
+</fieldset>
+      </div>
+
+      {% else  %}
+
+      {{ govukRadios({
+      name: "is-agent",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      hint: {
+        text: "This must be your client and match a landowner or leaseholder named on the legal agreement. You only need to choose 1 landowner as the applicant."
+      },
+      items: [
+      {
+      value: "John Jules",
+      text: "John Jules"
+      },
+      {
+      value: "Raissa Fioralba",
+      text: "Raissa Fioralba"
+      },
+      {
+      value: "Vesna Lorcán",
+      text: "Vesna Lorcán"
+      }
+      ]
+      }) }}
+    {%endif %}
+
+         {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

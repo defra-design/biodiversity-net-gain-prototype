@@ -1,0 +1,25 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Upload your legal agreement" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="./legal-agreement-answer">
+
+
+        <p>You will need to upload the {{data["legal-agreement"] or "Planning obligation (Section 106 agreement)"}} document.</p>
+        <p>If you have made amendments to this legal agreement you will need up load any original documents too. </p>
+
+        {{ govukButton({
+          text: "Upload a legal agreement"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
