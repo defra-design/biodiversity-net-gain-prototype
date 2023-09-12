@@ -1,17 +1,20 @@
-{% extends "register-application/v20/layout-register-application.html" %}
+{% extends "register-application/v18/layout-register-application.html" %}
 
-{% set hideSaveLink = true %}
+{% set addChangeText = "Add" %}
+{% if query.change=="yes" %}
+{% set addChangeText = "Update" %}
+{% endif %}
 
-{% set pageHeading = "What is the name of your organisation?" %}
+{% set pageHeading = addChangeText + " a landowner listed on the "+data['legal-agreement'] %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
       
-      <form action="../{{data.returnURL or 'applicant-details-confirm-landowner' }}" method="POST">
-        
+      <!-- action controled in ./_routes.js -->
+      <form method="post" >
+         <input type="hidden" name="landowner-type" value="{{data['landowner-type']}}">
         {% call govukFieldset({
           legend: {
             text: pageHeading,
@@ -19,23 +22,23 @@
             isPageHeading: true
           }
         }) %}
-         <!-- Set the value if this is changing/updating an LP. -->
+
          <!-- Set the value if this is changing/updating an LP. -->
         {% if query.change == "yes" %}
-        {% set fullname = data["companyName"] %}
+        {% set fullname = data.legalParties[query.id or 0]["legal-party-name"] %}
        
         {% endif %}
     
         {{ govukInput({
-          id: 'companyName',
-          name: 'companyName',
+          id: 'landowners-org-name',
+          name: 'landowners-org-name',
           value: fullname,
           label: {
             html: 'Organisation name'
           }
         }) }}
 
-       
+    
         {% endcall %}
 
         {{ govukButton({

@@ -1,0 +1,162 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check your Defra account details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+      
+      <p>
+        {% if data["applicant-type"] == "organisation" %}
+        The landowner or leaseholder you represent must be named on the legal agreement to apply.
+      {% else %}
+      You must be named as a landowner or leaseholder on the legal agreement to apply.
+      {% endif %}
+    </p>
+
+
+
+      <form method="post" class="govuk-!-padding-top-5" action="./applicant-check-answers">
+
+        
+
+
+        
+
+
+  
+
+  
+
+  
+
+  
+
+  <dl class="govuk-summary-list">
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+        {% if data["applicant-type"] == "organisation" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Company name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["companyName"]}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/company-name?type=business&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+        {% endif %}
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["address-line1"]}} <br>{{data["address-town"]}} <br>{{data["address-postcode"]}}{%if data['address-country']%} <br>{{data['address-country']}}{% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+                
+                <a class="govuk-link" href="./details/address-in-uk?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] }}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> contact email address</span>
+                </a>
+            </dd>
+          
+        </div>
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number'] }}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/phone?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
+                Change<span class="govuk-visually-hidden"> Contact phone number</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      
+    
+  </dl>
+
+
+  <p>We will only use your email address or your phone number if we need to contact you about your registration.</p>
+
+        <p><strong>Any changes you make to these details will only be used in this application. No changes will be made to your Defra account.</strong></p>
+
+
+        
+
+  
+    <input type="hidden" name="details-confirm" value="yes">
+  
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm and continue
+</button>
+
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

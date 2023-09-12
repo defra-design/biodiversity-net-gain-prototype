@@ -8,28 +8,6 @@
     <!-- hint: {
         text: "Your client must be a landowner or leasholder named on the legal agreement."
       }, -->
-
-
-      <!-- get if we have landowners who are only individuals, orgs or both.  -->
-      {% for lo in data.landowners %}
-     
-
-      {% if lo["landowner-type"] == "organisation" %}
-      {% set hasOrganisation = "yes" %}
-      {% endif %}
-
-
-      {% endfor %}
-
-      {% if hasIndividual and hasOrganisation %}
-      {% set applicantType = "both" %}
-      {% elseif hasOrganisation %}
-      {% set applicantType = "organisation" %}
-      {% else %}
-      {% set applicantType = "individual" %}
-      {% endif %}
-
-
     <form method="post">
       {{ govukRadios({
       name: "is-agent",
@@ -40,6 +18,7 @@
       classes: "govuk-fieldset__legend--l"
       }
       },
+
       items: [
       {
       value: "yes~./applicant-details-confirm-agent",
@@ -51,8 +30,6 @@
       }
       ]
       }) }}
-
-      <input type="hidden" name="landowner-type" value="{{applicantType}}">
       {{ govukButton({
       text: "Save and continue"
       }) }}

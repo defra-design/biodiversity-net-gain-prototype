@@ -1,0 +1,55 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set count = data.legalParties | length %}
+{% set item = " local planning authority" | plural(" local planning authorities", count) %}
+{% set pageHeading = "Are there any other landowners or leaseholders on the legal agreement?"%}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+        
+
+            <!-- Routing handled by radio-button-redirect (look at the value of the radio button). For more info see https://github.com/abbott567/radio-button-redirect/ -->
+             {% set nextPage = "legal-agreement-add-more-landowners" %}
+             {% if data["is-agent"] == "yes" %}
+                {% set nextPage = "legal-agreement-concov-landowner-start" %}
+              {% endif %}
+            <form method="post" action="">
+             
+              
+              {{ govukRadios({
+                idPrefix: "legal-party-more",
+                name: "legal-party-more",
+                fieldset: {
+                  legend: {
+                    text: pageHeading,
+                    classes: "govuk-fieldset__legend--l",
+                    isPageHeading: true
+                  }
+                },
+                hint: {
+                  text: "You must tell us about all local planning authorities on the planning obligation (Section 106 agreement)."
+                },
+                items: [
+                  {
+                    value: "yes~./"+nextPage,
+                    text: "Yes"
+                  },
+                  {
+                    value: "no~./legal-agreement-lpa-add",
+                    text: "No, add another local planning authority"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}
