@@ -1,7 +1,7 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
 {% set count = data.legalParties | length %}
-{% set item = " local planning authorities" | plural(" local planning authorities", count) %}
+{% set item = " local planning authority" | plural(" local planning authorities", count) %}
 {% set pageHeading = "You have added "+ count + item %}
 
 {% block content %}
@@ -54,7 +54,7 @@
                   },
                   {
                     value: "no~./legal-agreement-lpa-add",
-                    text: "No, add another legal party"
+                    text: "No, add another local planning authority"
                   }
                 ]
               }) }}
