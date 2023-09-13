@@ -1,0 +1,36 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Your name does not match a landowner or leasholder named on the legal agreement" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- hint: {
+        text: "Your client must be a landowner or leasholder named on the legal agreement."
+      }, -->
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+      <p><strong>John Smith</strong> does not match a landowner or leaseholder named on the legal agreement.</p>
+      <p>You must be a landowner or leaseholder named on the legal agreement.</p>
+      <!-- <p>If you want to proceed with the application you can tell us why you think you are able to apply.</p> -->
+    <form method="post" action="management-plan-question" >
+            <div class="govuk-form-group">
+  <label class="govuk-label" for="more-detail">
+    If you want to proceed with the application you can tell us why you think you are able to apply
+  </label>
+  <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="5"></textarea>
+</div>
+        <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    Your application might be rejected if we cannot verify you have the right to apply. 
+  </strong>
+</div>
+   
+         {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

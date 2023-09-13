@@ -8,7 +8,7 @@
     <!-- hint: {
         text: "Your client must be a landowner or leasholder named on the legal agreement."
       }, -->
-    <form method="post" action="applicant-check-answers" >
+    <form method="post" action="management-plan-question" >
       {% if data.landowners | length >= 1 %}
             <div class="govuk-form-group">
       <fieldset class="govuk-fieldset" aria-describedby="is-agent-hint">
@@ -37,8 +37,8 @@
         
         
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="is-agent" name="is-agent" type="radio" value="{{lo}}">
-          <label class="govuk-label govuk-radios__label" for="is-agent">
+          <input class="govuk-radios__input" id="is-agent+{{loop.index0}}" name="is-main-applicant" type="radio" value="{{lo}}">
+          <label class="govuk-label govuk-radios__label" for="is-main-applicant">
             {% set name = lo['landowners-org-name'] %}
                   {% if lo["landowner-type"] == "individual" %}
 

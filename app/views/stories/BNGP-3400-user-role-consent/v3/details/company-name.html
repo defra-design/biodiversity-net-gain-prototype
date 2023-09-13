@@ -21,15 +21,12 @@
         }) %}
          <!-- Set the value if this is changing/updating an LP. -->
          <!-- Set the value if this is changing/updating an LP. -->
-        {% if query.change == "yes" %}
-        {% set fullname = data.legalParties[query.id or 0]["legal-party-name"] %}
-       
-        {% endif %}
+
     
         {{ govukInput({
-          id: 'legal-party-name',
-          name: 'legal-party-name',
-          value: fullname,
+          id: 'companyName',
+          name: 'companyName',
+          value: data.companyName,
           label: {
             html: 'Organisation name'
           }

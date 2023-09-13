@@ -2,16 +2,16 @@
 
 
 
-{% set pageHeading = "You will need to upload 2 letters of authority "%}
+{% set pageHeading = "You will need to upload 2 doucments as proof you have authority to apply"%}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!-- action controled in ./_routes.js -->
     <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-    <p>You will need to upload two documents that confirms you have authority to apply on  behalf of the following: </p>
+    <p>You will need to upload the following documents:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>Acme inc (your client)</li>
-      <li>The landowner or leasholder</li>
+      <li>a document signed by <strong>Acme farming inc</strong> that confirms you have authority to apply on their behalf</li>
+      <li>consent from the landowner or leasholder to Record off-site biodiversity gains for a development project</li>
     </ul>
     <form method="post" action="applicant-details-upload-authorisation">
       {{ govukButton({

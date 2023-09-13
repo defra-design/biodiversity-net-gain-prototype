@@ -20,22 +20,23 @@
       {% endif %}
     </p>
 
+    {% set nextpage = "applicant-name-not-same" %}
+    {% for lo in data.landowners %}
+    {% if  (data['applicant-f-name'] | lower == lo["landowner-f-name"] | lower) and  (data['applicant-l-name'] | lower == lo["landowner-l-name"] | lower) %}
+    found match
+      {% set nextpage = "applicant-check-answers" %}
+    {% endif %}
+    {% endfor %}
 
 
-      <form method="post" class="govuk-!-padding-top-5" action="./applicant-check-answers">
+    {% for lo in data.landowners %}
+    {% if  (data['companyName'] | lower == lo["landowners-org-name"] | lower) %}
+    found match
+      {% set nextpage = "applicant-check-answers" %}
+    {% endif %}
+    {% endfor %}
 
-        
-
-
-        
-
-
-  
-
-  
-
-  
-
+      <form method="post" class="govuk-!-padding-top-5" action="./{{nextpage}}">
   
 
   <dl class="govuk-summary-list">

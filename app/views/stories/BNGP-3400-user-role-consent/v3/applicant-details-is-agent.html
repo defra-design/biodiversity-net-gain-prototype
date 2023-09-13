@@ -11,19 +11,26 @@
 
 
       <!-- get if we have landowners who are only individuals, orgs or both.  -->
+      {% set hasOrganisation = "no" %}
+      {% set hasIndividual = "no" %}
       {% for lo in data.landowners %}
-     
+  
 
       {% if lo["landowner-type"] == "organisation" %}
       {% set hasOrganisation = "yes" %}
-      {% endif %}
 
+      {% elseif lo["landowner-type"] == "individual" %}
+      {% set hasIndividual = "yes" %}
+      {% endif %}
 
       {% endfor %}
 
-      {% if hasIndividual and hasOrganisation %}
+      {% set nextpage = "applicant-details-confirm-landowner" %}
+
+      {% if hasIndividual == "yes" and hasOrganisation == "yes" %}
       {% set applicantType = "both" %}
-      {% elseif hasOrganisation %}
+      {% set nextpage = "applicant-role-as-landowner" %}
+      {% elseif hasOrganisation == "yes" %}
       {% set applicantType = "organisation" %}
       {% else %}
       {% set applicantType = "individual" %}
@@ -42,17 +49,18 @@
       },
       items: [
       {
-      value: "yes~./applicant-details-confirm-agent",
+      value: "yes~./applicant-details-upload-authorisation",
       text: "Yes"
       },
       {
-      value: "no~./applicant-role-as-landowner",
+      value: "no~./"+nextpage,
       text: "No"
       }
       ]
       }) }}
 
       <input type="hidden" name="landowner-type" value="{{applicantType}}">
+      <input type="hidden" name="applicant-type" value="{{applicantType}}">
       {{ govukButton({
       text: "Save and continue"
       }) }}

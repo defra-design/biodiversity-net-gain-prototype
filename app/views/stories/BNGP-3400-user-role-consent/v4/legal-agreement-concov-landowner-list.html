@@ -1,7 +1,10 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
 {% set count = data.landowners | length %}
-{% set item = " landowner" | plural(" landowners", count) %}
+{% if data["is-agent"] == "no" %}
+{% set count = count + 1 %}
+{% endif %}
+{% set item = " landowner or leasholder" | plural(" landowners or leasholders", count) %}
 {% set pageHeading = "You have added "+ count + item %}
 
 {% block content %}
@@ -14,7 +17,37 @@
 
           <!-- Check if legalParties has been added to -->
           <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+             {% if data["is-agent"] == "no" %}
+            <div class="govuk-summary-list__row">
+                
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                  <!-- set name based on the type of legal party, defualt is organistion name -->
 
+                  {% set name = data['companyName'] or "Biglandowner LTF" %}
+
+                  {% if data["applicant-type"] == "individual" %}
+
+                    {% set name = data['applicant-f-name']+" "%}
+
+                    {% if data["legal-party-m-name"]+" " %}
+                      {% set name = name+data['applicant-m-name']+" "%}
+
+                    {% endif %}
+
+                    {% set name = name+data['applicant-l-name']%}
+
+
+                  {% endif %}
+                  {{name}} (you)
+                </dt>
+                
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                   
+                  </ul>
+                </dd>
+              </div>
+              {% endif %}
             {% for lp in data.landowners %}
 
             <div class="govuk-summary-list__row">
@@ -50,6 +83,10 @@
            {% set nextpage ="management-plan-question" %}
            {% if data.change == "yes" and data.returnURL %}
            {% set nextpage = data.returnURL+"?change=no&returnURL=" %}
+           {% endif %}
+
+           {% if data["is-agent"] == "yes" and count > 1 and data.change != "yes"  %}
+           {% set nextpage = "applicant-who-is-applicant" %}
            {% endif %}
            <!-- Routing handled by radio-button-redirect (look at the value of the radio button). For more info see https://github.com/abbott567/radio-button-redirect/ -->
             <form method="post" action="">
