@@ -1,7 +1,7 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
 {% set count = data.landowners | length %}
-{% set item = " landowner" | plural(" landowners", count) %}
+{% set item = " landowner or leaseholder" | plural(" landowners or leaseholders", count) %}
 {% set pageHeading = "You have added "+ count + item %}
 
 {% block content %}
@@ -59,12 +59,12 @@
                 name: "covenent-landowner-more",
                 fieldset: {
                   legend: {
-                    text: "Have you added all landowners?",
+                    text: "Have you added all landowners or leaseholders?",
                     classes: "govuk-fieldset__legend--m"
                   }
                 },
                 hint: {
-                  text: "You must tell us about all landowners listed on the "+data['legal-agreement']+"."
+                  text: "You must tell us about all landowners or leaseholders listed on the "+data['legal-agreement']+"."
                 },
                 items: [
                   {
@@ -73,7 +73,7 @@
                   },
                   {
                     value: "no~./legal-agreement-concov-landowner-type",
-                    text: "No, add another landowner"
+                    text: "No, add another landowner or leaseholder"
                   }
                 ]
               }) }}

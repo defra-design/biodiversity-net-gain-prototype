@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "You need to add all landowners listed on the "+data['legal-agreement'] %}
+{% set pageHeading = "You need to add all landowners or leaseholders listed on the "+data['legal-agreement'] %}
 
 {% block content %}
 
@@ -13,10 +13,10 @@
           {{ pageHeading }}
         </h1>
 
-        <p>You can add as many landowners as you need to.</p>      
+        <p>You can add as many as you need to.</p>      
         <form method="post" action="./legal-agreement-concov-landowner-type">
           {{ govukButton({
-            text: "Add landowners"
+            text: "Add landowners or leaseholders"
           }) }}
         </form>
      
