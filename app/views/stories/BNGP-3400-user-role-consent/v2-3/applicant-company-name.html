@@ -1,0 +1,60 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "What is the name of your organisation?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% set nextpage = "applicant-phone"%}
+      {% if data["is-agent"] == "yes" %}
+      {% set nextpage = "applicant-landowner-type"%}
+      
+      {% endif %}
+        
+      <form action="applicant-phone" method="POST">
+        
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+
+        {% if data["applicant-type"] == "organisation" and data["is-agent"] == "no" %}
+        <p>The landowner or leaseholder you represent must be named on the legal agreement to apply.
+
+      </p>
+        {% endif %}
+         <!-- Set the value if this is changing/updating an LP. -->
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fullname = data["companyName"] %}
+       
+        {% endif %}
+    
+        {{ govukInput({
+          id: 'companyName',
+          name: 'companyName',
+          value: fullname,
+          label: {
+            html: 'Organisation name'
+          }
+        }) }}
+
+       
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

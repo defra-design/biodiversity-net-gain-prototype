@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Information submitted" %}
+{% set pageHeading = "Application submitted" %}
 
 {% set hideSaveSection = true %}
 
@@ -14,16 +14,88 @@
           {{ pageHeading }}
         </h1>
         <div class="govuk-panel__body">
-          Your reference<br> <strong>REF-150 311 001</strong>
+          Biodiversity net gain (BNG) application reference number<br> <strong>BNGREG-6040S-AVPJW</strong>
         </div>
       </div>
 
-      <p>You've submitted the project development and habitat information. We've sent you a confirmation email.</p>
+      <p>We will send you a confirmation email.</p>
 
-      <p>Make a note of your reference number as we will use this if we get in touch with you.</p>
+      <p>Make a note of your BNG application reference number. We will use it when we contact you.</p>
 
-      <h2 class="govuk-heading-m">What happens next</h2>
-      <p>We will check the information you submitted is correct. We will email you if the development has been successfully recorded or not. This can take up to 6 weeks.</p>
+      {% if data['payment'] == 'bacs' %}
+      
+      <h2 class="govuk-heading-m">Paying the application fee</h2>
+      <p>You need to pay:</p>
+
+      {% if data['register-journey'] == 'true' %}
+        <p class="govuk-body-l">£{{data.registrationPaymentAmount or '658.70' }}</p>
+      {% else %}
+        <p class="govuk-body-l">£36.35</p>
+      {% endif %}
+
+      <div class="govuk-inset-text">
+        You must pay the fee within 28 days. We cannot refund any payments made after the 28-day deadline.
+      </div>
+
+      <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
+
+      <p>You must pay the fee by Bacs using these details:</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your payment reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BNGREG-6040S-AVPJW
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Natural England
+          </dd>          
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sort code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            60 70 80
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10026630
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            SWIFT/BIC code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            NWBKGB2L
+          </dd>
+        </div>
+      </dl>
+      {% endif %}
+      <h2 class="govuk-heading-m">What happens after you pay the fee</h2>
+      <p>We will let you know within 6 weeks if:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>your application has been successful or not</li>
+        <li>we need more information from you</li>
+      </ul>
+      <h2 class="govuk-heading-m">Contact us if you need help</h2>
+      <p>Telephone: 0190 050 8628 
+      </br>Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+      <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+      <p class="govuk-!-padding-top-8"><a href="/register-application/{{ pageURL }}/confirmation-email">View confirmation email (prototype only)</a></p>
 
     </div>
   </div>

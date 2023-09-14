@@ -1,0 +1,68 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+
+{% set userTypeText = "Is your client" %}
+{% set roleText = "What is your client's role?" %}
+
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Are you" %}
+{% set roleText = "What is your role?" %}
+{% endif %}
+
+{% set pageHeading = userTypeText+" the landowner or leaseholder?" %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="./applicant-landowner-type">
+      {% set roleHtml %}
+{{ govukInput({
+  id: "non-relevant-party",
+  name: "non-relevant-party",
+  type: "text",
+  spellcheck: false,
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: roleText
+  },
+  hint: {
+    text: "For example, property developer"
+  }
+}) }}
+{% endset -%}
+<!-- If client -->
+{% set landownerRoleURLyes= "applicant-landowner-type" %}
+{% if data["is-agent"] == "no" %}
+{% set landownerRoleURLyes = "applicant-role-as-landowner" %}
+{% endif %}
+
+      {{ govukRadios({
+      name: "client-is-landowner",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      items: [
+      {
+      value: "yes~./"+landownerRoleURLyes,
+      text: "Yes"
+      },
+      {
+      value: "no~./applicant-landowner-type",
+      text: "No",
+      conditional: {
+        html: roleHtml
+      }
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}
