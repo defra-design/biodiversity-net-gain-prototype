@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 
-{% set pageHeading = "Upload a letter of authority to act on behalf of the landowner or leaseholder" %}
+{% set pageHeading = "Upload a letter of consent from the landowner or leaseholder" %}
 
 {% block content %}
 
@@ -18,28 +18,16 @@
         <div id="landowner-certificate-upload-hint">
           
           <p>
-            We need a document signed by the landowner or leasholder that confirms that
+            It must include:
             <!-- Conditional content if your are an agent on behalf of NRP or not-->
-            {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
-            <strong>Acme farm inc</strong> has authority 
-            {% else %}
-             confirms you have authority 
-            {% endif %}
-            to apply on their behalf.
           </p>
-
-          <p>The letter must have:</p>
           <ul class="govuk-list govuk-list--bullet">
-            <li>a written statement confirming the landowner or leaseholder's authroisation for you or your client to act on their behalf</li>
-            <li>the name and signature the landowner or leaseholder</li>
+            <li>The number of units and area that is to be allocated</li>
+            <li>the name and signature any landowner or leaseholder that appears on the legal agreeemt</li>
             <li>the date authroisation was given</li>
           </ul>
-
-          <p>The file should be:</p> 
-          <ul class="govuk-list govuk-list--bullet">
-            <li>a DOC, DOCX or PDF</li>
-            <li>no larger than 50MB</li>
-          </ul>
+          <p class=""><a href="./landowner-consent-no">Download an example landowner consent form</a></p>
+          
         </div>  
 
         {{ govukFileUpload({
@@ -47,11 +35,18 @@
           name: "landowner-agent-upload",
           label: {
             text: "Upload a file",
-            classes:"govuk-visually-hidden"
+            classes:"govuk-label--s"
+          },
+          hint: {
+            html: '<p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a DOC, DOCX or PDF</li>
+            <li>no larger than 50MB</li>
+          </ul>'
           }
           
         }) }}
-        <p class="govuk-!-padding-top-3"><a href="./landowner-consent-no">I do not have a letter of authority</a></p>
+        
 
         {{ govukButton({
           text: "Upload"
