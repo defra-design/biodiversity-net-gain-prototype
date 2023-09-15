@@ -17,6 +17,7 @@
         {% set returnURL = query.returnURL or 'task-list' %}
 
 
+        <p>These are the details we will use on this application. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
         <dl class="govuk-summary-list">
     
       
@@ -28,13 +29,13 @@
             {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
           </dd>
           
-            <dd class="govuk-summary-list__actions">
+            <!-- <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-agent">
                 Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               
-            </dd>
+            </dd> -->
           
         </div>
 
@@ -50,13 +51,13 @@
             {{ data['email'] }}
           </dd>
           
-            <dd class="govuk-summary-list__actions">
+           <!--  <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
                 </a>
               
-            </dd>
+            </dd> -->
           
         </div>
       

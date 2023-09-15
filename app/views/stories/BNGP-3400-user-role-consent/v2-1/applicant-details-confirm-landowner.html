@@ -12,20 +12,22 @@
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
       
-      <p>
+     
+          <p>
         {% if data["applicant-type"] == "organisation" %}
-        The landowner or leaseholder you represent must be named on the legal agreement to apply.
         {% set nextpage = "applicant-company-name" %}
       {% else %}
       You must be named as a landowner or leaseholder on the legal agreement to apply.
       {% set nextpage = "applicant-address-in-uk" %}
       {% endif %}
     </p>
+      <p>These are the details we will use on this application. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
 
 
+      <form method="post" class="" action="./{{nextpage}}">
 
-      <form method="post" class="govuk-!-padding-top-5" action="./{{nextpage}}">
-  <dl class="govuk-summary-list">
+
+        <dl class="govuk-summary-list">
     
       
         <div class="govuk-summary-list__row">
@@ -36,16 +38,17 @@
             {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
           </dd>
           
-            <dd class="govuk-summary-list__actions">
+            <!-- <dd class="govuk-summary-list__actions">
               
-                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-landowner">
+                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-agent">
                 Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               
-            </dd>
+            </dd> -->
           
         </div>
-      
+
+    
       
     
       
@@ -57,20 +60,19 @@
             {{ data['email'] }}
           </dd>
           
-            <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
-                Change<span class="govuk-visually-hidden"> contact email address</span>
+           <!--  <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
                 </a>
-            </dd>
+              
+            </dd> -->
           
         </div>
       
-    
-    
       
     
   </dl>
-
 
   <p>We will only use your email address or your phone number if we need to contact you about your registration.</p>
 

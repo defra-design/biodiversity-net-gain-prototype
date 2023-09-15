@@ -13,9 +13,8 @@
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
       
       <p>
-        
         {% if data["applicant-type"] == "organisation" %}
-        The landowner or leaseholder you represent must be named on the legal agreement to apply.
+        
         {% set nextpage = "applicant-company-name" %}
       {% else %}
       You must be named as a landowner or leaseholder on the legal agreement to apply.
