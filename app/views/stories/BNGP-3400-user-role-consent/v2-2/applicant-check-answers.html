@@ -176,7 +176,27 @@
 
          
         {% endif %}
+
         <!-- END - Agent questions -->
+        {% if data["client-is-landowner"] == "no" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["landowner-agent-upload"] or "landowner-consent-form.pdf"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-details-upload-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
       </dl>
 
       <input type="hidden" name="details-confirm" value="yes">

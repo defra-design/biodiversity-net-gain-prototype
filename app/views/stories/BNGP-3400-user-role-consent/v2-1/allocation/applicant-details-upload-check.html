@@ -35,7 +35,7 @@
       {% endif %} -->
 
       <form method="post" action="">
-        {% set nextpage = "allocation-metric-upload" %}
+        {% set nextpage = "applicant-check-answers" %}
         {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
         {% set nextpage = "applicant-authorisation-as-nrp" %} 
         {% endif %}
