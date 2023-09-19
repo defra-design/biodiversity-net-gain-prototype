@@ -16,7 +16,7 @@
         
         {% if data["applicant-type"] == "organisation" %}
         The landowner or leaseholder you represent must be named on the legal agreement to apply.
-        {% set nextpage = "applicant-company-name" %}
+        {% set nextpage = "applicant-address-in-uk" %}
       {% else %}
       You must be named as a landowner or leaseholder on the legal agreement to apply.
       {% set nextpage = "applicant-address-in-uk" %}
@@ -46,6 +46,26 @@
             </dd>
           
         </div>
+        
+         {% if data["applicant-type"] == "organisation" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["companyName"]}}
+          </dd>
+          
+            <!-- <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/applicant-company-name?type=business&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd> -->
+          
+        </div>
+        {% endif %}
       
       
     

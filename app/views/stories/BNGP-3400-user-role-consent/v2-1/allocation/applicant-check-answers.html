@@ -72,6 +72,11 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}<br>
+
+            {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+            {{data["companyName"]}}<br>
+            {% endif %}
+            
             <span class="govuk-visually-hidden">email: </span> {{ data['email'] }}<br>
             
 
