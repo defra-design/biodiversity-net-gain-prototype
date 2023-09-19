@@ -7,7 +7,7 @@
 {% set count = 1 %}
 {% endif %}
 
-{% set item = " legal agreement document" | plural("  legal agreement documents", count) %}
+{% set item = " legal agreement file" | plural("  legal agreement files", count) %}
 {% set pageHeading = "You have added "+ count + item %}
 
 {% block content %}
@@ -55,7 +55,7 @@
                 name: "land-ownership-more",
                 fieldset: {
                   legend: {
-                    text: "Have you added all legal agreement documents?",
+                    text: "Have you added all legal agreement files?",
                     classes: "govuk-fieldset__legend--m"
                   }
                 },
@@ -69,7 +69,7 @@
                   },
                   {
                     value: "no~./legal-agreement-upload",
-                    text: "No, upload another legal document"
+                    text: "No, upload another legal agreement file"
                   }
                 ]
               }) }}
