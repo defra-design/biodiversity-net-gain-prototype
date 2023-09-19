@@ -1,0 +1,51 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+{% set AddorChangeText = "Add" %}
+{% if query.change %}
+{% set AddorChangeText = "Update" %}
+{% endif %}
+{% set pageHeading = AddorChangeText+" a landowner listed on the covernent" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+
+        {% set val = "" %}
+        {% if query.change %}
+        {% set val = data.covernentlandowner[query.id]["concov-landowner"] %}
+        
+        {% endif %}
+
+
+   
+        <!-- Action conrtolled from routes.js file -->
+        <form method="post" >
+          <input type="hiddent" name="landowner-type" value="{{data.landowner-type}}">
+          {{ govukInput({
+            id: "concov-landowner",
+            name: "concov-landowner",
+            label: {
+              text: "Landowner's organisation name"
+            },
+            autocomplete: "name",
+            spellcheck: false,
+            value: val
+          }) }}
+
+          {{ govukButton({
+            text: AddorChangeText+" landowner"
+          }) }}
+        </form>
+
+      
+
+
+    </div>
+  </div>
+
+{% endblock %}

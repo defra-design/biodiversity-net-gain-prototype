@@ -1,0 +1,33 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "You need a legal agreement" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You need to upload a legal agreement that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>secures the habitat enhancements on the land</li>
+        <li>is for at least 30 years</li>
+      </ul>
+
+      <p>This must be either a:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://www.gov.uk/guidance/planning-obligations">planning obligation (Section 106 agreement)</a></li>
+        <li><a href="https://www.gov.uk/guidance/getting-and-using-a-conservation-covenant-agreement">conservation covenant</a></li>
+      </ul>
+
+      <p>Your file can be a DOC, DOCX or PDF. It must not be larger than 50MB.</p>
+
+      {% include "register-application/v21/includes/get-help.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}

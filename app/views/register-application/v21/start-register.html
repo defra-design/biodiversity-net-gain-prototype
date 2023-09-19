@@ -1,0 +1,66 @@
+{% extends "register-application/v21/start2-page-guide-template.html" %}
+
+{% set serviceName = "Register a biodiversity gain site" %}
+{% set serviceDescription = "Find out what documents you need and how much it costs to register a gain site in England." %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v21" %}
+
+{% block guideContent %}
+
+<p>You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the title deeds or lease agreement to prove ownership</li>
+  <li>consent from the landowner or leaseholder if you do not have proof of ownership</li>
+  <li>a map showing the land boundary</li>
+  <li>a completed <a href="#">Biodiversity Metric 4.0</a></li>
+  <li>a habitat management and monitoring plan</li>
+  <li>a planning obligation (Section 106) or conservation covenant that secures the site for at least 30 years</li>
+  <li>a local land charge certificate</li>
+</ul>
+
+<h3 class="govuk-heading-m">Registration fees</h3>
+
+<p>It costs £658.70 to register a biodiversity gain site. You can pay when you register or within 28 days.</p>
+
+<!--<h3 class="govuk-heading-m">How to register a biodiversity gain site and record a development project at the same time</h3>
+
+<p>As well as everything you need to register a biodiversity gain site, you'll need the Biodiversity Metric 4.0 file for the development project. It must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>-->
+
+<h3 class="govuk-heading-m">What happens after you send us your information</h3>
+
+<p>We will let you know within 6 weeks if:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>the land you told us about has been registered or rejected as a biodiversity gain site</li>
+  <li>we need more information from you</li>
+</ul>
+{% set action = data.redirect or './sign-in' %}
+<!-- <form action="{{action}}" method="post" novalidate>
+  <input type="hidden" name="register-journey" value="true"> -->
+  {{ govukButton({
+    text: "Start now",
+    href: action+"?register-journey=true",
+    isStartButton: true
+  }) }}
+<!-- </form> -->
+
+<h3 class="govuk-heading-m">Why your application could be rejected</h3>
+
+<p>The land you tell us about could be rejected as a biodiversity gain site if:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>it's already registered under the same legal agreement</li>
+  <li>you do not pay the fee within 28 days of making the application</li>
+  <li>you do not provide any additional information we might ask for after making the application</li>
+</ul>
+
+<h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
+<p>You can save your information and come back to it at any time.</p>
+<p><a href="/register-application/v21/sign-in">Continue with a saved registration</a></p>
+
+{% endblock %} 

@@ -1,0 +1,23 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "We've saved the details you entered" %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>You must <a href="/register-application/{{ pageURL }}/sign-in">return and submit your registration</a> once you or someone else from your organisation has paid the registration fee.</p>
+      <p>Natural England will not review your registration until it's been submitted.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "Manage biodiversity gains" %}
+
+{% set hideSaveSection = true %}
+{% set showAccount = true %}
+{% set disableAccount = true %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      {{ pageHeading }}
+    </h1>
+      <ul class="govuk-list">
+      <li><b>Jo Smith</b></li>
+      <!-- <li>Imaginary Farm Ltd</li> -->
+      <li>joe@imaginaryfarm.co.uk</li>
+     <!--  <li>01234 567890</li>
+      <li>07123 456789</li> -->
+    </ul>
+    <p class="govuk-body">
+
+      <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">Update Defra account details</a>
+    </p>
+
+
+
+    <hr class="app-divider">
+    
+    <div class="flex-container">
+
+      <div class="dashboard-panel">
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">
+          <a href="/register-application/v21/dashboard-register">Biodiversity gain sites</a>
+        </h2>
+
+        <p class="govuk-body-s">You can:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+          <li>register a new biodiversity gain site</li>
+          <li>continue a saved registration</li>
+        </ul>
+
+      </div>
+      <div class="dashboard-panel">
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">
+          {% if data['development-added'] == 'true' %}
+          <a href="/register-application/v21/dashboard-record">Development projects</a>
+          {% else %}
+          <a href="/register-application/v21/start-record">Development projects</a>
+          {% endif %}
+        </h2>
+
+        <p class="govuk-body-s">You can:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+          <li>record off-site gains for a new development project</li>
+          <li>continue a saved record</li>
+        </ul>
+          
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

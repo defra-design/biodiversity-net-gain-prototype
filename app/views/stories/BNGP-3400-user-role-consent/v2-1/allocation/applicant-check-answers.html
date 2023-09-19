@@ -76,14 +76,12 @@
             {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
             {{data["companyName"]}}<br>
             {% endif %}
-            
+
             <span class="govuk-visually-hidden">email: </span> {{ data['email'] }}<br>
             
 
           </dd>
-            
-
-            <dd class="govuk-summary-list__actions">
+          <dd class="govuk-summary-list__actions">
                 {% set detailsURL = "applicant-details-confirm-agent" %}
                 {% if data["is-agent"] == "no" %}
                 {% set detailsURL = "applicant-details-confirm-landowner" %}
@@ -93,7 +91,6 @@
                 </a>
               
             </dd>
-          
         </div>
         {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
           

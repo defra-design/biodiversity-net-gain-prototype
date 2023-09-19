@@ -1,0 +1,51 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+{% set AddorChangeText = "Add" %}
+{% if query.change %}
+{% set AddorChangeText = "Update" %}
+{% endif %}
+{% set pageHeading = AddorChangeText+" a responsible body listed on the conservation covenant" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+
+        {% set val = "" %}
+        {% if query.change %}
+        {% set val = data.responsibleBodies[query.id]["concov-responsible-body"] %}
+        
+        {% endif %}
+
+
+   
+        <!-- Action conrtolled from routes.js file -->
+        <form method="post" >
+
+          {{ govukInput({
+            id: "concov-responsible-body",
+            name: "concov-responsible-body",
+            label: {
+              text: "Responsible body"
+            },
+            autocomplete: "name",
+            spellcheck: false,
+            value: val
+          }) }}
+
+          {{ govukButton({
+            text: "Save and continue"
+          }) }}
+        </form>
+
+      
+
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -14,7 +14,7 @@
       
       <p>
         
-        {% if data["applicant-type"] == "organisation" %}
+        {% if data["landowner-type"] == "organisation" %}
         The landowner or leaseholder you represent must be named on the legal agreement to apply.
         {% set nextpage = "applicant-address-in-uk" %}
       {% else %}
@@ -47,7 +47,7 @@
           
         </div>
         
-         {% if data["applicant-type"] == "organisation" %}
+         {% if data["landowner-type"] == "organisation" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Organisation

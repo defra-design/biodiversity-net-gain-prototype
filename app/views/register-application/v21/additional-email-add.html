@@ -1,0 +1,61 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "Add additional email addresses" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <p>Enter email addresses for anyone in your organisation who needs to be notified about what you're recording.</p>
+
+      <p>For example, the person who will need to add proof of registration to the Gain Plan you submit to the local planning authority.</p>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/additional-email-list">
+        
+        {% call govukFieldset({
+          legend: {
+            text: "Additional email",
+            classes: 'govuk-fieldset__legend--m'
+          }
+        }) %}
+    
+        {{ govukInput({
+          id: 'additional-email-name',
+          name: 'additional-email-name',
+          label: {
+            html: 'Full name'
+          }
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          id: "additional-email-address",
+          name: "additional-email-addres",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+
+        {% if data['register-journey'] == 'true' %}
+          <p><a href="/register-application/{{ pageURL }}/check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+        {% else %}
+          <p><a href="/register-application/{{ pageURL }}/allocation-check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+        {% endif %}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

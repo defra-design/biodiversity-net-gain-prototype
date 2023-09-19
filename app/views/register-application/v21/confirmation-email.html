@@ -1,0 +1,97 @@
+{% extends "layout-email.html" %}
+
+{% set pageURL = "v21" %}
+
+{% block pageTitle %}
+  Biodiversity gain site registration submitted
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <p><strong>From</strong>: Biodiversity net gain applications bng.applications@naturalengland.org.uk</p>
+      <p><strong>Subject</strong>: Biodiversity net gain application submitted</p>
+      
+      <p>Dear {{ data['full-name'] or 'Jo Smith' }}</p>
+      <p>You've submitted your biodiversity net gain (BNG) application.</p>
+      <p>Your BNG application reference number:</p>
+      <p>REF-150 311 001</p>
+
+      <p>Make a note of your BNG application reference number. We will use it when we contact you.</p>
+      
+      <h2 class="govuk-heading-m">Paying the application fee</h2>
+      <p>You need to pay:</p>
+
+      {% if data['register-journey'] == 'true' %}
+        <p class="govuk-body-l">£{{data.registrationPaymentAmount or '658.70' }}</p>
+      {% else %}
+        <p class="govuk-body-l">£36.35</p>
+      {% endif %}
+
+      <p>
+        You must pay the fee within 28 days. We cannot refund any payments made after the 28-day deadline.
+      </p>
+
+      <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
+
+      <p>You must pay the fee by Bacs using these details:</p>
+
+      <p><strong>
+            Your payment reference
+      </strong></p>
+          <p>
+            BNGREG-6040S-AVPJW
+          </p>
+        
+        <p><strong>
+            Account name
+        </strong></p>
+          <p>
+            Natural England
+          </p>  
+
+          <p><strong>
+            Sort code
+          </strong></p>
+          <p>
+            60 70 80
+          </p>
+          <p><strong>
+            Account number
+          </strong></p>
+          <p>
+            10026630
+          </p>
+        <strong><p>
+            SWIFT/BIC code
+          </strong></p>
+          <p>
+            NWBKGB2L
+          </p>
+        
+
+          <h2 class="govuk-heading-m">What happens after you pay the fee</h2>
+          <p>We will let you know within 6 weeks if:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>your application has been successful or not</li>
+            <li>we need more information from you</li>
+          </ul>
+          <h2 class="govuk-heading-m">Contact us if you need help</h2>
+          <p>Telephone: 0190 050 8628 
+          </br>Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+          <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+
+      <p>Regards</p>
+      <p>Natural England</p>
+      <p>This is an automated message - do not reply.</p>
+      <hr class="app-divider">
+      <div class="govuk-!-margin-top-9">
+        <p class="govuk-body-s">This email and any attachments is intended for the named recipient only. If you have received it in error you have no authority to use, disclose, store or copy any of its contents and you should destroy it and inform the sender. Whilst this email and associated attachments will have been checked for known viruses whilst within Defra systems we can accept no responsibility once it has left our systems. Communications on Defra's computer systems may be monitored and/or recorded to secure the effective operation of the system and for other lawful purposes.</p>
+      </div>
+        
+    </div>
+</div>
+
+{% endblock %}

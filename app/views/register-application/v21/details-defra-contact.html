@@ -1,0 +1,58 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Which contact details should we use?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+    
+      
+
+
+      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+
+        {% set returnURL = query.returnURL or 'task-list' %}
+
+        {{ govukRadios({
+          idPrefix: "management-plan",
+          name: "use-defra-id",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+    text: "We will only use your email address if we need to contact you about your application."
+  },
+        
+          items: [
+            {
+              value: "yes",
+              checked: (data['use-defra-id']=='yes'),
+              text: "Jo Smith, joe@imaginaryfarm.co.uk (defra ID)"
+            },
+            {
+              value: "no~./details-name",
+              checked: (data['use-defra-id']=='no'),
+              text: "different contact details"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

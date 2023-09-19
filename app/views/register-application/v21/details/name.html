@@ -1,0 +1,63 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "What is your name?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      
+      <form action="../{{data.returnURL or 'applicant-details-confirm-landowner' }}" method="POST">
+        
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% set fname = data["applicant-f-name"] %}
+        {% set mname = data["applicant-m-name"] %}
+        {% set lname = data["applicant-l-name"] %}
+
+        {{ govukInput({
+          name: 'applicant-f-name',
+          value: fname,
+          label: {
+            html: 'First name'
+          }
+        }) }}
+        {{ govukInput({
+          name: 'applicant-m-name',
+          value: mname,
+          label: {
+            html: 'Middle names'
+          }
+        }) }}
+        {{ govukInput({
+          name: 'applicant-l-name',
+          value: lname,
+
+          label: {
+            html: 'Last name'
+          }
+        }) }}
+
+        
+    
+        {% endcall %}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

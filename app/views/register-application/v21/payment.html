@@ -1,0 +1,54 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "How will you pay?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Registration fee</h1>
+      
+      <!--<div style="border: 10px solid 	#b1b4b6; padding: 15px 15px 0 15px; background-color: #f3f2f1; margin-bottom: 30px;">-->
+      <div class="govuk-inset-text">
+        <p class="govuk-!-margin-bottom-1">Total amount</p>
+        {% if data['register-journey'] == 'true' %}
+          <p class="govuk-!-font-weight-bold govuk-!-font-size-36">£658.70</p>
+        {% else %}
+        <p class="govuk-!-font-weight-bold govuk-!-font-size-36">£36.35</p>
+        {% endif %}
+      </div>
+      
+      <form method="post" action="/register-application/{{ pageURL }}/payment-answer">
+
+        {{ govukRadios({
+          idPrefix: "payment",
+          name: "payment",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "card",
+              text: "By credit or debit card"
+            },
+            {
+              value: "bacs",
+              text: "By Bacs"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

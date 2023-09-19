@@ -1,0 +1,59 @@
+{% extends "register-application/v21/start2-page-guide-template.html" %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v21" %}
+
+{% block guideContent %}
+
+<p>You can use this service to:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>register land in England so it can be used as a biodiversity gain site</li>
+  <li>record the biodiversity gains a development project will make on another piece of land (known as 'off-site' biodiversity gains)</li>
+  <li>register land and record off-site biodiversity gains at the same time</li>
+  <li>check the status of your registrations or records</li>
+</ul>
+
+<h3 class="govuk-heading-m">Registering land as a biodiversity gain site</h3>
+
+<p>You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>a <a href="https://your-defra-account.defra.gov.uk/help">Defra account</a></li>
+  <li>consent from the landowner or leaseholder</li>
+  <li>a legal agreement that secures the site for at least 30 years</li>
+  <li>a local land charge search certificate if using a conservation covenant</li>
+  <li>proof of ownership of the land</li>
+  <li>a map showing the boundary of the biodiversity gain site</li>
+  <li>a completed <a href="#">Biodiversity Metric 4.0</a></li>
+  <li>a habitat management and monitoring plan</li>
+</ul>
+
+<h3 class="govuk-heading-m">Recording off-site biodiversity gains for a development project</h3>
+
+<p>You'll need:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>a <a href="https://your-defra-account.defra.gov.uk/help">Defra account</a></li>
+  <li>the Biodiversity Metric 4.0 file that your local planning authority reviewed with your Biodiversity Net Gain (BNG) Statement</li>
+  <li>consent from biodiversity gain site owners</li>
+</ul>
+
+<h3 class="govuk-heading-m">Registering land and recording off-site biodiversity gains at the same time</h3>
+
+<p>You'll need a development project's Biodiversity Metric 4.0 file, as well as everything you need to register land as a biodiversity gain site. It must be the Biodiversity Metric 4.0 file a local planning authority reviewed with the development project's BNG Statement.</p>
+
+{{ govukButton({
+  text: "Start now",
+  href: "/register-application/v21/sign-in",
+  isStartButton: true
+}) }}
+
+<h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
+<p>You can save your registration or record and come back to it at any time.</p>
+<p><a href="/register-application/v21/sign-in">Continue with a saved registration or record</a></p>
+
+{% endblock %} 

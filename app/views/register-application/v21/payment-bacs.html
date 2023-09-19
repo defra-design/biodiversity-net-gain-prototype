@@ -1,0 +1,104 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "Pay the registration fee" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <h2 class="govuk-heading-m">Registration fee</h2>
+
+      {% if data['register-journey'] == 'true' %}
+        <p class="govuk-body-l">£658.70</p>
+      {% else %}
+        <p class="govuk-body-l">£36.35</p>
+      {% endif %}
+
+      <h2 class="govuk-heading-m">Bank details for Bacs payments</h2>
+
+      <p>You should pay Natural England by Bacs. It usually takes 3 working days to process.</p>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your payment reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            PROD123456
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Natural England
+          </dd>          
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Sort code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            60 70 80
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Account number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            10026630
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Swift / BIC Code
+          </dt>
+          <dd class="govuk-summary-list__value">
+            NWBKGB2L
+          </dd>
+        </div>
+      </dl>
+
+      <p><a href="#">Download invoice</a> (PDF, 124kb)</p>
+
+
+      {% if data[''] == 'true' %}
+        <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer" class="govuk-!-padding-top-5">
+      {% else %}
+        <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer-allocation" class="govuk-!-padding-top-5">
+      {% endif %}
+
+        {{ govukRadios({
+          idPrefix: "payment-bacs-paid",
+          name: "payment-bacs-paid",
+          fieldset: {
+            legend: {
+              text: "Has the registration fee been paid?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, I'll complete my registration later"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

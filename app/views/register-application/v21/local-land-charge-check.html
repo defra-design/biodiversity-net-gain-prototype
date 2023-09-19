@@ -1,0 +1,59 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "Check the local land charge search certificate file" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              text: data['local-land-charge-upload'] or 'local-land-charge.pdf'
+            }
+          }
+        ]
+      }) }}
+
+        <form method="post" action="/register-application/{{ pageURL }}/local-land-charge-correct-answer">
+
+        {{ govukRadios({
+          idPrefix: "local-land-charge-correct",
+          name: "local-land-charge-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

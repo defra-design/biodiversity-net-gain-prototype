@@ -1,0 +1,28 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "You need to add all responsible bodies listed on the conservation covenant" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div data-module="moj-add-another">
+
+        <h1 class="govuk-heading-l" tabindex="-1">
+          {{ pageHeading }}
+        </h1>
+
+        
+        <p>You can add as many responsible bodies as you need to.</p>
+
+        <a href="/register-application/{{ pageURL }}/legal-agreement-concov-reponsible-add" class="govuk-button">Add responsible bodies</a>      
+      
+     
+      
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

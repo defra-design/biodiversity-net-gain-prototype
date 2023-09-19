@@ -1,0 +1,150 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Farifax Housing Project" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-7">
+        <span class="govuk-caption-xl">Development project</span>
+         {{ pageHeading }}
+      </h1>
+
+      <div class="govuk-!-margin-bottom-8">
+        <p class="govuk-!-margin-bottom-2">
+          <strong class="govuk-tag govuk-tag--blue">RECEIVED</strong>
+        </p>
+        <ul class="govuk-list govuk-body-s">
+          <li><strong>Record reference: </strong>BGS-151223008</li>
+          <li><strong>Created on: </strong>
+            {% include "register-application/v21/includes/todays-date.html" %}
+          </li>
+          <li><strong>Last updated on: </strong>
+            {% include "register-application/v21/includes/todays-date.html" %}
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="govuk-heading-l">Development project information</h2>
+
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Metric file added
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <a href="#">metric_4.0_fairfax_housing_project.xlsm</a>
+          </dd>
+        </div>
+        <!--<div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Project name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Farifax Housing Project
+          </dd>
+        </div>-->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local planning authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bradford City Council
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning application reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            22/01976/RJL
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity gain site
+          </dt>
+          <dd class="govuk-summary-list__value">
+            BGS-200423987
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat being used
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list app-list--border">
+              <li>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Grassland </span>
+                <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                12.76 ha
+              </li>
+              <li>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Heathland and scrub</span>
+                <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Mixed scrub</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                10.50 ha
+              </li>
+              <li>
+                Native species rich hedgerow 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                0.18 km
+              </li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+      <h2 class="govuk-heading-l">Additonal email addresses</h2>
+
+        {% if data['additional-email-remove'] == 'yes' %}
+        {% else %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h3 class="govuk-summary-card__title">Kevin Francis</h3>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  kevin.francis@mail.com
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        {% endif %}
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h3 class="govuk-summary-card__title">Bob MacAdoo</h3>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Email address
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  bmac@yahoo.co.uk
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

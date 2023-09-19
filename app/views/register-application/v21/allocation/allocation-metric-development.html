@@ -1,0 +1,75 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set pageHeading = "Confirm the development project details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>These details have been taken from the Biodiversity Metric 4.0 file the local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Project name"
+            },
+            value: {
+              text: 'Farifax Housing Project'
+            }
+          },
+          {
+            key: {
+              text: "Planning authority"
+            },
+            value: {
+              text: 'Bradford City Council'
+            }
+          },
+          {
+            key: {
+              text: "Planning reference"
+            },
+            value: {
+              text: '22/01976/RJL'
+            }
+          }
+        ]
+      }) }}
+
+      <form method="post" action="./allocation-development-answer">
+
+        {{ govukRadios({
+          idPrefix: "allocation-development",
+          name: "allocation-development",
+          fieldset: {
+            legend: {
+              text: "Is this correct?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes~./allocation-metric-habitat",
+              text: "Yes"
+            },
+            {
+              value: "no~./allocation-metric-upload",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
