@@ -1,0 +1,41 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set userTypeText = "Is your client" %}
+
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Are you" %}
+{% endif %}
+{% set pageHeading = userTypeText+" an organsiation or individual?"%}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action controled in ./_routes.js -->
+    <form method="post">
+      
+      {{ govukRadios({
+      name: "legal-party-type",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      items: [
+      {
+      value: "individual~./applicant-as-individual",
+      text: "An individual"
+      },
+      {
+      value: "organisation~./applicant-as-organisation",
+      text: "An organisation"
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

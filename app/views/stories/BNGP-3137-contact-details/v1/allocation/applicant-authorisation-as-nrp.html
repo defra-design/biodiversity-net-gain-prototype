@@ -1,0 +1,60 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set pageHeading = "Upload a letter of consent from the landowner or leaseholder" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
+      <span  class="govuk-caption-l">Letter of authority 2 of 2</span>
+      {% endif %}
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="./applicant-authorisation-as-nrp-check">
+
+        <div id="landowner-certificate-upload-hint">
+          
+          <p>
+            It must include:
+            <!-- Conditional content if your are an agent on behalf of NRP or not-->
+          </p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>The number of units and area that is to be allocated</li>
+            <li>the name and signature any landowner or leaseholder that appears on the legal agreeemt</li>
+            <li>the date authroisation was given</li>
+          </ul>
+          <p class=""><a href="./landowner-consent-no">Download an example landowner consent form</a></p>
+          
+        </div>  
+
+        {{ govukFileUpload({
+          id: "landowner-consent-upload",
+          name: "landowner-consent-upload",
+          label: {
+            text: "Upload a file",
+            classes:"govuk-label--s"
+          },
+          hint: {
+            html: '<p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>a DOC, DOCX or PDF</li>
+            <li>no larger than 50MB</li>
+          </ul>'
+          }
+          
+        }) }}
+        
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

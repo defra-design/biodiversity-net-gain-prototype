@@ -1,0 +1,54 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set userTypeText = "What is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "What is your" %}
+{% endif %}
+
+{% set pageHeading = userTypeText+" email address?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      <form action="applicant-phone" method="POST">
+
+        {% set userOrClient = 'your client' %}
+
+      
+      {% if data["is-agent"] == "no" %}
+      {% set userOrClient = 'you' %}
+      {% endif %}
+
+        {% set email = data['email'] %}
+        
+
+        {{ govukInput({
+          id: "email",
+          name: "email",
+          label: {
+            text: pageHeading,
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "We'll only use this to contact "+userOrClient+" about the registration."
+          },
+          autocomplete: "email",
+          spellcheck: false,
+          value: ""
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

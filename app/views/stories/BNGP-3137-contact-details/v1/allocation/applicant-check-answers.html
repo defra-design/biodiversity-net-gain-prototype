@@ -1,0 +1,283 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set userTypeText = "Is your client" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Are you" %}
+{% endif %}
+{% set pageHeading = userTypeText+" an individual or organisation?" %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l" >Check applicant information</h1>
+    <form method="post" action="{{data.startURL or 'task-list-allocation'}}">
+      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Acting on behalf of a client
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["is-agent"]|capitalize or "No"}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./applicant-details-is-agent?change=yes&returnURL=check-answers">
+              Change<span class="govuk-visually-hidden"> if you are an agent</span>
+            </a>
+          </dd>
+        </div>
+
+
+        {% if data["is-agent"]=="no"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you the landowner or leasholder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["client-is-landowner"] | capitalize) or "Yes"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-is-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> if you are the landowner or leasholder</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applying as individual or organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data["applicant-type"] == "individual" %}
+            Individual landowner or leaseholder
+            {% else %}
+            Organisation as employee or representative
+            {% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-role-as-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+          </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Your Defra account details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}<br>
+
+            {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+            {{data["companyName"]}}<br>
+            {% endif %}
+
+            <span class="govuk-visually-hidden">email: </span> {{ data['email'] }}<br>
+            
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+                {% set detailsURL = "applicant-details-confirm-agent" %}
+                {% if data["is-agent"] == "no" %}
+                {% set detailsURL = "applicant-details-confirm-landowner" %}
+                {% endif %}
+                <a class="govuk-link" href="./{{detailsURL}}?type=business&amp;returnURL=check-answers">
+                View<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd>
+        </div>
+        {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+          
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["companyName"]}}<br>
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-company-name?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> organisation name</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+
+        {% endif%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["address-line1"] or "24 Edenhurst Avenue"}}, {{data["address-town"] or "London"}},{{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}, {{data['address-country']}}{% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number'] or "020 92340 2934" }}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> phone number</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% if data["is-agent"]=="yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client is a landowner or leasholder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["client-is-landowner"] | capitalize) or "Yes"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-is-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> if client is landowner or leasholder</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+        
+        {% if data["is-agent"]=="yes"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client is an individual or organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["applicant-type"] | capitalize) or "Individual"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% if data["applicant-type"] == "organisation"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client's organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["applicant-org-name"] | capitalize) or "Biglandowner LTF"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-as-organisation?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client's name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set  applicantName = data["applicant-f-name"]or "Jo"%}
+            {% if data["applicant-m-name"] %}
+            {% set  applicantName = applicantName+" "+data["applicant-m-name"]%}
+            {% endif %}
+            {% set  applicantName = applicantName+" "+data["applicant-l-name"] | capitalize or "Smith"%}
+            {{applicantName}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-as-individual?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Written authorisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["landowner-agent-upload"] or "agent-evidence.pdf"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-details-upload-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+         
+        {% endif %}
+        <!-- END - Agent questions -->
+
+        {% if data["client-is-landowner"] == "no" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["landowner-consent-upload"] or "landowner-consent-form.pdf"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-authorisation-as-nrp-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> landowner consent</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+
+      </dl>
+
+      <input type="hidden" name="details-confirm" value="yes">
+        {{ govukButton({
+           text: "Save and continue"
+        }) }}
+        
+      
+    </form>
+  </div>
+</div>
+{% endblock %}
