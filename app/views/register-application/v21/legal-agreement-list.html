@@ -49,6 +49,10 @@
            </dl>
 
             <form method="post" action="">
+              {% set nextPage = "legal-agreement-lpa-start"%}
+              {% if data["legal-agreement"] == "conservation covenant" %}
+              {% set nextPage = "legal-agreement-concov-reponsible-start"%}
+              {% endif %}
 
               {{ govukRadios({
                 idPrefix: "land-ownership-more",
@@ -64,7 +68,7 @@
                 },
                 items: [
                   {
-                    value: "yes~./legal-agreement-lpa-start",
+                    value: "yes~./"+nextPage,
                     text: "Yes"
                   },
                   {
