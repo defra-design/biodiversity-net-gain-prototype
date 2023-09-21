@@ -1,6 +1,6 @@
 {% extends "register-application/v20/layout-register-application.html" %}
 {% set documentType = data["legal-agreement"] or "planning obligation (Section 106 agreement)" %}
-{% set pageHeading = "You need to add all "+documentType+" documents" %}
+{% set pageHeading = "You need to add all "+documentType+" files" %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
    
 
         {{ govukButton({
-          text: "Add legal agreement documents"
+          text: "Add legal agreement files"
         }) }}
         
       </form>
