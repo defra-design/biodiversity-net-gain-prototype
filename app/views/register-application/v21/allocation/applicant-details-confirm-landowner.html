@@ -50,7 +50,7 @@
           
         </div>
         
-         {% if data["landowner-type"] == "organisation" %}
+         {% if data["landowner-type"] == "organisation"  or data["applicant-type"] == "organisation" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Organisation
