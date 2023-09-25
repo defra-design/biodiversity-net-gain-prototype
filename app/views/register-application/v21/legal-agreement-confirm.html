@@ -35,44 +35,33 @@
             {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
+            <ul class="govuk-list">
+              {% for file in data.legalAgreementFiles %}
+              <li>{{file.file or ("legal-agreemnt.pdf ("+loop.index+")")}}
+              </li>
+              {% endfor %}
+            </ul>
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-check">
+            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
               Change<span class="govuk-visually-hidden"> legal agreement</span>
             </a>
           </dd>
         </div>
-        {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+        {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Parties involved
+              Local planning authorities
             </dt>
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list"> 
               {% for lp in data.legalParties %}
-              <li>
-              {% set name = lp['legal-party-name'] %}
-                  {% if lp["legal-party-type"] == "individual" %}
-
-                    {% set name = lp['legal-party-f-name']+" "%}
-
-                    {% if lp["legal-party-m-name"]+" " %}
-                      {% set name = name+lp['legal-party-m-name']+" "%}
-
-                    {% endif %}
-
-                    {% set name = name+lp['legal-party-l-name']%}
-
-
-                  {% endif %}
-                  {{name}} ({{lp['legal-party-role']}})
-                  </li>
-                  {% endfor%}
+                 <li> {{lp[0]}}</li>
+                {% endfor%}
               </ul>
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link govuk-link--no-visited-state" href="./legal-party-list">
+              <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-lpa-list">
                 Change<span class="govuk-visually-hidden"> parties involved</span>
               </a>
             </dd>
@@ -100,6 +89,7 @@
               </a>
             </dd>
           </div>
+            {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Landowner
@@ -136,7 +126,7 @@
               </a>
             </dd>
           </div>
-        {% endif %}
+      
         <!-- Removed in v21 -->
         <!-- <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">

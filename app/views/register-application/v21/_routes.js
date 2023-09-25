@@ -168,18 +168,23 @@ router.post('/allocation-habitat-answer-record', function (req, res) {
 // Legal agreement
 
 // multiple file upload
-router.post('*/legal-agreement-check', function (req, res) {
-
+router.post('/legal-agreement-check', function (req, res) {
+  console.log(req.body['legal-agreement-correct'] )
   if (req.body['legal-agreement-correct'] == "yes"){
     if(req.query.change){
       req.session.data.legalAgreementFiles[req.query.id] = req.body
     }else{
       req.session.data.legalAgreementFiles.push(req.body);
     }
-    res.redirect('/register-application/v21/legal-agreement-list')
+    console.log(req.session.data.legalAgreementFiles )
+    
+    res.redirect('legal-agreement-list')
   }
+  else{
   // if "no"
-  res.redirect('/register-application/v21/legal-agreement-upload');
+  res.redirect('legal-agreement-upload');
+  }
+
 })
 router.post('/legal-agreement-remove', function (req, res) {
 
@@ -216,6 +221,29 @@ router.post('/legal-agreement-correct-answer', function (req, res) {
     res.redirect('/register-application/v21/legal-party-add-start')
   }
 })
+
+// Land planning authority add
+router.post('/legal-agreement-lpa-add', function (req, res) {
+  if(req.query.change=="yes"){
+      req.session.data.legalParties[req.query.id] = req.body
+  }else{
+     req.session.data.legalParties.push(req.body.lpa);
+  }
+  res.redirect('legal-agreement-lpa-list')
+})
+router.post('/legal-agreement-lpa-remove', function (req, res) {
+
+  var install = req.session.data['legal-party-remove']
+
+  if (install == "yes"){
+    req.session.data.legalParties.splice(req.query.id, 1);
+  }
+  if(req.session.data.legalParties.length == 0 ){
+     res.redirect('legal-agreement-lpa-start')
+  }
+  res.redirect('legal-agreement-lpa-list')
+})
+
 
 // Legal agreement check
 router.post('/covenent-landowner-more-answer', function (req, res) {

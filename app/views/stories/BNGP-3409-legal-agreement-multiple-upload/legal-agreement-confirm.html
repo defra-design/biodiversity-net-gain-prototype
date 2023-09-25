@@ -35,7 +35,12 @@
             {% endif %}
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['legal-agreement-upload'] or 'legal-agreement.pdf' }}
+            <ul class="govuk-list">
+              {% for file in data.legalAgreementFiles %}
+              <li>{{file.file}}
+              </li>
+              {% endfor %}
+            </ul>
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-check">
