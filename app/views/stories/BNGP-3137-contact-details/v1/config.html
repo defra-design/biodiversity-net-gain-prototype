@@ -1,0 +1,61 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+
+
+
+{% set pageHeading = "Config: Select the Defra ID type for the prototype" %}
+
+
+
+{% block content %}
+<!-- <style media="screen">
+  .app-no-js{
+    display:none;
+  }
+</style> -->
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+   
+        <form method="post" action="task-list"> 
+        {{ govukRadios({
+      name: "defraAccountType",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      hint: {
+        text: "This is to mimic the type of account they user has logged in with."
+      },
+      items: [
+      {
+      value: "individual",
+      text: "Individual"
+      },
+      {
+      value: "org",
+      text: "Organisation"
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+
+      </form>
+
+{% endblock %}
+
+<!-- PAGE based javascript -->
+{% block pageScripts %}
+  {{super()}}
+  <script type="text/javascript">
+    window.onload = function(){
+  }
+
+</script>
+{% endblock %}

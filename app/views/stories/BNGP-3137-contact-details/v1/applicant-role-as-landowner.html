@@ -6,7 +6,10 @@
     <!-- hint: {
         text: "Your client must be a landowner or leasholder named on the legal agreement."
       }, -->
-    <form method="post">
+
+
+    <form method="post" action="applicant-details-confirm">
+      <input type="hidden" name="defraAccountType" value="{{data.defraAccountType or 'organisation'}}">
       {{ govukRadios({
       name: "applicant-type",
       fieldset: {
@@ -19,11 +22,11 @@
 
       items: [
       {
-      value: "individual~./applicant-details-confirm-landowner",
+      value: "individual",
       text: "An individual landowner or leaseholder"
       },
       {
-      value: "organisation~./applicant-details-confirm-landowner",
+      value: "organisation",
       text: "An organisation - I am an employee or representative"
       }
       ]
@@ -35,4 +38,19 @@
     </form>
   </div>
 </div>
+{% endblock %}
+
+{% block pageScripts %}
+<script type="text/javascript">
+window.addEventListener('load', function() {
+  $('.govuk-radios').change(function(){
+   var selected = $("input[name='applicant-type']:checked").val()
+   console.log(selected)
+   console.log($("input[name='defraAccountType']").val())
+   if(selected == "organisation" && $("input[name='defraAccountType']").val() == "individual"){
+     $("form").attr("action","applicant-wrong-account")
+   }
+  })
+});
+</script>
 {% endblock %}

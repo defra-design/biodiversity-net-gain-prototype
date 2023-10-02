@@ -23,20 +23,18 @@
     </h1>
 
     <p>The address needs to match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
-    applicant-type = {{data['applicant-type'] }}
 
     {% set nextPage = "applicant-email" %}
 
         {% if data["applicant-type"] == "organisation" %}
-        {% set nextPage = "applicant-upload-authorisation" %}
+         {% set nextPage = "applicant-upload-authorisation" %}
         {% endif %}
 
         {% if data['is-agent'] == "no" %}
-                {% set nextPage = "check-your-answers" %}
+          {% set nextPage = "check-your-answers" %}
         {% endif %}
           <form action="{{nextPage}}" method="POST">
 
-      <input type="hidden" name="csrfToken" value="87d304082d16634e7ba635197bc728d4a9afc2bc-1613385245540-2f482f8cd95868342c4b2790">
       <div class="govuk-form-group form-field-group">
         <label class="govuk-label" for="line1">
           Address line 1
