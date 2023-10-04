@@ -37,21 +37,17 @@
         {{ govukInput({
           name: 'applicant-f-name',
           value: fname,
+          autocomplete: "given-name",
+          spellcheck: false,
           label: {
             html: 'First name'
           }
         }) }}
         {{ govukInput({
-          name: 'applicant-m-name',
-          value: mname,
-          label: {
-            html: 'Middle names'
-          }
-        }) }}
-        {{ govukInput({
           name: 'applicant-l-name',
           value: lname,
-
+          autocomplete: "given-name",
+          spellcheck: false,
           label: {
             html: 'Last name'
           }

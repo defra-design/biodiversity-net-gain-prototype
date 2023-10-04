@@ -1,0 +1,38 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Is this organisation a sole trader or a charity?</h1>
+    <form method="post" action="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-visually-hidden">
+            Is this organisation a sole trader or a charity?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationOrganisationType" name="registrationOrganisationType" type="radio" value="Charity~./charity-location">
+              <label class="govuk-label govuk-radios__label" for="registrationOrganisationType">
+                Charity
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationOrganisationType-2" name="registrationOrganisationType" type="radio" value="Sole trader~./sole-trader-name">
+              <label class="govuk-label govuk-radios__label" for="registrationOrganisationType-2">
+                Sole trader
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

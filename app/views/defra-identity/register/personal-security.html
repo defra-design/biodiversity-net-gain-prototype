@@ -1,0 +1,45 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Create your security word</h1>
+    {% set next = query["returnTo"] or 'task-list-page-company-details'%}
+    <form method="post" action="./{{next}}" class="form">
+      <p>Your security word helps us to verify your identity if you need to contact us.</p>
+      <p>The word must:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>be alphanumeric</li>
+        <li>contain between 6 and 12 characters (not case sensitive)</li>
+        <li>contain no spaces or special characters</li>
+      </ul>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="registrationMemorableWord">
+          Your security word
+        </label>
+        <input class="govuk-input govuk-!-width-one-third" id="registrationMemorableWord" name="registrationMemorableWord" type="text">
+      </div>
+      <div class="govuk-character-count" data-module="govuk-character-count" data-maxlength="100">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="registrationContactPhone">
+            Your hint question
+          </label>
+          <div id="registrationContactPhone-hint" class="govuk-hint">
+            Provide a hint question that will help you remember your security word.
+          </div>
+          <textarea class="govuk-textarea govuk-js-character-count govuk-!-width-two-thirds" id="registrationContactPhone" name="registrationContactPhone" rows="2" aria-describedby="registrationContactPhone-info registrationContactPhone-hint"></textarea>
+          <div id="registrationContactPhone-info" class="govuk-hint govuk-character-count__message" aria-live="polite">You have 100 characters remaining</div>
+        </div>
+      </div>
+      <input type="hidden" name="security-word-completed" value="yes">
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

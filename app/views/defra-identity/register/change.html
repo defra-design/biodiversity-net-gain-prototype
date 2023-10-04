@@ -1,0 +1,44 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" action="" novalidate="novalidate" id="idm-form--main">
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Are you sure you wish to change your account type?
+          </h1>
+        </legend>
+        <div class="govuk-form-group">
+          <div id="change-hint" class="govuk-hint">
+            Changing your account type means that any information you have previously entered will be deleted
+          </div>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="change" name="change" type="radio" value="yes~./account-type?new=yes">
+              <label class="govuk-label govuk-radios__label" for="change">
+                <span class="govuk-body govuk-!-font-weight-bold">Yes</span> - change my account type and delete any information I have entered
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              {% set next = data["returnTo"] or 'task-list-page-company-details'%}
+              <input class="govuk-radios__input" id="change-2" name="change" type="radio" value="no~./{{next}}">
+              <label class="govuk-label govuk-radios__label" for="change-2">
+                <span class="govuk-body govuk-!-font-weight-bold">No</span> - do not change my account type
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <button type="submit" class="govuk-button" data-module="govuk-button" id="button-continue">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

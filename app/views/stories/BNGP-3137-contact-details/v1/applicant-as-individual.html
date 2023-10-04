@@ -33,7 +33,6 @@
          <!-- Set the value if this is changing/updating an LP. -->
         {% if query.change == "yes" %}
         {% set fname = data["applicant-f-name"] %}
-        {% set mname = data["applicant-m-name"] %}
         {% set lname = data["applicant-l-name"] %}
         {% endif %}
         {{ govukInput({
@@ -44,16 +43,10 @@
           }
         }) }}
         {{ govukInput({
-          name: 'applicant-m-name',
-          value: mname,
-          label: {
-            html: 'Middle names'
-          }
-        }) }}
-        {{ govukInput({
           name: 'applicant-l-name',
           value: lname,
-
+          autocomplete: "family-name",
+          spellcheck: false,
           label: {
             html: 'Last name'
           }

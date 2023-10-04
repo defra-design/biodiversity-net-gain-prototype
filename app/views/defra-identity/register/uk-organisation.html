@@ -1,0 +1,43 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Where is your organisation registered to trade?</h1>
+    <form method="post" action="">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-visually-hidden">
+            Are you registering as a business or an individual?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationTradeUK" name="registrationTradeUK" type="radio" value="Yes~./companies-house">
+              <label class="govuk-label govuk-radios__label" for="registrationTradeUK">
+                UK
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationTradeUK-2" name="registrationTradeUK" type="radio" value="No~./non-uk-business-name">
+              <label class="govuk-label govuk-radios__label" for="registrationTradeUK-2">
+                Non-UK (Organisation that is not registered in the UK)
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third review">
+    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
+      <li><a href="/register/uk-organisation?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

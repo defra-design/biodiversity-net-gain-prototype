@@ -1,0 +1,69 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">About the organisation you represent</h1>
+    <p>If you sign out before you complete everything, we will save your answers for <strong>3 days</strong> so that you can return and continue.</p>
+    <ol class="app-task-list">
+      <li>
+        <h2 class="app-task-list__section"><span class="app-task-list__section-number">1. </span>Type of registration</h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="./account-type?change=yes">Your type of account</a>
+            <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="app-task-list__section"><span class="app-task-list__section-number">2. </span>About the organisation</h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="./company-lookup?change=yes">Your organisation's details</a>
+            <strong class="govuk-tag app-task-list__task-completed">
+              Completed
+            </strong>
+          </li>
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="company-contact">Your organisation's contact details</a>
+            <strong class="govuk-tag app-task-list__task-completed">
+              Completed
+            </strong>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <h2 class="app-task-list__section"><span class="app-task-list__section-number">3. </span>Personal details</h2>
+        <ul class="app-task-list__items">
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="personal-name-as-org">Your name</a>
+            {% if data["personal-name-completed"] %}
+             <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            {% endif %}
+          </li>
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="personal-contact">Your contact details</a>
+             {% if data["contact-details-completed"] %}
+             <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            {% endif %}
+          </li>
+          <li class="app-task-list__item">
+            <a class="app-task-list__task-name" href="personal-security">Your security word</a>
+            {% if data["security-word-completed"] %}
+             <strong class="govuk-tag app-task-list__task-completed">Completed</strong>
+            {% endif %}
+          </li>
+        </ul>
+      </li>
+    </ol>
+    <form method="post" action="./check-your-answers">
+      <button class="govuk-button" data-module="govuk-button">
+        Check your answers
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

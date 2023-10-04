@@ -1,0 +1,30 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">What is your name?</h1>
+    <form method="post" action="./task-list-page-about-you-details">
+      <!-- <form method="post" action="/register/task-list-page-company-details?personal-name-completed=y"></form> -->
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="defraIdFirstName">
+          First or given name
+        </label>
+        <input class="govuk-input govuk-!-width-three-quarters" id="defraIdFirstName" name="defraIdFirstName" type="text">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="defraIdSurname">
+          Surname or family name
+        </label>
+        <input class="govuk-input govuk-!-width-three-quarters" id="defraIdSurname" name="defraIdSurname" type="text">
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

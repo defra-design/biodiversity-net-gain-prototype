@@ -1,0 +1,26 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-column-two-thirds">
+  <form method="post" action="" novalidate="novalidate" id="idm-form--main">
+    <input type="hidden" name="crumb" value="sa4lxpglGkKMS1mmEMbTXcYTMOj2k7zTFT-s6S_XdsS">
+    <h1 class="govuk-label-wrapper">
+      <label class="govuk-label govuk-label--l" for="companyName">
+        What is the name of your business?
+      </label>
+    </h1>
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="companyName">
+        You may trade under your own name, or a name you have given to your business.
+      </label>
+      <input class="govuk-input govuk-input govuk-input--width-20" id="companyName" name="companyName" type="text" autocomplete="organization" inputmode="text">
+    </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button" id="button-continue">
+      Continue
+    </button>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Where is the charity registered?</h1>
+    <form method="post" action="./charity-name">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-visually-hidden">
+            Is this organisation a sole trader or a charity?
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationCharityLocation" name="registrationCharityLocation" type="radio" value="England and Wales" aria-controls="conditional-registrationCharityLocation" aria-expanded="false">
+              <label class="govuk-label govuk-radios__label" for="registrationCharityLocation">
+                England and Wales
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-registrationCharityLocation">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="registrationCharityNumber">
+                  Enter the registered charity number
+                </label>
+                <div id="registrationCharityNumber-hint" class="govuk-hint">
+                  For example 1004005.
+                </div>
+                <input class="govuk-input govuk-!-width-one-third" id="registrationCharityNumber" name="registrationCharityNumber" type="number" aria-describedby="registrationCharityNumber-hint">
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationCharityLocation-2" name="registrationCharityLocation" type="radio" value="Scotland" aria-controls="conditional-registrationCharityLocation-2" aria-expanded="false">
+              <label class="govuk-label govuk-radios__label" for="registrationCharityLocation-2">
+                Scotland
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-registrationCharityLocation-2">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="registrationCharityNumberScotland">
+                  Enter the registered charity number
+                </label>
+                <div id="registrationCharityNumberScotland-hint" class="govuk-hint">
+                  For example, SC000022.
+                </div>
+                <input class="govuk-input govuk-!-width-one-third" id="registrationCharityNumberScotland" name="registrationCharityNumberScotland" type="number" aria-describedby="registrationCharityNumberScotland-hint">
+              </div>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="registrationCharityLocation-3" name="[registrationCharityLocation]" type="radio" value="Northern Ireland" aria-controls="conditional-registrationCharityLocation-3" aria-expanded="false">
+              <label class="govuk-label govuk-radios__label" for="registrationCharityLocation-3">
+                Northern Ireland
+              </label>
+            </div>
+            <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-registrationCharityLocation-3">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-!-font-weight-bold" for="registrationCharityNumberNI">
+                  Enter the registered charity number
+                </label>
+                <div id="registrationCharityNumberNI-hint" class="govuk-hint">
+                  For example NIC100002.
+                </div>
+                <input class="govuk-input govuk-!-width-one-third" id="registrationCharityNumberNI" name="registrationCharityNumberNI" type="number" aria-describedby="registrationCharityNumberNI-hint">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+</div>
+{% endblock %}

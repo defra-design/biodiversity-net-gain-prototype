@@ -1,0 +1,34 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Select the address</h1>
+    <p class="govuk-body">Postcode: <span class="govuk-!-font-weight-bold">123</span> <a href="/register/address/postcode" class="govuk-link">Change</a></p>
+    <!-- <p class="govuk-body">3 addresses found for Clifton House and SW19 5JA. <a href="" class="govuk-link">Change</a></p> -->
+    {% set next = data["returnTo"] or 'task-list-page-company-details'%}
+    <form method="post" action="./{{next}}" class="form">
+      <div class="govuk-form-group">
+        <select class="govuk-select" id="registrationIndividualAddress" name="[registrationIndividualAddress]">
+          <option value="Not selected">3 addresses found</option>
+          <option value="Clifton House, Clifton Road, LONDON SW19 5JA">Clifton House, Clifton Road, LONDON SW19 5JA</option>
+          <option value="2a, Clifton House, Clifton Road, LONDON SW19 5JA">2a, Clifton House, Clifton Road, LONDON SW19 5JA</option>
+          <option value="2b, Clifton House, Clifton Road, LONDON SW19 5JA">2b, Clifton House, Clifton Road, LONDON SW19 5JA</option>
+        </select>
+      </div>
+      <input type="hidden" name="individual-address-completed" value="yes">
+      <p><a href="/register/address/add-address-manual" class="govuk-link">I cannot find the address in the list</a></p>
+      <!-- rest values -->
+      <input type="hidden" name="returnTo" value="">
+      <input type="hidden" name="change" value="">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

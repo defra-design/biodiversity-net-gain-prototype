@@ -1,0 +1,30 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">What is your telephone number?</h1>
+    {% set next = query["returnTo"] or 'task-list-page-company-details'%}
+    <form method="post" action="./{{next}}">
+      <div class="govuk-form-group">
+        <div id="registrationContactPhone-hint" class="govuk-hint">
+          We ask for this in case we need to call you directly with any queries about your registration.
+        </div>
+        <input class="govuk-input govuk-!-width-one-half" id="registrationContactPhone" name="registrationContactPhone" type="tel" aria-describedby="registrationContactPhone-hint">
+      </div>
+      <div class="govuk-inset-text">
+        We may also contact you by email, using the address registered with your Government Gateway account:
+        <span class="govuk-!-font-weight-bold">samwoods@company.co.uk</span>
+      </div>
+      <input type="hidden" name="contact-details-completed" value="yes">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

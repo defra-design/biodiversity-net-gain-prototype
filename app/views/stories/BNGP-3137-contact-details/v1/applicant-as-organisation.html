@@ -14,8 +14,9 @@
       
       {% set nextpage = "applicant-check-answers" %}  
       {% if data["is-agent"] == "yes" %}
-      {% set nextpage = "applicant-upload-authorisation" %}  
+      {% set nextpage = "applicant-address-in-uk" %}  
       {% endif %}    
+      
 
       <form method="post" action="./{{nextpage}}">
          <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">

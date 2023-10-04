@@ -1,0 +1,95 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Check your information</h1>
+    <h2 class="govuk-heading-m">Your account</h2>
+    <!-- Account Type -->
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Account Type</dt>
+        <dd class="govuk-summary-list__value">
+          Organisation
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> account type</span></a>
+        </dd>
+      </div>
+    </dl>
+    <!-- About the organisation -->
+    <h2 class="govuk-heading-m">About your organisation</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Your organisation’s details</dt>
+        <dd class="govuk-summary-list__value">
+          1 Francis Crick Avenue<br>
+          Cambridge Biomedical Campus<br>
+          Cambridge, United Kingdom<br>
+          CB2 0AA
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered company</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Organisation type</dt>
+        <dd class="govuk-summary-list__value">
+        </dd>
+        <dd class="govuk-summary-list__actions"></dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Main contact details</dt>
+        <dd class="govuk-summary-list__value">
+          01234 567899<br>
+          info@company.co.uk
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> company contact details</span></a>
+        </dd>
+      </div>
+    </dl>
+    <h2 class="govuk-heading-m">About you</h2>
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Your name</dt>
+        <dd class="govuk-summary-list__value">
+          Hugo Furst
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Your contact details</dt>
+        <dd class="govuk-summary-list__value">
+          07711223344<br>
+          hugofurst@soleheaven.co.uk
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/register/your-contact-details?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Your security word</dt>
+        <dd class="govuk-summary-list__value">
+          TheGoat23
+          <!-- My favourite food -->
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> security word and hint</span></a>
+        </dd>
+      </div>
+    </dl>
+    <form method="post" action="{{data.returnURL or '//register-application/v21/task-list?register-journey=yes&new-register-journey=yes'}}">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+
+</div>
+{% endblock %}

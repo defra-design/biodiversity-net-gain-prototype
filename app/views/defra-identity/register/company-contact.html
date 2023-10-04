@@ -1,0 +1,35 @@
+{% extends "layout-defra-id.html" %}
+{% block beforeContent %}
+{{super()}}
+<a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">What are the main contact details for this registered company?</h1>
+    <form action="./task-list-page-company-details" method="post">
+      <p class="govuk-hint">These could be details included on the website, or contact details for the head office or management team.</p>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label" for="registrationPhone">
+          Telephone number
+        </label>
+        <input class="govuk-input govuk-!-width-one-third" id="registrationPhone" name="registrationPhone" type="tel">
+      </div>
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label" for="registrationEmail">
+          Email address
+        </label>
+        <input class="govuk-input govuk-!-width-two-thirds" id="registrationEmail" name="registrationEmail" type="tel">
+      </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
+  </div>
+  <div class="govuk-grid-column-one-third review">
+    <ul class="govuk-list govuk-body-s govuk-!-text-align-right">
+      <li><a href="/register/company-contact?status=review" class="govuk-link govuk-link--no-visited-state">Suggested page changes</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
