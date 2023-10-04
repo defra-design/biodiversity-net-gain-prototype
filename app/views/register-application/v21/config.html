@@ -1,0 +1,77 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+{% set pageHeading = "v21 content pages" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Config journey</h1>
+      <form method="post">
+
+
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="applicant-f-name">
+    User's first name
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="applicant-f-name" name="applicant-f-name" type="text" value="{{data['applicant-f-name']}}">
+</div>
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="applicant-f-name">
+    User's last name
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="applicant-l-name" name="applicant-f-name" type="text" value="{{data['applicant-l-name']}}">
+</div>
+
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="companyName">
+    User's oganisation name
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="companyName" name="companyName" type="text" value="{{data['companyName']}}">
+</div>
+ 
+
+ <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        User
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="account-type" name="changedName" type="radio" value="default" checked>
+        <label class="govuk-label govuk-radios__label" for="account-type">
+           New user, has defra account
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="account-type3" name="changedName" type="radio" value="month">
+        <label class="govuk-label govuk-radios__label" for="account-type3">
+         New user, has no defra account
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="account-type2" name="changedName" type="radio" value="returning">
+        <label class="govuk-label govuk-radios__label" for="account-type2">
+          Returning user
+        </label>
+      </div>
+      
+    </div>
+  </fieldset>
+</div>
+
+
+<div style="padding:20px; background: #f4f4f4;">
+        <div class="govuk-form-group ">
+          <label class="govuk-label" for="shareURL">
+            URL to share
+          </label>
+          <p class="govuk-hint">Copy the address below if you want to share it.</p>
+          <input class="govuk-input" id="shareURL" name="shareURL" type="text" spellcheck="false" >
+        </div>
+        <a href="#" class="govuk-button" role="button">Start</a>
+      </div>
+      </form>
+</div>
+{% endblock %}
