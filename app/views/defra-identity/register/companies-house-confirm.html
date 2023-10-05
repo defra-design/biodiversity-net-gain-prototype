@@ -7,11 +7,23 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">Are these the correct registered company details?</h1>
+    <!-- <p>{{data.company | dump}}</p> -->
     <p class="govuk-body">We need to know the registered company details for verification purposes. It is typically the head office.</p>
-    <h2 class="govuk-heading-m">Acme Org Ltd </h2>
-    <p><b>Limited Company</b></p>
-    <p>1 Francis Crick Avenue, Cambridge Biomedical Campus, Cambridge, United Kingdom, CB2 0AA</p>
-    <p>Company number 01234567. <a href="companies-house-number">Enter a different number</a>.</p>
+    <h2 class="govuk-heading-m">{{data.company.company_name or  data.comapanyName}} </h2>
+    <p><b>
+      {% if data.company.type == "ltd" %}
+      Limited Company
+      {% else %}
+      Limited Company
+      {% endif %}
+    </b></p>
+    <p>{{data.company.registered_office_address.address_line_1 or "24 Edenhurst Ave"}},
+          {% if data.company.registered_office_address.address_line_2%}
+          {{data.company.registered_office_address.address_line_2 or "Fulham"}},
+          {% endif %}
+          {{data.company.registered_office_address.locality or "London"}},
+          {{data.company.registered_office_address.postal_code or "SW6 3NP"}}</p>
+    <p>Company number {{data.company.company_number or "1234567"}}. <a href="companies-house-number">Enter a different number</a>.</p>
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
@@ -24,6 +36,14 @@
       </div>
     </details>
     <form method="post" action="./company-contact">
+      <input type="hidden" name="comapanyName" value="{{data.company.company_name or  data.comapanyName }}">
+
+       <input type="hidden" name="address-line1" value="{{data.company.registered_office_address.address_line_1  or  data.address-line1 }}">
+
+        <input type="hidden" name="address-town" value="{{data.company.registered_office_address.locality or  data.address-town }}">
+
+        <input type="hidden" name="address-postcode" value="{{data.company.registered_office_address.postal_code or  data.address-postcode }}">
+
       <input type="text" class="govuk-visually-hidden" name="registrationCorrectDetails" id="registrationCorrectDetails" value="Yes">
       <button class="govuk-button" data-module="govuk-button">
         Confirm

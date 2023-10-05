@@ -87,6 +87,10 @@ const registerv5 = require('./views/register/v5/_routes');
 router.use('/register/v5', registerv5);
 
 
+// for defra identity
+const identity = require('./views/defra-identity/_routes.js');
+router.use('/defra-identity', identity);
+
 // for features and stories
 const stories = require('./views/stories/_routes.js');
 router.use('/stories', stories);

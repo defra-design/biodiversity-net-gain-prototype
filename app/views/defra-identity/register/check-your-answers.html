@@ -4,6 +4,78 @@
 <a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
 {% endblock %}
 {% block content %}
+<style media="screen">
+  .hide {
+    display: none;
+  }
+
+  #photo-label-text {
+    display: inline-block;
+    color: #fff;
+  }
+
+  .js-enabled .photo-choose-file {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+  }
+
+  .photo-upload-label {
+    margin-bottom: 2px;
+  }
+
+  .app-progress-spinner {
+    border: 12px solid #DEE0E2;
+    border-radius: 50%;
+    border-top-color: #005EA5;
+    width: 50px;
+    height: 50px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+    }
+
+    100% {
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .app-hidden,
+  .app-file-spinner--hidden,
+  .app-progress--hidden {
+    display: none;
+  }
+
+  .app-progress-container {
+    text-align: center;
+  }
+</style>
+<div id="progress-container" class="app-progress-container" role="region" aria-live="polite" tabindex="-1" aria-labelledby="progress">
+  <h2 id="progress" class="app-progress app-progress--hidden govuk-heading-m" role="progressbar">Submitting registration and creating account</h2>
+</div>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-xl">Check your information</h1>
@@ -13,23 +85,39 @@
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Account Type</dt>
         <dd class="govuk-summary-list__value">
-          Organisation
+          {% if data.defraAccountType  == "organisation" %}
+           Business
+           {% else %}
+           Personal
+          {% endif %}
+         
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link govuk-link--no-visited-state" href="/register/account-type?link=change">Change<span class="govuk-visually-hidden"> account type</span></a>
+          <a class="govuk-link govuk-link--no-visited-state" href="./change?returnTo=check-your-answers">Change<span class="govuk-visually-hidden"> account type</span></a>
         </dd>
       </div>
     </dl>
     <!-- About the organisation -->
+
+    {% if data.defraAccountType == "organisation" %}
     <h2 class="govuk-heading-m">About your organisation</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Your organisation’s details</dt>
         <dd class="govuk-summary-list__value">
-          1 Francis Crick Avenue<br>
-          Cambridge Biomedical Campus<br>
-          Cambridge, United Kingdom<br>
-          CB2 0AA
+          {{data.company.company_name or  data.comapanyName}}
+          {% if data.crn %}({{data.crn}}){% endif %}
+          <br>
+
+          {{data["address-line1"] or "24 Edenhurst Ave"}}<br>
+          {% if data.company.registered_office_address.address_line_2%}
+          {{data.company.registered_office_address.address_line_2 or "Fulham"}}<br>
+          {% endif %}
+          {{data["address-town"] or "London"}}<br>
+          {{data["address-postcode"] or "SW6 3NP"}}
+          {% if data.registrationTradeUK == "No" %}
+          {{data["address-country"] or "France"}}
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> registered company</span></a>
@@ -38,26 +126,32 @@
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Organisation type</dt>
         <dd class="govuk-summary-list__value">
+          {% if data.registrationTradeUK == "Yes" %}
+          Public limited company
+          {% else %}
+          Non-UK
+          {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions"></dd>
       </div>
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Main contact details</dt>
         <dd class="govuk-summary-list__value">
-          01234 567899<br>
-          info@company.co.uk
+          {{ data.registrationPhone or "01234 567899"}}<br>
+          {{ data.registrationEmail or "info@company.co.uk"}}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a href="company-contact?flowType=check">Change<span class="govuk-visually-hidden"> company contact details</span></a>
         </dd>
       </div>
     </dl>
+    {% endif %}
     <h2 class="govuk-heading-m">About you</h2>
     <dl class="govuk-summary-list govuk-!-margin-bottom-9">
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Your name</dt>
         <dd class="govuk-summary-list__value">
-          Hugo Furst
+          {{data["applicant-f-name"]}} {{data["applicant-l-name"]}}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link govuk-link--no-visited-state" href="/register/personal-name?link=change">Change<span class="govuk-visually-hidden"> your name</span></a>
@@ -66,25 +160,38 @@
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Your contact details</dt>
         <dd class="govuk-summary-list__value">
-          07711223344<br>
-          hugofurst@soleheaven.co.uk
+          {{data["telephone-number"]}}<br>
+          {{data["email"]}}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link govuk-link--no-visited-state" href="/register/your-contact-details?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
         </dd>
       </div>
+      {% if data.defraAccountType == "individual" %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">Your address details</dt>
+        <dd class="govuk-summary-list__value">
+          {{data["telephone-number"]}}<br>
+          {{data["email"]}}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link govuk-link--no-visited-state" href="/register/your-contact-details?link=change">Change<span class="govuk-visually-hidden"> your contact details</span></a>
+        </dd>
+      </div>
+      {% endif %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">Your security word</dt>
         <dd class="govuk-summary-list__value">
-          TheGoat23
+          {{data.memorableWord or "TheGoat23"}}
           <!-- My favourite food -->
+          {{data.registrationSecurityHint or "Messi"}}
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link govuk-link--no-visited-state" href="/register/individual-security?link=change">Change<span class="govuk-visually-hidden"> security word and hint</span></a>
         </dd>
       </div>
     </dl>
-    <form method="post" action="{{data.returnURL or '//register-application/v21/task-list?register-journey=yes&new-register-journey=yes'}}">
+    <form method="post" action="{{data.returnURL or '/register-application/v21/task-list?register-journey=yes&new-register-journey=yes'}}">
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
@@ -92,4 +199,40 @@
   </div>
 
 </div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+
+window.addEventListener('load', function() {
+  let filename
+  var percentatge = 0
+  var processing = 0
+  var timer
+
+  function fileupload() {
+    if (percentatge >= 100) {
+      clearInterval(timer);
+      $('form').submit()
+    } else {
+      percentatge += 10
+    }
+  }
+
+  $('.govuk-button').on("click",function(e){
+     e.preventDefault()
+      $('#progress').removeClass('app-progress--hidden').attr('aria-valuenow', '0').attr('aria-valuemin', '0').attr('aria-valuemax', '100')
+      $('.govuk-grid-row:first').attr('aria-hidden', 'true').addClass('app-hidden')
+      $('.govuk-error-summary').attr('aria-hidden', 'true').addClass('app-hidden');
+      $('#backButton').attr('aria-hidden', 'true').addClass('app-hidden');
+      $('#progress-container').prepend('<div class="app-progress-spinner"></div>')
+      
+     timer = setInterval(fileupload, 300);
+  })
+ 
+ 
+
+})
+</script>
 {% endblock %}

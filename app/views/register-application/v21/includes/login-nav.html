@@ -4,7 +4,16 @@
   <div id="profile" class="login-nav">
     <!--<span class="login-nav__org-name"><strong>Imaginary Farm Ltd</strong></span>-->
     <ul class="login-nav__list">
-      <li class="login-nav__list-item">Jo Smith |</li>
+      <li class="login-nav__list-item">
+      {% if data.defraAccountType == "organisation" %}
+        {{data["companyName"]}} 
+      {%else %}
+        {{data["applicant-f-name"]}} {{data["applicant-l-name"]}}
+      {% endif %}
+       |
+   
+
+    </li>
 
         <li class="login-nav__list-item">
           {% if not disableAccount %}
