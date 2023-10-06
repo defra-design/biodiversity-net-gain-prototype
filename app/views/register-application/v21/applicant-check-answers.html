@@ -1,4 +1,4 @@
-{% extends "register-application/v20/layout-register-application.html" %}
+{% extends "register-application/v21/layout-register-application.html" %}
 
 {% set userTypeText = "Is your client" %}
 {% if data['is-agent'] == 'no' %}
@@ -54,7 +54,14 @@
           </dt>
           <dd class="govuk-summary-list__value">
             
-              {{data["confirmed-defra-id"] | capitalize}}
+
+              {% set applyingas = "Yes, apply as "+data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+
+
+        {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
+        {% set applyingas = applyingas +  " for "+data["companyName"] %}
+        {% endif %}
+        {{applyingas}}
 
           </dd>
             

@@ -7,7 +7,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">What is your address?</h1>
-    <form action="./address-select-address" method="post">
+    <form action="address-select-address" method="post">
       <div class="govuk-form-group">
         <label class="govuk-label govuk-label--s" for="registrationIndividualPostcode">
           Enter your postcode
@@ -15,7 +15,7 @@
         <div id="registrationIndividualPostcode-hint" class="govuk-hint">
           If you cannot find your address or if you need to add a non-UK address, you can add it manually below.
         </div>
-        <input class="govuk-input govuk-input--width-10" id="registrationIndividualPostcode" name="[registrationIndividualPostcode]" type="text" value="123" aria-describedby="registrationIndividualPostcode-hint">
+        <input class="govuk-input govuk-input--width-10" id="registrationIndividualPostcode" name="postcode" type="text" value="" aria-describedby="registrationIndividualPostcode-hint">
       </div>
       <button class="govuk-button" data-module="govuk-button">
         Find address

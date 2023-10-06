@@ -34,7 +34,7 @@
 {% endblock %}
 
 {% block beforeContent %}
-
+  {{data|dump}}
   <!--{% include "register-application/v9/includes/login-nav.html" %}-->
 
   {% if hideSaveSection === true %}

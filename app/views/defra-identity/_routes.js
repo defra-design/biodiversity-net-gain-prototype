@@ -41,7 +41,24 @@ router.post('/register/companies-house-number', function(req, res) {
     })
 
   })
+// router.post('/register/address-postcode', function(req, res) {
+//   console.log("working")
+
+//     let q = req.body.postcode ||  "W1J 9BR";
+//     client.get("https://api.postcodes.io/postcodes/" + q, function(data, response) {
+//       // parsed response body as js object
+
+//       console.log(data)
+//       req.session.data.company = data
+//       res.redirect(301, '/defra-identity/register/address-select-address');
+
+
+
+//     })
+
+//   })
  
+
 
 
 

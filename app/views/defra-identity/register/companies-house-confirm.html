@@ -36,7 +36,7 @@
       </div>
     </details>
     <form method="post" action="./company-contact">
-      <input type="hidden" name="comapanyName" value="{{data.company.company_name or  data.comapanyName }}">
+      <input type="hidden" name="companyName" value="{{data.company.company_name or  data.comapanyName }}">
 
        <input type="hidden" name="address-line1" value="{{data.company.registered_office_address.address_line_1  or  data.address-line1 }}">
 
@@ -45,6 +45,7 @@
         <input type="hidden" name="address-postcode" value="{{data.company.registered_office_address.postal_code or  data.address-postcode }}">
 
       <input type="text" class="govuk-visually-hidden" name="registrationCorrectDetails" id="registrationCorrectDetails" value="Yes">
+      
       <button class="govuk-button" data-module="govuk-button">
         Confirm
       </button>
