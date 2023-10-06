@@ -16,7 +16,11 @@
       {{ pageHeading }}
     </h1>
       <ul class="govuk-list">
-      <li><b>Jo Smith</b></li>
+      <li><b>{{data["applicant-f-name"]}} {{data["applicant-l-name"]}}</b></li>
+       {% if data.defraAccountType == "organisation" %}
+        <li>Representing {{data["companyName"]}} </li>
+        
+      {% endif %}
       <!-- <li>Imaginary Farm Ltd</li> -->
       <li>joe@imaginaryfarm.co.uk</li>
      <!--  <li>01234 567890</li>
