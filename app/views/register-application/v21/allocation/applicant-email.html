@@ -7,41 +7,38 @@
 {% set userTypeText = "What is your" %}
 {% endif %}
 
-{% set pageHeading = userTypeText+" telephone number?" %}
+{% set pageHeading = userTypeText+" email address?" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% set nextpage = "applicant-upload-authorisation" %}
-      {% set userOrClient = 'your client' %}
+  
+      <form action="applicant-phone" method="POST">
+
+        {% set userOrClient = 'your client' %}
 
       
       {% if data["is-agent"] == "no" %}
       {% set userOrClient = 'you' %}
-      {% set nextpage = "applicant-check-answers" %}
       {% endif %}
-      <form action="./{{nextpage}}" method="POST">
 
-     
-        {% set phone = data['telephone-number'] %}
+        {% set email = data['email'] %}
         
 
-
         {{ govukInput({
+          id: "email",
+          name: "email",
           label: {
             text: pageHeading,
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "We'll only use this to contact "+userOrClient+" about your application. For international numbers include the country code"
+            text: "We'll only use this to contact "+userOrClient+" about the registration."
           },
-          id: "telephone-number",
-          name: "telephone-number",
-          type: "tel",
-          autocomplete: "tel",
-          classes: "govuk-input--width-20",
+          autocomplete: "email",
+          spellcheck: false,
           value: ""
         }) }}
 

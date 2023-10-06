@@ -1,14 +1,12 @@
 {% extends "register-application/v21/layout-register-application.html" %}
 
-{% set pageHeading = "Check your letter of authority file" %}
+{% set pageHeading = "Check your written authorisation file" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
-      <span  class="govuk-caption-l">Letter of authority 1 of 2</span>
-      {% endif %}
+
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
@@ -35,10 +33,7 @@
       {% endif %} -->
 
       <form method="post" action="">
-        {% set nextpage = "allocation-gain-site" %}
-        {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
-        {% set nextpage = "applicant-authorisation-as-nrp" %} 
-        {% endif %}
+      
 
         {{ govukRadios({
           idPrefix: "landowner-agent-correct",
@@ -51,11 +46,11 @@
           },
           items: [
             {
-              value: "yes~./"+nextpage,
+              value: "yes~./applicant-check-answers",
               text: "Yes"
             },
             {
-              value: "no~./applicant-details-upload-authorisation",
+              value: "no~./applicant-upload-authorisation",
               text: "No, choose a different file"
             }
           ]

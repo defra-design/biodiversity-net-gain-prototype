@@ -35,7 +35,7 @@
         {% if data['allocation-metric-correct'] == 'yes' %}
           <form action="/register-application/v21/dashboard-record" method="post" novalidate>
         {% else %}
-          <form action="/register-application/v21/allocation/allocation-gain-site" method="post" novalidate>
+          <form action="/register-application/v21/allocation/applicant-details-is-agent" method="post" novalidate>
         {% endif %}
           <input type="hidden" name="register-journey" value="false">
       {% else %}

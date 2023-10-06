@@ -11,12 +11,6 @@
     <!-- action controled in ./_routes.js -->
     <form method="post">
 
-      {% set orgURL = "applicant-as-organisation" %}
-      {% set indURL = "applicant-as-individual" %}
-      {% if data["is-agent"] == "no" %}
-      {% set orgURL = "applicant-details-confirm-landowner" %}
-      {% set indURL = "applicant-details-confirm-landowner" %}
-      {% endif %}
       {{ govukRadios({
       name: "applicant-type",
       fieldset: {
@@ -28,11 +22,11 @@
       },
       items: [
       {
-      value: "individual~./"+indURL,
+      value: "individual~./applicant-as-individual",
       text: "An individual"
       },
       {
-      value: "organisation~./"+orgURL,
+      value: "organisation~./applicant-as-organisation",
       text: "An organisation"
       }
       ]

@@ -1,0 +1,203 @@
+{% extends "layout-defra-id.html" %}
+
+{% block beforeContent %}
+<div class="login-nav">
+  {% if data.defraAccountType == "organisation" %}
+  <span class="login-nav__org-name"><strong>{{data.companyName}}</strong></span>
+  {% endif %}
+  
+  <ul class="login-nav__list">
+    <li class="login-nav__list-item">{{data["applicant-f-name"]}} {{data["applicant-l-name"]}} |</li>
+    <!-- <li class="login-nav__list-item"><a href="//defra-id-manage/index" class="govuk-link login-nav__link govuk-link--no-visited-state account">Manage account</a>|</li> -->
+    <li class="login-nav__list-item"><a href="#" class="govuk-link login-nav__link govuk-link--no-visited-state">Sign out</a></li>
+  </ul>
+</div>
+{% endblock %}
+{% block content %}
+    
+
+<main class="govuk-main-wrapper govuk-main-wrapper--auto-spacing" id="main-content" role="main">
+          
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Defra account profile
+    </h1>
+    <!-- <span class="govuk-caption-xl">Defra account profile</span>
+    <h1 class="govuk-heading-xl">Big Company Ltd</h1> -->
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <!-- <p class="govuk-body">
+      <span class="govuk-!-font-weight-bold">Full name:</span> Sam Woods<br>
+      <span class="govuk-!-font-weight-bold">Email address:</span> sam.woods@company.co.uk<br>
+      <span class="govuk-!-font-weight-bold">Telephone number:</span> 07711223344
+    </p> -->
+
+    <dl class="govuk-summary-list govuk-summary-list--no-border govuk-!-margin-bottom-3">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Full name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data["applicant-f-name"]}} {{data["applicant-l-name"]}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Email address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data["email"]}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Phone number
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{ data["telephone-number"]}}
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Security word
+        </dt>
+        <dd class="govuk-summary-list__value">
+          ••••••••••
+        </dd>
+      </div>
+      <!-- <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          <p class="govuk-body">07711 223344</p>
+          <p class="govuk-body">sam.woods@bigcompany.co.uk</p>
+        </dd>
+      </div> -->
+    </dl>
+
+    <p class="govuk-body">
+      <a href="update-details" class="govuk-link--no-visited-state">
+        Update details
+      </a>
+    </p>
+
+    <!-- <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Contact Support ID
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+       If you contact us for support, you'll need your Contact Support ID: CID-000000002109
+      </div>
+    </details> -->
+
+  </div>
+
+</div>
+
+<div class="govuk-grid-row govuk-!-margin-bottom-6">
+  <div class="govuk-grid-column-full">
+    <br>
+      <h2 class="govuk-heading-l">
+        Organisation accounts
+      </h2>
+      {% if data.defraAccountType == "organisation" %}
+      <table class="govuk-table ">
+        <caption class="govuk-table__caption govuk-body govuk-!-font-weight-regular">You have access to the following accounts and related services.</caption>
+        <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header column-full" scope="col">
+            Account
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Account role
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Service
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            Service role
+          </th>
+          <th class="govuk-table__header column-full" scope="col">
+            <span class="govuk-visually-hidden td-header">Action</span>
+          </th>
+        </tr>
+        </thead>
+
+        <tbody><tr class="govuk-table__row no-border">
+          <td class="govuk-table__cell">
+            {{data.companyName}}
+          </td>
+          <td class="govuk-table__cell">
+            
+          </td>
+          <td class="govuk-table__cell">
+            No registered service
+            <!-- Packaging producer responsibility -->
+          </td>
+          <td class="govuk-table__cell">
+            Admin
+          </td>
+          <td class="govuk-table__cell">
+            <a href="dashboard" class="govuk-link--no-visited-state">
+              Manage<span class="govuk-visually-hidden td-header"> {{data.companyName}}</span>
+            </a>
+          </td>
+        </tr>
+
+
+      </tbody></table>
+      {% else %}
+      <p class="govuk-body">You are not added to any organisations.</p>
+      {% endif %}
+      <p class="govuk-body">
+        <a class="govuk-link--no-visited-state" href="#">Add new account</a>
+      </p>
+
+    </div>
+  </div>
+
+  <div class="govuk-card__content">
+    <h2 class="govuk-heading-l">Services</h2>
+
+      <div class="govuk-grid-row">
+
+        <div class="govuk-grid-column-two-thirds">
+          <p class="govuk-body">
+            You are not enrolled to any services.
+          </p>
+        </div>
+
+        <!-- waste services -->
+
+        <!-- <div class="govuk-grid-column-one-third">
+          <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="../epr/home"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">Packaging producer responsibility</h3>
+            </div>
+          </div>
+        </div>
+        <div class="govuk-grid-column-one-third">
+          <div class="govuk-card govuk-card--contained govuk-card--selectable">
+            <a href="../drs/home"></a>
+            <div class="govuk-card__content">
+              <h3 class="govuk-heading-m">Deposit return scheme</h3>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+
+
+        </main>
+
+{% endblock %}

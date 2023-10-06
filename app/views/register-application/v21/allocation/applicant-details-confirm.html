@@ -1,0 +1,87 @@
+{% extends "register-application/v21/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "We will use your Defra account details as the applicant" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+       <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
+        <p>
+         {% if data["is-agent"]=="no" and data["applicant-type"] == "organisation" %}
+         <!-- // user is landowner organsistion-->
+        {% set nextpage = "applicant-address-in-uk" %}
+        <strong>{{data.companyName}}</strong>, the landowner or leaseholder you represent, must be named on the legal agreement to apply.
+        {% elseif data["is-agent"]=="no"  %}
+        <!-- // user is individual landowner-->
+        <strong>{{data.applicant-f-name}} {{data.applicant-l-name}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
+        {% set nextpage = "applicant-address-in-uk" %}
+        {% else %}
+        <!-- // user is agent -->
+        {% set nextpage = "applicant-landowner-type" %}
+        {% endif %}
+             </p>
+          <p> <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >Check your Defra account details</a> </p>
+
+      <form method="get" class="govuk-!-padding-top-5" action="./{{nextpage}}">
+
+
+        
+ 
+       
+   
+           <!--  <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd> -->
+
+        {% set yestext = "Yes, apply as "+data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+
+
+        {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
+        {% set yestext = yestext +  " for "+data["companyName"] %}
+        {% endif %}
+
+
+       {{ govukRadios({
+          idPrefix: "confirmed-defra-id",
+          name: "confirmed-defra-id",
+          fieldset: {
+            legend: {
+              text: "Are your Defra account details up to date?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: yestext
+            },
+            {
+              value: "no~./applicant-details-confirm-no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+       
+
+        {{ govukButton({
+          text: "Confirm and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

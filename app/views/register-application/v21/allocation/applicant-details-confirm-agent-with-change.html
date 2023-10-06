@@ -12,12 +12,11 @@
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
 
-      <form method="post" class="govuk-!-padding-top-5" action="./applicant-landowner-type">
+      <form method="post" class="govuk-!-padding-top-5" action="./applicant-company-name">
 
         {% set returnURL = query.returnURL or 'task-list' %}
 
 
-        <p>We will use your defra account details to identify you and to contact you about your registration. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
         <dl class="govuk-summary-list">
     
       
@@ -29,30 +28,13 @@
             {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
           </dd>
           
-            <!-- <dd class="govuk-summary-list__actions">
+            <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-agent">
                 Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               
-            </dd> -->
-          
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Organisation
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{data["companyName"]}}
-          </dd>
-          
-            <!-- <dd class="govuk-summary-list__actions">
-              
-                <a class="govuk-link" href="./details/applicant-company-name?type=business&returnURL=applicant-details-confirm-agent">
-                Change<span class="govuk-visually-hidden"> name</span>
-                </a>
-              
-            </dd> -->
+            </dd>
           
         </div>
 
@@ -66,17 +48,15 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['email'] }}
-            <br><p class="govuk-hint">We will only use your email address if we need to contact you about your registration.</p>
-
           </dd>
           
-           <!--  <dd class="govuk-summary-list__actions">
+            <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
                 Change<span class="govuk-visually-hidden"> date of birth</span>
                 </a>
               
-            </dd> -->
+            </dd>
           
         </div>
       
@@ -84,15 +64,9 @@
     
   </dl>
 
-    <p>Other Defra account details we will submit with this application.</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>Telephone numbers</li>
-      <li>Address</li>
-      <li>Company identification numbers (for example company house number)</li>
-    </ul>
-
         <input type="hidden" name="details-confirm" value="yes">
-        
+        <p>We will only use your email address if we need to contact you about your registration.</p>
+
        
 
         {{ govukButton({

@@ -1,36 +1,24 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
-{% set addChangeText = "Add" %}
-
-
-{% if query.change=="yes" %}
-{% set addChangeText = "Update" %}
-
-
+{% set userTypeText = "What is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "What is your" %}
 {% endif %}
 
-{% set pageHeading = "What is your client's business name?" %}
+{% set pageHeading = userTypeText+" organisation name?" %}
 
 {% block content %}
 
-{% set nextPage = "allocation-metric-upload" %}
-<!-- Setting URLs based on previous pages -->
-{% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
- {% set nextPage = "applicant-two-uploads-interstitial" %}
-{% endif %}
-
-{% if data["is-agent"] == "no" and data["client-is-landowner"] == "no" %}
- {% set nextPage = "applicant-authorisation-as-nrp" %}
-{% endif %}
-
-{% if data["is-agent"] == "yes" and data["client-is-landowner"] == "yes" %}
- {% set nextPage = "applicant-details-upload-authorisation" %}
-{% endif %}
-
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
+      
+      {% set nextpage = "applicant-check-answers" %}  
+      {% if data["is-agent"] == "yes" %}
+      {% set nextpage = "applicant-address-in-uk" %}  
+      {% endif %}    
+      
 
-      <form method="post" action="./{{nextPage}}">
+      <form method="post" action="./{{nextpage}}">
          <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">
         {% call govukFieldset({
           legend: {
@@ -40,18 +28,18 @@
           }
         }) %}
 
-        <!-- <p>This must be a landowner or leaseholder that appears on the legal agreement.</p><p>You will only have to add one of the landowner or leaseholders if there is more than one.</p> -->
+        <p>They must be named as a landowner or leaseholder on the legal agreement.</p>
 
 
          <!-- Set the value if this is changing/updating an LP. -->
         {% if query.change == "yes" %}
-        {% set fullname = data.legalParties[query.id or 0]["legal-party-name"] %}
+        {% set fullname = data["applicant-org-name"] %}
        
         {% endif %}
     
         {{ govukInput({
-          id: 'legal-party-name',
-          name: 'legal-party-name',
+          id: 'applicant-org-name',
+          name: 'applicant-org-name',
           value: fullname,
           label: {
             html: 'Organisation name'
@@ -60,7 +48,7 @@
 
        
         {% endcall %}
-        <input type="hidden" name="applicant-details-added" value="yes">
+        <input type="hidden" name="details-confirm" value="yes">
         {{ govukButton({
            text: "Save and continue"
         }) }}

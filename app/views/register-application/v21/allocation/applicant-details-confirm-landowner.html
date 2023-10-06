@@ -12,24 +12,23 @@
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
       
-      <p>
+     
+          <p>
+        {% if data["applicant-type"] == "organisation" %}
         {% set nextpage = "applicant-address-in-uk" %}
-        {% if data["client-is-landowner"] == "yes" %} 
-        {% if data["landowner-type"] == "organisation"%}
         The landowner or leaseholder you represent must be named on the legal agreement to apply.
-        {% set nextpage = "applicant-address-in-uk" %}
-      {% else  %}
-       You must be named as a landowner or leaseholder on the legal agreement to apply.
+      {% else %}
+      You must be named as a landowner or leaseholder on the legal agreement to apply.
       {% set nextpage = "applicant-address-in-uk" %}
       {% endif %}
-      {% endif %}
     </p>
-    <p>These are the details we will use on this application. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
+      <p>We will use your defra account details to identify you and to contact you about your registration. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
 
 
+      <form method="post" class="" action="./{{nextpage}}">
 
-      <form method="post" class="govuk-!-padding-top-5" action="./{{nextpage}}">
-  <dl class="govuk-summary-list">
+
+        <dl class="govuk-summary-list">
     
       
         <div class="govuk-summary-list__row">
@@ -42,15 +41,15 @@
           
             <!-- <dd class="govuk-summary-list__actions">
               
-                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-landowner">
+                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-agent">
                 Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               
             </dd> -->
           
         </div>
-        
-         {% if data["landowner-type"] == "organisation"  or data["applicant-type"] == "organisation" %}
+
+        {% if data["applicant-type"] == "organisation" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Organisation
@@ -70,7 +69,6 @@
         </div>
         {% endif %}
       
-      
     
       
         <div class="govuk-summary-list__row">
@@ -78,26 +76,30 @@
             Contact email address
           </dt>
           <dd class="govuk-summary-list__value">
-            {{ data['email'] }}
+            {{ data['email'] or "name@example.com"}}
+            <br><p class="govuk-hint">We will only use your email address if we need to contact you about your registration.</p>
           </dd>
           
-        <!--     <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-landowner">
-                Change<span class="govuk-visually-hidden"> contact email address</span>
+           <!--  <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
                 </a>
+              
             </dd> -->
           
         </div>
       
-    
-    
       
     
   </dl>
 
-
-  <p>We will only use your email address if we need to contact you about your registration.</p>
-
+ <p>Other Defra account details we will submit with this application.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Telephone numbers</li>
+      <li>Address</li>
+       {% if data["applicant-type"] == "organisation" %}<li>Company identification numbers (for example company house number)</li>{% endif %}
+    </ul>
      
 
 

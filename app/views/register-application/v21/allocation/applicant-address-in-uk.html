@@ -2,7 +2,17 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "Is your address in the UK?" %}
+{% set userTypeText = "Is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Is your" %}
+{% endif %}
+
+{% if data['applicant-type'] == "organisation" %}
+{% set userTypeText = userTypeText + " organisation" %}
+{% endif %}
+
+
+{% set pageHeading = userTypeText+" address in the UK?" %}
 
 {% block content %}
 <!-- <style media="screen">
@@ -14,22 +24,22 @@
   <div class="govuk-grid-column-two-thirds">
     <form method="post" class="form">
 
-
       <!-- <a href="business-address">Change</a> -->
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">{{pageHeading}}</h1>
           </legend>
+          <p class="govuk-hint">This is the address that matches your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
           <div class="govuk-radio govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~uk-address" {% if data.address_in_uk == 'yes'%}checked{% endif%}>
+              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~applicant-uk-address" {% if data.address_in_uk == 'yes'%}checked{% endif%}>
               <label class="govuk-label govuk-radios__label" for="requirementAnswer1-Yes">
                 Yes
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="requirementAnswer1-No" name="address_in_uk" type="radio" value="no~international-address" {% if data.address_in_uk == 'no'%}checked{% endif%}>
+              <input class="govuk-radios__input" id="requirementAnswer1-No" name="address_in_uk" type="radio" value="no~applicant-international-address" {% if data.address_in_uk == 'no'%}checked{% endif%}>
               <label class="govuk-label govuk-radios__label" for="requirementAnswer1-No">
                 No
               </label>
