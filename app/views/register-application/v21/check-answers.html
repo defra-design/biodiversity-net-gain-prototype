@@ -15,7 +15,7 @@
 
       <h2 class="govuk-heading-m">Applicant information</h2>
 
-        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -55,21 +55,15 @@
         {% endif %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your details
+            Defra account details are up to date
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}<br>
-            {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
-            {{data["companyName"]}}<br>
-            {% endif%}
+            
+              {{data["confirmed-defra-id"] | capitalize}}
 
-            {{data["address-line1"]}}, {{data["address-town"]}},{{data["address-postcode"]}}{%if data['address-country']%}, {{data['address-country']}}{% endif %}<br><br>
-            <span class="govuk-visually-hidden">email: </span> {{ data['email'] }}<br>
-            <span class="govuk-visually-hidden">telephone: </span> {{ data['telephone-number'] }}<br>
-
-           
           </dd>
-          
+            
+
             <dd class="govuk-summary-list__actions">
                 {% set detailsURL = "applicant-details-confirm-agent" %}
                 {% if data["is-agent"] == "no" %}
@@ -82,6 +76,48 @@
             </dd>
           
         </div>
+       <!--  {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+          
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["companyName"]}}<br>
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-company-name?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> organisation name</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+
+        {% endif%} -->
+
+        {% if data["is-agent"]== "no" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["address-line1"] or "24 Edenhurst Avenue"}}, {{data["address-town"] or "London"}},{{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}, {{data['address-country']}}{% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-uk-address?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> address</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+        
         
         {% if data["is-agent"]=="yes"%}
         <div class="govuk-summary-list__row">
@@ -101,6 +137,7 @@
             </dd>
          
         </div>
+
         {% if data["applicant-type"] == "organisation"%}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
@@ -113,7 +150,7 @@
             <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./applicant-as-organisation?change=yes&returnURL=check-answers">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
+                Change<span class="govuk-visually-hidden"> Client's organisation name</span>
                 </a>
               
             </dd>
@@ -122,7 +159,7 @@
         {% else %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Your client's name
+            Client's name
           </dt>
           <dd class="govuk-summary-list__value">
             {% set  applicantName = data["applicant-f-name"]or "Jo"%}
@@ -136,7 +173,59 @@
             <dd class="govuk-summary-list__actions">
               
                 <a class="govuk-link" href="./applicant-as-individual?change=yes&returnURL=check-answers">
-                Change<span class="govuk-visually-hidden"> date of birth</span>
+                Change<span class="govuk-visually-hidden"> Client's name</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+             Client's address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["address-line1"] or "24 Edenhurst Avenue"}}, {{data["address-town"] or "London"}},{{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}, {{data['address-country']}}{% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-uk-address?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> Client's name</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client's email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] or "jo.smith@biglandowner.com" }}
+          </dd>
+          
+          <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-phone?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> phone number</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client's phone number
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['telephone-number'] or "020 92340 2934" }}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-phone?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> phone number</span>
                 </a>
               
             </dd>

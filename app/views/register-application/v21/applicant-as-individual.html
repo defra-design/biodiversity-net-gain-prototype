@@ -1,12 +1,14 @@
 
 {% extends "register-application/v18/layout-register-application.html" %}
 
-{% set addChangeText = "Add" %}
-{% if query.change=="yes" %}
-{% set addChangeText = "Update" %}
+
+
+{% set userTypeText = "What is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "What is your" %}
 {% endif %}
 
-{% set pageHeading = "What is your client’s name?" %}
+{% set pageHeading = userTypeText+" name?" %}
 
 {% block content %}
 
@@ -14,7 +16,7 @@
     <div class="govuk-grid-column-two-thirds">
      {% set nextpage = "applicant-check-answers" %}  
       {% if data["is-agent"] == "yes" %}
-      {% set nextpage = "applicant-details-upload-authorisation" %}  
+      {% set nextpage = "applicant-address-in-uk" %}  
       {% endif %}    
       <!-- <form method="post" action="./applicant-check-answers"> -->
       <form method="post" action="./{{nextpage}}">
@@ -31,14 +33,11 @@
          <!-- Set the value if this is changing/updating an LP. -->
         {% if query.change == "yes" %}
         {% set fname = data["applicant-f-name"] %}
-        {% set mname = data["applicant-m-name"] %}
         {% set lname = data["applicant-l-name"] %}
         {% endif %}
         {{ govukInput({
           name: 'applicant-f-name',
           value: fname,
-          autocomplete: "given-name",
-          spellcheck: false,
           label: {
             html: 'First name'
           }
@@ -46,7 +45,7 @@
         {{ govukInput({
           name: 'applicant-l-name',
           value: lname,
-          autocomplete: "given-name",
+          autocomplete: "family-name",
           spellcheck: false,
           label: {
             html: 'Last name'

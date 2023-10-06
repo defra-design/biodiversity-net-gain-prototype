@@ -1,0 +1,56 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Your Defra account must be linked to the landowner or leasholder's organisation" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+
+
+      <form method="post" class="govuk-!-padding-top-5" action="./applicant-address-in-uk">
+        
+        <p>Your defra account is not linked with any organisaiton. <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >View your Defra account details</a></p>
+
+ 
+        <p>If the landowner or leaseholder is an organsiation then your defra ID account must be linked to that organsiation.</p>
+
+        <p>You must do one of the following to continue:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Add your account to the existing defra account of the organisaion</li>
+          <li>If the organisation doesnt have an account you will need to create a new defra account as an orgaisaition.</li>
+        </ul>
+
+
+
+
+        <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Contact Natural England if you need help
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Telephone: 0300 060 3900<br>
+      Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+      <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+  </div>
+</details>
+
+
+       
+
+       
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,11 +1,11 @@
 {% extends "register-application/v18/layout-register-application.html" %}
 
-{% set addChangeText = "Add" %}
-{% if query.change=="yes" %}
-{% set addChangeText = "Update" %}
+{% set userTypeText = "What is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "What is your" %}
 {% endif %}
 
-{% set pageHeading = "What is your client’s organisation name?" %}
+{% set pageHeading = userTypeText+" organisation name?" %}
 
 {% block content %}
 
@@ -14,8 +14,9 @@
       
       {% set nextpage = "applicant-check-answers" %}  
       {% if data["is-agent"] == "yes" %}
-      {% set nextpage = "applicant-details-upload-authorisation" %}  
+      {% set nextpage = "applicant-address-in-uk" %}  
       {% endif %}    
+      
 
       <form method="post" action="./{{nextpage}}">
          <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">

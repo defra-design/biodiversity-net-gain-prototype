@@ -1,0 +1,46 @@
+{% extends "register-application/v20/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Your defra account details need to in your name" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+
+
+      <form method="post" class="govuk-!-padding-top-5" action="./applicant-address-in-uk">
+        {% if data["defraId"]%}{% endif %}
+        <p></p>
+ 
+        <p>If your Defra account you are applying with needs to match the landowner or leasholder on the legal agreement. If is not up-to-date you will need to update it, or create a new Defra Id account under your name.</p>
+
+       <p> <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >Update your Defra account details</a> </p>
+
+        <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+      Contact Natural England if you need help
+    </span>
+  </summary>
+  <div class="govuk-details__text">
+    <p>Telephone: 0300 060 3900<br>
+      Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+      <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+  </div>
+</details>
+       
+
+       
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

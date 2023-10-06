@@ -1,4 +1,4 @@
-{% extends "register-application/v21/layout-register-application.html" %}
+{% extends "register-application/v20/layout-register-application.html" %}
 
 {% set hideSaveLink = true %}
 
@@ -12,12 +12,12 @@
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
 
-      <form method="post" class="govuk-!-padding-top-5" action="./applicant-address-in-uk">
+      <form method="post" class="govuk-!-padding-top-5" action="./applicant-landowner-type">
 
         {% set returnURL = query.returnURL or 'task-list' %}
 
 
-        <p>These are the details we will use on this application. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
+        <p>We will use your defra account details to identify you and to contact you about your registration. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
         <dl class="govuk-summary-list">
     
       
@@ -66,6 +66,8 @@
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['email'] }}
+            <br><p class="govuk-hint">We will only use your email address if we need to contact you about your registration.</p>
+
           </dd>
           
            <!--  <dd class="govuk-summary-list__actions">
@@ -82,9 +84,15 @@
     
   </dl>
 
-        <input type="hidden" name="details-confirm" value="yes">
-        <p>We will only use your email address if we need to contact you about your registration.</p>
+    <p>Other Defra account details we will submit with this application.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Telephone numbers</li>
+      <li>Address</li>
+      <li>Company identification numbers (for example company house number)</li>
+    </ul>
 
+        <input type="hidden" name="details-confirm" value="yes">
+        
        
 
         {{ govukButton({
