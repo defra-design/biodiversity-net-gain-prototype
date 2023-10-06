@@ -30,7 +30,7 @@
         Sign in using Government Gateway
       </h1>
       {% if data.hasDefraID== "no" %}
-           <form action="/defra-identity/register/?returnURL=/stories/BNGP-3137-contact-details/v1/task-list" method="post" novalidate>
+           <form action="/defra-identity/register/?returnURL=/register-application/v21/task-list" method="post" novalidate>
       {% elseif data['register-journey'] == 'false' %}
         {% if data['allocation-metric-correct'] == 'yes' %}
           <form action="/register-application/v21/dashboard-record" method="post" novalidate>
