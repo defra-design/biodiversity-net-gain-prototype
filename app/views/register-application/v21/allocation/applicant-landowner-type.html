@@ -9,7 +9,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!-- action controled in ./_routes.js -->
-    <form method="post">
+    <form method="post" action="applicant-details-confirm">
 
       {{ govukRadios({
       name: "applicant-type",
@@ -22,11 +22,11 @@
       },
       items: [
       {
-      value: "individual~./applicant-as-individual",
+      value: "individual",
       text: "An individual"
       },
       {
-      value: "organisation~./applicant-as-organisation",
+      value: "organisation",
       text: "An organisation"
       }
       ]

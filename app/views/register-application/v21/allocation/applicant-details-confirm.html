@@ -14,18 +14,21 @@
 
        <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
         <p>
-         {% if data["is-agent"]=="no" and data["applicant-type"] == "organisation" %}
-         <!-- // user is landowner organsistion-->
         {% set nextpage = "applicant-address-in-uk" %}
+        
+         {% if data["is-agent"]=="no" and data["client-is-landowner"] == "yes" and data["applicant-type"] == "organisation" %}
+         <!-- // user is landowner organsistion-->
         <strong>{{data.companyName}}</strong>, the landowner or leaseholder you represent, must be named on the legal agreement to apply.
-        {% elseif data["is-agent"]=="no"  %}
+        {% elseif data["is-agent"]=="no" and data["client-is-landowner"] == "yes" %}
         <!-- // user is individual landowner-->
         <strong>{{data.applicant-f-name}} {{data.applicant-l-name}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
-        {% set nextpage = "applicant-address-in-uk" %}
-        {% else %}
         <!-- // user is agent -->
-        {% set nextpage = "applicant-landowner-type" %}
+      
         {% endif %}
+        {% if data["is-agent"] == "yes" %}
+          {% set nextpage = "applicant-landowner-type" %}
+        {% endif %}
+
              </p>
           <p> <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >Check your Defra account details</a> </p>
 

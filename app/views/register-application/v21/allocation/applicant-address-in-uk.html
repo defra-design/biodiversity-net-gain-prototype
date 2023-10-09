@@ -30,7 +30,9 @@
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">{{pageHeading}}</h1>
           </legend>
+          {% if data["applicant-is-landowner"] == "yes" %}
           <p class="govuk-hint">This is the address that matches your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
+          {% endif %}
           <div class="govuk-radio govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~applicant-uk-address" {% if data.address_in_uk == 'yes'%}checked{% endif%}>

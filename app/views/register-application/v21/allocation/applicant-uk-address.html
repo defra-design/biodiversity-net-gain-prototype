@@ -27,8 +27,11 @@
         <h1 class="govuk-heading-l">
           {{pageHeading}}
         </h1>
-        <p class="govuk-hint">The address needs to match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
 
+        {% if data["applicant-is-landowner"] == "yes" %}
+        <p class="govuk-hint">The address needs to match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
+        {% endif %}
+        
         {% set nextPage = "applicant-email" %}
 
         {% if data["applicant-type"] == "organisation" %}
