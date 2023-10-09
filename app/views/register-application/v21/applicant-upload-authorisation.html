@@ -30,7 +30,7 @@
             <li>the date authorisation was given</li>
 
           </ul>
-          <p>You can <a href="">download an 'Authorise an agent' form</a>. </p>
+
 
           <p>The file should be:</p> 
           <ul class="govuk-list govuk-list--bullet">
@@ -48,6 +48,18 @@
           }
           
         }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no written authorisation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You can <a href="">download an 'Authorise an agent' form</a> and ask <strong>{{landowner}}</strong> to complete it.</p>
+            <p>You can then come back to this application and upload the form as written authorisation to apply.</p>
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Upload"

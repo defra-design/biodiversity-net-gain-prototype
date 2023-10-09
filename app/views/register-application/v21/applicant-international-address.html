@@ -22,7 +22,7 @@
       {{pageHeading}}
     </h1>
 
-    <p>The address needs to match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
+    <p>This must match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement.</p>
 
     {% set nextPage = "applicant-email" %}
 
@@ -61,7 +61,7 @@
       </div>
       <div class="govuk-form-group form-field-group">
         <label class="govuk-label" for="postcode">
-          Postcode (optional)
+          Postal code (optional)
         </label>
         <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" autocomplete="postal-code">
       </div>

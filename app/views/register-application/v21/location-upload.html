@@ -19,6 +19,7 @@
           </label>
 
           <div id="location-upload-hint">
+            <p>This should show the boundary of the land you want to register as a biodiversity gain site.</p>
             <p>The file should be:</p> 
             <ul class="govuk-list govuk-list--bullet">
               <li>a DOC, DOCX, JPG, PNG or PDF</li>
@@ -29,7 +30,21 @@
           <input class="govuk-file-upload" id="location-upload" name="location-upload" type="file" aria-describedby="location-upload-hint">
         </div>
 
-        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have a file showing the boundary of the biodiversity gain site</a></p>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no file showing the boundary
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a file showing the boundary of the land that you want to register as a biodiversity gain site.</p>
+            <p>Your file can be a DOC, DOCX or PDF. It must not be larger than 50MB.</p>
+            <h3>Contact Natural England if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Upload"
