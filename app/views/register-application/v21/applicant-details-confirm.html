@@ -20,7 +20,7 @@
         <strong>{{data.companyName}}</strong>, the landowner or leaseholder you represent, must be named on the legal agreement to apply.
         {% elseif data["is-agent"]=="no"  %}
         <!-- // user is individual landowner-->
-        <strong>{{data.applicant-f-name}} {{data.applicant-l-name}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
+        <strong>{{data["applicant-f-name"]}} {{data["applicant-l-name"]}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
         {% set nextpage = "applicant-address-in-uk" %}
         {% else %}
         <!-- // user is agent -->
