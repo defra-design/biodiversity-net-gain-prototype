@@ -27,7 +27,7 @@
         {% set nextpage = "applicant-landowner-type" %}
         {% endif %}
              </p>
-          <p> <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >Check your Defra account details</a> </p>
+          <p> <a href="/defra-identity/account" >Check your Defra account details</a> </p>
 
       <form method="get" class="govuk-!-padding-top-5" action="./{{nextpage}}">
 
@@ -44,35 +44,26 @@
               
             </dd> -->
 
-        {% set yestext = "Yes, apply as "+data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+   
+
+
+        {% set yestext = data["applicant-f-name"]+" "+data["applicant-l-name"] %}
 
 
         {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
         {% set yestext = yestext +  " for "+data["companyName"] %}
         {% endif %}
 
-
-       {{ govukRadios({
-          idPrefix: "confirmed-defra-id",
-          name: "confirmed-defra-id",
-          fieldset: {
-            legend: {
-              text: "Are your Defra account details up to date?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: yestext
-            },
-            {
-              value: "no~./applicant-details-confirm-no",
-              text: "No"
-            }
-          ]
-        }) }}
-
+        <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="confirmed-defra-id" name="confirmed-defra-id" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+        <label class="govuk-label govuk-checkboxes__label" for="confirmed-defra-id">
+          My Defra account details are up to date and I'll be applying as {{yestext}}
+        </label>
+      </div>
+    </div>
+    </div>
        
 
         {{ govukButton({
