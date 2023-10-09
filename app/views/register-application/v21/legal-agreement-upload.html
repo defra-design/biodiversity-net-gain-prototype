@@ -34,6 +34,33 @@
 
           <input class="govuk-file-upload" id="legal-agreement-upload" name="legal-agreement-upload" type="file" aria-describedby="legal-agreement-upload-hint">
         </div>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no legal agreement
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a legal agreement that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>secures the habitat enhancements on the land</li>
+        <li>is for at least 30 years</li>
+      </ul>
+  
+      <p>This must be either a:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://www.gov.uk/guidance/planning-obligations">planning obligation (Section 106 agreement)</a></li>
+        <li><a href="https://www.gov.uk/guidance/getting-and-using-a-conservation-covenant-agreement">conservation covenant</a></li>
+      </ul>
+  
+      <p>Your file can be a DOC, DOCX or PDF. It must not be larger than 50MB.</p>
+            <h3>Contact Natural England if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
         
 
         {{ govukButton({
@@ -42,7 +69,7 @@
         
       </form>
 
-      <p><a href="./legal-agreement-no">I do not have a legal agreement</a></p>
+      
 
     </div>
   </div>

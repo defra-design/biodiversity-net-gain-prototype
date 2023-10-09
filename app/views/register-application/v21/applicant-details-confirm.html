@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "We will use your Defra account details as the applicant" %}
+{% set pageHeading = "We will use your Defra account details to identify you and contact you about this application" %}
 
 {% block content %}
 
@@ -11,8 +11,6 @@
 
 
       <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-
-       <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
         <p>
          {% if data["is-agent"]=="no" and data["applicant-type"] == "organisation" %}
          <!-- // user is landowner organsistion-->

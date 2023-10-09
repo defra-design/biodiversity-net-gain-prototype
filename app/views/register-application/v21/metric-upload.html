@@ -27,7 +27,22 @@
 
         <input class="govuk-file-upload" id="metric-upload" name="metric-upload" type="file" aria-describedby="metric-upload-hint">
 
-        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/metric-no">I do not have the Biodiversity Metric 4.0 file</a></p>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no biodiversity metric
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a completed biodiversity metric for the biodiversity gain site you want to register.</p>
+            <p>You can <a href="https://www.gov.uk/guidance/biodiversity-metric-calculate-the-biodiversity-net-gain-of-a-project-or-development">find out more about completing a biodiversity metric</a> on GOV.UK.</p>
+            <p>Your file can be an XLSM or XLSX. It must not be larger than 50MB.</p>
+            <h3>Contact Natural England if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Upload"
