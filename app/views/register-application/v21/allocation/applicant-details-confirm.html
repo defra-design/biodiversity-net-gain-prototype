@@ -2,7 +2,7 @@
 
 {% set hideSaveLink = true %}
 
-{% set pageHeading = "We will use your Defra account details as the applicant" %}
+{% set pageHeading = "Check your Defra account details are up to date" %}
 
 {% block content %}
 
@@ -14,7 +14,7 @@
 
        <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
         <p>
-        {% set nextpage = "allocation-gain-site" %}
+        {% set nextPage = "allocation-gain-site" %}
 
         {% if data["is-agent"] == "no" and data["client-is-landowner"] == "no" %}
          {% set nextPage = "applicant-authorisation-as-nrp" %}
@@ -30,7 +30,7 @@
       
         {% endif %}
         {% if data["is-agent"] == "yes" %}
-          {% set nextpage = "applicant-is-landowner" %}
+          {% set nextPage = "applicant-is-landowner" %}
         {% endif %}
 
 
@@ -38,9 +38,9 @@
 
 
              </p>
-          <p> <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >Check your Defra account details</a> </p>
+          <p> <a href="/defra-identity/account" >Check your Defra account details</a> </p>
 
-      <form method="get" class="govuk-!-padding-top-5" action="./{{nextpage}}">
+      <form method="get" class="govuk-!-padding-top-5" action="./{{nextPage}}">
 
 
         
@@ -63,17 +63,22 @@
         {% endif %}
 
 
-       <div class="govuk-form-group">
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-      <div class="govuk-checkboxes__item">
-        <input class="govuk-checkboxes__input" id="confirmed-defra-id" name="confirmed-defra-id" type="checkbox" value="british" aria-describedby="nationality-item-hint">
-        <label class="govuk-label govuk-checkboxes__label" for="confirmed-defra-id">
-          My Defra account details are up to date and I'll be applying as {{yestext}}
-        </label>
-      </div>
-    </div>
-    </div>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          Confirm your Defra account details are up to date
+        </legend>
 
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="confirmed-defra-id" name="confirmed-defra-id" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+              <label class="govuk-label govuk-checkboxes__label" for="confirmed-defra-id">
+                My Defra account details are up to date and I'll be applying as {{yestext}}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
        
 
         {{ govukButton({

@@ -12,17 +12,15 @@ const baseURL = 'stories';
 
 
 router.post('/register/companies-house-number', function(req, res) {
-  console.log("working")
     var args = {
       headers: {
         "Authorization": "zlgqkDNX156irCJYp_cdjGs5O_nHQUUhmS5w4LYF"
       }
-    };
+    }
     let q = req.body.crn || 10521625;
     client.get("https://api.company-information.service.gov.uk/company/" + q, args, function(data, response) {
       // parsed response body as js object
 
-      console.log(data.company_name)
       req.session.data.company = data
       if (data.company_name) {
         if(data.company_status == "dissolved"){
@@ -41,6 +39,7 @@ router.post('/register/companies-house-number', function(req, res) {
     })
 
   })
+
 // router.post('/register/address-postcode', function(req, res) {
 //   console.log("working")
 
