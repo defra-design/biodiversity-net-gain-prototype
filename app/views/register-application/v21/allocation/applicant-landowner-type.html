@@ -6,10 +6,19 @@
 {% endif %}
 {% set pageHeading = userTypeText+" an individual or organisation?" %}
 {% block content %}
+
+
+      {% set orgURL = "./applicant-as-organisation" %}
+      {% set indURL = "applicant-as-individual" %}
+      {% if data["is-agent"] == "no" %}
+      {% set orgURL = "applicant-details-confirm" %}
+      {% set indURL = "applicant-details-confirm" %}
+      {% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!-- action controled in ./_routes.js -->
-    <form method="post" action="applicant-details-confirm">
+    <form method="post">
 
       {{ govukRadios({
       name: "applicant-type",
@@ -22,11 +31,11 @@
       },
       items: [
       {
-      value: "individual",
+      value: "individual~./"+indURL,
       text: "An individual"
       },
       {
-      value: "organisation",
+      value: "organisation~./"+orgURL,
       text: "An organisation"
       }
       ]

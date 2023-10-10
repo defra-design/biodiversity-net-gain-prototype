@@ -14,20 +14,28 @@
 
        <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
         <p>
-        {% set nextpage = "applicant-address-in-uk" %}
+        {% set nextpage = "allocation-gain-site" %}
+
+        {% if data["is-agent"] == "no" and data["client-is-landowner"] == "no" %}
+         {% set nextPage = "applicant-authorisation-as-nrp" %}
+        {% endif %}
         
          {% if data["is-agent"]=="no" and data["client-is-landowner"] == "yes" and data["applicant-type"] == "organisation" %}
          <!-- // user is landowner organsistion-->
         <strong>{{data.companyName}}</strong>, the landowner or leaseholder you represent, must be named on the legal agreement to apply.
         {% elseif data["is-agent"]=="no" and data["client-is-landowner"] == "yes" %}
         <!-- // user is individual landowner-->
-        <strong>{{data.applicant-f-name}} {{data.applicant-l-name}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
+        <strong>{{data["applicant-f-name"]}} {{data["applicant-l-name"]}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
         <!-- // user is agent -->
       
         {% endif %}
         {% if data["is-agent"] == "yes" %}
-          {% set nextpage = "applicant-landowner-type" %}
+          {% set nextpage = "applicant-is-landowner" %}
         {% endif %}
+
+
+        
+
 
              </p>
           <p> <a href="https://cust-id-prototype.herokuapp.com/account/manage/account" >Check your Defra account details</a> </p>
@@ -47,7 +55,7 @@
               
             </dd> -->
 
-        {% set yestext = "Yes, apply as "+data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+        {% set yestext = data["applicant-f-name"]+" "+data["applicant-l-name"] %}
 
 
         {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
@@ -55,26 +63,16 @@
         {% endif %}
 
 
-       {{ govukRadios({
-          idPrefix: "confirmed-defra-id",
-          name: "confirmed-defra-id",
-          fieldset: {
-            legend: {
-              text: "Are your Defra account details up to date?",
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "yes",
-              text: yestext
-            },
-            {
-              value: "no~./applicant-details-confirm-no",
-              text: "No"
-            }
-          ]
-        }) }}
+       <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="confirmed-defra-id" name="confirmed-defra-id" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+        <label class="govuk-label govuk-checkboxes__label" for="confirmed-defra-id">
+          My Defra account details are up to date and I'll be applying as {{yestext}}
+        </label>
+      </div>
+    </div>
+    </div>
 
        
 
