@@ -67,11 +67,7 @@
             
 
             <dd class="govuk-summary-list__actions">
-                {% set detailsURL = "applicant-details-confirm-agent" %}
-                {% if data["is-agent"] == "no" %}
-                {% set detailsURL = "applicant-details-confirm-landowner" %}
-                {% endif %}
-                <a class="govuk-link" href="./{{detailsURL}}?type=business&amp;returnURL=check-answers">
+                <a class="govuk-link" href="./applicant-details-confirm?type=business&amp;returnURL=check-answers">
                 Change<span class="govuk-visually-hidden"> name</span>
                 </a>
               
