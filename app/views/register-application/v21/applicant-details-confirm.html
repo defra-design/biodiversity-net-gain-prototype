@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-    <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
+    <p>We will use the information in your Defra account to identify you and to contact you about this application.</p>
     <p>
       {% if data["is-agent"]=="no" and data["applicant-type"] == "organisation" %}
       <!-- // user is landowner organsistion-->
@@ -20,7 +20,7 @@
       {% set nextpage = "applicant-landowner-type" %}
       {% endif %}
     </p>
-    <p> <a href="/defra-identity/account">Check your Defra account details</a> </p>
+    <p> <a href="/defra-identity/account">Check your Defra account details (opens in new tab)</a> </p>
     <form method="get" class="govuk-!-padding-top-5" action="./{{nextpage}}">
       <!--  <dd class="govuk-summary-list__actions">
               
@@ -43,7 +43,7 @@
             <div class="govuk-checkboxes__item">
               <input class="govuk-checkboxes__input" id="confirmed-defra-id" name="confirmed-defra-id" type="checkbox" value="british" aria-describedby="nationality-item-hint">
               <label class="govuk-label govuk-checkboxes__label" for="confirmed-defra-id">
-                My Defra account details are up to date and I'll be applying as {{yestext}}
+                My Defra account details are up to date and I will be applying as {{yestext}}
               </label>
             </div>
           </div>

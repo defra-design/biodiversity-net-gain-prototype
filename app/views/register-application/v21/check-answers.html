@@ -350,19 +350,19 @@
           
       
 
-      <h2 class="govuk-heading-m">Biodiversity Metric 4.0 and habitat declarations</h2>
+      <h2 class="govuk-heading-m">Statutory biodiversity metric and habitat declarations</h2>
 
       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Biodiversity Metric 4.0 file uploaded
+            Statutory biodiversity metric file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-check">
-              Change<span class="govuk-visually-hidden"> biodiversity metric 4.0 file</span>
+              Change<span class="govuk-visually-hidden"> statutory biodiversity metric file</span>
             </a>  
           </dd> 
         </div>
@@ -555,7 +555,7 @@
         {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Parties involved
+              Local planning authority
             </dt>
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list"> 
@@ -582,7 +582,7 @@
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link govuk-link--no-visited-state" href="./legal-party-list">
-                Change<span class="govuk-visually-hidden"> parties involved</span>
+                Change<span class="govuk-visually-hidden"> local planning authority</span>
               </a>
             </dd>
           </div>
@@ -706,7 +706,7 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            End date
+            Legal agreement end date
           </dt>
           <dd class="govuk-summary-list__value">
             {% if data['has-legal-agreement-date-end'] == "yes" %}
@@ -740,7 +740,7 @@
 
       <h2 class="govuk-heading-m">Terms and conditions</h2>
 
-      <p class="govuk-body">You need to <a href="#">read the full terms and conditions</a> for registering a biodiversity gain site before you submit your application.</p>
+      <p class="govuk-body">You need to <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">read the full terms and conditions (opens in new tab)</a> for registering a biodiversity gain site before you submit your information.</p>
 
       <div class="govuk-form-group">
           <div class="govuk-checkboxes" data-module="govuk-checkboxes">
