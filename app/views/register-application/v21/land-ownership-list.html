@@ -25,14 +25,14 @@
                 <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
                   <ul class="govuk-summary-list__actions-list">
                    
-                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="/register-application/{{ pageURL }}/land-ownership-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{file}} from the list</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./land-ownership-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{file}} from the list</span></a></li>
                   </ul>
                 </dd>
               </div>
               {% endfor %}
            </dl>
 
-            <form method="post" action="/register-application/{{ pageURL }}/land-ownership-more-answer">
+            <form method="post" action="./land-ownership-more-answer">
 
               {{ govukRadios({
                 idPrefix: "land-ownership-more",

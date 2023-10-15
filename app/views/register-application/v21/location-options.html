@@ -8,9 +8,9 @@
     <div class="govuk-grid-column-two-thirds">
       
       {% if data['land-registry-check'] == 'yes' %} 
-        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer-land-registry">
+        <form method="post" action="./location-options-answer-land-registry">
       {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/location-options-answer">
+        <form method="post" action="./location-options-answer">
       {% endif %}
 
         {{ govukRadios({
@@ -43,7 +43,7 @@
           ]
         }) }}
 
-        <p><a href="/register-application/{{ pageURL }}/location-no">I do not have a file showing the boundary of the biodiversity gain site</a></p>
+        <p><a href="./location-no">I do not have a file showing the boundary of the biodiversity gain site</a></p>
 
         {{ govukButton({
           text: "Save and continue"

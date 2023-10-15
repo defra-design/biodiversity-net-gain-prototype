@@ -11,7 +11,7 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/landowner-permission-check">
+      <form method="post" action="./landowner-permission-check">
 
         <div id="landowner-certificate-upload-hint">
           <p>This needs to include:</p>
@@ -37,7 +37,7 @@
           }
           
         }) }}
-        <p class="govuk-!-padding-top-3"><a href="/register-application/{{ pageURL }}/landowner-consent-no">I do not have written consent</a></p>
+        <p class="govuk-!-padding-top-3"><a href="./landowner-consent-no">I do not have written consent</a></p>
 
         {{ govukButton({
           text: "Upload"

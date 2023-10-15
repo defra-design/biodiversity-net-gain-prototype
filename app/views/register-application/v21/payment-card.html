@@ -22,9 +22,9 @@
     <div class="govuk-grid-column-two-thirds">
 
       {% if data['register-journey'] == 'true' %}
-        <form method="post" action="/register-application/{{ pageURL }}/confirmation">
+        <form method="post" action="./confirmation">
       {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/allocation-confirmation">
+        <form method="post" action="./allocation-confirmation">
       {% endif %}
 
         {% call govukFieldset({

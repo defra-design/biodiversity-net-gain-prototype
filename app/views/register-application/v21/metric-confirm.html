@@ -22,7 +22,7 @@
             {{ data['metric-upload'] or 'metric_4.0_meadow_farm.xlsm' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-check">
+            <a class="govuk-link" href="./metric-check">
               Change<span class="govuk-visually-hidden"> biodiversity metric 4.0 file</span>
             </a>  
           </dd> 
@@ -35,7 +35,7 @@
             Yes
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data-baseline">
+            <a class="govuk-link" href="./metric-data-baseline">
               Change<span class="govuk-visually-hidden"> Habitat baseline information is correct</span>
             </a>  
           </dd> 
@@ -48,14 +48,14 @@
             Yes
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/metric-data">
+            <a class="govuk-link" href="./metric-data">
               Change<span class="govuk-visually-hidden"> Habitat creation and enhancement declaration</span>
             </a>  
           </dd> 
         </div>
       </dl>
 
-      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" class="govuk-!-padding-top-5" action="./task-list">
 
         <input type="hidden" name="habitat-checked-data" value="yes">
         

@@ -15,11 +15,11 @@
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">Kevin Francis</h2>
             <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action"> <a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-remove">
+              <li class="govuk-summary-card__action"> <a class="govuk-link" href="./additional-email-remove">
                 Delete <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
               </a>
             </li>
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-add">
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="./additional-email-add">
                 Change <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
               </a>
             </li>
@@ -43,11 +43,11 @@
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">Bob MacAdoo</h2>
             <ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action"> <a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-remove">
+              <li class="govuk-summary-card__action"> <a class="govuk-link" href="./additional-email-remove">
                 Delete <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
               </a>
             </li>
-            <li class="govuk-summary-card__action"> <a class="govuk-link" href="/register-application/{{ pageURL }}/additional-email-add">
+            <li class="govuk-summary-card__action"> <a class="govuk-link" href="./additional-email-add">
                 Change <span class="govuk-visually-hidden"> development project Farifax Housing Project</span>
               </a>
             </li>
@@ -68,9 +68,9 @@
         </div>
 
             {% if data['register-journey'] == 'true' %}
-            <form method="post" action="/register-application/{{ pageURL }}/additional-email-more-answer">
+            <form method="post" action="./additional-email-more-answer">
             {% else %}
-            <form method="post" action="/register-application/{{ pageURL }}/additional-email-more-answer-allocation">
+            <form method="post" action="./additional-email-more-answer-allocation">
             {% endif %}
 
               {{ govukRadios({

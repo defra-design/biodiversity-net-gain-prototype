@@ -17,7 +17,7 @@
 
       {% include "register-application/v21/includes/metric-creation-hedgerow-small.html" %}
 
-      <form method="post" action="/register-application/{{ pageURL }}/metric-confirm">
+      <form method="post" action="./metric-confirm">
 
       {{ govukButton({ text: 'Save and continue' }) }}
         
@@ -25,7 +25,7 @@
 
       <p>Or</p>
 
-      <p><a href="/register-application/{{ pageURL }}/metric-upload" class="govuk-link--no-visited-state">Upload a different statutory biodiversity metric file</a></p>
+      <p><a href="./metric-upload" class="govuk-link--no-visited-state">Upload a different statutory biodiversity metric file</a></p>
 
     </div>
   </div>

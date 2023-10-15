@@ -13,7 +13,7 @@
 
       <p>For example, the person who will need to add proof of registration to the Gain Plan you submit to the local planning authority.</p>
       
-      <form method="post" action="/register-application/{{ pageURL }}/additional-email-list">
+      <form method="post" action="./additional-email-list">
         
         {% call govukFieldset({
           legend: {
@@ -48,9 +48,9 @@
         }) }}
 
         {% if data['register-journey'] == 'true' %}
-          <p><a href="/register-application/{{ pageURL }}/check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+          <p><a href="./check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
         {% else %}
-          <p><a href="/register-application/{{ pageURL }}/allocation-check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
+          <p><a href="./allocation-check-answers">Skip to check your answers</a> if do not want to add any additional email addresses.</p>
         {% endif %}
         
       </form>

@@ -68,9 +68,9 @@
 
 
       {% if data[''] == 'true' %}
-        <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer" class="govuk-!-padding-top-5">
+        <form method="post" action="./payment-bacs-answer" class="govuk-!-padding-top-5">
       {% else %}
-        <form method="post" action="/register-application/{{ pageURL }}/payment-bacs-answer-allocation" class="govuk-!-padding-top-5">
+        <form method="post" action="./payment-bacs-answer-allocation" class="govuk-!-padding-top-5">
       {% endif %}
 
         {{ govukRadios({

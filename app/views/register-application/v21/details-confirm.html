@@ -22,7 +22,7 @@
             {{ data['landowner-consent'] or 'Yes, is landowner or leaseholder' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-consent?change=yes">
+            <a class="govuk-link" href="./landowner-consent?change=yes">
               Change<span class="govuk-visually-hidden"> full name</span>
             </a>  
           </dd> 
@@ -36,7 +36,7 @@
             {{ data['landowner-permission-upload'] or 'landowner-consent-evidence.pdf' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/landowner-permission-check?change=yes">
+            <a class="govuk-link" href="./landowner-permission-check?change=yes">
               Change<span class="govuk-visually-hidden"> full name</span>
             </a>  
           </dd> 
@@ -54,7 +54,7 @@
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-name">
+            <a class="govuk-link" href="./details-name">
               Change<span class="govuk-visually-hidden"> full name</span>
             </a>  
           </dd> 
@@ -67,13 +67,13 @@
             {{ data['email'] or 'jo.smith@gmail.com' }}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="/register-application/{{ pageURL }}/details-email">
+            <a class="govuk-link" href="./details-email">
               Change<span class="govuk-visually-hidden"> email</span>
             </a>  
           </dd> 
         </div>
       </dl>
-      <form method="post" class="govuk-!-padding-top-5" action="/register-application/{{ pageURL }}/task-list">
+      <form method="post" class="govuk-!-padding-top-5" action="./task-list">
 
         <input type="hidden" name="details-confirm" value="true">
         

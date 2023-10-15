@@ -11,8 +11,8 @@
         {{ pageHeading }}
       </h1>
       
-      <form method="post" action="/register-application/{{ pageURL }}/landowner-certificate-check">
-
+      <form method="post" action="./landowner-certificate-check">
+        <div class="govuk-form-group">
         <label class="govuk-label govuk-visually-hidden" for="landowner-certificate-upload">
           Upload a file
         </label>
@@ -27,7 +27,7 @@
         </div>  
 
         <input class="govuk-file-upload" id="landowner-certificate-upload" name="landowner-certificate-upload" type="file" aria-describedby="landowner-certificate-upload-hint">
-        
+        </div>
         <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
             <span class="govuk-details__summary-text">
