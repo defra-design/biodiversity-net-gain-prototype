@@ -55,12 +55,10 @@
           <dd class="govuk-summary-list__value">
             
 
-              {% set applyingas = "Yes, apply as "+data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+              {% set applyingas = "Confirmed" %}
 
 
-        {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
-        {% set applyingas = applyingas +  " for "+data["companyName"] %}
-        {% endif %}
+
         {{applyingas}}
 
           </dd>
