@@ -1,0 +1,304 @@
+{% extends "register/v6/layout-register.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "BNG-220115001" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-0">
+        <span class="govuk-caption-xl">Gain site registration number</span>
+         {{ pageHeading }}
+      </h1>
+      <p class="govuk-body-s app-secondary-text-colour govuk-!-margin-top-0 govuk-!-margin-bottom-5">Added to the BNG Register on 15 March 2022</p>
+
+      <!-- <div id="offsite" class="map map--location" tabindex="0">
+      </div> -->
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Gain site"
+          },
+          value: {
+            text: "4.15 hectares (ha)"
+          }
+        },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: "NN 166 712"
+            }
+          },
+          {
+            key: {
+              text: "Local planning authority"
+            },
+            value: {
+              text: "Leeds City Council"
+            }
+          },
+          {
+            key: {
+              text: "Land boundary"
+            },
+            value: {
+              html: '<a href="#">Link to land boundary</a>'
+            }
+          },
+          {
+            key: {
+              text: "Start date"
+            },
+            value: {
+              text: "8 February 2024"
+            }
+          },
+          {
+            key: {
+              text: "End date"
+            },
+            value: {
+              text: "8 February 2054"
+            }
+          }
+        ]
+      }) }}
+
+        <h2 class="govuk-heading-l govuk-!-padding-top-5">Habitat information</h2>
+
+        <h3 class="govuk-heading-m">Baseline habitat</h3>
+
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
+                <th scope="col" class="govuk-table__header" style="width:25%">Condition</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:25%">Area in hectares (ha)</th>
+                <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:22%">Biodiversity units</th> -->
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">Grassland
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                </td>
+                <td class="govuk-table__cell">Poor</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">16.6</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+  
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="width:50%">Hedgerow type</th>
+                <th scope="col" class="govuk-table__header" style="width:25%">Condition</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:25%">Length in kilometers (km)</th>
+                <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:22%">Biodiversity units</th> -->
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+                </td>
+                <td class="govuk-table__cell">Poor</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">0.68</td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">2.72</td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- <p><a download href="#">Baseline habitat survey (PDF, 1MB)</a></p> -->
+
+        <h3 class="govuk-heading-m">Unallocated habitat</h3>
+
+        <div class="app-table-responsive">
+          <table class="govuk-table">
+            <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
+                <th scope="col" class="govuk-table__header" style="width:25%">Condition</th>
+                <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:25%">Area in hectares (ha)</th>
+                <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Biodiversity units</th> -->
+                <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Allocated development</th> -->
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">Grassland
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                </td>
+                <td class="govuk-table__cell">Good</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">2.40</td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">28.80</td> -->
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
+                  <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                </td> -->
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">Heathland and scrub
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
+                </td>
+                <td class="govuk-table__cell">Good</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">1.25</td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">15.00</td> -->
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
+                  <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                </td> -->
+              </tr>
+              <tr class="govuk-table__row">
+                <td scope="row" class="govuk-table__cell">Woodland and forest
+                  <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
+                </td>
+                <td class="govuk-table__cell">Good</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">0.50</td>
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">6.00</td> -->
+                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
+                  <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+                </td> -->
+              </tr>
+              <!--<tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__cell">Total</th>
+                <td class="govuk-table__cell">4.15</td>
+                <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+              </tr>-->
+            </tbody>
+          </table>
+        </div>
+
+      <h3 class="govuk-heading-m">Planned habitat</h3>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:32%">Habitat type</th>
+              <th scope="col" class="govuk-table__header" style="width:17%">Condition</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Area in hectares (ha)</th>
+              <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Biodiversity units</th> -->
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Allocated development</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+              </td>
+              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">2.40</td>
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">28.80</td> -->
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Heathland and scrub
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Hazel scrub</span>
+              </td>
+              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">1.25</td>
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">15.00</td> -->
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Woodland and forest
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other woodland; mixed</span>
+              </td>
+              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.50</td>
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">6.00</td> -->
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+              </td>
+            </tr>
+            <!--<tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">4.15</td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" style="width:32%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" style="width:17%">Condition</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Length in kilometers (km)</th>
+              <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Biodiversity units</th> -->
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">
+                Allocated development
+              </th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow
+              </td>
+              <td class="govuk-table__cell">Good</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.18</td>
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">2.16</td> -->
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Not allocated</span>
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Line of trees
+              </td>
+              <td class="govuk-table__cell">Poor</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.50</td>
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">1.00</td> -->
+              <td class="govuk-table__cell govuk-table__cell--numeric">
+                <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
+              </td>
+            </tr>
+            <!--<tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell">0.68</td>
+              <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
+            </tr>-->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <p><a download href="#">Habitat Management and Monitoring Plan (PDF, 1MB)</a></p>
+
+      <p><a download href="#">Conservation Covenant (PDF, 1.4MB)</a></p> -->
+
+      {% include "register/v6/includes/start-new-search.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "register/v6/layout-register.html" %}
+
+{% set pageHeading = "Find information about the land used for biodiversity net gain" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Biodiversity Net Gain",
+        href: "#"
+      },
+      {
+        text: pageHeading
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">{{ pageHeading }}</h1>
+
+      <p class="govuk-body">You can search the Biodiversity Net Gain (BNG) Register and find details about the land used, including the:
+      </p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>location and area </li>
+        <li>types of habitats enhanced or created</li>
+        <li>habitat management and monitoring plans</li>
+        <li>related legal documents</li>
+      </ul>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/register/" + pageURL + "/search",
+        classes: "govuk-!-margin-top-2 govuk-!-margin-bottom-8",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+{% endblock %}

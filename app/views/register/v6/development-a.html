@@ -1,0 +1,226 @@
+
+{% extends "register/v6/layout-register.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "21/02367/FUL" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript: window.history.go(-1)"
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-xl govuk-!-margin-bottom-5">
+        <span class="govuk-caption-xl">Development project</span>
+         {{ pageHeading }}
+      </h1>
+
+      <p class="govuk-body-s app-secondary-text-colour govuk-!-margin-bottom-7">Added to the BNG Register on 7 March 2022</p>
+
+      <div id="development" class="map map--location" tabindex="0">
+      </div>
+
+      {{ govukSummaryList({
+        rows: [
+        {
+          key: {
+            text: "Location"
+          },
+          value: {
+            text: "Highroyds, Leeds, LS20 1GH"
+          }
+        },
+        {
+          key: {
+            text: "Planning reference number"
+          },
+          value: {
+            html: "21/02367/FUL <a href='#' class='govuk-!-display-block'>View planning application <span class='govuk-visually-hidden'>for 21/02367/FUL, Leeds City Council</span></a>"
+          }
+        },
+          {
+            key: {
+              text: "Local Planning Authority"
+            },
+            value: {
+              text: "Leeds City Council"
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Planned biodiversity net gain</h2>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" rowspan="2">Biodiversity unit type</th>
+              <th class="govuk-table__header" colspan="2">Baseline units</th>
+              <th class="govuk-table__header" colspan="3">Post-development units</th>
+              <th class="govuk-table__header   govuk-table__header--numeric" rowspan="2" style="width:20%">Percentage net gain</th>
+            </tr>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric ">On-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric">Off-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric ">On-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric">Off-site</th>
+              <th class="govuk-table__header govuk-table__header--numeric" style="width:10%;padding-right:20px;">Statutory biodiversity credits</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__cell">Habitat units</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric ">14.02</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">6.80</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">6.91</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">17.48</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell  govuk-table__cell--numeric ">11.60%</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__cell">Hedgerows or lines of trees units</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric "">1.83</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">2.25</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell  govuk-table__cell--numeric ">53.57%</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th class="govuk-table__cell">River and streams units</th>
+              <td class="govuk-table__cell govuk-table__cell--numeric ">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell  govuk-table__cell--numeric ">0.00%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">On-site habitat</h2>
+
+      <h3 class="govuk-heading-m">Habitat area</h3>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">On-site change by broad habitat type</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" rowspan="2" style="width:40%">Habitat group</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Baseline</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Post-development</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Area in hectares (ha)</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Biodiversity units</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Area in hectares (ha)</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Biodiversity units</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Grassland</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">2.75</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">6.54</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Heathland and shrub</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.06</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.24</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.17</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.92</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Urban</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">3.41</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">2.24</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Woodland and forest</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">1.07</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">7.24</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.30</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">2.53</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="govuk-heading-m">Hedgerows and lines of trees</h3>
+
+      <div class="app-table-responsive">
+        <table class="govuk-table">
+          <caption class="govuk-visually-hidden">On-site change by hedgerow type</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header" rowspan="2" style="width:40%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Baseline</th>
+              <th scope="col" class="govuk-table__header" colspan="2">Post-development</th>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Length in kilometers (km)</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Biodiversity units</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Length in kilometers (km)</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric">Biodiversity units</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow with trees</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.04</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.48</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td scope="row" class="govuk-table__cell">Native species rich hedgerow</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.14</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.24</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.31</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">2.81</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><a download href="#">On-site Baseline Habitat Survey (PDF, 0.7MB)</a></p>
+      <p><a download href="#">On-site Habitat Management and Monitoring Plan (PDF, 1MB)</a></p>
+      <p><a download href="#">Biodiversity Metric 3.0 Calculations (Excel, 4.2MB)</a></p>
+
+
+      <h2 class="govuk-heading-l govuk-!-padding-top-5">Linked off-sites</h2>
+      <ul class="govuk-list">
+        <li>
+          <h3 class="app-search-results__title govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Off-site reference:</span> 
+            <a href="/register/{{ pageURL }}/offsite-a" class="app-search-results__item-title">BNG-220115001</a>
+          </h3>
+          <p class="app-secondary-text-colour govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Location:</span> Meadowcroft Farm, Goose Ln, Leeds, LS20 8PJ</p>
+          <p class="govuk-!-margin-bottom-1"><span class="govuk-visually-hidden">Local planning authority:</span> Leeds City Council</p>
+          <p><a download href="#">Planning obligation (PDF, 1.2MB)</a></p>
+        </li>
+      </ul>
+      
+
+      {% include "register/v6/includes/start-new-search.html" %}
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}
