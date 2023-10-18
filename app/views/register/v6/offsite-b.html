@@ -189,16 +189,45 @@
 
       <h3 class="govuk-heading-m">Planned habitat</h3>
 
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Local Planning Authority"
+            },
+            value: {
+              text: "Leeds City Council"
+            }
+          },
+          {
+            key: {
+              text: "Project name"
+            },
+            value: {
+                text: "Meadowcroft Farm"
+            }
+          },
+          {
+            key: {
+              text: "Biodiversity value"
+            },
+            value: {
+              text: "7.24"
+            }
+          }
+        ]
+      }) }}
+
       <div class="app-table-responsive">
         <table class="govuk-table">
           <caption class="govuk-visually-hidden">Habitat types, area and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:32%">Habitat type</th>
-              <th scope="col" class="govuk-table__header" style="width:17%">Condition</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Area in hectares (ha)</th>
+              <th scope="col" class="govuk-table__header" style="width:50%">Habitat type</th>
+              <th scope="col" class="govuk-table__header" style="width:25%">Condition</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:25%">Area in hectares (ha)</th>
               <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Biodiversity units</th> -->
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Allocated development</th>
+              <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Allocated development</th> -->
             </tr>
           </thead>
           <tbody class="govuk-table__body">
@@ -209,9 +238,9 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell govuk-table__cell--numeric">2.40</td>
               <!-- <td class="govuk-table__cell govuk-table__cell--numeric">28.80</td> -->
-              <td class="govuk-table__cell govuk-table__cell--numeric">
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
-              </td>
+              </td> -->
             </tr>
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Heathland and scrub
@@ -220,9 +249,9 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell govuk-table__cell--numeric">1.25</td>
               <!-- <td class="govuk-table__cell govuk-table__cell--numeric">15.00</td> -->
-              <td class="govuk-table__cell govuk-table__cell--numeric">
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
-              </td>
+              </td> -->
             </tr>
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Woodland and forest
@@ -231,9 +260,9 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell govuk-table__cell--numeric">0.50</td>
               <!-- <td class="govuk-table__cell govuk-table__cell--numeric">6.00</td> -->
-              <td class="govuk-table__cell govuk-table__cell--numeric">
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
-              </td>
+              </td> -->
             </tr>
             <!--<tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
@@ -249,13 +278,13 @@
           <caption class="govuk-visually-hidden">Hedgerow types, length and condition</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header" style="width:32%">Hedgerow type</th>
-              <th scope="col" class="govuk-table__header" style="width:17%">Condition</th>
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Length in kilometres (km)</th>
+              <th scope="col" class="govuk-table__header" style="width:50%">Hedgerow type</th>
+              <th scope="col" class="govuk-table__header" style="width:25%">Condition</th>
+              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:25%">Length in kilometres (km)</th>
               <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">Biodiversity units</th> -->
-              <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">
+              <!-- <th scope="col" class="govuk-table__header govuk-table__header--numeric" style="width:17%">
                 Allocated development
-              </th>
+              </th> -->
             </tr>
           </thead>
           <tbody class="govuk-table__body">
@@ -265,9 +294,9 @@
               <td class="govuk-table__cell">Good</td>
               <td class="govuk-table__cell govuk-table__cell--numeric">0.18</td>
               <!-- <td class="govuk-table__cell govuk-table__cell--numeric">2.16</td> -->
-              <td class="govuk-table__cell govuk-table__cell--numeric">
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
                 <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Not allocated</span>
-              </td>
+              </td> -->
             </tr>
             <tr class="govuk-table__row">
               <td scope="row" class="govuk-table__cell">Line of trees
@@ -275,9 +304,9 @@
               <td class="govuk-table__cell">Poor</td>
               <td class="govuk-table__cell govuk-table__cell--numeric">0.50</td>
               <!-- <td class="govuk-table__cell govuk-table__cell--numeric">1.00</td> -->
-              <td class="govuk-table__cell govuk-table__cell--numeric">
+              <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
                 <a href="/register/{{ pageURL }}/development-a">21/02367/FUL</a>
-              </td>
+              </td> -->
             </tr>
             <!--<tr class="govuk-table__row">
               <th scope="row" class="govuk-table__cell">Total</th>
