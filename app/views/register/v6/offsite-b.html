@@ -19,7 +19,7 @@
         <span class="govuk-caption-xl">Gain site registration number</span>
          {{ pageHeading }}
       </h1>
-      <p class="govuk-body-s app-secondary-text-colour govuk-!-margin-bottom-5 govuk-!-margin-top-1">Added to the BNG Register on 15 March 2022</p>
+      <p class="govuk-body app-secondary-text-colour govuk-!-margin-bottom-5 govuk-!-margin-top-1">Added to the BNG Register on 15 March 2022</p>
 
       <!-- <div id="offsite" class="map map--location" tabindex="0">
       </div> -->
@@ -79,7 +79,8 @@
 
         <h2 class="govuk-heading-l govuk-!-padding-top-5">Habitat information</h2>
 
-        <h3 class="govuk-heading-m">Baseline habitat</h3>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-0">Baseline habitat</h3>
+        <div class="govuk-hint" style="width: 60%;">This is the original information for the site, before any BNG improvements</div>
 
         <div class="app-table-responsive">
           <table class="govuk-table">
@@ -140,7 +141,10 @@
 
         <!-- <p><a download href="#">Baseline habitat survey (PDF, 1MB)</a></p> -->
 
-        <h3 class="govuk-heading-m">Projected post enhancement</h3>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-0">Planned habitat improvement</h3>
+        <div class="govuk-hint" style="width: 60%;">This is the planned site information after BNG improvements have been made</div>
+
+        
 
         <div class="app-table-responsive">
           <table class="govuk-table">
@@ -206,6 +210,7 @@
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Allocation information</h2>
 
       <h3 class="govuk-heading-m">Planned habitat</h3>
+      <div class="govuk-hint" style="width: 60%;">This is the information for an allocated site within a single development. There could be more than one allocated site in each development</div>
 
       {{ govukSummaryList({
         rows: [
@@ -377,7 +382,9 @@
         </table>
       </div>
 
-      <h3 class="govuk-heading-m">Planned habitat</h3>
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-0">Planned habitat</h3>
+      <div class="govuk-hint" style="width: 60%;">This is the information for an allocated site within a single development. There could be more than one allocated site in each development</div>
+      
 
       {{ govukSummaryList({
         rows: [
