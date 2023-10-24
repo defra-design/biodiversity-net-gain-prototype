@@ -19,7 +19,7 @@
         <span class="govuk-caption-xl">Gain site reference number</span>
          {{ pageHeading }}
       </h1>
-      <p class="govuk-body-s app-secondary-text-colour govuk-!-margin-bottom-5 govuk-!-margin-top-1">Added to the BNG Register on 15 March 2022</p>
+      <p class="govuk-body app-secondary-text-colour govuk-!-margin-bottom-5 govuk-!-margin-top-1">Added to the BNG Register on 15 March 2022</p>
 
       <!-- <div id="offsite" class="map map--location" tabindex="0">
       </div> -->
@@ -44,7 +44,7 @@
           },
           {
             key: {
-              text: "Local Planning Authority"
+              text: "Local Planning Authority or responsible body"
             },
             value: {
               text: "Leeds City Council"
@@ -60,7 +60,7 @@
           },
           {
             key: {
-              text: "Start date"
+              text: "Legal agreement start date"
             },
             value: {
               text: "8 February 2024"
@@ -68,7 +68,7 @@
           },
           {
             key: {
-              text: "End date"
+              text: "Enhancement work end date"
             },
             value: {
               text: "8 February 2054"
@@ -79,7 +79,8 @@
 
         <h2 class="govuk-heading-l govuk-!-padding-top-5">Habitat information</h2>
 
-        <h3 class="govuk-heading-m">Baseline habitat</h3>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-0">Baseline habitat</h3>
+        <div class="govuk-hint" style="width: 60%;">This is the original information for the site, before any BNG improvements</div>
 
         <div class="app-table-responsive">
           <table class="govuk-table">
@@ -100,6 +101,11 @@
                 <td class="govuk-table__cell">Poor</td>
                 <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
                 <!-- <td class="govuk-table__cell govuk-table__cell--numeric">16.6</td> -->
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__cell">Total</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
               </tr>
             </tbody>
           </table>
@@ -124,13 +130,21 @@
                 <td class="govuk-table__cell govuk-table__cell--numeric">0.68</td>
                 <!-- <td class="govuk-table__cell govuk-table__cell--numeric">2.72</td> -->
               </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__cell">Total</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">0.68</td>
+              </tr>
             </tbody>
           </table>
         </div>
 
         <!-- <p><a download href="#">Baseline habitat survey (PDF, 1MB)</a></p> -->
 
-        <h3 class="govuk-heading-m">Projected post enhancement</h3>
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-0">Planned habitat improvement</h3>
+        <div class="govuk-hint" style="width: 60%;">This is the planned site information after BNG improvements have been made</div>
+
+        
 
         <div class="app-table-responsive">
           <table class="govuk-table">
@@ -183,6 +197,12 @@
                 <td class="govuk-table__cell">4.15</td>
                 <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
               </tr>-->
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__cell">Total</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+              </tr>
+
             </tbody>
           </table>
         </div>
@@ -190,6 +210,7 @@
       <h2 class="govuk-heading-l govuk-!-padding-top-5">Allocation information</h2>
 
       <h3 class="govuk-heading-m">Planned habitat</h3>
+      <div class="govuk-hint" style="width: 60%;">This is the information for an allocated site within a single development. There could be more than one allocated site in each development</div>
 
       {{ govukSummaryList({
         rows: [
@@ -222,7 +243,31 @@
               text: "Biodiversity value"
             },
             value: {
-              text: "7.24"
+              text: ""
+            }
+          },
+          {
+            key: {
+              text: "Habitat"
+            },
+            value: {
+              text: "0.24"
+            }
+          },
+          {
+            key: {
+              text: "Hedgerow"
+            },
+            value: {
+              text: "7.00"
+            }
+          },
+          {
+            key: {
+              text: "Watercourse"
+            },
+            value: {
+              text: "0.14"
             }
           }
         ]
@@ -279,6 +324,11 @@
               <td class="govuk-table__cell">4.15</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
             </tr>-->
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -323,11 +373,18 @@
               <td class="govuk-table__cell">0.68</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
             </tr>-->
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.68</td>
+            </tr>
           </tbody>
         </table>
       </div>
 
-      <h3 class="govuk-heading-m">Planned habitat</h3>
+      <h3 class="govuk-heading-m govuk-!-margin-bottom-0">Planned habitat</h3>
+      <div class="govuk-hint" style="width: 60%;">This is the information for an allocated site within a single development. There could be more than one allocated site in each development</div>
+      
 
       {{ govukSummaryList({
         rows: [
@@ -360,7 +417,31 @@
               text: "Biodiversity value"
             },
             value: {
-              text: "7.24"
+              text: ""
+            }
+          },
+          {
+            key: {
+              text: "Habitat"
+            },
+            value: {
+              text: "0.24"
+            }
+          },
+          {
+            key: {
+              text: "Hedgerow"
+            },
+            value: {
+              text: "7.00"
+            }
+          },
+          {
+            key: {
+              text: "Watercourse"
+            },
+            value: {
+              text: "0.14"
             }
           }
         ]
@@ -417,6 +498,11 @@
               <td class="govuk-table__cell">4.15</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
             </tr>-->
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">4.15</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -461,6 +547,11 @@
               <td class="govuk-table__cell">0.68</td>
               <td class="govuk-table__cell"><span class="govuk-visually-hidden">Not applicable</span></td>
             </tr>-->
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__cell">Total</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric">0.68</td>
+            </tr>
           </tbody>
         </table>
       </div>
