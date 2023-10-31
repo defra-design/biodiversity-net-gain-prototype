@@ -1,0 +1,49 @@
+{% extends "register/v6/layout-register.html" %}
+
+{% set pageHeading = "BNG Public register summary" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceUrl: "/"
+  }) }}
+{% endblock %}
+
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+      <p class="govuk-body">Under mandatory biodiversity net gain (BNG) legislation, from 9 January 2024, a new planning condition requires developers to deliver a biodiversity gain of at least 10%, as measured by the statutory biodiversity metric.</p>
+
+      <p class="govuk-body">Biodiversity net gain (BNG) will be mandatory under [Schedule 7A of the Town and Country Planning Act 1990 (as inserted by Schedule 14 of the Environment Act 2021)]</p>
+
+      <p><a href="(https://www.legislation.gov.uk/ukpga/2021/30/schedule/14/enacted)">(https://www.legislation.gov.uk/ukpga/2021/30/schedule/14/enacted).</a></p>
+
+      <h2 class="govuk-heading-m">On-site and off-site</h2>
+
+      <p class="govuk-body">The new planning condition will require developers to deliver a biodiversity gain of at least 10% on their site. If this cannot be met on-site, a registered off-site biodiversity gains site may count towards the 10% target.</p>
+
+      <h2 class="govuk-heading-m">What is the Public Register</h2>
+
+      <p class="govuk-body">The Public Register includes the location of registered biodiversity gain sites and information on the habitats being created or enhanced. It also records the allocation of these habitats to development projects and their biodiversity value in relation to those projects.</p>
+
+      <h2 class="govuk-heading-m">The metric</h2>
+
+      <p class="govuk-body">For the purposes of BNG, biodiversity is measured in standardised biodiversity units.</p>
+
+      <p class="govuk-body">There is a formula which calculates:</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
+        <li>how many units a habitat contains before development takes place</li>
+        <li>how many units are needed to replace the units of habitat lost and to achieve a minimum 10% BNG, through the creation or enhancement of habitat</li>
+      </ul>
+
+      <p class="govuk-body">This formula is called the statutory biodiversity metric. To work out how many units a habitat has, and how many are needed for BNG, the calculator (statutory biodiversity metric tool) must be used. This accurately applies the statutory biodiversity metric formula.</p>
+
+    </div>
+  </div>
+{% endblock %}
