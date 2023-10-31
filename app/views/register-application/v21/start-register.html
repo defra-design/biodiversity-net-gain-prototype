@@ -39,15 +39,6 @@
   <li>the land you told us about has been registered or rejected as a biodiversity gain site</li>
   <li>we need more information from you</li>
 </ul>
-{% set action = data.redirect or './sign-in' %}
-<!-- <form action="{{action}}" method="post" novalidate>
-  <input type="hidden" name="register-journey" value="true"> -->
-  {{ govukButton({
-    text: "Start now",
-    href: action+"?register-journey=true",
-    isStartButton: true
-  }) }}
-<!-- </form> -->
 
 <h3 class="govuk-heading-m">Why your application could be rejected</h3>
 
@@ -58,6 +49,22 @@
   <li>you do not pay the fee within 28 days of making the application</li>
   <li>you do not provide any additional information we might ask for after making the application</li>
 </ul>
+
+{% set action = data.redirect or './sign-in' %}
+<!-- <form action="{{action}}" method="post" novalidate>
+  <input type="hidden" name="register-journey" value="true"> -->
+  {{ govukButton({
+    text: "Start now",
+    href: action+"?register-journey=true",
+    isStartButton: true
+  }) }}
+<!-- </form> -->
+
+<h3 class="govuk-heading-m">Before you start</h3>
+
+<p>You'll need a Government Gateway account and a Defra account to sign into this service.</p>
+
+<p>If you do not have a Government Gateway account or a Defra account, you can set both up when you use this service for the first time.</p>
 
 <h2 id="return-to-application" class="govuk-heading-m govuk-!-margin-top-2 govuk-!-margin-bottom-2">Saving your progress</h2>
 <p>You can save your application and come back to it at any time.</p>
