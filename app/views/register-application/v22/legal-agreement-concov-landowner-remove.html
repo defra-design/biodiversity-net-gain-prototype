@@ -1,0 +1,48 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+<!-- // get name from legalParties list, or defualt to static name -->
+{% set lp = data.landowners[query.id] %}
+{% set name = lp['landowners-org-name'] or "Kevin Phillips" %}
+  {% if lp["landowner-type"] == "individual" %}
+    {% set name = lp['landowner-f-name']+" "%}
+    {% if lp["landowner-m-name"]+" " %}
+      {% set name = name+lp['landowner-m-name']+" "%}
+    {% endif %}
+    {% set name = name+lp['landowner-l-name']%}
+  {% endif %}
+
+
+{% set pageHeading = "Are you sure you want to remove "+name+" as a landowner or leaseholder?" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action for this form in ./_routes.js -->
+    <form method="post">
+      <input type="hidden" name="removePartyMember" value="{{query.id}}">
+      {{ govukRadios({
+      idPrefix: "landowner-remove",
+      name: "landowner-remove",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      classes: "govuk-fieldset__legend--l",
+      pageHeading: true
+      }
+      },
+      items: [
+      {
+      value: "yes",
+      text: "Yes"
+      },
+      {
+      value: "no",
+      text: "No"
+      }
+      ]
+      }) }}
+      {{ govukButton({ text: 'Save and continue' }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

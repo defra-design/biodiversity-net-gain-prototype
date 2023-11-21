@@ -1,0 +1,65 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set userTypeText = "Is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Is your" %}
+{% endif %}
+
+{% if data['applicant-type'] == "organisation" %}
+{% set userTypeText = userTypeText + " organisation" %}
+{% endif %}
+
+
+{% set pageHeading = userTypeText+" address in the UK?" %}
+
+{% block content %}
+<!-- <style media="screen">
+  .app-no-js{
+    display:none;
+  }
+</style> -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form method="post" class="form">
+
+      <!-- <a href="business-address">Change</a> -->
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">{{pageHeading}}</h1>
+          </legend>
+          <p class="govuk-hint">This must match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement.</p>
+          <div class="govuk-radio govuk-radios--conditional" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~applicant-uk-address" {% if data.address_in_uk == 'yes'%}checked{% endif%}>
+              <label class="govuk-label govuk-radios__label" for="requirementAnswer1-Yes">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="requirementAnswer1-No" name="address_in_uk" type="radio" value="no~applicant-international-address" {% if data.address_in_uk == 'no'%}checked{% endif%}>
+              <label class="govuk-label govuk-radios__label" for="requirementAnswer1-No">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+        <!-- reset change value -->
+        <input type="hidden" name="change" value="no">
+      </div>
+      <input type="submit" name="" class="govuk-button" value="Save and continue">
+    </form>
+  </div>
+  <!--end column-two-thirds-->
+</div>
+<!--end row-->
+{% endblock %}
+<!-- PAGE based javascript -->
+{% block pageScripts %}
+{{super()}}
+<script type="text/javascript">
+  window.onload = function() {}
+</script>
+{% endblock %}

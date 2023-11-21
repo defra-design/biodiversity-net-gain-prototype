@@ -1,0 +1,111 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Check the biodiversity gain site boundary details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            
+            key: {
+              text: "File uploaded"
+            },
+            value: {
+              text: data['location-upload'] or 'meadow-croft-farm-land-boundary.pdf'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-upload-confirm",
+                  text: "Change",
+                  visuallyHiddenText: "Land boundary file uploaded"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Grid reference"
+            },
+            value: {
+              text: data['grid-reference'] or 'SP41989814'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-grid-reference",
+                  text: "Change",
+                  visuallyHiddenText: "grid reference"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Area in hectares"
+            },
+            value: {
+              text: data['area-in-hectares'] or '4.2 ha'
+            },
+            actions: {
+              items: [
+                {
+                  href: "/register-application/" + pageURL + "/location-area",
+                  text: "Change",
+                  visuallyHiddenText: "are in hectares"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+          
+      
+
+      <form method="post" class="govuk-!-padding-top-5" action="./task-list">
+
+        <input type="hidden" name="location-confirm" value="true">
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}
+
+
+            <!-- {
+              key: {
+                text: "File type"
+              },
+              value: {
+                text: data['location-options'] or 'Geospatial data file'
+              },
+              actions: {
+                items: [
+                  {
+                    href: "/register-application/" + pageURL + "/location-options",
+                    text: "Change",
+                    visuallyHiddenText: "Land boundary option"
+                  }
+                ]
+              }
+            }, -->

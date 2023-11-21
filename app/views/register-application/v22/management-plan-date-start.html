@@ -1,0 +1,65 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Do you know when the 30-year management and monitoring period will start?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="./legal-agreement-date-end">
+
+        {% set datefield %}
+{{ govukDateInput({
+          id: "management-plan-date-end",
+          namePrefix: "management-plan-date-end",
+          fieldset: {
+            legend: {
+              text: "Enter start date",
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "For example, 15 3 2024"
+          }
+        }) }}
+{% endset -%}
+
+        
+
+        {{ govukRadios({
+  name: "management-plan-date-end",
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ''
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: datefield
+      }
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+    
+  ]
+}) }}
+
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

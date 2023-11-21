@@ -1,0 +1,55 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Upload the statutory biodiversity metric calculations for the biodiversity gain site" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="./metric-check">
+        <div class="govuk-form-group">
+        <label class="govuk-label govuk-visually-hidden" for="metric-upload">
+          Upload a file
+        </label>
+
+        <div id="metric-upload-hint">
+          <p>The file should be:</p> 
+          <ul class="govuk-list govuk-list--bullet">
+            <li>an XLSM or XLSX</li>
+            <li>no larger than 50MB</li>
+          </ul>
+        </div>
+
+        <input class="govuk-file-upload" id="metric-upload" name="metric-upload" type="file" aria-describedby="metric-upload-hint">
+      </div>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no biodiversity metric calculations
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload completed statutory biodiversity metric calculations for the biodiversity gain site you want to register.</p>
+            <p>You can <a href="https://www.gov.uk/guidance/biodiversity-metric-calculate-the-biodiversity-net-gain-of-a-project-or-development">find out more about completing biodiversity metric calculations</a> on GOV.UK.</p>
+            <h3>Contact the Biodiversity Net Gain team if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

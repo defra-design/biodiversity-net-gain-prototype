@@ -1,0 +1,62 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Is the habitat management and monitoring plan included in the legal agreement?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="./management-plan-upload">
+        {% set returnURL = query.returnURL or 'task-list' %}
+
+        {{ govukRadios({
+          idPrefix: "management-plan",
+          name: "has-management-plan",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "no~./management-plan-habitat-start-date",
+              checked: (data['has-management-plan']=='yes'),
+              text: "Yes"
+            },
+            {
+              value: "yes~./management-plan-upload",
+              checked: (data['has-management-plan']=='no'),
+              text: "No, it's a separate document"
+            }
+          ]
+        }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no habitat management and monitoring plan
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a completed habitat management and monitoring plan for the biodiversity gain site you want to register. This can be part of the legal agreement or a separate document.</p>
+            <p>You can <a href="#">find out more about completing a habitat management and monitoring plan</a> on GOV.UK.</p>
+            <h3>Contact the Biodiversity Net Gain team if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "register-application/v18/layout-register-application.html" %}
+
+{% set addChangeText = "Add" %}
+{% if query.change=="yes" %}
+{% set addChangeText = "Update" %}
+{% endif %}
+
+{% set pageHeading = "Landowner details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+ 
+      <form method="post" action="./landowner-your-details" >
+         <input type="hidden" name="landowner-type" value="{{data['landowner-type']}}">
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fullname = data["legal-party-name"] or "" %}
+        {% endif %}
+    
+        {{ govukInput({
+          id: 'app-landowners-org-name',
+          name: 'app-landowners-org-name',
+          value: fullname,
+          label: {
+            html: 'Organisation name'
+          }
+        }) }}
+
+    
+        {% endcall %}
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We'll only use this to notify the landowner of the registration."
+          },
+          id: "landowner-email",
+          name: "landowner-email",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

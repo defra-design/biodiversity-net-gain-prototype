@@ -1,0 +1,34 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Check the habitat baseline information" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>We've taken this information from the metric file you uploaded. We've grouped the areas of habitats by type and condition.</p>
+
+      {% include "register-application/v22/includes/metric-baseline-habitat-large-grouped.html" %}
+      
+    </div>
+    <div class="govuk-grid-column-two-thirds">
+
+      <form method="post" action="./metric-data">
+
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+      <p>Or</p>
+
+      <p><a href="./metric-upload" class="govuk-link--no-visited-state">Upload a different statutory biodiversity metric file</a></p>
+
+    </div>
+  </div>
+
+{% endblock %}

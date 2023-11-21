@@ -1,0 +1,66 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Have the habitat enhancement works started yet?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="./legal-agreement-date-end">
+
+        {% set datefield %}
+{{ govukDateInput({
+          id: "management-plan-habitat-date-start",
+          namePrefix: "management-plan-habitat-date-start",
+          fieldset: {
+            legend: {
+              text: 'Enter start date',
+              isPageHeading: true
+            }
+          },
+          hint: {
+            text: "For example, 15 3 2023"
+          }
+        }) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "has-management-plan-habitat-date-start",
+  fieldset: {
+    legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: ''
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes",
+      conditional: {
+        html: datefield
+      }
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+    
+  ]
+}) }}
+
+  
+
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

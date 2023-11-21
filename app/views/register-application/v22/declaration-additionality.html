@@ -1,0 +1,50 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Funding declaration" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      <p>By agreeing, you confirm that you have declared any other sources of funding and that they do not conflict with the additionality rules set out by Defra.</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You could be prosecuted or have to pay a fine if you deliberately give untrue or misleading information.
+        </strong>
+      </div>
+      
+      <form method="post" action="./task-list">
+
+        {{ govukCheckboxes({
+          idPrefix: "declaration-additionality",
+          name: "declaration-additionality",
+          fieldset: {
+            legend: {
+              text: pageHeading + "agreement",
+              classes: "govuk-visually-hidden"
+            }
+          },
+          items: [
+            {
+              value: "accepted",
+              html: "I agree to the declaration"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

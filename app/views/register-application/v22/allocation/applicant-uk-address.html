@@ -1,0 +1,104 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set userTypeText = "What is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "What is your" %}
+{% endif %}
+
+{% if data['applicant-type'] == "organisation" %}
+{% set userTypeText = userTypeText + " organisation" %}
+{% endif %}
+
+
+{% set pageHeading = userTypeText+" UK address?" %}
+
+
+
+{% block content %}
+<!-- <style media="screen">
+  .app-no-js{
+    display:none;
+  }
+</style> -->
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">
+          {{pageHeading}}
+        </h1>
+
+        {% if data["applicant-is-landowner"] == "yes" %}
+        <p class="govuk-hint">The address needs to match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement</p>
+        {% endif %}
+        
+        {% set nextPage = "applicant-email" %}
+
+        {% if data["applicant-type"] == "organisation" %}
+        {% set nextPage = "applicant-upload-authorisation" %}
+        {% endif %}
+
+
+        {% if data['is-agent'] == "no" %}
+          {% set nextPage = "applicant-check-answers" %}
+        {% endif %}
+          <form action="{{nextPage}}" method="POST">
+            <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+                <!-- <p class="govuk-body">If you know your post code you can <a href="business-address">search for an address</a><p> -->
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-1">
+                  Address line 1
+                </label>
+                <input class="govuk-input" id="address-line-1" name="address-line1" type="text" autocomplete="address-line1" value=""></div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-line-2">
+                 Address line 2 (optional)
+                </label>
+                <input class="govuk-input" id="address-line-2" name="address-line2" type="text" autocomplete="address-line2">
+                <input  id="address-line-3" name="line3" type="hidden" value="">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-town">
+                  Town or city
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="address-town" name="address-town" type="text" value="" autocomplete="address-level2"></div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-county">
+                  County (optional)
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="address-county" name="county" type="text"></div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="address-postcode">
+                  Postcode
+                </label>
+                <input class="govuk-input govuk-input--width-10" id="address-postcode" name="postcode" type="text" autocomplete="postal-code" value="">
+              </div>
+            <input type="hidden" name="countryCode" value="" >
+            </fieldset>
+
+            </div>
+            <input type="hidden" name="directMatch" value="no">
+            <input type="submit" name="" class="govuk-button" value="Save and continue"><br><br><br>
+  
+        </form>
+
+            </div><!--end column-two-thirds-->
+
+        </div><!--end row-->
+
+
+{% endblock %}
+
+<!-- PAGE based javascript -->
+{% block pageScripts %}
+  {{super()}}
+  <script type="text/javascript">
+    window.onload = function(){
+  }
+
+</script>
+{% endblock %}

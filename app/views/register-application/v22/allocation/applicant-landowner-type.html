@@ -1,0 +1,49 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set userTypeText = "Is your client" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "Are you" %}
+{% endif %}
+{% set pageHeading = userTypeText+" an individual or organisation?" %}
+{% block content %}
+
+
+      {% set orgURL = "./applicant-as-organisation" %}
+      {% set indURL = "applicant-as-individual" %}
+      {% if data["is-agent"] == "no" %}
+      {% set orgURL = "applicant-details-confirm" %}
+      {% set indURL = "applicant-details-confirm" %}
+      {% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <!-- action controled in ./_routes.js -->
+    <form method="post">
+
+      {{ govukRadios({
+      name: "applicant-type",
+      fieldset: {
+      legend: {
+      text: pageHeading,
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+      }
+      },
+      items: [
+      {
+      value: "individual~./"+indURL,
+      text: "An individual"
+      },
+      {
+      value: "organisation~./"+orgURL,
+      text: "An organisation"
+      }
+      ]
+      }) }}
+      {{ govukButton({
+      text: "Save and continue"
+      }) }}
+    </form>
+  </div>
+</div>
+{% endblock %}

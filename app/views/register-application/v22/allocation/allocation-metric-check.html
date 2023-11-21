@@ -1,0 +1,60 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Check the Biodiversity Metric 4.0 file for the development project" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              text: data['metric-upload'] or 'metric_4.0_fairfax_housing_project.xlsm'
+            }
+          }
+        ]
+      }) }}
+
+      <!-- Routing handled by "radio button redirect" -->
+      <form method="post" action="">
+
+        {{ govukRadios({
+          idPrefix: "allocation-metric-correct",
+          name: "allocation-metric-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes~./allocation-metric-development",
+              text: "Yes, this is the file the local planning authority reviewed with the development project's Biodiversity Net Gain Statement"
+            },
+            {
+              value: "no~./allocation-metric-upload",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

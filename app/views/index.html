@@ -7,14 +7,42 @@
     </h1>
     <h2 class="govuk-heading-l">Beta prototypes</h2>
 
-     <!-- Version block -->
+    <!-- ⚠️ when making a new version of the proto ensure you add the version number details in the base routes.js file or nothing will work. AM :) --> 
+
+    <!-- Version block -->
     <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
+          Version 22 </h3>
+        <p>November 10 2023 to present {{govukTag({
+          text: "Current",
+          classes: "govuk-tag--blue"
+          })}}</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li><a href="/clear-data?url=/register-application/v22/content" class="govuk-link">Register a biodiversity gain site v22</a></li>
+        </ul>
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-font-weight-regular">New designs and features</h3>
+        <ul class="govuk-list govuk-list--bullet">
+          <li></li>
+        </ul>
+      </div>
+      <div class="govuk-grid-column-one-thirds">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-2 govuk-!-font-weight-regular">Sprints</h3>
+        <p>
+          <a href="/beta-sprints/sprint-34/"><span class="govuk-visually-hidden">Beta </span>Sprint 32</a>
+        </p>
+      </div>
+    </div>
+     <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+     <!-- Version block -->
+     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <h3 class="govuk-heading-m govuk-!-margin-bottom-2">
           Version 21 </h3>
         <p>September 19 2023 to present {{govukTag({
-          text: "Current",
-          classes: "govuk-tag--blue"
+          text: "Complete",
+          classes: "govuk-tag--green"
           })}}</p>
         <ul class="govuk-list govuk-list--bullet">
           <li><a href="/clear-data?url=/register-application/v21/content" class="govuk-link">Register a biodiversity gain site v21</a></li>

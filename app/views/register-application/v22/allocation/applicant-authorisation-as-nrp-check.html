@@ -1,0 +1,68 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Check your letter of consent from the landowner or leaseholder" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
+      <span  class="govuk-caption-l">Letter of authority 2 of 2</span>
+      {% endif %}
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              html: 'landowner-agent-evidence.pdf, 1.1MB'
+            }
+          }
+        ]
+      }) }}
+
+      <!-- {% if data['land-registry'] == 'yes' %}
+        <form method="post" action="./landowner-permission-correct-answer-land-registry-yes">
+      {% else %}
+        <form method="post" action="./landowner-permission-correct-answer-land-registry-no">
+      {% endif %} -->
+
+      <form method="post" action="">
+      
+
+        {{ govukRadios({
+          idPrefix: "landowner-agent-correct",
+          name: "landowner-agent-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes~./allocation-gain-site",
+              text: "Yes"
+            },
+            {
+              value: "no~./applicant-details-upload-authorisation",
+              text: "No, choose a different file"
+            }
+          ]
+        }) }}
+        <input type="hidden" name="applicant-details-added" value="yes">
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

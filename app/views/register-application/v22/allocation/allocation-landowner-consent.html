@@ -1,0 +1,57 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Consent to register an off-site gains for a development project" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="./landowner-consent-answer">
+
+        {{ govukRadios({
+          idPrefix: "landowner-consent",
+          name: "landowner-consent",
+          fieldset: {
+            legend: {
+              text: "Confirm which of the 4 statements applies to you:"
+            }
+          },
+          items: [
+            {
+              value: "Yes, is landowner or leaseholder~./allocation-details-defra-id",
+              text: "I confirm that I am the landowner or leaseholder",
+              checked: checked("landowner-consent", "Yes, is landowner or leaseholder")
+            },
+            {
+              value: "Yes, has consent~./allocation-landowner-permission-upload",
+              text: "I have the written consent of the landowner or leaseholder to act on their behalf",
+              checked: checked("landowner-consent", "Yes, has consent")
+            },
+            {
+              value: "Yes, is no relivant person~./allocation-landowner-permission-upload",
+              text: "I confirm that I am a non relevant person",
+              checked: checked("landowner-consent", "Yes, is no relivant person")
+            },
+            {
+              value: "Yes, I am an authorised agent for non relevant person~./allocation-landowner-permission-upload",
+              text: "I confirm that I am an authorised agent for non relevant person",
+              checked: checked("landowner-consent", "Yes, I am an authorised agent for non relevant person")
+            }
+          ]
+        }) }}
+
+        <p class="govuk-!-padding-top-3"><a href="./allocation-landowner-consent">I do not have written consent</a></p>
+        
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

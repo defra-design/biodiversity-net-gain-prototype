@@ -1,0 +1,57 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Upload a document or image showing the biodiversity gain site boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="post" action="./location-upload-confirm">
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="location-upload">
+            Upload a file
+          </label>
+
+          <div id="location-upload-hint">
+            <p>This should show the boundary of the land you want to register as a biodiversity gain site.</p>
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX, JPG, PNG or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="location-upload" name="location-upload" type="file" aria-describedby="location-upload-hint">
+        </div>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no file showing the boundary
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a file showing the boundary of the land that you want to register as a biodiversity gain site.</p>
+            <h3>Contact the Biodiversity Net Gain team if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

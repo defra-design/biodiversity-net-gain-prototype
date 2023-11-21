@@ -1,0 +1,171 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+{% set pageHeading = "v22 content pages" %}
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Config journey</h1>
+      <form method="post">
+        <input type="hidden" id="version" name="version" value="{{pageURL}}">
+
+        <!-- This is just for registratio for now, might want to make this radio buttons-->
+        <input type="hidden" name="register-journey" id="register-journey" value="true">
+
+      <div class="govuk-form-group js-item">
+  <label class="govuk-label" for="applicant-f-name">
+    User's first name
+  </label>
+  <input class="govuk-input govuk-input--width-20" id="applicant-f-name" name="applicant-f-name" type="text" value="{{data['applicant-f-name']}}">
+</div>
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="applicant-f-name">
+    User's last name
+  </label>
+  <input class="govuk-input govuk-input--width-20 js-item" id="applicant-l-name" name="applicant-f-name" type="text" value="{{data['applicant-l-name']}}">
+</div>
+
+      <div class="govuk-form-group">
+  <label class="govuk-label" for="companyName">
+    User's oganisation name
+  </label>
+  <input class="govuk-input govuk-input--width-20 js-item" id="companyName" name="companyName" type="text" value="{{data['companyName']}}">
+</div>
+ 
+
+ <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        User type
+    </legend>
+    <div class="govuk-radios js-item" data-module="govuk-radios">
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="new-register-journey" name="new-register-journey" type="radio" value="yes" checked>
+        <label class="govuk-label govuk-radios__label" for="new-register-journey">
+           New user
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="new-register-journey2" name="new-register-journey" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="new-register-journey2">
+          Returning user
+        </label>
+      </div>
+      
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        User has defra ID
+    </legend>
+    <div class="govuk-radios js-item" data-module="govuk-radios">
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hasDefraID" name="hasDefraID" type="radio" value="yes" checked >
+        <label class="govuk-label govuk-radios__label" for="hasDefraID">
+           Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="hasDefraID2" name="hasDefraID" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="hasDefraID2">
+         No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+        Defra account type
+    </legend>
+    <div class="govuk-radios js-item" data-module="govuk-radios">
+      
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="defraAccountType" name="defraAccountType" type="radio" value="yes" >
+        <label class="govuk-label govuk-radios__label" for="account-type">
+           individual
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="defraAccountType2" name="defraAccountType" type="radio" value="organisation" checked>
+        <label class="govuk-label govuk-radios__label" for="defraAccountType2">
+         organisation
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div style="padding:20px; background: #f4f4f4;">
+        <div class="govuk-form-group ">
+          <label class="govuk-label" for="shareURL">
+            URL to share
+          </label>
+          <p class="govuk-hint">Copy the address below if you want to share it.</p>
+          <input class="govuk-input" id="shareURL" name="shareURL" type="text" spellcheck="false" >
+        </div>
+        <a href="#" class="govuk-button" role="button">Start</a>
+      </div>
+      </form>
+</div>
+{% endblock %}
+
+
+{% block pageScripts %}
+<script>
+function getURL() {
+  console.log("Updatating URL")
+  var baseURL = window.location.origin
+  let newUser = $('#new-register-journey').val()
+  let v = $('#version').val()
+  let hasDefraID = $('input[name="hasDefraID"]:checked').val()
+   let defraAccountType = $('input[name="defraAccountType"]:checked').val()
+  let fname = $('#applicant-f-name').val()
+  let lname = $('#applicant-l-name').val()
+  let companyName= $('#companyName').val()
+  // currently this goes to verifiy login
+  var url = baseURL+"/register-application/"+v+"/start-register?hasDefraID="+hasDefraID+"&register-journey=true&new-register-journey="+newUser+"&applicant-f-name="+fname+"&applicant-l-name="+lname+"&companyName="+companyName+"&defraAccountType="+defraAccountType;
+
+  return url
+
+}
+
+
+window.addEventListener('load', function() {
+
+
+  $('#shareURL').val(getURL())
+  $('.govuk-button').attr('href',getURL())
+
+
+
+  $('.js-item').each(function() {
+        console.log("looking to see if complete")
+        var elem = $(this);
+
+        // Look for changes in the value
+        elem.bind("propertychange change click keyup input paste", function(event) {
+            // If value has changed...
+
+              $('#shareURL').val(getURL())
+               $('.govuk-button').attr('href',getURL())
+        });
+    });
+
+  $(".govuk-radios__input").on("click",function(e){
+      $('#shareURL').val(getURL())
+       $('.govuk-button').attr('href',getURL())
+    })
+
+})
+</script>
+{% endblock %}

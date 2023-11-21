@@ -1,0 +1,68 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set count = data.landownershipFiles | length %}
+{% set item = " proof of land ownership file" | plural(" proof of land ownership files", count) %}
+{% set pageHeading = "You have added "+ count + item %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+        
+        <!-- <h1 class="govuk-heading-l">{{ pageHeading }}</h1> -->
+        <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+       
+          
+          <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+            {% for file in data.landownershipFiles %}
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                    {{file}}
+                </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                   
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./land-ownership-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{file}} from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              {% endfor %}
+           </dl>
+
+            <form method="post" action="./land-ownership-more-answer">
+
+              {{ govukRadios({
+                idPrefix: "land-ownership-more",
+                name: "land-ownership-more",
+                fieldset: {
+                  legend: {
+                    text: "Have you added proof of land ownership files for all landowners?",
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "You must provide proof of ownership for all owners of the land you want to register."
+                },
+                items: [
+                  {
+                    value: "yes",
+                    text: "Yes"
+                  },
+                  {
+                    value: "no",
+                    text: "No, add another proof of land ownership file"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}

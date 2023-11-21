@@ -1,0 +1,94 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set count = data.landowners | length %}
+{% set item = " landowner or leaseholder" | plural(" landowners or leaseholders", count) %}
+{% set pageHeading = "You have added "+ count + item %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+        
+      
+        <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+          <!-- Check if legalParties has been added to -->
+          <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+
+            {% for lp in data.landowners %}
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                <!-- set name based on the type of legal party, defualt is organistion name -->
+            
+                {% set name = lp['landowners-org-name'] %}
+                
+                {% if lp["landowner-type"] == "individual" %}
+            
+                  {% set name = lp['landowner-f-name']+" "%}
+            
+                  {% if lp["legal-party-m-name"] | length %} {# check middle name is set #}
+                    
+                    {% set name = name+lp['landowner-m-name']+" "%}
+            
+                  {% endif %}
+            
+                  {% set lname = lp['landowner-l-name'] %}
+            
+                  {% set name = name %} 
+            
+                  {% set email = lp['landowner-email'] %}
+            
+                {% endif %}
+            
+                {{ name | capitalize }} {{ lname | capitalize }} ({{email}})
+              </dt>
+                <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                  <ul class="govuk-summary-list__actions-list">
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./legal-agreement-concov-landowner-{{lp['landowner-type']}}?change=yes&id={{loop.index0}}"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change {{name}}</span></a></li>
+                    <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="./legal-agreement-concov-landowner-remove?id={{loop.index0}}"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove {{name}} from the list</span></a></li>
+                  </ul>
+                </dd>
+              </div>
+              {% endfor %}
+           </dl>
+
+           {% set nextpage ="management-plan-question" %}
+           {% if data.change == "yes" and data.returnURL %}
+           {% set nextpage = data.returnURL+"?change=no&returnURL=" %}
+           {% endif %}
+           <!-- Routing handled by radio-button-redirect (look at the value of the radio button). For more info see https://github.com/abbott567/radio-button-redirect/ -->
+            <form method="post" action="">
+
+              {{ govukRadios({
+                idPrefix: "covenent-landowner-more",
+                name: "covenent-landowner-more",
+                fieldset: {
+                  legend: {
+                    text: "Have you added all landowners or leaseholders?",
+                    classes: "govuk-fieldset__legend--m"
+                  }
+                },
+                hint: {
+                  text: "You must tell us about all landowners or leaseholders listed on the conservation covenant."
+                },
+                items: [
+                  {
+                    value: "yes~./"+nextpage,
+                    text: "Yes"
+                  },
+                  {
+                    value: "no~./legal-agreement-concov-landowner-type",
+                    text: "No, add another landowner or leaseholder"
+                  }
+                ]
+              }) }}
+              
+              {{ govukButton({ text: 'Save and continue' }) }}
+              
+            </form>
+
+    </div>
+  </div>
+
+{% endblock %}

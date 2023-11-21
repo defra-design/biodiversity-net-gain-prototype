@@ -1,0 +1,78 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Manage Defra account" %}
+
+{% set hideSaveSection = true %}
+{% set showAccount = true %}
+{% set disableAccount = true %}
+
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <h1 class="govuk-heading-l">
+      {{ pageHeading }}
+    </h1>
+      <ul class="govuk-list">
+      <li><b>{{data["applicant-f-name"]}} {{data["applicant-l-name"]}}</b></li>
+       {% if data.defraAccountType == "organisation" %}
+        <li>Representing {{data["companyName"]}} </li>
+        
+      {% endif %}
+      <!-- <li>Imaginary Farm Ltd</li> -->
+      <li>joe@imaginaryfarm.co.uk</li>
+     <!--  <li>01234 567890</li>
+      <li>07123 456789</li> -->
+    </ul>
+    <p class="govuk-body">
+
+      <a href="/defra-identity/account">Update Defra account details</a>
+    </p>
+
+
+
+    <hr class="app-divider">
+    
+    <div class="flex-container">
+
+      <div class="dashboard-panel">
+
+        <h2 class="govuk-heading-m govuk-!-padding-top-4">
+          <a href="/register-application/v22/dashboard-register">Biodiversity gain sites</a>
+        </h2>
+
+        <p class="govuk-body-s">You can:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+          <li>register a new biodiversity gain site</li>
+          <li>continue a saved registration</li>
+        </ul>
+
+      </div>
+
+      <!-- For MVP there will be no link to the developer journey -->
+      <!-- This page needs to be relooked at, possibly merged dashboards  -->
+      <div class="dashboard-panel" style="background:#FFF">
+
+    <!--     <h2 class="govuk-heading-m govuk-!-padding-top-4">
+          {% if data['development-added'] == 'true' %}
+          <a href="/register-application/v22/dashboard-record">Development projects</a>
+          {% else %}
+          <a href="/register-application/v22/start-record">Development projects</a>
+          {% endif %}
+        </h2>
+
+        <p class="govuk-body-s">You can:</p>
+        <ul class="govuk-list govuk-list--bullet govuk-body-s">
+          <li>record off-site gains for a new development project</li>
+          <li>continue a saved record</li>
+        </ul> -->
+          
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

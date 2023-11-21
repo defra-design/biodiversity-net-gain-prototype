@@ -1,0 +1,57 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Choose how to add the biodiversity gain site boundary" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      {% if data['land-registry-check'] == 'yes' %} 
+        <form method="post" action="./location-options-answer-land-registry">
+      {% else %}
+        <form method="post" action="./location-options-answer">
+      {% endif %}
+
+        {{ govukRadios({
+          idPrefix: "location-options",
+          name: "location-options",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Geospatial file",
+              text: "Upload geospatial file",
+              checked: checked("location-options", "Geospatial file"),
+              hint: {
+                text: "GeoJSON, GeoPackage or shapefile"
+              }
+            },
+            {
+              value: "Document or image",
+              text: "Upload document or image",
+              checked: checked("location-options", "Document or image"),
+              hint: {
+                text: "DOC, DOCX, JPG, PNG or PDF"
+              }
+            }
+          ]
+        }) }}
+
+        <p><a href="./location-no">I do not have a file showing the boundary of the biodiversity gain site</a></p>
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -127,6 +127,7 @@ router.post('*/legal-agreement-concov-landowner-individual', function (req, res)
   }else{
      req.session.data.landowners.push(req.body);
   }
+  
   res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-concov-landowner-list')
 })
 
@@ -186,6 +187,7 @@ router.post('*/legal-agreement-check', function (req, res) {
   // if "no"
   res.redirect('/'+baseURL+req.params[0]+'/legal-agreement-upload');
 })
+
 router.post('*/legal-agreement-remove', function (req, res) {
 
   var install = req.session.data['agreement-remove']

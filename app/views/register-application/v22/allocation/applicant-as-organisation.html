@@ -1,0 +1,69 @@
+{% extends "register-application/v18/layout-register-application.html" %}
+
+{% set userTypeText = "What is your client's" %}
+{% if data['is-agent'] == 'no' %}
+{% set userTypeText = "What is your" %}
+{% endif %}
+
+{% set pageHeading = userTypeText+" organisation name?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+           {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
+ {% set nextPage = "applicant-two-uploads-interstitial" %}
+{% endif %}
+
+{% if data["is-agent"] == "no" and data["client-is-landowner"] == "no" %}
+ {% set nextPage = "applicant-authorisation-as-nrp" %}
+{% endif %}
+
+{% if data["is-agent"] == "yes" and data["client-is-landowner"] == "yes" %}
+ {% set nextPage = "applicant-details-upload-authorisation" %}
+{% endif %}
+
+      
+
+      <form method="post" action="./{{nextPage}}">
+         <input type="hidden" name="legal-party-type" value="{{data['legal-party-type']}}">
+        {% call govukFieldset({
+          legend: {
+            text: pageHeading,
+            classes: 'govuk-fieldset__legend--l',
+            isPageHeading: true
+          }
+        }) %}
+
+        <p>They must be named as a landowner or leaseholder on the legal agreement.</p>
+
+
+         <!-- Set the value if this is changing/updating an LP. -->
+        {% if query.change == "yes" %}
+        {% set fullname = data["applicant-org-name"] %}
+       
+        {% endif %}
+    
+        {{ govukInput({
+          id: 'applicant-org-name',
+          name: 'applicant-org-name',
+          value: fullname,
+          label: {
+            html: 'Organisation name'
+          }
+        }) }}
+
+       
+        {% endcall %}
+        <input type="hidden" name="details-confirm" value="yes">
+        {{ govukButton({
+           text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

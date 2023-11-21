@@ -1,0 +1,77 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+
+
+{% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "Upload the planning obligation (Section 106 agreement)" %}
+{% else %}
+  {% set pageHeading = "Upload the conservation covenant" %}
+{% endif %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+      
+      <form method="get" action="./legal-agreement-check">
+  
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-visually-hidden" for="legal-agreement-upload">
+            Upload a file
+          </label>
+
+          <div id="legal-agreement-upload-hint">
+            <p>The file should be:</p> 
+            <ul class="govuk-list govuk-list--bullet">
+              <li>a DOC, DOCX or PDF</li>
+              <li>no larger than 50MB</li>
+            </ul>
+          </div>
+
+          <input class="govuk-file-upload" id="legal-agreement-upload" name="legal-agreement-upload" type="file" aria-describedby="legal-agreement-upload-hint">
+        </div>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no legal agreement
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a legal agreement that:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>secures the habitat enhancements on the land</li>
+        <li>is for at least 30 years</li>
+      </ul>
+  
+      <p>This must be either a:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li><a href="https://www.gov.uk/guidance/planning-obligations">planning obligation (Section 106 agreement)</a></li>
+        <li><a href="https://www.gov.uk/guidance/getting-and-using-a-conservation-covenant-agreement">conservation covenant</a></li>
+      </ul>
+  
+      
+            <h3>Contact the Biodiversity Net Gain team if you need help</h3>
+            <p>Telephone: 0190 050 8628<br>
+              Monday to Friday, 8:30am to 5pm (except public holidays)</p>
+              <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
+          </div>
+        </details>
+        
+
+        {{ govukButton({
+          text: "Upload"
+        }) }}
+        
+      </form>
+
+      
+
+    </div>
+  </div>
+
+{% endblock %}

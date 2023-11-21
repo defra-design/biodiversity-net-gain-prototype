@@ -1,0 +1,286 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "What is your address?" %}
+
+{% block content %}
+<!-- <style media="screen">
+  .app-no-js{
+    display:none;
+  }
+</style> -->
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      What is your address?
+    </h1>
+
+    <form action="../{{data.returnURL or 'applicant-details-confirm-landowner' }}" method="POST">
+      <input type="hidden" name="csrfToken" value="87d304082d16634e7ba635197bc728d4a9afc2bc-1613385245540-2f482f8cd95868342c4b2790">
+      <div class="govuk-form-group form-field-group">
+        <label class="govuk-label" for="line1">
+          Address line 1
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="line1" name="line1" type="text" autocomplete="address-line1">
+      </div>
+      <div class="govuk-form-group form-field-group">
+        <label class="govuk-label" for="line2">
+          Address line 2 (optional)
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="line2" name="line2" type="text" autocomplete="address-line2">
+      </div>
+      <div class="govuk-form-group form-field-group">
+        <label class="govuk-label" for="line3">
+          Address line 3 (optional)
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="line3" name="line3" type="text" autocomplete="address-line3">
+      </div>
+      <div class="govuk-form-group form-field-group">
+        <label class="govuk-label" for="town">
+          Town or city
+        </label>
+        <input class="govuk-input govuk-input--width-20" id="town" name="town" type="text" autocomplete="address-level2">
+      </div>
+      <div class="govuk-form-group form-field-group">
+        <label class="govuk-label" for="postcode">
+          Postcode (optional)
+        </label>
+        <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" autocomplete="postal-code">
+      </div>
+      <div class="govuk-form-group form-field-group">
+        <label class="govuk-label" for="countryCode">
+          Country
+        </label>
+        <select class="govuk-select" id="countryCode" name="countryCode" style="display: none;">
+          <option value="">Select a country</option>
+          <option value="AF" id="countryCode-AF">Afghanistan</option>
+          <option value="AL" id="countryCode-AL">Albania</option>
+          <option value="DZ" id="countryCode-DZ">Algeria</option>
+          <option value="AD" id="countryCode-AD">Andorra</option>
+          <option value="AO" id="countryCode-AO">Angola</option>
+          <option value="AG" id="countryCode-AG">Antigua and Barbuda</option>
+          <option value="AR" id="countryCode-AR">Argentina</option>
+          <option value="AM" id="countryCode-AM">Armenia</option>
+          <option value="AU" id="countryCode-AU">Australia</option>
+          <option value="AT" id="countryCode-AT">Austria</option>
+          <option value="AZ" id="countryCode-AZ">Azerbaijan</option>
+          <option value="BH" id="countryCode-BH">Bahrain</option>
+          <option value="BD" id="countryCode-BD">Bangladesh</option>
+          <option value="BB" id="countryCode-BB">Barbados</option>
+          <option value="BY" id="countryCode-BY">Belarus</option>
+          <option value="BE" id="countryCode-BE">Belgium</option>
+          <option value="BZ" id="countryCode-BZ">Belize</option>
+          <option value="BJ" id="countryCode-BJ">Benin</option>
+          <option value="BT" id="countryCode-BT">Bhutan</option>
+          <option value="BO" id="countryCode-BO">Bolivia</option>
+          <option value="BA" id="countryCode-BA">Bosnia and Herzegovina</option>
+          <option value="BW" id="countryCode-BW">Botswana</option>
+          <option value="BR" id="countryCode-BR">Brazil</option>
+          <option value="BN" id="countryCode-BN">Brunei</option>
+          <option value="BG" id="countryCode-BG">Bulgaria</option>
+          <option value="BF" id="countryCode-BF">Burkina Faso</option>
+          <option value="MM" id="countryCode-MM">Burma</option>
+          <option value="BI" id="countryCode-BI">Burundi</option>
+          <option value="KH" id="countryCode-KH">Cambodia</option>
+          <option value="CM" id="countryCode-CM">Cameroon</option>
+          <option value="CA" id="countryCode-CA">Canada</option>
+          <option value="CV" id="countryCode-CV">Cape Verde</option>
+          <option value="CF" id="countryCode-CF">Central African Republic</option>
+          <option value="TD" id="countryCode-TD">Chad</option>
+          <option value="CL" id="countryCode-CL">Chile</option>
+          <option value="CN" id="countryCode-CN">China</option>
+          <option value="CO" id="countryCode-CO">Colombia</option>
+          <option value="KM" id="countryCode-KM">Comoros</option>
+          <option value="CG" id="countryCode-CG">Congo</option>
+          <option value="CD" id="countryCode-CD">Congo (Democratic Republic)</option>
+          <option value="CR" id="countryCode-CR">Costa Rica</option>
+          <option value="HR" id="countryCode-HR">Croatia</option>
+          <option value="CU" id="countryCode-CU">Cuba</option>
+          <option value="CY" id="countryCode-CY">Cyprus</option>
+          <option value="CZ" id="countryCode-CZ">Czechia</option>
+          <option value="CS" id="countryCode-CS">Czechoslovakia</option>
+          <option value="DK" id="countryCode-DK">Denmark</option>
+          <option value="DJ" id="countryCode-DJ">Djibouti</option>
+          <option value="DM" id="countryCode-DM">Dominica</option>
+          <option value="DO" id="countryCode-DO">Dominican Republic</option>
+          <option value="DD" id="countryCode-DD">East Germany</option>
+          <option value="TL" id="countryCode-TL">East Timor</option>
+          <option value="EC" id="countryCode-EC">Ecuador</option>
+          <option value="EG" id="countryCode-EG">Egypt</option>
+          <option value="SV" id="countryCode-SV">El Salvador</option>
+          <option value="GQ" id="countryCode-GQ">Equatorial Guinea</option>
+          <option value="ER" id="countryCode-ER">Eritrea</option>
+          <option value="EE" id="countryCode-EE">Estonia</option>
+          <option value="ET" id="countryCode-ET">Ethiopia</option>
+          <option value="FJ" id="countryCode-FJ">Fiji</option>
+          <option value="FI" id="countryCode-FI">Finland</option>
+          <option value="FR" id="countryCode-FR">France</option>
+          <option value="GA" id="countryCode-GA">Gabon</option>
+          <option value="GE" id="countryCode-GE">Georgia</option>
+          <option value="DE" id="countryCode-DE">Germany</option>
+          <option value="GH" id="countryCode-GH">Ghana</option>
+          <option value="GR" id="countryCode-GR">Greece</option>
+          <option value="GD" id="countryCode-GD">Grenada</option>
+          <option value="GT" id="countryCode-GT">Guatemala</option>
+          <option value="GN" id="countryCode-GN">Guinea</option>
+          <option value="GW" id="countryCode-GW">Guinea-Bissau</option>
+          <option value="GY" id="countryCode-GY">Guyana</option>
+          <option value="HT" id="countryCode-HT">Haiti</option>
+          <option value="HN" id="countryCode-HN">Honduras</option>
+          <option value="HU" id="countryCode-HU">Hungary</option>
+          <option value="IS" id="countryCode-IS">Iceland</option>
+          <option value="IN" id="countryCode-IN">India</option>
+          <option value="ID" id="countryCode-ID">Indonesia</option>
+          <option value="IR" id="countryCode-IR">Iran</option>
+          <option value="IQ" id="countryCode-IQ">Iraq</option>
+          <option value="IE" id="countryCode-IE">Ireland</option>
+          <option value="IL" id="countryCode-IL">Israel</option>
+          <option value="IT" id="countryCode-IT">Italy</option>
+          <option value="CI" id="countryCode-CI">Ivory Coast</option>
+          <option value="JM" id="countryCode-JM">Jamaica</option>
+          <option value="JP" id="countryCode-JP">Japan</option>
+          <option value="JO" id="countryCode-JO">Jordan</option>
+          <option value="KZ" id="countryCode-KZ">Kazakhstan</option>
+          <option value="KE" id="countryCode-KE">Kenya</option>
+          <option value="KI" id="countryCode-KI">Kiribati</option>
+          <option value="XK" id="countryCode-XK">Kosovo</option>
+          <option value="KW" id="countryCode-KW">Kuwait</option>
+          <option value="KG" id="countryCode-KG">Kyrgyzstan</option>
+          <option value="LA" id="countryCode-LA">Laos</option>
+          <option value="LV" id="countryCode-LV">Latvia</option>
+          <option value="LB" id="countryCode-LB">Lebanon</option>
+          <option value="LS" id="countryCode-LS">Lesotho</option>
+          <option value="LR" id="countryCode-LR">Liberia</option>
+          <option value="LY" id="countryCode-LY">Libya</option>
+          <option value="LI" id="countryCode-LI">Liechtenstein</option>
+          <option value="LT" id="countryCode-LT">Lithuania</option>
+          <option value="LU" id="countryCode-LU">Luxembourg</option>
+          <option value="MK" id="countryCode-MK">Macedonia</option>
+          <option value="MG" id="countryCode-MG">Madagascar</option>
+          <option value="MW" id="countryCode-MW">Malawi</option>
+          <option value="MY" id="countryCode-MY">Malaysia</option>
+          <option value="MV" id="countryCode-MV">Maldives</option>
+          <option value="ML" id="countryCode-ML">Mali</option>
+          <option value="MT" id="countryCode-MT">Malta</option>
+          <option value="MH" id="countryCode-MH">Marshall Islands</option>
+          <option value="MR" id="countryCode-MR">Mauritania</option>
+          <option value="MU" id="countryCode-MU">Mauritius</option>
+          <option value="MX" id="countryCode-MX">Mexico</option>
+          <option value="FM" id="countryCode-FM">Micronesia</option>
+          <option value="MD" id="countryCode-MD">Moldova</option>
+          <option value="MC" id="countryCode-MC">Monaco</option>
+          <option value="MN" id="countryCode-MN">Mongolia</option>
+          <option value="ME" id="countryCode-ME">Montenegro</option>
+          <option value="MA" id="countryCode-MA">Morocco</option>
+          <option value="MZ" id="countryCode-MZ">Mozambique</option>
+          <option value="NA" id="countryCode-NA">Namibia</option>
+          <option value="NR" id="countryCode-NR">Nauru</option>
+          <option value="NP" id="countryCode-NP">Nepal</option>
+          <option value="NL" id="countryCode-NL">Netherlands</option>
+          <option value="NZ" id="countryCode-NZ">New Zealand</option>
+          <option value="NI" id="countryCode-NI">Nicaragua</option>
+          <option value="NE" id="countryCode-NE">Niger</option>
+          <option value="NG" id="countryCode-NG">Nigeria</option>
+          <option value="KP" id="countryCode-KP">North Korea</option>
+          <option value="NO" id="countryCode-NO">Norway</option>
+          <option value="OM" id="countryCode-OM">Oman</option>
+          <option value="PK" id="countryCode-PK">Pakistan</option>
+          <option value="PW" id="countryCode-PW">Palau</option>
+          <option value="PA" id="countryCode-PA">Panama</option>
+          <option value="PG" id="countryCode-PG">Papua New Guinea</option>
+          <option value="PY" id="countryCode-PY">Paraguay</option>
+          <option value="PE" id="countryCode-PE">Peru</option>
+          <option value="PH" id="countryCode-PH">Philippines</option>
+          <option value="PL" id="countryCode-PL">Poland</option>
+          <option value="PT" id="countryCode-PT">Portugal</option>
+          <option value="QA" id="countryCode-QA">Qatar</option>
+          <option value="RO" id="countryCode-RO">Romania</option>
+          <option value="RU" id="countryCode-RU">Russia</option>
+          <option value="RW" id="countryCode-RW">Rwanda</option>
+          <option value="WS" id="countryCode-WS">Samoa</option>
+          <option value="SM" id="countryCode-SM">San Marino</option>
+          <option value="ST" id="countryCode-ST">Sao Tome and Principe</option>
+          <option value="SA" id="countryCode-SA">Saudi Arabia</option>
+          <option value="SN" id="countryCode-SN">Senegal</option>
+          <option value="RS" id="countryCode-RS">Serbia</option>
+          <option value="SC" id="countryCode-SC">Seychelles</option>
+          <option value="SL" id="countryCode-SL">Sierra Leone</option>
+          <option value="SG" id="countryCode-SG">Singapore</option>
+          <option value="SK" id="countryCode-SK">Slovakia</option>
+          <option value="SI" id="countryCode-SI">Slovenia</option>
+          <option value="SB" id="countryCode-SB">Solomon Islands</option>
+          <option value="SO" id="countryCode-SO">Somalia</option>
+          <option value="ZA" id="countryCode-ZA">South Africa</option>
+          <option value="KR" id="countryCode-KR">South Korea</option>
+          <option value="SS" id="countryCode-SS">South Sudan</option>
+          <option value="ES" id="countryCode-ES">Spain</option>
+          <option value="LK" id="countryCode-LK">Sri Lanka</option>
+          <option value="KN" id="countryCode-KN">St Kitts and Nevis</option>
+          <option value="LC" id="countryCode-LC">St Lucia</option>
+          <option value="VC" id="countryCode-VC">St Vincent</option>
+          <option value="SD" id="countryCode-SD">Sudan</option>
+          <option value="SR" id="countryCode-SR">Suriname</option>
+          <option value="SZ" id="countryCode-SZ">Swaziland</option>
+          <option value="SE" id="countryCode-SE">Sweden</option>
+          <option value="CH" id="countryCode-CH">Switzerland</option>
+          <option value="SY" id="countryCode-SY">Syria</option>
+          <option value="TJ" id="countryCode-TJ">Tajikistan</option>
+          <option value="TZ" id="countryCode-TZ">Tanzania</option>
+          <option value="TH" id="countryCode-TH">Thailand</option>
+          <option value="BS" id="countryCode-BS">The Bahamas</option>
+          <option value="GM" id="countryCode-GM">The Gambia</option>
+          <option value="TG" id="countryCode-TG">Togo</option>
+          <option value="TO" id="countryCode-TO">Tonga</option>
+          <option value="TT" id="countryCode-TT">Trinidad and Tobago</option>
+          <option value="TN" id="countryCode-TN">Tunisia</option>
+          <option value="TR" id="countryCode-TR">Turkey</option>
+          <option value="TM" id="countryCode-TM">Turkmenistan</option>
+          <option value="TV" id="countryCode-TV">Tuvalu</option>
+          <option value="SU" id="countryCode-SU">USSR</option>
+          <option value="UG" id="countryCode-UG">Uganda</option>
+          <option value="UA" id="countryCode-UA">Ukraine</option>
+          <option value="AE" id="countryCode-AE">United Arab Emirates</option>
+          <option value="GB" id="countryCode-GB">United Kingdom</option>
+          <option value="US" id="countryCode-US">United States</option>
+          <option value="UY" id="countryCode-UY">Uruguay</option>
+          <option value="UZ" id="countryCode-UZ">Uzbekistan</option>
+          <option value="VU" id="countryCode-VU">Vanuatu</option>
+          <option value="VA" id="countryCode-VA">Vatican City</option>
+          <option value="VE" id="countryCode-VE">Venezuela</option>
+          <option value="VN" id="countryCode-VN">Vietnam</option>
+          <option value="YE" id="countryCode-YE">Yemen</option>
+          <option value="YU" id="countryCode-YU">Yugoslavia</option>
+          <option value="ZM" id="countryCode-ZM">Zambia</option>
+          <option value="ZW" id="countryCode-ZW">Zimbabwe</option>
+        </select>
+      </div>
+      <button type="submit" name="continue" class="govuk-button" data-module="govuk-button" id="continue">
+        Continue
+      </button>
+    </form>
+  </div>
+  <!--end column-two-thirds-->
+</div>
+<!--end row-->
+{% endblock %}
+<!-- PAGE based javascript -->
+{% block pageScripts %}
+{{super()}}
+<script src="/public/javascripts/accessible-autocomplete2.min.js"></script>
+<script type="text/javascript">
+  window.onload = function() {
+    accessibleAutocomplete.enhanceSelectElement({
+      selectElement: document.getElementById("countryCode"),
+      name: 'countryCodeAutocomplete',
+      defaultValue: '',
+      onConfirm: () => {
+        const countryCode = $("#countryCode-select > option").filter(function() {
+          return this.text == $("#countryCode").val()
+        }).val();
+        $("#countryCode-select").val(countryCode);
+      }
+    })
+  }
+</script>
+{% endblock %}

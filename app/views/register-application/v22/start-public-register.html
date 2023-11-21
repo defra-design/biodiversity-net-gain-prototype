@@ -1,0 +1,36 @@
+{% extends "register-application/v22/start-page-guide-template.html" %}
+
+{% set serviceName = "Record off-site gains for a development project" %}
+{% set serviceDescription = "Find out what documents you need and how much it costs to record habitats as off-site gains for a development project." %}
+
+{% set hideBackLink = true %}
+{% set hideSaveLink = true %}
+{% set hideSaveSection = true %}
+
+{% set pageURL = "v22" %}
+
+{% set previousPageName = "Record off-site biodiversity gains for a development project" %}
+{% set previousPageURL = "/register-application/" + pageURL + "/start-allocate" %}
+
+{% set pageHeading = "Get information about a biodiversity gain site" %}
+
+{% block guideContent %}
+
+  <p>You can get information about a registered biodiversity gain site, including the:</p>
+  <ul class="govuk-list govuk-list--bullet">
+    <li>location</li>
+    <li>size </li>
+    <li>created and enhanced habitats</li>
+    <li>development projects using habitats for off-site gains</li>
+    <li>available areas of habitat for off-site gains</li>
+  </ul>
+    
+  <p>The public register does not show the on-site loss or gain for a development project.</p>
+
+  {{ govukButton({
+    text: "Start now",
+    href: "#",
+    isStartButton: true
+  }) }}
+
+{% endblock %} 

@@ -1,0 +1,46 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set pageHeading = "Are you the only registered landowner?" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
+      <form method="post" action="./landowner-only-answer">
+
+        {{ govukRadios({
+          idPrefix: "landowner-only",
+          name: "landowner-only",
+          fieldset: {
+            legend: {
+              text: pageHeading,
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "Yes",
+              text: "Yes",
+              checked: checked("landowner-only", "Yes")
+              
+            },
+            {
+              value: "No",
+              text: "No, there are other landowners",
+              checked: checked("landowner-only", "No")
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Save and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

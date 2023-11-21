@@ -1,0 +1,370 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set map = true %}
+
+{% set pageHeading = "Check your answers before submitting your information" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+        <h2 class="govuk-heading-m">Applicant information</h2>
+       <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Acting on behalf of a client
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["is-agent"]|capitalize or "No"}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./applicant-details-is-agent?change=yes&returnURL=check-answers">
+              Change<span class="govuk-visually-hidden"> if you are an agent</span>
+            </a>
+          </dd>
+        </div>
+
+
+        {% if data["is-agent"]=="no"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Are you the landowner or leasholder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["client-is-landowner"] | capitalize) or "Yes"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-is-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> if you are the landowner or leasholder</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Applying as individual or organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% if data["applicant-type"] == "individual" %}
+            Individual landowner or leaseholder
+            {% else %}
+            Organisation as employee or representative
+            {% endif %}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-role-as-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+          </div>
+        {% endif %}
+
+       <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Defra account details are up to date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            
+
+              {% set applyingas = "Yes, apply as "+data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+
+
+        {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
+        {% set applyingas = applyingas +  " for "+data["companyName"] %}
+        {% endif %}
+        {{applyingas}}
+
+          </dd>
+            
+
+            <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="./applicant-details-confirm?type=business&amp;returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd>
+          
+        </div>
+      <!--   {% if data["applicant-type"] == "organisation" or data["is-agent"]=="yes"%}
+          
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["companyName"]}}<br>
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-company-name?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> organisation name</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+
+        {% endif%} -->
+        
+        {% if data["is-agent"]=="yes" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client is a landowner or leasholder
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["client-is-landowner"] | capitalize) or "Yes"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-is-landowner?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> if client is landowner or leasholder</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+        
+        {% if data["is-agent"]=="yes"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client is an individual or organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["applicant-type"] | capitalize) or "Individual"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-landowner-type?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% if data["applicant-type"] == "organisation"%}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client's organisation name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{(data["applicant-org-name"] | capitalize) or "Biglandowner LTF"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-as-organisation?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Client's name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {% set  applicantName = data["applicant-f-name"]or "Jo"%}
+            {% if data["applicant-m-name"] %}
+            {% set  applicantName = applicantName+" "+data["applicant-m-name"]%}
+            {% endif %}
+            {% set  applicantName = applicantName+" "+data["applicant-l-name"] | capitalize or "Smith"%}
+            {{applicantName}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-as-individual?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Written authorisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["landowner-agent-upload"] or "agent-evidence.pdf"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-details-upload-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> letter of authorisation</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+         
+        {% endif %}
+        <!-- END - Agent questions -->
+
+        {% if data["client-is-landowner"] == "no" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner consent
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["landowner-consent-upload"] or "landowner-consent-form.pdf"}}
+          </dd>
+          
+            <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./applicant-authorisation-as-nrp-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> landowner consent</span>
+                </a>
+              
+            </dd>
+         
+        </div>
+        {% endif %}
+
+      </dl>
+
+      <h2 class="govuk-heading-m">Development project information</h2>
+      
+      <dl class="govuk-summary-list">
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity gain site number
+          </dt>
+          <dd class="govuk-summary-list__value">
+           {{data["biodiversity-gain-site-number"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./allocation-gain-site?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> Biodiversity gain site number</span>
+                </a>
+              
+            </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+           {{data["lpa"]}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./local-planning-authority?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> planning authority</span>
+                </a>
+              
+            </dd>
+        </div>
+       
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Biodiversity Metric 4.0 file
+          </dt>
+          <dd class="govuk-summary-list__value">
+           {{data['metric-upload'] or 'metric_4.0_fairfax_housing_project.xlsm'}}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./allocation-metric-check?change=yes&returnURL=check-answers">
+                Change<span class="govuk-visually-hidden"> Biodiversity Metric 4.0 file</span>
+                </a>
+              
+            </dd>
+        </div>
+
+     
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Project name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Farifax Housing Project
+          </dd>
+        </div>
+       <!--  <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Local planning authority
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Bradford City Council
+          </dd>
+        </div> -->
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Planning application reference
+          </dt>
+          <dd class="govuk-summary-list__value">
+            22/01976/RJL
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Habitat being used
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list app-list--border">
+              <li>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Grassland </span>
+                <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Other neutral grassland</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                12.76 ha
+              </li>
+              <li>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Heathland and scrub</span>
+                <span class="govuk-body-m govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0">Mixed scrub</span>
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                10.50 ha
+              </li>
+              <li>
+                Native species rich hedgerow 
+                <span class="govuk-body-s govuk-!-display-block govuk-!-margin-top-0 govuk-!-margin-bottom-0 app-secondary-text-colour">Good condition</span> 
+                0.18 km
+              </li>
+            </ul>
+          </dd>
+        </div>
+      </dl>
+
+      
+      <h2 class="govuk-heading-l">Submit your information</h2>
+
+      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
+
+      <form action="./allocation-confirmation" method="post" novalidate>
+
+        <input type="hidden" name="development-added" value="true">
+
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and submit
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block pageScripts %}
+  <script type="module" src="/public/javascripts/map.min.js"></script>
+{% endblock %}

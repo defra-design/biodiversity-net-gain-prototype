@@ -1,0 +1,42 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+{% set pageHeading = "v22 content pages" %}
+{% block beforeContent %}
+{% endblock %}
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">
+      Register a biodiversity gain site v22 content </h1>
+      <h2 class="govuk-heading-m"><a href="config">Configure journey</a></h2>
+      <br>
+    <h2 class="govuk-heading-m">Start</h2>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><strong class="govuk-!-font-size-24"><a href="/clear-data?url=/register-application/v22/start-register">Start page (new journey)</a></strong></li>
+    </ul>
+    <h2 class="govuk-heading-m">Sign in</h2>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><a href="./sign-in?register-journey=yes&new-register-journey=yes&hasDefraID=no">Sign in (no Defra ID)</a></li>
+      <li><a href="./sign-in?register-journey=yes&new-register-journey=yes">Sign in (new journey)</a></li>
+      <li><a href="./sign-in?register-journey=yes&new-register-journey=no&showReceivedItem=yes">Sign in (continue journey)</a></li>
+      <li><a href="./sign-in-no-start?register-journey=yes&new-register-journey=no">Sign in (existing user no known journey)</a></li>
+    </ul>
+    <h2 class="govuk-heading-m">Dashboard</h2>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><a href="./dashboard-register?register-journey=true&new-register-journey=yes">Dashboard with in progress only</a></li>
+      <li><a href="./dashboard-register?register-journey=true&new-register-journey=yes&showReceivedItem=yes">Dashboard with in progress and received</a></li>
+    </ul>
+    <h2 class="govuk-heading-m">Task list</h2>
+    <ul class="govuk-list govuk-list--bullet ">
+      <li><strong class="govuk-!-font-size-24"><a href="./task-list?register-journey=yes&new-register-journey=yes">Task list</a></strong></li>
+    </ul>
+    
+
+    <h2 class="govuk-heading-m">Submitting and payment</h2>
+     <ul class="govuk-list govuk-list--bullet ">
+      <li><span class="govuk-tag govuk-tag--turquoise">updated</span> <a href="./check-answers?payment=bacs&answers-checked=true&register-journey=true">Check your answers</a></li>
+      <li><span class="govuk-tag govuk-tag--turquoise">updated</span> <a href="./confirmation">Submitted confirmation page</a></li>
+     </ul>
+
+  </div>
+</div>
+{% endblock %}

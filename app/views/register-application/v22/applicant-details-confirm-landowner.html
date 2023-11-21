@@ -1,0 +1,122 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check your Defra account details" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+      
+     
+          <p>
+        {% if data["applicant-type"] == "organisation" %}
+        {% set nextpage = "applicant-address-in-uk" %}
+        The landowner or leaseholder you represent must be named on the legal agreement to apply.
+      {% else %}
+      You must be named as a landowner or leaseholder on the legal agreement to apply.
+      {% set nextpage = "applicant-address-in-uk" %}
+      {% endif %}
+    </p>
+      <p>We will use your defra account details to identify you and to contact you about your registration. To change these details you will need <a href="https://cust-id-prototype.herokuapp.com/account/manage/account">update Defra account details</a> </p>
+
+
+      <form method="post" class="" action="./{{nextpage}}">
+
+
+        <dl class="govuk-summary-list">
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Name
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data['applicant-f-name']}} {% if data['applicant-m-name'] %}{{data['applicant-m-name']}} {% endif %}{{ data['applicant-l-name']}}
+          </dd>
+          
+            <!-- <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/name?type=business&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd> -->
+          
+        </div>
+
+        {% if data["applicant-type"] == "organisation" %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Organisation
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{data["companyName"]}}
+          </dd>
+          
+            <!-- <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/applicant-company-name?type=business&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> name</span>
+                </a>
+              
+            </dd> -->
+          
+        </div>
+        {% endif %}
+      
+    
+      
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact email address
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['email'] or "name@example.com"}}
+            <br><p class="govuk-hint">We will only use your email address if we need to contact you about your registration.</p>
+          </dd>
+          
+           <!--  <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd> -->
+          
+        </div>
+      
+      
+    
+  </dl>
+
+ <p>Other Defra account details we will submit with this application.</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Telephone numbers</li>
+      <li>Address</li>
+       {% if data["applicant-type"] == "organisation" %}<li>Company identification numbers (for example company house number)</li>{% endif %}
+    </ul>
+     
+
+
+        
+
+  
+    <input type="hidden" name="details-confirm" value="yes">
+  
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm and continue
+</button>
+
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

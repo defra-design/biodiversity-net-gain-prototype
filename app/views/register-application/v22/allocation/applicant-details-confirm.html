@@ -1,0 +1,93 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% set hideSaveLink = true %}
+
+{% set pageHeading = "Check your Defra account details are up to date" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <h1 class="govuk-heading-l">{{pageHeading}}</h1>
+
+       <p>We will use the information in your Defra account to identify you and to contact you about your application.</p>
+        <p>
+        {% set nextPage = "allocation-gain-site" %}
+
+        {% if data["is-agent"] == "no" and data["client-is-landowner"] == "no" %}
+         {% set nextPage = "applicant-authorisation-as-nrp" %}
+        {% endif %}
+        
+         {% if data["is-agent"]=="no" and data["client-is-landowner"] == "yes" and data["applicant-type"] == "organisation" %}
+         <!-- // user is landowner organsistion-->
+        <strong>{{data.companyName}}</strong>, the landowner or leaseholder you represent, must be named on the legal agreement to apply.
+        {% elseif data["is-agent"]=="no" and data["client-is-landowner"] == "yes" %}
+        <!-- // user is individual landowner-->
+        <strong>{{data["applicant-f-name"]}} {{data["applicant-l-name"]}}</strong> must be named as a landowner or leaseholder on the legal agreement to apply. 
+        <!-- // user is agent -->
+      
+        {% endif %}
+        {% if data["is-agent"] == "yes" %}
+          {% set nextPage = "applicant-is-landowner" %}
+        {% endif %}
+
+
+        
+
+
+             </p>
+          <p> <a href="/defra-identity/account" >Check your Defra account details</a> </p>
+
+      <form method="get" class="govuk-!-padding-top-5" action="./{{nextPage}}">
+
+
+        
+ 
+       
+   
+           <!--  <dd class="govuk-summary-list__actions">
+              
+                <a class="govuk-link" href="./details/email?type={{data['landowner-type'] or 'individual'}}&returnURL=applicant-details-confirm-agent">
+                Change<span class="govuk-visually-hidden"> date of birth</span>
+                </a>
+              
+            </dd> -->
+
+        {% set yestext = data["applicant-f-name"]+" "+data["applicant-l-name"] %}
+
+
+        {% if data["applicant-type"] == "organisation"  or (data["is-agent"]=="yes" and data["defraAccountType"] == "organisation" ) %}
+        {% set yestext = yestext +  " for "+data["companyName"] %}
+        {% endif %}
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          Confirm your Defra account details are up to date
+        </legend>
+
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="confirmed-defra-id" name="confirmed-defra-id" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+              <label class="govuk-label govuk-checkboxes__label" for="confirmed-defra-id">
+                My Defra account details are up to date and I'll be applying as {{yestext}}
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+       
+
+        {{ govukButton({
+          text: "Confirm and continue"
+        }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

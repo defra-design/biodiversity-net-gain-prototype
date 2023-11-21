@@ -1,0 +1,72 @@
+{% extends "register-application/v22/layout-register-application.html" %}
+
+{% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
+  {% set pageHeading = "Check the planning obligation (Section 106 agreement) file" %}
+{% else %}
+  {% set pageHeading = "Check the conservation covenant file" %}
+{% endif %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        {{ pageHeading }}
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "File added",
+              classes: "app-summary-list__key--narrow",
+              classes: "govuk-!-width-one-quarter"
+            },
+            value: {
+              text: data['legal-agreement-upload'] or ('legal-agreement-' + data['legalAgreementFiles'] | length + '.pdf')
+            }
+          }
+        ]
+      }) }}
+
+
+
+    <!--   {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+        <form method="post" action="./legal-agreement-correct-answer">
+      {% else %}
+        <form method="post" action="./legal-agreement-correct-answer-concov">
+      {% endif %} -->
+      
+      <!-- updated in v20 for multiple file upload -->
+      <!-- routing handled in ./app/stories/_routes.js -->
+      <form method="post" >
+        {{ govukRadios({
+          idPrefix: "legal-agreement-correct",
+          name: "legal-agreement-correct",
+          fieldset: {
+            legend: {
+              text: "Is this the correct file?",
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No, upload a different file"
+            }
+          ]
+        }) }}
+        <input type="hidden" name="file" value="{{data['legal-agreement-upload'] or ('legal-agreement-' + data['legalAgreementFiles'] | length + '.pdf')}}">
+        {{ govukButton({ text: 'Save and continue' }) }}
+        
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
