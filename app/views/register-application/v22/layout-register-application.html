@@ -1,6 +1,7 @@
 {% set serviceName = "Register a biodiversity gain site" %}
 {% set serviceUrl = "/register-application/v22/dashboard" %}
 {% set pageURL = "v22" %}
+{% set checkUser = query.userCheck %}
 
 {% extends "../../layout.html" %}
 
@@ -30,6 +31,14 @@
     {% include "register-application/v22/includes/login-nav.html" %}
     
   </div>
+
+   <!-- write logic to redirect to error page -->
+
+   {% if checkUser | length %}
+      
+   <script>window.location.href = 'user-access-block'</script>
+
+ {% endif %}
 
 {% endblock %}
 
