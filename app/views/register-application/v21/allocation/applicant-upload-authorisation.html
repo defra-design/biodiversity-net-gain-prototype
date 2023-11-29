@@ -6,7 +6,9 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
+      {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
+      <span  class="govuk-caption-l">Proof of permission 1 of 2</span>
+      {% endif %}
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
       </h1>
@@ -30,7 +32,7 @@
             <li>the date authorisation was given</li>
 
           </ul>
-          <p>You can <a href="">download an 'Authorise an agent' form</a>. </p>
+          
 
           <p>The file should be:</p> 
           <ul class="govuk-list govuk-list--bullet">
@@ -48,6 +50,18 @@
           }
           
         }) }}
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no written authorisation
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You can <a href="">download an 'Authorise an agent' form</a> and ask <strong>{{landowner}}</strong> to complete it.</p>
+            <p>You can then come back to this application and upload the completed form as written authorisation to apply.</p>
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Upload"
