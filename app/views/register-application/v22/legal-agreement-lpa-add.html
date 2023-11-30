@@ -205,6 +205,21 @@
 
           </select> 
         </div>
+
+        {{ govukInput({
+          label: {
+            text: "Email address"
+          },
+          hint: {
+            text: "We will use this to tell the local planning authority about any updates to this application."
+          },
+          id: "email",
+          name: "landowner-email",
+          type: "email",
+          autocomplete: "email",
+          spellcheck: false
+        }) }}
+
           {{ govukButton({
             text: "Save and continue"
           }) }}
