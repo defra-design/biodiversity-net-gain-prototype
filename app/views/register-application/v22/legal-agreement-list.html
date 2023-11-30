@@ -47,9 +47,15 @@
               {% endif %}
            </dl>
 
+           <!--legal agreement type is {{ data["legal-agreement"] }}-->
+
             <form method="post" action="">
               {% set nextPage = "legal-agreement-lpa-start"%}
               {% if data["legal-agreement"] == "conservation covenant" %}
+              {% set nextPage = "legal-agreement-concov-reponsible-start" %}
+              {% endif %}
+
+              {% if data["legal-agreement"] == "planning obligation (Section 106 agreement)" %}
               {% set nextPage = "legal-agreement-statement-of-works-question-alt" %}
               {% endif %}
 
