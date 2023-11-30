@@ -626,12 +626,18 @@
                   <!-- set name based on the type of legal party, defualt is organistion name -->
 
                   {% set name = lp['landowners-org-name'] %}
+                  {% set email = lp['landowner-email'] %}
                   {% if lp["landowner-type"] == "individual" %}
 
                     {% set name = lp['landowner-f-name']+" "%}
 
-                    {% if lp["legal-party-m-name"]+" " %}
+                    {% if lp["legal-party-m-name"]+" " != "" %}
+
+                     {% if lp['landowner-m-name'] | length %}
+                      
                       {% set name = name+lp['landowner-m-name']+" "%}
+
+                     {% endif %}
 
                     {% endif %}
 
@@ -639,7 +645,7 @@
 
 
                   {% endif %}
-                  {{name}}
+                  {{name}} ({{email}})
                   </li>
                   {% endfor %}
 
