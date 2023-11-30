@@ -2,20 +2,20 @@
 
 
 
-{% set pageHeading = "You will need to upload 2 doucments as proof you have authority to apply"%}
+{% set pageHeading = "You need to add proof you have permission to apply"%}
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
     <!-- action controled in ./_routes.js -->
     <h1 class="govuk-heading-l">{{pageHeading}}</h1>
-    <p>You will need to upload the following documents:</p>
+    <p>You will need to upload:</p>
     <ul class="govuk-list govuk-list--bullet">
-      <li>a document signed by <strong>Acme farming inc</strong> that confirms you have authority to apply on their behalf</li>
-      <li>consent from the landowner or leasholder that the allocation of units is correct</li>
+      <li>a document confirming <strong>Acme farming inc's</strong> authorisation for you to apply on their behalf</li>
+      <li>the landowner or leaseholder's consent to use their biodiversity gain site for off-site gain</li>
     </ul>
     <form method="post" action="applicant-details-upload-authorisation">
       {{ govukButton({
-      text: "Continue"
+      text: "Add proof of permission to apply"
       }) }}
     </form>
   </div>

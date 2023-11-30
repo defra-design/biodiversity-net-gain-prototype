@@ -100,7 +100,10 @@
             Address
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data["address-line1"] or "24 Edenhurst Avenue"}}, {{data["address-town"] or "London"}},{{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}, {{data['address-country']}}{% endif %}
+            {{data["address-line1"] or "24 Edenhurst Avenue"}}</br> 
+            {{data["address-town"] or "London"}}</br>
+            {{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}</br> 
+            {{data['address-country']}}{% endif %}
           </dd>
           
             <dd class="govuk-summary-list__actions">
@@ -180,7 +183,10 @@
              Client's address
           </dt>
           <dd class="govuk-summary-list__value">
-            {{data["address-line1"] or "24 Edenhurst Avenue"}}, {{data["address-town"] or "London"}},{{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}, {{data['address-country']}}{% endif %}
+            {{data["address-line1"] or "24 Edenhurst Avenue"}}</br> 
+            {{data["address-town"] or "London"}}</br>
+            {{data["address-postcode"] or "SW6 5EH"}}{%if data['address-country']%}</br> 
+            {{data['address-country']}}{% endif %}
           </dd>
           
             <dd class="govuk-summary-list__actions">
