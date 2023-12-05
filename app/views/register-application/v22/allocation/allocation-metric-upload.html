@@ -1,6 +1,6 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 
-{% set pageHeading = "Upload the Biodiversity Metric 4.0 file for the development project" %}
+{% set pageHeading = "Upload the statutory biodiversity metric file for the development project" %}
 
 {% block content %}
 
@@ -28,7 +28,17 @@
 
         <input class="govuk-file-upload" id="allocation-metric-upload" name="allocation-metric-upload" type="file" aria-describedby="allocation-metric-upload-hint">
 
-        <p class="govuk-!-padding-top-3"><a href="./allocation-metric-no">I do not have the Biodiversity Metric 4.0 file</a></p>
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              What to do if you have no statutory biodiversity metric file
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <p>You need to upload a completed biodiversity metric for the development project you want to record habitats for. It must be the same file a local planning authority reviewed with the development project's Biodiversity Net Gain Statement.</p>
+            <p>You can <a href="https://www.gov.uk/guidance/biodiversity-metric-calculate-the-biodiversity-net-gain-of-a-project-or-development">find out more about completing a biodiversity metric</a> on GOV.UK.</p>
+          </div>
+        </details>
 
         {{ govukButton({
           text: "Upload"

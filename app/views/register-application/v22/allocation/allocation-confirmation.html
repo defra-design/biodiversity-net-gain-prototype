@@ -2,7 +2,7 @@
 
 {% set pageHeading = "Application submitted" %}
 
-{% set hideSaveSection = true %}
+
 
 {% block content %}
 
@@ -22,16 +22,13 @@
 
       <p>Make a note of your BNG application reference number. We will use it when we contact you.</p>
 
-      {% if data['payment'] == 'bacs' %}
+
       
       <h2 class="govuk-heading-m">Paying the application fee</h2>
       <p>You need to pay:</p>
 
-      {% if data['register-journey'] == 'true' %}
-        <p class="govuk-body-l">£{{data.registrationPaymentAmount or '658.70' }}</p>
-      {% else %}
-        <p class="govuk-body-l">£36.35</p>
-      {% endif %}
+        <p class="govuk-body-l">£45</p>
+      
 
       <div class="govuk-inset-text">
         You must pay the fee within 28 days. We cannot refund any payments made after the 28-day deadline.
@@ -83,7 +80,7 @@
           </dd>
         </div>
       </dl>
-      {% endif %}
+      
       <h2 class="govuk-heading-m">What happens after you pay the fee</h2>
       <p>We will let you know within 6 weeks if:</p>
       <ul class="govuk-list govuk-list--bullet">
@@ -95,7 +92,7 @@
       </br>Monday to Friday, 8:30am to 5pm (except public holidays)</p>
       <p><a href="https://www.gov.uk/call-charges">Find out about call charges</a></p>
 
-      <p class="govuk-!-padding-top-8"><a href="./confirmation-email">View confirmation email (prototype only)</a></p>
+      <p class="govuk-!-padding-top-8"><a href="./allocation-confirmation-email">View confirmation email (prototype only)</a></p>
 
     </div>
   </div>
