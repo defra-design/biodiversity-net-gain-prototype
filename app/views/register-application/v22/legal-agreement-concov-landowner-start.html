@@ -15,10 +15,67 @@
 
         <p>You must include every landowner or leaseholder named on the legal agreement, including yourself if you're listed.</p> 
         <p>You can add as many as you need to.</p>
+
+        {% for lp in data.landowners %}
+
+        {% set name = lp['landowners-org-name'] %}
+          
+        {% set email = lp['landowner-email'] %}
+
+          {% if lp["landowner-type"] == "individual" %}
+
+            {% set name = lp['landowner-f-name']+" "%}
+
+            {% if lp["legal-party-m-name"]+" " != "" %}
+
+              {% if lp['landowner-m-name'] | length %}
+              
+              {% set name = name+lp['landowner-m-name']+" "%}
+
+              {% endif %}
+
+            {% endif %}
+
+            {% set name = name+lp['landowner-l-name']%}
+
+        {% endif %}
+
+        {% endfor %}
+
+        <!-- name is {{ name }} -->
               
         <form method="post" action="./legal-agreement-concov-landowner-type">
+
+          <!-- new additional question-->
+
+          {{ govukRadios({
+            idPrefix: "check-landowner",
+            name: "check-landowner",
+            fieldset: {
+              legend: {
+                text: "Are there any other landowners or leaseholders listed on the legal agreement?",
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: { 
+              text: "We need to know about any landowners or leaseholders apart from " + name
+            },
+            items: [
+              {
+                value: "yes~./legal-agreement-concov-landowner-type",
+                text: "Yes"
+              },
+              {
+                value: "no~./management-plan-question",
+                text: "No"
+              }
+            ]
+          }) }}
+
+          <!-- ends -->
+
           {{ govukButton({
-            text: "Add landowners or leaseholders"
+            text: "Save and continue"
           }) }}
         </form>
      
