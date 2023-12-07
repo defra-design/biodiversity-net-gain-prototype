@@ -1,13 +1,13 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 
-{% set pageHeading = "Upload a letter of consent from the landowner or leaseholder" %}
+{% set pageHeading = "Upload written consent to use a biodiversity gain site for off-site gain" %}
 
 {% block content %}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       {% if data["is-agent"] == "yes" and data["client-is-landowner"] == "no" %}
-      <span  class="govuk-caption-l">Letter of authority 2 of 2</span>
+      <span  class="govuk-caption-l">Proof of permission 2 of 2</span>
       {% endif %}
       <h1 class="govuk-heading-l">
         {{ pageHeading }}
@@ -22,11 +22,12 @@
             <!-- Conditional content if your are an agent on behalf of NRP or not-->
           </p>
           <ul class="govuk-list govuk-list--bullet">
-            <li>The number of units and area that is to be allocated</li>
-            <li>the name and signature any landowner or leaseholder that appears on the legal agreeemt</li>
-            <li>the date authroisation was given</li>
+            <li>a written statement confirming the landowner or leaseholder's consent to use their biodiversity gain site for off-site gain</li>
+            <li>the habitats being used by your development for off-site gain</li>
+            <li>the names and signatures of all landowners or leaseholders associated with the land you want to use</li>
+            <li>the date consent was given</li>
           </ul>
-          <p class=""><a href="./landowner-consent-no">Download an example landowner consent form</a></p>
+          
           
         </div>  
 

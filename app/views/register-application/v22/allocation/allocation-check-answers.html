@@ -122,7 +122,7 @@
         {% if data["is-agent"]=="yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Client is a landowner or leasholder
+            Client is a landowner or leaseholder
           </dt>
           <dd class="govuk-summary-list__value">
             {{(data["client-is-landowner"] | capitalize) or "Yes"}}
@@ -278,7 +278,7 @@
        
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Biodiversity Metric 4.0 file
+            Statutory biodiversity metric file
           </dt>
           <dd class="govuk-summary-list__value">
            {{data['metric-upload'] or 'metric_4.0_fairfax_housing_project.xlsm'}}
@@ -346,9 +346,36 @@
       </dl>
 
       
-      <h2 class="govuk-heading-l">Submit your information</h2>
+      <h2 class="govuk-heading-m">Terms and conditions</h2>
 
-      <p class="govuk-body">By submitting you agree that the information you have given is complete and correct.</p>
+      <p class="govuk-body">You need to <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">read the full terms and conditions (opens in new tab)</a> for recording allocation of off-site biodiversity gains to a development before you submit your information.</p>
+
+      <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                I confirm I have read the terms and conditions
+              </label>
+            </div>
+            
+            
+          </div>
+        </fieldset>
+      </div>
+        
+
+      <h2 class="govuk-heading-m">Submit your information</h2>
+
+      <p class="govuk-body">By submitting your information you confirm that it is true, to the best of your knowledge and belief</p>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-warning-text__assistive">Warning</span>
+          You may have to pay a fine if you have given false information.
+        </strong>
+      </div>
 
       <form action="./allocation-confirmation" method="post" novalidate>
 
