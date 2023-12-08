@@ -1,6 +1,6 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 
-{% set pageHeading = "You need to add details of all landowners or leaseholders listed on the conservation covenant" %}
+{% set pageHeading = "Are there any other landowners or leaseholders listed on the legal agreement?" %}
 
 {% block content %}
 
@@ -9,12 +9,12 @@
 
       <div data-module="moj-add-another">
 
-        <h1 class="govuk-heading-l" tabindex="-1">
+        <!-- <h1 class="govuk-heading-l" tabindex="-1">
           {{ pageHeading }}
-        </h1>
+        </h1> -->
 
-        <p>You must include every landowner or leaseholder named on the legal agreement, including yourself if you're listed.</p> 
-        <p>You can add as many as you need to.</p>
+       <!-- <p>You must include every landowner or leaseholder named on the legal agreement, including yourself if you're listed.</p> 
+        <p>You can add as many as you need to.</p> -->
 
         {% for lp in data.landowners %}
 
@@ -43,11 +43,11 @@
         {% endfor %}
 
         <!-- name is {{ name }} -->
-        <p>You must include:</p>
+        <!-- <p>You must include:</p>
         <ul class="govuk-list govuk-list--bullet">
         <li>every landowner or leaseholder named on the legal agreement, including yourself if you're listed</li>
         <li>an email address for every landowner or leaseholder so we can tell them about updates to this application</li> 
-        </ul>
+        </ul> -->
               
         <form method="post" action="./legal-agreement-concov-landowner-type">
 
@@ -58,8 +58,9 @@
             name: "check-landowner",
             fieldset: {
               legend: {
-                text: "Are there any other landowners or leaseholders listed on the legal agreement?",
-                classes: "govuk-fieldset__legend--m"
+                text: pageHeading,
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
               }
             },
             hint: { 
