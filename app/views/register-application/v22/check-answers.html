@@ -1,8 +1,9 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 
 {% set map = true %}
-
 {% set pageHeading = "Check your answers before submitting your information" %}
+{% set legalagreementtype = data['legal-agreement'] %}
+{% set sowtype = data['sow-check'] %}
 
 {% block content %}
 
@@ -537,7 +538,7 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
 
-            {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+            {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
               Planning obligation (Section 106 agreement) file uploaded
             {% else %}
               Conservation covenant file uploaded
@@ -552,7 +553,30 @@
             </a>
           </dd>
         </div>
-        {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+         <!-- scheme of works check -->
+         {% if (legalagreementtype) == "planning obligation (Section 106 agreement)" %}
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+              Scheme of works referenced in legal agreement
+           </dt>
+           <dd class="govuk-summary-list__value">
+             {% if sowtype == "yes" %}
+             Yes
+             {% elseif sowtype == "yesbut" %}
+             Scheme of works file uploaded ({{ data['sow-upload'] or 'sow-document.pdf' }})
+             {% else %}
+             No
+             {% endif %}
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
+               Change<span class="govuk-visually-hidden"> legal agreement</span>
+             </a>
+           </dd>
+         </div>
+         {% endif %}
+         <!-- scheme of works check end -->
+        {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Local planning authority
