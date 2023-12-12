@@ -11,8 +11,8 @@
         {% set returnURL = query.returnURL or 'task-list' %}
         
         {{ govukRadios({
-          idPrefix: "management-plan",
-          name: "has-management-plan",
+          idPrefix: "sow-check",
+          name: "sow-check",
           fieldset: {
             legend: {
               text: pageHeading,
@@ -25,21 +25,21 @@
           },
           items: [
             {
-              value: "no~./legal-agreement-lpa-start",
-              checked: (data['has-management-plan']=='yes'),
+              value: "yes~./legal-agreement-lpa-start",
+              checked: (data['sow-included']=='yes'),
               text: "Yes, the details are included in the planning obligation"
             },
             {
-              value: "nobut~./legal-agreement-statement-of-works-upload-alt",
-              checked: (data['has-management-plan']=='yes'),
+              value: "yesbut~./legal-agreement-statement-of-works-upload-alt",
+              checked: (data['sow-included']=='yesup'),
               text: "Yes, it's a separate document"
             },
             {
               divider: "or"
             },
             {
-              value: "yes~./legal-agreement-lpa-start",
-              checked: (data['has-management-plan']=='no'),
+              value: "no~./legal-agreement-lpa-start",
+              checked: (data['sow-included']=='no'),
               text: "No, there's no reference to a scheme of works"
             }
           ]
