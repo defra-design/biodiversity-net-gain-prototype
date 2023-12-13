@@ -33,7 +33,7 @@
           <p class="govuk-hint">This must match your {% if data["is-agent"]== "yes"%}client's {% endif %}address on the legal agreement.</p>
           <div class="govuk-radio govuk-radios--conditional" data-module="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~applicant-uk-address" {% if data.address_in_uk == 'yes'%}checked{% endif%}>
+              <input class="govuk-radios__input" id="requirementAnswer1-Yes" name="address_in_uk" type="radio" value="yes~applicant-uk-address-lookup" {% if data.address_in_uk == 'yes'%}checked{% endif%}>
               <label class="govuk-label govuk-radios__label" for="requirementAnswer1-Yes">
                 Yes
               </label>
