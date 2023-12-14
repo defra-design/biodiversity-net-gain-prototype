@@ -1,6 +1,18 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 
-{% set pageHeading = "Are there any other landowners or leaseholders listed on the legal agreement?" %}
+{% set legalagreementtype = data['legal-agreement'] %}
+
+{% if legalagreementtype == "planning obligation (Section 106 agreement)" %}
+
+{% set legalcontext = " planning obligation (Section 106 agreement)" %}
+
+{% else %}
+
+{% set legalcontext = " conservation covenant" %}
+
+{% endif %}
+
+{% set pageHeading = "Are there any other landowners or leaseholders listed on the" + legalcontext + "?" %}
 
 {% block content %}
 

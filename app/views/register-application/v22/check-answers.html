@@ -11,7 +11,7 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l">
-        {{ pageHeading }}
+        {{ pageHeading }} {{ data["check-landowner"] }}
       </h1>
 
       <h2 class="govuk-heading-m">Applicant information</h2>
@@ -576,6 +576,7 @@
          </div>
          {% endif %}
          <!-- scheme of works check end -->
+        
         {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -686,6 +687,22 @@
           </div>
 
         {% endif %}
+
+         <!-- Any other landowners-->
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+             Other landowners or leaseholders on {{ data['legal-agreement'] }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['check-landowner'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-concov-landowner-start">
+              Change
+            </a>
+          </dd>
+        </div>
+         <!-- Any other landowners end -->
         
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
