@@ -577,7 +577,7 @@
          {% if sowtype == "yesbut" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Scheme of works uploaded
+              Scheme of works file uploaded
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['sow-upload'] or 'sow-document.pdf' }}
@@ -656,7 +656,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Landowner
+              Landowner or leaseholder
             </dt>
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list">
@@ -778,7 +778,7 @@
         {% if data['has-management-plan'] == "yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Habitat management and monitoring plan uploaded
+            Habitat management and monitoring plan file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
