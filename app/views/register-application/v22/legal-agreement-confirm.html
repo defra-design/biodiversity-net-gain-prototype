@@ -50,29 +50,44 @@
             </a>
           </dd>
         </div>
-        <!-- scheme of works check -->
-        {% if (legalagreementtype) == "planning obligation (Section 106 agreement)" %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-             Scheme of works referenced in legal agreement
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {% if sowtype == "yes" %}
-            Yes
-            {% elseif sowtype == "yesbut" %}
-            Scheme of works file uploaded ({{ data['sow-upload'] or 'sow-document.pdf' }})
-            {% else %}
-            No
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
-              Change<span class="govuk-visually-hidden"> legal agreement</span>
-            </a>
-          </dd>
-        </div>
-        {% endif %}
-        <!-- scheme of works check end -->
+         <!-- scheme of works check -->
+         {% if (legalagreementtype) == "planning obligation (Section 106 agreement)" %}
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+              Scheme of works referenced in legal agreement
+           </dt>
+           <dd class="govuk-summary-list__value">
+             {% if sowtype == "yes" %}
+             Yes, included in planning obligation
+             {% elseif sowtype == "yesbut" %}
+             Yes, separate document
+             {% else %}
+             No
+             {% endif %}
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
+               Change<span class="govuk-visually-hidden"> legal agreement</span>
+             </a>
+           </dd>
+         </div>
+         {% if sowtype == "yesbut" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scheme of works uploaded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['sow-upload'] or 'sow-document.pdf' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>
+            </dd>
+          </div>
+          {%endif%}
+         {% endif %}
+         <!-- scheme of works check end -->
         {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">

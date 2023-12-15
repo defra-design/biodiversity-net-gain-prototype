@@ -561,9 +561,9 @@
            </dt>
            <dd class="govuk-summary-list__value">
              {% if sowtype == "yes" %}
-             Yes
+             Yes, included in planning obligation
              {% elseif sowtype == "yesbut" %}
-             Scheme of works file uploaded ({{ data['sow-upload'] or 'sow-document.pdf' }})
+             Yes, separate document
              {% else %}
              No
              {% endif %}
@@ -574,6 +574,21 @@
              </a>
            </dd>
          </div>
+         {% if sowtype == "yesbut" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scheme of works uploaded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['sow-upload'] or 'sow-document.pdf' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>
+            </dd>
+          </div>
+          {%endif%}
          {% endif %}
          <!-- scheme of works check end -->
         
