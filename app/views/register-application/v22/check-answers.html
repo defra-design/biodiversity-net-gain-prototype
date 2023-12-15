@@ -706,7 +706,7 @@
          <!-- Any other landowners-->
          <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-             Other landowners or leaseholders on {{ data['legal-agreement'] }}
+             Other landowners or leaseholders on {{ legalagreementtype }}
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['check-landowner'] | capitalize }}
@@ -718,9 +718,52 @@
           </dd>
         </div>
          <!-- Any other landowners end -->
+
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              {% for lp in data.landowners %}
+
+          <li>
+                <!-- set name based on the type of legal party, defualt is organisation name -->
+
+                {% set name = lp['landowners-org-name'] %}
+                {% set email = lp['landowner-email'] %}
+                {% if lp["landowner-type"] == "individual" %}
+
+                  {% set name = lp['landowner-f-name']+" "%}
+
+                  {% if lp["legal-party-m-name"]+" " != "" %}
+
+                   {% if lp['landowner-m-name'] | length %}
+                    
+                    {% set name = name+lp['landowner-m-name']+" "%}
+
+                   {% endif %}
+
+                  {% endif %}
+
+                  {% set name = name+lp['landowner-l-name']%}
+
+
+                {% endif %}
+                {{name}} ({{email}})
+                </li>
+                {% endfor %}
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-concov-landowner-list?change=yes&returnURL=legal-agreement-confirm">
+              Change<span class="govuk-visually-hidden"> landowners</span>
+            </a>
+          </dd>
+        </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <dt class="govuk-summary-list__key"> 
            Habitat management and monitoring plan is a separate document
           </dt>
           <dd class="govuk-summary-list__value">
