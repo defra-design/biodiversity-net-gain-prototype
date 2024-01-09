@@ -1,3 +1,28 @@
+<div class="govuk-width-container">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <div class="gem-c-related-navigation">
+        {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+
+          {% set contactInformation %}
+            <h2 class="govuk-heading-m">Get help with your application</h2>
+            <ul class="govuk-list">
+              <li>Telephone: 0190 050 8628</li>
+              <li>Monday to Friday, 8:30am to 5pm (except public holidays)</li>
+            </ul>
+            <p class="govuk-body">
+              <a class="govuk-link" href="#">Find out about call charges</a>
+            </p>
+          {% endset %}
+
+          {{ govukInsetText({
+            html: contactInformation
+          }) }}
+      </div>
+    </div>
+  </div>
+</div>
+
 {{ govukFooter({
   meta: {
     items: [

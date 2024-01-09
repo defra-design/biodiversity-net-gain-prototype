@@ -8,6 +8,7 @@
 {% set hideSaveSection = true %}
 
 {% set pageURL = "v22" %}
+{% set checkVersion = query.version %}
 
 {% block guideContent %}
 
@@ -46,7 +47,16 @@
 
 <p>You can <a href="#">read the terms and conditions</a> for more information on withdrawals, refunds and how we approve or reject applications.</p>
 
+{% if checkVersion == "production" %}
+
+{% set action = data.redirect or 'https://tstbngwebwa1401.azurewebsites.net/start' %}
+
+{% else %}
+
 {% set action = data.redirect or './sign-in' %}
+
+{% endif %}
+
 <!-- <form action="{{action}}" method="post" novalidate>
   <input type="hidden" name="register-journey" value="true"> -->
   {{ govukButton({

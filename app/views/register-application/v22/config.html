@@ -1,5 +1,7 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 {% set pageHeading = "v22 content pages" %}
+{% set checkVersion = query.version %}
+
 {% block beforeContent %}
 {% endblock %}
 
@@ -117,8 +119,8 @@
       </div>
       </form>
 </div>
-{% endblock %}
 
+{% endblock %}
 
 {% block pageScripts %}
 <script>
@@ -132,8 +134,17 @@ function getURL() {
   let fname = $('#applicant-f-name').val()
   let lname = $('#applicant-l-name').val()
   let companyName= $('#companyName').val()
+  
+  {% if checkVersion == "production" %}
+
+  var url = "https://tstbngwebwa1401.azurewebsites.net/start";
+
+  {% else %}
+
   // currently this goes to verifiy login
   var url = baseURL+"/register-application/"+v+"/start-register?hasDefraID="+hasDefraID+"&register-journey=true&new-register-journey="+newUser+"&applicant-f-name="+fname+"&applicant-l-name="+lname+"&companyName="+companyName+"&defraAccountType="+defraAccountType;
+  
+  {% endif %}
 
   return url
 

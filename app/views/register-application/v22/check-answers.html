@@ -1,8 +1,9 @@
 {% extends "register-application/v22/layout-register-application.html" %}
 
 {% set map = true %}
-
 {% set pageHeading = "Check your answers before submitting your information" %}
+{% set legalagreementtype = data['legal-agreement'] %}
+{% set sowtype = data['sow-check'] %}
 
 {% block content %}
 
@@ -10,7 +11,7 @@
     <div class="govuk-grid-column-three-quarters">
 
       <h1 class="govuk-heading-l">
-        {{ pageHeading }}
+        {{ pageHeading }} {{ data["check-landowner"] }}
       </h1>
 
       <h2 class="govuk-heading-m">Applicant information</h2>
@@ -537,7 +538,7 @@
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
 
-            {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+            {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
               Planning obligation (Section 106 agreement) file uploaded
             {% else %}
               Conservation covenant file uploaded
@@ -552,7 +553,46 @@
             </a>
           </dd>
         </div>
-        {% if data['legal-agreement'] == "Planning obligation (Section 106 agreement)" %}
+         <!-- scheme of works check -->
+         {% if (legalagreementtype) == "planning obligation (Section 106 agreement)" %}
+         <div class="govuk-summary-list__row">
+           <dt class="govuk-summary-list__key">
+              Scheme of works referenced in legal agreement
+           </dt>
+           <dd class="govuk-summary-list__value">
+             {% if sowtype == "yes" %}
+             Yes, included in planning obligation
+             {% elseif sowtype == "yesbut" %}
+             Yes, separate document
+             {% else %}
+             No
+             {% endif %}
+           </dd>
+           <dd class="govuk-summary-list__actions">
+             <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
+               Change<span class="govuk-visually-hidden"> legal agreement</span>
+             </a>
+           </dd>
+         </div>
+         {% if sowtype == "yesbut" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Scheme of works file uploaded
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['sow-upload'] or 'sow-document.pdf' }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-list">
+                Change<span class="govuk-visually-hidden"></span>
+              </a>
+            </dd>
+          </div>
+          {%endif%}
+         {% endif %}
+         <!-- scheme of works check end -->
+        
+        {% if data['legal-agreement'] == "planning obligation (Section 106 agreement)" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Local planning authority
@@ -616,7 +656,7 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Landowner
+              Landowner or leaseholder
             </dt>
             <dd class="govuk-summary-list__value">
               <ul class="govuk-list">
@@ -662,9 +702,68 @@
           </div>
 
         {% endif %}
+
+         <!-- Any other landowners-->
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+             Other landowners or leaseholders on {{ legalagreementtype }}
+          </dt>
+          <dd class="govuk-summary-list__value">
+            {{ data['check-landowner'] | capitalize }}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-concov-landowner-start">
+              Change
+            </a>
+          </dd>
+        </div>
+         <!-- Any other landowners end -->
+
+         <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Landowner
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <ul class="govuk-list">
+              {% for lp in data.landowners %}
+
+          <li>
+                <!-- set name based on the type of legal party, defualt is organisation name -->
+
+                {% set name = lp['landowners-org-name'] %}
+                {% set email = lp['landowner-email'] %}
+                {% if lp["landowner-type"] == "individual" %}
+
+                  {% set name = lp['landowner-f-name']+" "%}
+
+                  {% if lp["legal-party-m-name"]+" " != "" %}
+
+                   {% if lp['landowner-m-name'] | length %}
+                    
+                    {% set name = name+lp['landowner-m-name']+" "%}
+
+                   {% endif %}
+
+                  {% endif %}
+
+                  {% set name = name+lp['landowner-l-name']%}
+
+
+                {% endif %}
+                {{name}} ({{email}})
+                </li>
+                {% endfor %}
+            </ul>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link govuk-link--no-visited-state" href="./legal-agreement-concov-landowner-list?change=yes&returnURL=legal-agreement-confirm">
+              Change<span class="govuk-visually-hidden"> landowners</span>
+            </a>
+          </dd>
+        </div>
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
+          <dt class="govuk-summary-list__key"> 
            Habitat management and monitoring plan is a separate document
           </dt>
           <dd class="govuk-summary-list__value">
@@ -679,7 +778,7 @@
         {% if data['has-management-plan'] == "yes" %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Habitat management and monitoring plan uploaded
+            Habitat management and monitoring plan file uploaded
           </dt>
           <dd class="govuk-summary-list__value">
             {{ data['management-plan-upload'] or 'habitat-management-plan.pdf' }}
