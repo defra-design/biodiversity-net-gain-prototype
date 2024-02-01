@@ -32,7 +32,7 @@
           },
           items: [
             {
-              value: "yes~./allocation-check-answers",
+              value: "yes~./task-list-allocation",
               text: "Yes"
             },
             {
@@ -43,6 +43,8 @@
         }) }}
         
         {{ govukButton({ text: 'Save and continue' }) }}
+
+        <input type="hidden" name="metric-details-confirmed" value="yes">
         
       </form>
 

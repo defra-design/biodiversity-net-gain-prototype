@@ -40,7 +40,7 @@
           },
           items: [
             {
-              value: "yes~./allocation-metric-development",
+              value: "yes~./task-list-allocation",
               text: "Yes, this is the file the local planning authority reviewed with the development project's Biodiversity Net Gain Statement"
             },
             {
@@ -51,6 +51,8 @@
         }) }}
         
         {{ govukButton({ text: 'Save and continue' }) }}
+
+        <input type="hidden" name="metric-details-added" value="yes">
         
       </form>
 

@@ -21,7 +21,7 @@
 
    
         <!-- Action conrtolled from routes.js file -->
-        <form method="post" action="allocation-metric-upload">
+        <form method="post" action="task-list-allocation">
           <div class="govuk-form-group">
 
           <label class="govuk-label" for="operator-search-country "> Local planning authority </label>
@@ -205,6 +205,9 @@
           {{ govukButton({
             text: "Save and continue"
           }) }}
+
+          <input type="hidden" name="applicant-details-added" value="yes">
+          
         </form>
 
       

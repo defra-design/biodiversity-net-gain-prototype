@@ -32,10 +32,10 @@
       {% if data.hasDefraID== "no" %}
            <form action="/defra-identity/register/?returnURL=/register-application/v22/task-list" method="post" novalidate>
       {% elseif data['register-journey'] == 'false' %}
-        {% if data['allocation-metric-correct'] == 'yes' %}
-          <form action="/register-application/v22/dashboard-record" method="post" novalidate>
-        {% else %}
-          <form action="/register-application/v22/allocation/applicant-details-is-agent" method="post" novalidate>
+        {#{% if data['allocation-metric-correct'] == 'yes' %}
+          <form action="/register-application/v22/dashboard-record" method="post" novalidate>#}
+        {% if data['allocation-journey'] == 'true' %}
+          <form action="/register-application/v22/allocation/task-list-allocation" method="post" novalidate>
         {% endif %}
           <input type="hidden" name="register-journey" value="false">
       {% else %}

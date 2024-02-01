@@ -9,24 +9,24 @@
 
   <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Record off-site biodiversity gains for a development project</h1>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-2">Application incomplete</h2>
-            <p class="govuk-body govuk-!-margin-bottom-4">You have completed 0 of 6 sections.</p>
+            <h1 class="govuk-heading-xl">Record allocation of off-site gains to a development</h1>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-2"><span class="task-progress-status-text">Allocation in progress</span></h2>
+            <p class="govuk-body govuk-!-margin-bottom-4">You have completed <span class="task-progress-completed">0</span> of <span class="task-progress-to-complete-total">3</span> sections.</p>
             <ol class="app-task-list govuk-!-padding-top-3">
                 
                     <li>
-                        <h2 class="app-task-list__section">Details the applicant</h2>
+                        <h2 class="app-task-list__section">Applicant details</h2>
                         <ul class="app-task-list__items">
                             
                                 
-                                    <li class="app-task-list__item">
+                                    <li class="app-task-list__item task-list-required">
                                       <span class="app-task-list__task-name">
                                         <a href="./applicant-details-is-agent" aria-describedby="your-details-status" id="add-your-details">
                                           Add details about the person applying
                                         </a>
                                       </span>
                                       {% if data["applicant-details-added"] %}
-                                      <strong class="govuk-tag app-task-list__tag" id="add-your-details-status">
+                                      <strong class="govuk-tag app-task-list__tag completed" id="add-your-details-status">
                                         Completed
                                       </strong>
                                       {% else %}
@@ -46,44 +46,43 @@
                         <ul class="app-task-list__items">
                             
                                 
-                                    <li class="app-task-list__item">
+                                    <li class="app-task-list__item task-list-required">
                                       <span class="app-task-list__task-name">
-                                        <a href="/developer/biodiversity-gain-site-number" aria-describedby="your-details-status" id="upload-metric-file">
+                                        <a href="allocation-metric-upload" aria-describedby="your-details-status" id="upload-metric-file">
                                           Upload Metric 4.0 file
                                         </a>
                                       </span>
-                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="upload-metric-file-status">
-                                        NOT STARTED
+                                      {% if data["metric-details-added"] %}
+                                      <strong class="govuk-tag app-task-list__tag completed" id="add-your-details-status">
+                                        Completed
                                       </strong>
+                                      {% else %}
+                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="add-your-details-status">
+                                        Not started
+                                      </strong>
+                                      
+                                      {% endif %}
                                     </li>
                                 
                             
                                 
-                                    <li class="app-task-list__item">
+                                    <li class="app-task-list__item task-list-required">
                                       <span class="app-task-list__task-name">
-                                        <a href="/developer/confirm-development-details" aria-describedby="your-details-status" id="confirm-development-details">
+                                        <a href="allocation-metric-development" aria-describedby="your-details-status" id="confirm-development-details">
                                           Confirm development details
                                         </a>
                                       </span>
-                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="confirm-development-details-status">
-                                        NOT STARTED
+                                      {% if data["metric-details-confirmed"] %}
+                                      <strong class="govuk-tag app-task-list__tag completed" id="add-your-details-status">
+                                        Completed
                                       </strong>
-                                    </li>
-                                
-                            
-                                
-                                    <li class="app-task-list__item">
-                                      <span class="app-task-list__task-name">
-                                        <a href="/developer/confirm-off-site-gain" aria-describedby="your-details-status" id="confirm-off-site-gain">
-                                          Confirm off-site gain
-                                        </a>
-                                      </span>
-                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="confirm-off-site-gain-status">
-                                        NOT STARTED
+                                      {% else %}
+                                      <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="add-your-details-status">
+                                        Not started
                                       </strong>
+                                      
+                                      {% endif %}
                                     </li>
-                                
-                            
                         </ul>
                     </li>
                 
@@ -97,11 +96,20 @@
                                     <li>
                                         <ul class="app-task-list__items">
                                             <li class="app-task-list__item">
-                                                
+                                                    {% if data["metric-details-confirmed"] %}
+                                                    <span id="check-your-answers">
+                                                      <a href="allocation-check-answers">Check your answers before you submit them to us</a>
+                                                    </span> 
+                                                    {% else %}
                                                     <span id="check-your-answers">
                                                           Check your answers before you submit them to us
                                                     </span>
+                                                    {% endif %}
+                                                    {% if data["metric-details-confirmed"] %}
+                                                    <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-your-answers-status">Not started</strong>
+                                                    {% else %}
                                                     <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="check-your-answers-status">CANNOT START YET</strong>
+                                                    {% endif %}
                                                 
                                             </li>
                                         </ul>
@@ -126,7 +134,7 @@ window.addEventListener('load', function() {
   $('.task-progress-to-complete-total').text(tasks);
   $('.task-progress-completed').text(tasksCompleted);
   if (tasks == tasksCompleted){
-    $('.task-progress-status-text').text("Registration complete")
+    $('.task-progress-status-text').text("Allocation details complete")
   }
 
 });
