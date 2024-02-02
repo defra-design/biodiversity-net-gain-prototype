@@ -45,7 +45,24 @@
                         <h2 class="app-task-list__section">Biodiversity 4.0 Metric calculations</h2>
                         <ul class="app-task-list__items">
                             
-                                
+                          <li class="app-task-list__item task-list-required">
+                            <span class="app-task-list__task-name">
+                              <a href="allocation-gain-site?confirmed-defra-id=british" aria-describedby="your-details-status" id="add-bng-number">
+                                Enter your biodiversity gain site number
+                              </a>
+                            </span>
+                            {% if data["metric-details-added"] %}
+                            <strong class="govuk-tag app-task-list__tag completed" id="add-your-details-status">
+                              Completed
+                            </strong>
+                            {% else %}
+                            <strong class="govuk-tag govuk-tag--grey app-task-list__tag" id="add-your-details-status">
+                              Not started
+                            </strong>
+                            
+                            {% endif %}
+                          </li>
+
                                     <li class="app-task-list__item task-list-required">
                                       <span class="app-task-list__task-name">
                                         <a href="allocation-metric-upload" aria-describedby="your-details-status" id="upload-metric-file">
