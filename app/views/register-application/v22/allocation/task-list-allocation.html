@@ -9,13 +9,13 @@
 
   <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
-            <h1 class="govuk-heading-xl">Record allocation of off-site gains to a development</h1>
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-2"><span class="task-progress-status-text">Allocation in progress</span></h2>
+            <h1 class="govuk-heading-xl">Record allocation of off-site biodiversity gains to a development</h1>
+            <h2 class="govuk-heading-s govuk-!-margin-bottom-2"><span class="task-progress-status-text">Application in progress</span></h2>
             <p class="govuk-body govuk-!-margin-bottom-4">You have completed <span class="task-progress-completed">0</span> of <span class="task-progress-to-complete-total">3</span> sections.</p>
             <ol class="app-task-list govuk-!-padding-top-3">
                 
                     <li>
-                        <h2 class="app-task-list__section">Applicant details</h2>
+                        <h2 class="app-task-list__section">Applicant information</h2>
                         <ul class="app-task-list__items">
                             
                                 
@@ -42,13 +42,13 @@
                     </li>
                 
                     <li>
-                        <h2 class="app-task-list__section">Biodiversity 4.0 Metric calculations</h2>
+                        <h2 class="app-task-list__section">Development information</h2>
                         <ul class="app-task-list__items">
                             
                           <li class="app-task-list__item task-list-required">
                             <span class="app-task-list__task-name">
                               <a href="allocation-gain-site?confirmed-defra-id=british" aria-describedby="your-details-status" id="add-bng-number">
-                                Enter your biodiversity gain site number
+                                Add development details
                               </a>
                             </span>
                             {% if data["metric-details-added"] %}
@@ -66,7 +66,7 @@
                                     <li class="app-task-list__item task-list-required">
                                       <span class="app-task-list__task-name">
                                         <a href="allocation-metric-upload" aria-describedby="your-details-status" id="upload-metric-file">
-                                          Upload Metric 4.0 file
+                                          Add statutory biodiversity metric calculations
                                         </a>
                                       </span>
                                       {% if data["metric-details-uploaded"] %}
@@ -86,7 +86,7 @@
                                     <li class="app-task-list__item task-list-required">
                                       <span class="app-task-list__task-name">
                                         <a href="allocation-metric-development" aria-describedby="your-details-status" id="confirm-development-details">
-                                          Confirm development details
+                                          Confirm development and habitat details
                                         </a>
                                       </span>
                                       {% if data["metric-details-confirmed"] %}
@@ -106,7 +106,7 @@
                 
                 
                     <li>
-                        <h2 class="app-task-list__section">Submit your biodiversity gain information</h2>
+                        <h2 class="app-task-list__section">Submit your off-site biodiversity gains information</h2>
                         <ul class="app-task-list__items">
                             
                                 
@@ -115,11 +115,11 @@
                                             <li class="app-task-list__item">
                                                     {% if data["metric-details-confirmed"] %}
                                                     <span id="check-your-answers">
-                                                      <a href="allocation-check-answers">Check your answers before you submit them to us</a>
+                                                      <a href="allocation-check-answers">Check your answers and submit</a>
                                                     </span> 
                                                     {% else %}
                                                     <span id="check-your-answers">
-                                                          Check your answers before you submit them to us
+                                                          Check your answers and submit
                                                     </span>
                                                     {% endif %}
                                                     {% if data["metric-details-confirmed"] %}
